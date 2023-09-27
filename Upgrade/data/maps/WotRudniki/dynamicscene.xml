@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="windows-1251" standalone="yes" ?>
+<DynamicScene
+	LastId="3">
+	<TargetNamesForDestroy
+		Names="" />
+
+	<Object
+		Name="Player1"
+		Belong="1100"
+		Prototype="player" />
+</DynamicScene>

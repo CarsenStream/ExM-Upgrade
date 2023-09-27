@@ -1,0 +1,322 @@
+<?xml version="1.0" encoding="windows-1251" standalone="yes" ?>
+
+<!--
+$Id: Mortar.xml,v 1.13 2005/10/25 09:54:48 anton Exp $
+-->
+
+<Prototypes>
+
+	<Prototype
+		Class			= "PlasmaBunch"
+		Name			= "OFBullet"			
+
+		ModelFile		= "shell01"
+		Price			= "3000"		
+		FlyTime			= "999"
+		Velocity                        = "200"
+		Acceleration	= "1000"
+		Size			= "0.5 0.5 1"
+	/>
+
+	<Prototype
+		Class			= "PlasmaBunch"
+		Name			= "GOLDBullet"			
+
+		ModelFile		= "shell01"
+		Price			= "3000"		
+		FlyTime			= "999"
+		Velocity                        = "2000"
+		Acceleration	= "1000"
+		Size			= "0.5 0.5 1"
+	/>
+
+	<Prototype
+		Class			= "PlasmaBunch"
+		Name			= "BBBullet"			
+
+		ModelFile		= "shell01"
+		Price			= "3000"		
+		FlyTime			= "999"
+		Velocity                        = "1000"
+		Acceleration	= "1000"
+		Size			= "0.5 0.5 1"
+	/>
+
+	<Prototype
+		Class			= "PlasmaBunch"
+		Name			= "140Bullet"			
+
+		ModelFile		= "shell01"
+		Price			= "3000"		
+		FlyTime			= "999"
+		Velocity                        = "2000"
+		Acceleration	= "1000"
+
+		Size			= "0.5 0.5 1"
+	/>
+
+	<Prototype
+		Class			= "PlasmaBunch"
+		Name			= "FV4005Bullet"			
+
+		ModelFile		= "shell01"
+		Price			= "3000"		
+		FlyTime			= "999"
+		Velocity                        = "200"
+		Acceleration	= "1000"
+
+		Size			= "0.5 0.5 1"
+	/>
+
+	<Prototype
+		Class			= "PlasmaBunch"
+		Name			= "CobraBullet"			
+
+		ModelFile		= "shell01"
+		Price			= "2500"		
+		FlyTime			= "999"
+		Velocity                        = "400"
+		Acceleration	= "1000"
+
+		Size			= "0.5 0.5 1"
+		/>
+
+	<Prototype
+		Class			= "MortarShell"
+		Name			= "someMortarShell"			
+
+		ModelFile		= "shell01"
+		ExplosionType		= "GRENADE" 
+		Price			= "3000"		
+		FlyTime			= "100"
+
+		Size			= "0.5 0.5 1"
+	/>
+	<Prototype
+		Class			= "MortarShell"
+		Name			= "someMortarShell02"			
+
+		ModelFile		= "shell02"
+		ExplosionType		= "GRENADE" 
+		Price			= "3000"		
+		FlyTime			= "100"
+
+		Size			= "0.5 0.5 1"
+		BlastWavePrototype      = "smallBlastWave"
+
+	/>
+	<Prototype
+		Class			= "MortarShell"
+		Name			= "marsMortarShell"			
+
+		ModelFile		= "shell01"
+		ExplosionType		= "GRENADE" 
+		Price			= "3000"
+		FlyTime			= "100"
+
+		Size			= "0.5 0.5 1"
+		BlastWavePrototype      = "smallBlastWave"
+
+	/>
+	
+	<Prototype
+		Class			= "PlasmaBunch"
+		Name			= "SU85IBullet"			
+
+		ModelFile		= "shell01"
+		Price			= "3000"		
+		FlyTime			= "999"
+		Velocity                        = "1000"
+		Acceleration	= "1000"
+		Size			= "0.5 0.5 1"
+		BlastWavePrototype      = "85MMDamage"
+	/>
+
+	<Prototype
+		Class			= "PlasmaBunch"
+		Name			= "KV1Bullet"			
+
+		ModelFile		= "shell01"
+		Price			= "3000"		
+		FlyTime			= "999"
+		Velocity                        = "200"
+		Acceleration	= "1000"
+		Size			= "0.5 0.5 1"
+		BlastWavePrototype      = "122MMDamageOF"
+	/>
+
+	<Prototype
+		Class			= "PlasmaBunch"
+		Name			= "KV1sBullet"			
+
+		ModelFile		= "shell01"
+		Price			= "3000"		
+		FlyTime			= "999"
+		Velocity                        = "1000"
+		Acceleration	= "1000"
+		Size			= "0.5 0.5 1"
+		BlastWavePrototype      = "122MMDamage"
+	/>
+
+	<Prototype
+		Class			= "PlasmaBunch"
+		Name			= "SU100Bullet"			
+
+		ModelFile		= "shell01"
+		Price			= "3000"		
+		FlyTime			= "999"
+		Velocity                        = "1000"
+		Acceleration	= "1000"
+		Size			= "0.5 0.5 1"
+		BlastWavePrototype      = "122MMDamage"
+	/>
+
+	<Prototype
+		Class			= "PlasmaBunch"
+		Name			= "T34Bullet"			
+
+		ModelFile		= "shell01"
+		Price			= "3000"		
+		FlyTime			= "999"
+		Velocity                        = "1200"
+		Acceleration	= "1000"
+		Size			= "0.5 0.5 1"
+		BlastWavePrototype      = "57MMDamage"
+	/>
+
+	<Prototype
+		Class			= "PlasmaBunch"
+		Name			= "T3485Bullet"			
+
+		ModelFile		= "shell01"
+		Price			= "3000"		
+		FlyTime			= "999"
+		Velocity                        = "1200"
+		Acceleration	= "1000"
+		Size			= "0.5 0.5 1"
+		BlastWavePrototype      = "85MMDamage"
+	/>
+
+	<Prototype
+		Class			= "PlasmaBunch"
+		Name			= "KV2Bullet"			
+
+		ModelFile		= "shell01"
+		Price			= "3000"		
+		FlyTime			= "999"
+		Velocity                        = "200"
+		Acceleration	= "1000"
+		Size			= "0.5 0.5 1"
+		BlastWavePrototype      = "122MMDamage"
+	/>
+
+	<Prototype
+		Class			= "PlasmaBunch"
+		Name			= "1357Bullet"			
+
+		ModelFile		= "shell01"
+		Price			= "3000"		
+		FlyTime			= "999"
+		Velocity                        = "1200"
+		Acceleration	= "1000"
+		Size			= "0.5 0.5 1"
+		BlastWavePrototype      = "85MMDamage"
+	/>
+
+       <Prototype
+               Class                   = "BlastWave"
+               Name                    = "57MMDamage"
+				Effect                  = "ET_PS_AIRWAVE2"
+               Radius                  = "3.0"
+               WaveForceIntensity      = "100.0"
+               WaveDamageIntensity     = "200.0"
+       />
+
+       <Prototype
+               Class                   = "BlastWave"
+               Name                    = "85MMDamage"
+				Effect                  = "ET_PS_AIRWAVE2"
+               Radius                  = "3.0"
+               WaveForceIntensity      = "100.0"
+               WaveDamageIntensity     = "500.0"
+       />
+
+	  <Prototype
+               Class                   = "BlastWave"
+               Name                    = "100MMDamage"
+				Effect                  = "ET_PS_AIRWAVE2"
+               Radius                  = "3.0"
+               WaveForceIntensity      = "100.0"
+               WaveDamageIntensity     = "700.0"
+       />
+
+       <Prototype
+               Class                   = "BlastWave"
+               Name                    = "122MMDamageOF"
+				Effect                  = "ET_PS_AIRWAVE2"
+               Radius                  = "3.0"
+               WaveForceIntensity      = "100.0"
+               WaveDamageIntensity     = "3900.0"
+       />
+
+       <Prototype
+               Class                   = "BlastWave"
+               Name                    = "122MMDamage"
+				Effect                  = "ET_PS_AIRWAVE2"
+               Radius                  = "3.0"
+               WaveForceIntensity      = "100.0"
+               WaveDamageIntensity     = "1000.0"
+       />
+
+       <Prototype
+               Class                   = "BlastWave"
+               Name                    = "152BlastWave"
+				Effect                  = "ET_PS_AIRWAVE2"
+               Radius                  = "25.0"
+               WaveForceIntensity      = "100.0"
+               WaveDamageIntensity     = "100000.0"
+       />
+	   
+       <Prototype
+               Class                   = "BlastWave"
+               Name                    = "152MMDamage"
+				Effect                  = "ET_PS_AIRWAVE2"
+               Radius                  = "3.0"
+               WaveForceIntensity      = "100.0"
+               WaveDamageIntensity     = "10000.0"
+       />
+
+	   <!--
+	<Prototype
+		Class			= "Mortar"
+		Name			= "someMortar"		
+	
+		ModelFile		= "big_hammer01"
+		ResourceType		= "GIANT_GUN"
+		NodeScale		= "1 1 1"
+		Mass			= "1.0"
+
+		BulletPrototype		= "someMortarShell"	
+		BlastWavePrototype	= "someBlastWave"
+
+		ActionDist		= "100"		
+		InitialVelocity		= "10"
+
+		ExplosionType		= "BLAST"
+		FiringEffect		= "none"
+		FiringRate		= "10"
+		GroupingAngle		= "0.1"
+		FiringRange		= "200"
+		RecoilForce		= "0"
+
+		ChargeSize     		= "100"
+		RechargingTime		= "20"
+
+		Price			= "35000"
+
+		Durability		= "400"
+
+		TurningSpeed		= "100"
+	/>
+-->
+</Prototypes>

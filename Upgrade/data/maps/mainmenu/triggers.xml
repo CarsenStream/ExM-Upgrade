@@ -1,0 +1,393 @@
+<?xml version="1.0" encoding="windows-1251" standalone="yes" ?>
+
+<triggers>
+
+<trigger	Name="GlobalVar"	active="1">
+		<event	timeout="0"		eventid="GE_TIME_PERIOD" />
+		<script>
+			trigger:Deactivate()
+			local Fade = GetVar("Fade").AsInt
+			SetVar("Fade", 0)
+		</script>
+	</trigger>
+
+	<trigger Name="Trigger_start" active="1">
+		<event	timeout="0.1"		eventid="GE_TIME_PERIOD" />
+		<!--
+		<event timeout="0.001" eventid="GE_TIME_PERIOD" />
+		-->
+		<script>
+			local Fade = GetVar("Fade").AsInt
+			SetVar("Fade", 0)
+
+			PlayCustomMusic("mainmenu")
+			RuleConsole("cinematic_spring_coeff 1.7")
+
+			local prv = random(3)
+			if prv == 1 then
+			AddPlayerVehicle("Bug02Menu")
+			elseif prv == 2 then
+			AddPlayerVehicle("Scout01Menu")
+			elseif prv == 3 then
+			AddPlayerVehicle("Fighter02Menu")
+			end
+			GetPlayerVehicle():LimitMaxSpeed(15)
+			GetPlayerVehicle():SetGamePositionOnGround( CVector(738.050, 260.455, 1470.477))
+			GetPlayerVehicle():SetRotation(Quaternion(0.003, -0.998, -0.004, 0.065))
+			GetPlayerVehicle():SetExternalPathByName("PlayerPath1Up")
+			local idn01 = GetPlayerVehicleId()
+			FlyLinked("camUp_Zone01", idn01, 30, Fade, 0, idn01, false, nil, true, nil)
+			StartCinematic()
+			trigger:Deactivate() 
+		</script>
+	</trigger>
+
+	<trigger Name="Trigger_start_cam2" active="1">
+		<event eventid="GE_OBJECT_ENTERS_LOCATION" ObjName="Zone01_Uploc" />
+		<script>
+			CreateNewDummyObject( "cub", "CamTochka", -1, -1, CVector(771.484, 317.378, 1350.184), Quaternion(0, 0, 0, 0), 0)
+			local vehM = GetPlayerVehicle()
+			local CToch = GetEntityByName("CamTochka")
+			local vehMID = vehM:GetId()
+			local CTochID = CToch:GetId()
+			FlyLinked( "SPYMER_cam01", CTochID, 30, 0, 0, vehMID )
+			StartCinematic()
+			trigger:Deactivate()
+		</script>
+	</trigger>
+
+	<trigger Name="PlVehUp1" active="1">
+		<event eventid="GE_OBJECT_ENTERS_LOCATION" ObjName="Zone02_Uploc" />
+		<script>
+			local prv = random(3)
+			if prv == 1 then
+			AddPlayerVehicle("Molokovoz02Menu")
+			elseif prv == 2 then
+			AddPlayerVehicle("Hunter02Menu")
+			elseif prv == 3 then
+			AddPlayerVehicle("Scout03Menu")
+			end
+			GetPlayerVehicle():SetPosition( CVector(825.955, 298.762, 1226.200))
+			GetPlayerVehicle():SetRotation(Quaternion(-0.001, -0.731, -0.001, 0.683))
+			GetPlayerVehicle():SetExternalPathByName("PlayerPath2Up")
+			GetPlayerVehicle():LimitMaxSpeed(15)
+
+			local idn01 = GetPlayerVehicleId()
+			local CToch = GetEntityByName("CamTochka")
+			local CTochID = CToch:GetId()
+			FlyLinked( "SPYMER_cam01", CTochID, 8, 0, 0, idn01 )
+			FlyLinked("camUp_Zone01", idn01, 30, Fade, 0, idn01, false, nil, true, nil )
+			StartCinematic()
+			trigger:Deactivate() 
+		</script>
+	</trigger>
+
+	<trigger Name="PlVehUp2_cam2" active="1">
+		<event eventid="GE_OBJECT_ENTERS_LOCATION" ObjName="Zone03_Uploc" />
+		<script>
+			if getObj("CamTochka") then
+			getObj("CamTochka"):Remove()
+			end
+			CreateNewDummyObject( "cub", "CamTochka", -1, -1, CVector(534.566, 291.807, 1079.923), Quaternion(0, 0, 0, 0), 0)
+			local vehM = GetPlayerVehicle()
+			local CToch = GetEntityByName("CamTochka")
+			local vehMID = vehM:GetId()
+			local CTochID = CToch:GetId()
+			FlyLinked( "SPYMER_cam01", CTochID, 30, 0, 0, vehMID )
+			StartCinematic()
+
+			trigger:Deactivate()
+		</script>
+	</trigger>
+
+	<trigger Name="PlVehUp2" active="1">
+		<event eventid="GE_OBJECT_ENTERS_LOCATION" ObjName="Zone04_Uploc" />
+		<script>
+			local prv = random(3)
+			if prv == 1 then
+			AddPlayerVehicle("UralShotMenu")
+			elseif prv == 2 then
+			AddPlayerVehicle("BelazShotMenu")
+			elseif prv == 3 then
+			AddPlayerVehicle("MirotvorecShotMenu")
+			end
+			GetPlayerVehicle():SetPosition( CVector(619.473, 271.091, 1030.124))
+			GetPlayerVehicle():SetRotation(Quaternion(0.001, 0.992, 0.004, -0.129))
+			GetPlayerVehicle():SetExternalPathByName("PlayerPath3Up")
+			GetPlayerVehicle():LimitMaxSpeed(15)
+
+			local idn01 = GetPlayerVehicleId()
+			if getObj("CamTochka") then
+			getObj("CamTochka"):Remove()
+			end
+			CreateNewDummyObject( "cub", "CamTochka", -1, -1, CVector(534.566, 291.807, 1079.923), Quaternion(0, 0, 0, 0), 0)
+			local vehM = GetPlayerVehicle()
+			local CToch = GetEntityByName("CamTochka")
+			local vehMID = vehM:GetId()
+			local CTochID = CToch:GetId()
+			FlyLinked( "SPYMER_cam01", CTochID, 8, 0, 0, vehMID )
+			FlyLinked("camUp_Zone01", idn01, 30, Fade, 0, idn01, false, nil, true, nil )
+			StartCinematic()
+			trigger:Deactivate() 
+		</script>
+	</trigger>
+
+	<trigger Name="Trigger_zone01" active="1">
+		<event eventid="GE_OBJECT_ENTERS_LOCATION" ObjName="Zone01_loc" />
+		<script>
+			local nummod = random(5)
+			local listmodel = {"UralShotMenu", "Bug02Menu", "Hunter02Menu", "BelazShotMenu", "MirotvorecShotMenu"}
+			local model = listmodel[nummod]
+			local Sk = random(5)
+			local Fade = GetVar("Fade").AsInt
+			SetVar("Fade", 0)
+			AddPlayerNewVehicle(model)
+
+			local vehPlayer = GetPlayerVehicle()
+			if vehPlayer then
+				--println("Zone01")
+				vehPlayer:SetCustomControlEnabled( true )
+				vehPlayer:SetRotation(Quaternion(-0.029, 0.679, -0.021, 0.734))
+				vehPlayer:SetExternalPathByName("Zone01_path")
+				vehPlayer:SetThrottle( 1 )
+				vehPlayer:SetCustomLinearVelocity( 5 )
+				vehPlayer:SetCustomControlEnabled( false )
+				vehPlayer:setImmortalMode(1)
+			end
+			Fly("cam_Zone01", CINEMATIC_NO_AIM, 0, 20, Fade, 0, false, true, nil )
+			StartCinematic()
+			
+			if Fade == 1 then
+				UpdateCinematic( 1 )
+			end
+			
+			trigger:Deactivate()
+		</script>
+	</trigger>
+
+	<trigger Name="Trigger_zone02" active="1">
+		<event eventid="GE_OBJECT_ENTERS_LOCATION" ObjName="Zone02_loc" />
+		<script>
+			local vehPlayer = GetPlayerVehicle()
+			local Fade = GetVar("Fade").AsInt
+			SetVar("Fade", 0)
+
+			if vehPlayer then
+				--println("Zone02")
+				vehPlayer:SetCustomControlEnabled( true )
+				vehPlayer:SetExternalPathByName("Zone02_path")
+				vehPlayer:SetCustomControlEnabled( false )
+				vehPlayer:setImmortalMode(1)
+			end
+
+			local idn01 = GetPlayerVehicleId()
+			FlyLinked("cam_Zone02", idn01, 30, Fade, 0, idn01, false, nil, true, nil )
+			StartCinematic()
+
+			if Fade == 1 then
+				UpdateCinematic( 1 )
+			end
+			
+		</script>
+	</trigger>
+
+	<trigger Name="Trigger_zone03" active="1">
+		<event eventid="GE_OBJECT_ENTERS_LOCATION" ObjName="Zone03_loc" />
+		<script>
+			local vehPlayer = GetPlayerVehicle()
+			local Fade = GetVar("Fade").AsInt
+			SetVar("Fade", 0)
+
+			if vehPlayer then
+				--println("Zone03")
+				vehPlayer:SetCustomControlEnabled( true )
+				vehPlayer:SetExternalPathByName("Zone03_path")
+				vehPlayer:SetCustomControlEnabled( false )
+				vehPlayer:setImmortalMode(1)
+			end
+
+			local idn01 = GetPlayerVehicleId()
+
+
+			FlyLinked("cam_Zone0", idn01, 30, Fade, 0, nil, false, true, true, nil )
+			StartCinematic()
+
+			if Fade == 1 then
+				UpdateCinematic( 1 )
+			end
+			
+		</script>
+	</trigger>
+
+	<trigger Name="Trigger_zone04" active="1">
+		<event eventid="GE_OBJECT_ENTERS_LOCATION" ObjName="Zone04_loc" />
+		<script>
+			local vehPlayer = GetPlayerVehicle()
+			local Fade = GetVar("Fade").AsInt
+			SetVar("Fade", 0)
+
+			if vehPlayer then
+				--println("Zone04")
+				vehPlayer:SetCustomControlEnabled( true )
+				vehPlayer:SetExternalPathByName("Zone04_path")
+				vehPlayer:SetCustomControlEnabled( false )
+				vehPlayer:setImmortalMode(1)
+			end
+
+			local idn01 = GetPlayerVehicleId()
+
+			if Fade == 1 then
+				FlyLinked("cam_Zone0", idn01, 30, Fade, 0, nil, false, true, true, nil )
+				StartCinematic()
+				UpdateCinematic( 1 )
+			end
+
+		</script>
+	</trigger>
+
+	<trigger Name="Trigger_zone05" active="1">
+		<event eventid="GE_OBJECT_ENTERS_LOCATION" ObjName="Zone05_loc" />
+		<script>
+			RuleConsole("cinematic_spring_coeff 0.3")
+			local idn01 = GetPlayerVehicleId()
+			local vehPlayer = GetPlayerVehicle()
+			local Fade = GetVar("Fade").AsInt
+			SetVar("Fade", 0)
+
+			if vehPlayer then
+				--println("Zone05")
+				vehPlayer:SetCustomControlEnabled( true )
+				vehPlayer:SetExternalPathByName("Zone05_path")
+				vehPlayer:SetCustomControlEnabled( false )
+				vehPlayer:setImmortalMode(1)
+			end
+
+			FlyLinked("cam_Zone05", idn01, 30, Fade, 0, idn01, false, nil, true, nil )
+			StartCinematic()
+
+			if Fade == 1 then
+				UpdateCinematic( 1 )
+			end
+			
+		</script>
+	</trigger>
+
+	<trigger Name="Trigger_zone06" active="1">
+		<event eventid="GE_OBJECT_ENTERS_LOCATION" ObjName="Zone06_loc" />
+		<script>
+			RuleConsole("cinematic_spring_coeff 1.7")
+			local vehPlayer = GetPlayerVehicle()
+			local Fade = GetVar("Fade").AsInt
+			SetVar("Fade", 0)
+
+			if vehPlayer then
+				--println("Zone06")
+				vehPlayer:SetCustomControlEnabled( true )
+				vehPlayer:SetExternalPathByName("Zone06_path")
+				vehPlayer:SetCustomControlEnabled( false )
+				vehPlayer:setImmortalMode(1)
+			end
+
+			local idn01 = GetPlayerVehicleId()
+--			FlyLinked("cam_Zone06", idn01, 35, 1, 0, idn01, nil, nil, true, true )
+			FlyLinked("cam_Zone06", idn01, 30, Fade, 0, nil, false, true, true, nil )
+			StartCinematic()
+
+			if Fade == 1 then
+				UpdateCinematic( 1 )
+			end
+
+		</script>
+	</trigger>
+
+	<trigger Name="Trigger_zone07" active="1">
+		<event eventid="GE_OBJECT_ENTERS_LOCATION" ObjName="Zone07_loc" />
+		<script>
+			RuleConsole("cinematic_spring_coeff 10.3")
+			local vehPlayer = GetPlayerVehicle()
+			local Fade = GetVar("Fade").AsInt
+			SetVar("Fade", 0)
+
+			if vehPlayer then
+				--println("Zone07")
+				vehPlayer:SetCustomControlEnabled( true )
+				vehPlayer:SetExternalPathByName("Zone07_path")
+				vehPlayer:SetCustomControlEnabled( false )
+				vehPlayer:setImmortalMode(1)
+			end
+
+			local idn01 = GetPlayerVehicleId()
+			local CToch = GetEntityByName("CamTochka")
+			local CTochID = CToch:GetId()
+			FlyLinked("cam_Zone07", CTochID, 30, Fade, 0, idn01, false, nil, true, nil )
+			StartCinematic()
+			
+			if Fade == 1 then
+				UpdateCinematic( 1 )
+			end
+
+
+		</script>
+	</trigger>
+
+	<trigger Name="Trigger_zone08" active="1">
+		<event eventid="GE_OBJECT_ENTERS_LOCATION" ObjName="Zone08_loc" />
+		<script>
+
+			RuleConsole("cinematic_spring_coeff 1.7")
+			local vehPlayer = GetPlayerVehicle()
+			local Fade = GetVar("Fade").AsInt
+			--println(Fade)
+			SetVar("Fade", 0)
+
+			if vehPlayer then
+				--println("Zone08")
+				vehPlayer:SetCustomControlEnabled( true )
+				vehPlayer:SetExternalPathByName("Zone08_path")
+				vehPlayer:SetCustomControlEnabled( false )
+				vehPlayer:setImmortalMode(1)
+			end
+
+			local idn01 = GetPlayerVehicleId()
+			if CToch then CToch:Remove() end
+--			FlyLinked("cam_Zone08", idn01, 35, 0, 0, idn01, nil, nil, true, true )
+--			if Fade == 1 then
+				FlyLinked("cam_Zone0", idn01, 30, Fade, 0, nil, false, true, true, nil )
+--			end
+			StartCinematic()
+
+			if Fade == 1 then
+				UpdateCinematic( 1 )
+			end
+
+		</script>
+	</trigger>
+
+	<trigger Name="Trigger_zone09" active="1">
+		<event eventid="GE_OBJECT_ENTERS_LOCATION" ObjName="Zone09_loc" />
+		<script>
+			local vehPlayer = GetPlayerVehicle()
+			local Fade = GetVar("Fade").AsInt
+			--println(Fade)
+			SetVar("Fade", 0)
+
+			if vehPlayer then
+				--println("Zone09")
+				vehPlayer:SetCustomControlEnabled( true )
+				vehPlayer:SetExternalPathByName("Zone09_path")
+				vehPlayer:SetCustomControlEnabled( false )
+				vehPlayer:setImmortalMode(1)
+			end
+
+			local idn01 = GetPlayerVehicleId()
+--			FlyLinked("cam_Zone09", idn01, 38, 0, 0, idn01, false, nil, true, nil )
+			if Fade == 1 then
+				FlyLinked("cam_Zone0", idn01, 30, Fade, 0, nil, false, true, true, nil )
+				StartCinematic()
+				UpdateCinematic( 1 )
+			end
+			TActivate("Trigger_zone01")
+		</script>
+	</trigger>
+
+</triggers>

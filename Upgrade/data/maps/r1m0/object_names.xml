@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="windows-1251" standalone="yes" ?>
+<ObjectNames>
+	<Object
+		Name="Olme_Bar_Customer1"
+		FullName="Дрэй" />
+
+	<Object
+		Name="r1m0_Guard"
+		FullName="Раян" />
+
+	<Object
+		Name="r1m0_NoHunam"
+		FullName="Неизвестный" />
+
+	<Object
+		Name="ToR1M4"
+		FullName="Тоннель в Хель" />
+
+	<Object
+		Name="PetrolStationTown1"
+		FullName="Заправка" />
+
+	<Object
+		Name="Kakortok"
+		FullName="Какорток" />
+
+	<Object
+		Name="Kakortok_House"
+		FullName="Какорток" />
+
+	<Object
+		Name="Kakortok_Workshop"
+		FullName="Мастерская" />
+
+	<Object
+		Name="Kakortok_Shop"
+		FullName="Магазин" />
+
+	<Object
+		Name="Base"
+		FullName="Жилой комплекс" />
+
+	<Object
+		Name="Base_House"
+		FullName="Штаб" />
+
+	<Object
+		Name="Base_Workshop"
+		FullName="Мастерская" />
+
+	<Object
+		Name="Base_Shop"
+		FullName="Магазин" />
+</ObjectNames>

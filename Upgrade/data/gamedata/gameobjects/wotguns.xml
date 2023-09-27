@@ -1,0 +1,372 @@
+<?xml version="1.0" encoding="windows-1251" standalone="yes" ?>
+
+<!--
+$Id: BigGuns.xml,v 1.43 2005/11/28 07:43:56 anton Exp $
+-->
+
+<Prototypes>
+	<Prototype
+		Class			= "BulletLauncher"
+		Name			= "KV1Gun"
+		ModelFile		= "Kv1Turret"
+		ResourceType		= "FV4005_GUN"
+		NodeScale		= "1 1 1"
+		Mass			= "1.0"
+		
+		Decal				= "DC_GUN"
+
+		BulletPrototype		= "KV1Bullet"
+		ExplosionType		= "AUTOCANNON"
+		FiringEffect		= "none"
+		Damage		= "50"
+		FiringRate		= "8"
+		GroupingAngle		= "1.25"
+		FiringRange		= "700"
+		RecoilForce		= "500"
+		ChargeSize     = "1"
+		RechargingTime = "9.1"
+		TurningSpeed		= "24"
+		CanBeUsedInAutogenerating  =  "0"
+                VisibleInEncyclopedia = "false"
+		Price			= "0"
+                FiringType		= "Cannon"
+				BlastWavePrototype      = "122MMDamageOF"
+		Durability		= "500"/>
+
+		<Prototype
+		Class			= "BulletLauncher"
+		Name			= "OIEXPGun"
+		ModelFile		= "OIEXPTurret"
+		ResourceType		= "FV4005_GUN"
+		NodeScale		= "1 1 1"
+		Mass			= "1.0"
+		
+		Decal				= "DC_GUN"
+
+		BulletPrototype		= "BBBullet"
+		ExplosionType		= "AUTOCANNON"
+		FiringEffect		= "none"
+		Damage		= "95"
+		FiringRate		= "18"
+		GroupingAngle		= "1.25"
+		FiringRange		= "700"
+		RecoilForce		= "500"
+		ChargeSize     = "1"
+		RechargingTime = "3.4"
+		TurningSpeed		= "20"
+		CanBeUsedInAutogenerating  =  "0"
+                VisibleInEncyclopedia = "false"
+		Price			= "0"
+                FiringType		= "Cannon"
+				BlastWavePrototype      = "85MMDamage"
+		Durability		= "500"/>
+
+		<Prototype
+		Class			= "BulletLauncher"
+		Name			= "PZ4Gun"
+		ModelFile		= "PZ4Turret"
+		ResourceType		= "FV4005_GUN"
+		NodeScale		= "1 1 1"
+		Mass			= "1.0"
+		
+		Decal				= "DC_GUN"
+
+		BulletPrototype		= "BBBullet"
+		ExplosionType		= "AUTOCANNON"
+		FiringEffect		= "none"
+		Damage		= "80"
+		FiringRate		= "18"
+		GroupingAngle		= "1.25"
+		FiringRange		= "700"
+		RecoilForce		= "500"
+		ChargeSize     = "1"
+		RechargingTime = "3.3"
+		TurningSpeed		= "44"
+		CanBeUsedInAutogenerating  =  "0"
+                VisibleInEncyclopedia = "false"
+		Price			= "0"
+                FiringType		= "Cannon"
+				BlastWavePrototype      = "85MMDamage"
+		Durability		= "500"/>
+
+		<Prototype
+		Class			= "BulletLauncher"
+		Name			= "VK4503Gun"
+		ModelFile		= "VK4503Turret"
+		ResourceType		= "FV4005_GUN"
+		NodeScale		= "1 1 1"
+		Mass			= "1.0"
+		
+		Decal				= "DC_GUN"
+
+		BulletPrototype		= "BBBullet"
+		ExplosionType		= "AUTOCANNON"
+		FiringEffect		= "none"
+		Damage		= "190"
+		FiringRate		= "18"
+		GroupingAngle		= "1.25"
+		FiringRange		= "700"
+		RecoilForce		= "500"
+		ChargeSize     = "1"
+		RechargingTime = "7"
+		TurningSpeed		= "44"
+		CanBeUsedInAutogenerating  =  "0"
+                VisibleInEncyclopedia = "false"
+		Price			= "0"
+                FiringType		= "Cannon"
+				BlastWavePrototype      = "85MMDamage"
+		Durability		= "500"/>
+
+		<Prototype
+		Class			= "BulletLauncher"
+		Name			= "ELCGun"
+		ModelFile		= "ELCTurret"
+		ResourceType		= "FV4005_GUN"
+		NodeScale		= "1 1 1"
+		Mass			= "1.0"
+		
+		Decal				= "DC_GUN"
+
+		BulletPrototype		= "BBBullet"
+		ExplosionType		= "AUTOCANNON"
+		FiringEffect		= "none"
+		Damage		= "190"
+		FiringRate		= "4.8"
+		GroupingAngle		= "1.25"
+		FiringRange		= "700"
+		RecoilForce		= "500"
+		ChargeSize     = "1"
+		RechargingTime = "12"
+		TurningSpeed		= "50"
+		CanBeUsedInAutogenerating  =  "0"
+                VisibleInEncyclopedia = "false"
+		Price			= "0"
+                FiringType		= "Cannon"
+				BlastWavePrototype      = "100MMDamage"
+		Durability		= "500"/>
+
+		<Prototype
+		Class			= "BulletLauncher"
+		Name			= "1357Gun"
+		ModelFile		= "1357Turret"
+		ResourceType		= "FV4005_GUN"
+		NodeScale		= "1 1 1"
+		Mass			= "1.0"
+		
+		Decal				= "DC_GUN"
+
+		BulletPrototype		= "1357Bullet"
+		ExplosionType		= "AUTOCANNON"
+		FiringEffect		= "none"
+		Damage		= "65"
+		FiringRate		= "60"
+		GroupingAngle		= "1.25"
+		FiringRange		= "700"
+		RecoilForce		= "500"
+		ChargeSize     = "8"
+		RechargingTime = "14.4"
+		TurningSpeed		= "45"
+		CanBeUsedInAutogenerating  =  "0"
+                VisibleInEncyclopedia = "false"
+		Price			= "0"
+                FiringType		= "Cannon"
+				BlastWavePrototype      = "85MMDamage"
+		Durability		= "500"/>
+
+	<Prototype
+		Class			= "BulletLauncher"
+		Name			= "T34Gun"
+		ModelFile		= "T34Turret"
+		ResourceType		= "FV4005_GUN"
+		NodeScale		= "1 1 1"
+		Mass			= "1.0"
+		
+		Decal				= "DC_GUN"
+
+		BulletPrototype		= "T34Bullet"
+		ExplosionType		= "AUTOCANNON"
+		FiringEffect		= "none"
+		Damage		= "65"
+		FiringRate		= "33"
+		GroupingAngle		= "1.25"
+		FiringRange		= "700"
+		RecoilForce		= "500"
+		ChargeSize     = "1"
+		RechargingTime = "1.84"
+		TurningSpeed		= "50"
+		CanBeUsedInAutogenerating  =  "0"
+                VisibleInEncyclopedia = "false"
+		Price			= "0"
+                FiringType		= "Cannon"
+				BlastWavePrototype      = "57MMDamage"
+		Durability		= "500"/>
+
+	<Prototype
+		Class			= "BulletLauncher"
+		Name			= "T3485Gun"
+		ModelFile		= "T3485Turret"
+		ResourceType		= "FV4005_GUN"
+		NodeScale		= "1 1 1"
+		Mass			= "1.0"
+		
+		Decal				= "DC_GUN"
+
+		BulletPrototype		= "T3485Bullet"
+		ExplosionType		= "AUTOCANNON"
+		FiringEffect		= "none"
+		Damage		= "135"
+		FiringRate		= "14"
+		GroupingAngle		= "1.25"
+		FiringRange		= "700"
+		RecoilForce		= "500"
+		ChargeSize     = "1"
+		RechargingTime = "4.79"
+		TurningSpeed		= "50"
+		CanBeUsedInAutogenerating  =  "0"
+                VisibleInEncyclopedia = "false"
+		Price			= "0"
+                FiringType		= "Cannon"
+				BlastWavePrototype      = "85MMDamage"
+		Durability		= "500"/>
+
+	<Prototype
+		Class			= "BulletLauncher"
+		Name			= "SU85IGun"
+		ModelFile		= "SU85ITurret"
+		ResourceType		= "FV4005_GUN"
+		NodeScale		= "1 1 1"
+		Mass			= "1.0"
+		
+		Decal				= "DC_GUN"
+
+		BulletPrototype		= "SU85IBullet"
+		ExplosionType		= "AUTOCANNON"
+		FiringEffect		= "none"
+		Damage		= "130"
+		FiringRate		= "12"
+		GroupingAngle		= "1"
+		FiringRange		= "700"
+		RecoilForce		= "500"
+		ChargeSize     = "1"
+		RechargingTime = "3.8"
+		TurningSpeed		= "54"
+		CanBeUsedInAutogenerating  =  "0"
+                VisibleInEncyclopedia = "false"
+		Price			= "0"
+                FiringType		= "Cannon"
+				BlastWavePrototype      = "85MMDamage"
+		Durability		= "500"/>
+
+
+	<Prototype
+		Class			= "BulletLauncher"
+		Name			= "SU85Gun"
+		ModelFile		= "SU85Turret"
+		ResourceType		= "FV4005_GUN"
+		NodeScale		= "1 1 1"
+		Mass			= "1.0"
+		
+		Decal				= "DC_GUN"
+
+		BulletPrototype		= "SU85IBullet"
+		ExplosionType		= "AUTOCANNON"
+		FiringEffect		= "none"
+		Damage		= "150"
+		FiringRate		= "12"
+		GroupingAngle		= "1.25"
+		FiringRange		= "700"
+		RecoilForce		= "500"
+		ChargeSize     = "1"
+		RechargingTime = "5.1"
+		TurningSpeed		= "54"
+		CanBeUsedInAutogenerating  =  "0"
+                VisibleInEncyclopedia = "false"
+		Price			= "0"
+                FiringType		= "Cannon"
+				BlastWavePrototype      = "85MMDamage"
+		Durability		= "500"/>
+
+	<Prototype
+		Class			= "BulletLauncher"
+		Name			= "SU100Gun"
+		ModelFile		= "SU100Turret"
+		ResourceType		= "FV4005_GUN"
+		NodeScale		= "1 1 1"
+		Mass			= "1.0"
+		
+		Decal				= "DC_GUN"
+
+		BulletPrototype		= "SU100Bullet"
+		ExplosionType		= "AUTOCANNON"
+		FiringEffect		= "none"
+		Damage		= "320"
+		FiringRate		= "6"
+		GroupingAngle		= "1.25"
+		FiringRange		= "700"
+		RecoilForce		= "500"
+		ChargeSize     = "1"
+		RechargingTime = "10.5"
+		TurningSpeed		= "35"
+		CanBeUsedInAutogenerating  =  "0"
+                VisibleInEncyclopedia = "false"
+		Price			= "0"
+                FiringType		= "Cannon"
+				BlastWavePrototype      = "122MMDamage"
+		Durability		= "500"/>
+
+		<Prototype
+		Class			= "BulletLauncher"
+		Name			= "KV2Gun"
+		ModelFile		= "Kv2Turret"
+		ResourceType		= "FV4005_GUN"
+		NodeScale		= "1 1 1"
+		Mass			= "1.0"
+		
+		Decal				= "DC_GUN"
+
+		BulletPrototype		= "KV2Bullet"
+		ExplosionType		= "AUTOCANNON"
+		FiringEffect		= "none"
+		Damage		= "100"
+		FiringRate		= "8"
+		GroupingAngle		= "1.25"
+		FiringRange		= "700"
+		RecoilForce		= "500"
+		ChargeSize     = "1"
+		RechargingTime = "19.7"
+		TurningSpeed		= "19"
+		CanBeUsedInAutogenerating  =  "0"
+                VisibleInEncyclopedia = "false"
+		Price			= "0"
+                FiringType		= "Cannon"
+				BlastWavePrototype      = "152MMDamage"
+		Durability		= "500"/>
+
+	<Prototype
+		Class			= "BulletLauncher"
+		Name			= "KV1sGun"
+		ModelFile		= "KV1sTurret"
+		ResourceType		= "FV4005_GUN"
+		NodeScale		= "1 1 1"
+		Mass			= "1.0"
+		
+		Decal				= "DC_GUN"
+
+		BulletPrototype		= "KV1sBullet"
+		ExplosionType		= "AUTOCANNON"
+		FiringEffect		= "none"
+		Damage		= "320"
+		FiringRate		= "6"
+		GroupingAngle		= "1.25"
+		FiringRange		= "700"
+		RecoilForce		= "500"
+		ChargeSize     = "1"
+		RechargingTime = "10.7"
+		TurningSpeed		= "24"
+		CanBeUsedInAutogenerating  =  "0"
+                VisibleInEncyclopedia = "false"
+		Price			= "0"
+                FiringType		= "Cannon"
+				BlastWavePrototype      = "122MMDamage"
+		Durability		= "500"/>
+</Prototypes>
