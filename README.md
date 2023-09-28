@@ -67,3 +67,7 @@
 
 ### Тестирование:
 **[Gnome627](https://github.com/Gnome627)**, **MrKarfen**, **[стакан](https://github.com/ksh1vn)**
+
+-----------------------------------------------------------------------------------------------
+
+README written by [стакан](https://github.com/ksh1vn)
