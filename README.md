@@ -1,6 +1,6 @@
 # Ex Machina: Upgrade
 
-![upgrade_banner](https://github.com/ksh1vn/Upgrade_README_preview/assets/60093741/7cae41ea-4264-4e07-b523-9d088e1cd31b)
+![upgrade_banner](https://github.com/CarsenStream/ExM-Upgrade/assets/60093741/94d20153-c935-4e75-8c19-9bbe67f48501)
 
 **Ex Machina: Upgrade** - сюжетно-технический мод. Добавляет новую карту, концовки, расширяет используемый игроком автопарк, а так-же добавляет "Случайные события".
 
@@ -12,22 +12,22 @@
 
 ### Скриншоты мода:
 
-> ![screen_1](https://github.com/ksh1vn/Upgrade_README_preview/assets/60093741/984c0c3d-34bd-48da-ba8b-efe06139074a)
+> ![screen_1](https://github.com/CarsenStream/ExM-Upgrade/assets/60093741/a0a4ccda-376e-44fb-8944-83e3ccfa4aeb)
 **Главное меню ExM: Upgrade**
 
-> ![screen_2](https://github.com/ksh1vn/Upgrade_README_preview/assets/60093741/998a4bdc-dc62-4ba0-869e-c85cfe232f98)
+> ![screen_2](https://github.com/CarsenStream/ExM-Upgrade/assets/60093741/f2f8b3fc-4827-4681-9596-4dacac0756af)
 **Одно из случайных событий**
 
-> ![screen_3](https://github.com/ksh1vn/Upgrade_README_preview/assets/60093741/0896b9bd-268a-44f1-9781-d44d430d199a)
+> ![screen_3](https://github.com/CarsenStream/ExM-Upgrade/assets/60093741/fa5d02a4-f044-4319-a406-d4917678146d)
 **Новые авто в продаже**
 
-> ![screen_4](https://github.com/ksh1vn/Upgrade_README_preview/assets/60093741/d0b3275e-fe24-4d91-8d00-65eea701bfb4)
+> ![screen_4](https://github.com/CarsenStream/ExM-Upgrade/assets/60093741/ad99acbd-40f4-4bae-9b4d-009c8152902d)
 **Усложнённый квест с поиском артефактов**
 
-> ![screen_5](https://github.com/ksh1vn/Upgrade_README_preview/assets/60093741/a3adb91b-817b-4a07-a04a-11fe22ece109)
+> ![screen_5](https://github.com/CarsenStream/ExM-Upgrade/assets/60093741/ccec1541-93af-4232-a115-c93c2d6b86e3)
 **Утренний Кайо-Мерико**
 
-> ![screen_6](https://github.com/ksh1vn/Upgrade_README_preview/assets/60093741/cedf7634-470d-47e5-8f7c-45e89edaa0c8)
+> ![screen_6](https://github.com/CarsenStream/ExM-Upgrade/assets/60093741/e62905b7-ff53-47c9-bdd9-f77dbb254d80)
 **Ночной Кайо-Мерико**
 
 -----------------------------------------------------------------------------------------------
