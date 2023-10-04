@@ -1416,6 +1416,79 @@ $Id: Vehicles.xml,v 1.123 2005/11/28 07:43:58 anton Exp $
 
 	<Prototype
 		Class			= "Vehicle"
+		Name			= "BelazFake"
+		ResourceType			= "VEHICLE"
+
+		PressingForce		= "2.0"
+
+		BlastWave		= "bigBlastWave"
+		
+		DiffRatio		= "13.0"
+		MaxEngineRpm		= "10000"
+		LowGearShiftLimit	= "2500"
+		HighGearShiftLimit	= "6500"
+		DestroyEffectPiercing	= "ET_PS_VEH_EXP1_MED"
+		DestroyEffectBlast	= "ET_PS_VEH_EXP2_MED"
+		DestroyEffectEnergy	= "ET_PS_VEH_EXP3_MED"
+		DestroyEffectWater	= "ET_PS_VEH_EXP2_MED"
+
+		SteeringSpeed		= "0.4"
+
+		CameraHeight            = "6.45"
+		CameraMaxDist		= "160"
+
+		HornSound		= "ET_S_HORN06"
+
+		DecisionMatrix		= "vehiclemain.lua"
+
+		LookRadius		= "200.0"
+		IntersectionRadius	= "9.0"
+		TakingRadius		= "30.0"
+
+		DriftCoeff		= "0.04"
+		VisibleInEncyclopedia	= "false"
+		MassSize		= "4 4.5 12"
+		MassTranslation		= "0 -1.9 0.5"
+
+		Abstract 		= "true" >
+
+		<MainPartDescription id = "CHASSIS" partResourceType = "BELAZ_CHASSIS">
+			<PartDescription id = "CABIN" partResourceType = "BELAZ_CABIN" lpName = "LP_CAB01" >
+				<PartDescription id="CABIN_SMALL_GUN" partResourceType = "SMALL_GUN" lpName = "LP_SML01" />
+				<PartDescription id="CABIN_SMALL_GUN_1" partResourceType = "SMALL_GUN" lpName = "LP_SML02" />
+				<PartDescription id="CABIN_BIG_GUN_1" partResourceType = "BIG_GUN" lpName = "LP_BIG01" />
+				<PartDescription id = "CABIN_GIANT_GUN" partResourceType = "GIANT_GUN" lpName = "LP_GIANT01" />
+			</PartDescription>
+			<PartDescription id = "BASKET" partResourceType="BELAZ_BASKET" lpName = "LP_BSK01" >
+				<PartDescription id="BASKET_BIG_GUN_0" partResourceType = "BIG_GUN" lpName = "LP_BIG01" />
+				<PartDescription id="BASKET_BIG_GUN_1" partResourceType = "BIG_GUN" lpName = "LP_BIG02" />
+				<PartDescription id="BASKET_GIANT_GUN" partResourceType = "GIANT_GUN" lpName = "LP_GIANT01" />
+				<PartDescription id="BASKET_GIANT_GUN_0" partResourceType = "GIANT_GUN" lpName = "LP_GIANT02" />
+				<PartDescription id="BASKET_SIDE_GUN_0" partResourceType = "SIDE_GUN" lpName = "LP_SIDE01L,LP_SIDE01R" />
+				<PartDescription id="BASKET_SPECIAL_WEAPON" partResourceType = "SPECIAL_WEAPON"/>
+			</PartDescription>
+		</MainPartDescription>
+
+		<Parts>
+			<Part id = "CHASSIS"		Prototype = "belazChassisFake" />
+			<Part id = "CABIN"			Prototype = "belazCabFake05" />
+			<Part id = "CABIN_BIG_GUN_1"		Prototype = "flag01" /> 
+			<Part id = "CABIN_GIANT_GUN" 		Prototype = "octopus01" /> 
+			<Part id = "BASKET"			Prototype = "belazCargoFake03" />
+			<Part id = "BASKET_BIG_GUN_0" 	Prototype = "flag01" /> 
+			<Part id = "BASKET_BIG_GUN_1"	Prototype = "flag01" /> 
+		</Parts>
+
+		<Wheels>
+			<Wheel Prototype = "belazWheel01L" steering = "correct" />
+			<Wheel Prototype = "belazWheel01R" steering = "correct" />
+			<Wheel Prototype = "belazWheel02L" />
+			<Wheel Prototype = "belazWheel02R" />
+		</Wheels>
+	</Prototype>
+
+	<Prototype
+		Class			= "Vehicle"
 		Name			= "Mirotvorec"
 		ResourceType			= "VEHICLE"
 
@@ -1490,7 +1563,7 @@ $Id: Vehicles.xml,v 1.123 2005/11/28 07:43:58 anton Exp $
 		LowGearShiftLimit	= "3000"
 		HighGearShiftLimit	= "3300"
 
-		SteeringSpeed		= "2"
+		SteeringSpeed		= "0.3"
 
 		HornSound		= "ET_S_HORN03"
 
@@ -1508,7 +1581,7 @@ $Id: Vehicles.xml,v 1.123 2005/11/28 07:43:58 anton Exp $
 		DestroyEffectBlast	= "ET_PS_VEH_EXP2_MED"
 		DestroyEffectEnergy	= "ET_PS_VEH_EXP3_MED"
 		DestroyEffectWater	= "ET_PS_VEH_EXP2_MED"
-		MassSize		= "25 10 5"
+		MassSize		= "5 3 1"
 		MassTranslation		= "0 -0.5 0"
 
 		DriftCoeff		= "0.00000000001"
@@ -1544,16 +1617,16 @@ $Id: Vehicles.xml,v 1.123 2005/11/28 07:43:58 anton Exp $
 		Name			= "PZ1C"
 		ResourceType			= "VEHICLE"
 
-		DiffRatio		= "2"
+		DiffRatio		= "2.0"
 		MaxEngineRpm		= "9900"
-		LowGearShiftLimit	= "1000"
-		HighGearShiftLimit	= "4950"
+		LowGearShiftLimit	= "3000"
+		HighGearShiftLimit	= "3300"
 
-		SteeringSpeed		= "0.8"
+		SteeringSpeed		= "1.2"
 
 		HornSound		= "ET_S_HORN03"
 
-		PressingForce		= "10.0"
+		PressingForce		= "1.0"
 		AdditionalWheelsHover="0.2"
 		CameraHeight            = "3"
 		CameraMaxDist		= "160"
@@ -1567,17 +1640,17 @@ $Id: Vehicles.xml,v 1.123 2005/11/28 07:43:58 anton Exp $
 		DestroyEffectBlast	= "ET_PS_VEH_EXP2_MED"
 		DestroyEffectEnergy	= "ET_PS_VEH_EXP3_MED"
 		DestroyEffectWater	= "ET_PS_VEH_EXP2_MED"
-		MassSize		= "25 10 5"
+		MassSize		= "5 3 1"
 		MassTranslation		= "0 -0.5 0"
 
 		DriftCoeff		= "0.1"
 		Abstract 		= "true">
 
 		<MainPartDescription id = "CHASSIS" partResourceType = "FV4005_CHASSIS">
-			<PartDescription id = "CABIN" partResourceType = "WOT_CABIN" lpName = "LP_CAB01" >	
+		<PartDescription id = "CABIN" partResourceType = "WOT_CABIN" lpName = "LP_CAB01" >	
 			<PartDescription id = "CABIN_SMALL_GUN" partResourceType = "WOT_GUN" lpName = "LP_GIANT01" />
+		</PartDescription>
 			<PartDescription id = "BASKET" partResourceType="CROMWELL_BASKET" lpName = "LP_GIANT01" >
-			</PartDescription>
 			</PartDescription>
 		</MainPartDescription>
 
@@ -1593,8 +1666,8 @@ $Id: Vehicles.xml,v 1.123 2005/11/28 07:43:58 anton Exp $
 			<Wheel Prototype = "CromwellWheel" steering = "correct" />
 			<Wheel Prototype = "CromwellWheel" />
 			<Wheel Prototype = "CromwellWheel" />
-			<Wheel Prototype = "CromwellWheel" steering = "inverse" />
-			<Wheel Prototype = "CromwellWheel" steering = "inverse" />
+			<Wheel Prototype = "CromwellWheel" />
+			<Wheel Prototype = "CromwellWheel" />
 		</Wheels>
 	</Prototype>
 
@@ -1722,7 +1795,7 @@ $Id: Vehicles.xml,v 1.123 2005/11/28 07:43:58 anton Exp $
 		LowGearShiftLimit	= "1000"
 		HighGearShiftLimit	= "3300"
 
-		SteeringSpeed		= "1"
+		SteeringSpeed		= "0.4"
 
 		HornSound		= "ET_S_HORN03"
 
@@ -1740,7 +1813,7 @@ $Id: Vehicles.xml,v 1.123 2005/11/28 07:43:58 anton Exp $
 		DestroyEffectBlast	= "ET_PS_VEH_EXP2_MED"
 		DestroyEffectEnergy	= "ET_PS_VEH_EXP3_MED"
 		DestroyEffectWater	= "ET_PS_VEH_EXP2_MED"
-		MassSize		= "25 10 5"
+		MassSize		= "5 3 1"
 		MassTranslation		= "0 -0.5 0"
 
 		DriftCoeff		= "0.000000000001"
@@ -4023,7 +4096,7 @@ $Id: Vehicles.xml,v 1.123 2005/11/28 07:43:58 anton Exp $
 		Class			= "Vehicle"
 		Name			= "Cromwell01"
 		ParentPrototype 	= "Cromwell"
-		VisibleInEncyclopedia	= "true">
+		VisibleInEncyclopedia	= "false">
 		<Parts>
 			<Part id = "CABIN"			Prototype = "CromwellCab04" />
 			<Part id = "CABIN_SMALL_GUN"	Prototype = "CromwellGun01" />
@@ -4036,7 +4109,7 @@ $Id: Vehicles.xml,v 1.123 2005/11/28 07:43:58 anton Exp $
 		Class			= "Vehicle"
 		Name			= "FV400501"
 		ParentPrototype 	= "FV4005"
-		VisibleInEncyclopedia	= "true">
+		VisibleInEncyclopedia	= "false">
 		<Parts>
 			<Part id = "CABIN"			Prototype = "FV4005Cab01" />
 			<Part id = "CABIN_SMALL_GUN"	Prototype = "FV4005Gun01" />

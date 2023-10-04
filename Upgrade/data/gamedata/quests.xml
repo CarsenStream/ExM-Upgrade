@@ -185,28 +185,32 @@
 		Automatic="0"
 		SubQuestsCondition="and"
 		CheckAll="0"
-		ConditionToGive="all complete" />
+		ConditionToGive="all complete"
+		Levels="r1m4" />
 <!--Root/r1m3u/Случайные события-->
 	<quest
 		Name="RandomQuestR1M3_1"
 		Automatic="0"
 		SubQuestsCondition="and"
 		CheckAll="0"
-		ConditionToGive="all complete" />
+		ConditionToGive="all complete"
+		Levels="r1m3" />
 <!--Root/r1m2u/Случайные события-->
 	<quest
 		Name="RandomQuest3"
 		Automatic="0"
 		SubQuestsCondition="and"
 		CheckAll="0"
-		ConditionToGive="all complete" />
+		ConditionToGive="all complete"
+		Levels="r1m2" />
 
 	<quest
 		Name="RandomQuest3_1"
 		Automatic="0"
 		SubQuestsCondition="and"
 		CheckAll="0"
-		ConditionToGive="all complete" />
+		ConditionToGive="all complete"
+		Levels="r1m2" />
 <!--Root/r1m1u/разговор с бандитом-->
 	<quest
 		Name="Quest_vaga1"

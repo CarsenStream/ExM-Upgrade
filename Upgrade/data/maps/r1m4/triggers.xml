@@ -691,6 +691,7 @@
 	<trigger Name="trPlayerInQuestion1" active="1">
 		<event eventid="GE_OBJECT_ENTERS_LOCATION" ObjName="locRandomQuest1" />
 		<script>
+			getObj("locRandomQuest1Ico"):SetProperty("Active",0)
 			TActivate("Question1Cin")
 			trigger:Deactivate()
 		</script>

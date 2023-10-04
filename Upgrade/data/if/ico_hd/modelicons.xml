@@ -10,6 +10,11 @@
 
    <Item id="FV4005Gun01"			file="data\if\ico_hd\InventoryDlg\fv4005\FV4005Gun.dds"			file1="data\if\ico_hd\InventoryDlg\fv4005\FV4005Gun.dds"/>
    <Item id="FV4005Cab01"			file="data\if\ico_hd\InventoryDlg\fv4005\FV4005Cab.dds"			file1="data\if\ico_hd\InventoryDlg\fv4005\FV4005Cab.dds"/>
+   <Item id="FV4005Cargo"			file="data\if\ico_hd\InventoryDlg\CromwellBerlin\Traks.dds"			file1="data\if\ico_hd\InventoryDlg\CromwellBerlin\Traks.dds"/>
+
+   <Item id="PZ1CCargo"			file="data\if\ico_hd\InventoryDlg\CromwellBerlin\Traks.dds"			file1="data\if\ico_hd\InventoryDlg\CromwellBerlin\Traks.dds"/>
+   <Item id="PZ1CCab"			file="data\if\ico_hd\InventoryDlg\PZ1C\CAB.dds"			file1="data\if\ico_hd\InventoryDlg\PZ1C\CAB.dds"/>
+   <Item id="PZ1CGun"			file="data\if\ico_hd\InventoryDlg\PZ1C\GUN.dds"			file1="data\if\ico_hd\InventoryDlg\PZ1C\GUN.dds"/>
 
    <Item id="1357Gun"			file="data\if\ico_hd\InventoryDlg\1357\1357Gun.dds"			file1="data\if\ico_hd\InventoryDlg\1357\1357Gun.dds"/>
    <Item id="1357Cab01"			file="data\if\ico_hd\InventoryDlg\1357\1357Cab.dds"			file1="data\if\ico_hd\InventoryDlg\1357\1357Cab.dds"/>
@@ -20,6 +25,10 @@
    <Item id="140Gun"			file="data\if\ico_hd\InventoryDlg\140\140Gun.dds"			file1="data\if\ico_hd\InventoryDlg\140\140Gun.dds"/>
    <Item id="140Cab"			file="data\if\ico_hd\InventoryDlg\140\140Cab.dds"			file1="data\if\ico_hd\InventoryDlg\140\140Cab.dds"/>
    <Item id="140Cargo"			file="data\if\ico_hd\InventoryDlg\140\140Cab.dds"			file1="data\if\ico_hd\InventoryDlg\140\140Cab.dds"/>
+
+   <Item id="CobraGun"			file="data\if\ico_hd\InventoryDlg\Cobra\CobraGun.dds"			file1="data\if\ico_hd\InventoryDlg\Cobra\CobraGun.dds"/>
+   <Item id="CobraCab01"			file="data\if\ico_hd\InventoryDlg\Cobra\CobraCab.dds"			file1="data\if\ico_hd\InventoryDlg\Cobra\CobraCab.dds"/>
+   <Item id="CobraCargo"			file="data\if\ico_hd\InventoryDlg\Cobra\CobraCab.dds"			file1="data\if\ico_hd\InventoryDlg\Cobra\CobraCab.dds"/>
 
    <Item id="CobraGun"			file="data\if\ico_hd\InventoryDlg\Cobra\CobraGun.dds"			file1="data\if\ico_hd\InventoryDlg\Cobra\CobraGun.dds"/>
    <Item id="CobraCab01"			file="data\if\ico_hd\InventoryDlg\Cobra\CobraCab.dds"			file1="data\if\ico_hd\InventoryDlg\Cobra\CobraCab.dds"/>
@@ -97,6 +106,8 @@
    <Item id="belazCargo03"	      file="data\if\ico\InventoryDlg\belaz\Belaz_Body03.dds" file1=""/>
    <Item id="belazCargo04"	      file="data\if\ico\InventoryDlg\belaz\belazCargo04.dds" file1=""/>
    <Item id="belazCargo05"	      file="data\if\ico\InventoryDlg\belaz\belazCargo05.dds" file1=""/>
+   <Item id="belazCabFake05"         file="data\if\ico\InventoryDlg\belaz\belazCab05.dds" file1=""/>
+   <Item id="belazCargoFake03"	      file="data\if\ico\InventoryDlg\belaz\Belaz_Body03.dds" file1=""/>
 
    <Item id="mirotvorecCab01"   	file="data\if\ico\InventoryDlg\mirotvorec\mirotvorecCab01.dds" file1=""/>
    <Item id="mirotvorecCab02"   	file="data\if\ico\InventoryDlg\mirotvorec\mirotvorecCab02.dds" file1=""/>

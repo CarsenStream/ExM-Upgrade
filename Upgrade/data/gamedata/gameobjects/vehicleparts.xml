@@ -236,7 +236,7 @@ $Id: VehicleParts.xml,v 1.80 2005/11/28 07:43:57 anton Exp $
 			ModelFile	= "CromwellChassis"
 			ResourceType	= "CROMWELL_CHASSIS"
 			NodeScale	= "1 1 1"
-			Mass		= "120.0" 			
+			Mass		= "10.0" 			
 			MaxHealth	= "2000" 
 			MaxFuel	= "200"
 			VisibleInEncyclopedia = "false"
@@ -278,7 +278,7 @@ $Id: VehicleParts.xml,v 1.80 2005/11/28 07:43:57 anton Exp $
 			ModelFile	= "CromwellChassis"
 			ResourceType	= "FV4005_CHASSIS"
 			NodeScale	= "1 1 1"
-			Mass		= "120.0" 			
+			Mass		= "10.0" 			
 			MaxHealth	= "4000" 
 			MaxFuel	= "2000"
 			VisibleInEncyclopedia = "false"
@@ -320,7 +320,7 @@ $Id: VehicleParts.xml,v 1.80 2005/11/28 07:43:57 anton Exp $
 			ModelFile	= "ELCChassis"
 			ResourceType	= "LTVZ_CHASSIS"
 			NodeScale	= "1 1 1"
-			Mass		= "190.0" 			
+			Mass		= "10.0" 			
 			MaxHealth	= "750" 
 			MaxFuel	= "120"
 			VisibleInEncyclopedia = "false"
@@ -609,6 +609,28 @@ $Id: VehicleParts.xml,v 1.80 2005/11/28 07:43:57 anton Exp $
 			PneumoSound	="ET_S_PNEUMO_BRAKE01"
 			GearShiftSound="ET_S_GEAR_SHIFT01"
 			LoadPoints	= "LP_CAB01 LP_BSK01" >
+				<GroupsHealth
+					Main   = "10000"	
+				/>
+		</Prototype>
+
+		<Prototype
+			Class		= "Chassis"
+			Name		= "belazChassisFake"
+			ModelFile	= "belazChassis"
+			ResourceType	= "BELAZ_CHASSIS"
+			NodeScale	= "1 1 1"
+
+			Price				= "80000"
+			RepairCoef			= "0.2"
+
+			Mass		= "130.0" 			
+			MaxHealth	= "3000" 
+			MaxFuel	= "1200"
+			BrakingSound="ET_S_BRAKE01"
+			PneumoSound	="ET_S_PNEUMO_BRAKE01"
+			GearShiftSound="ET_S_GEAR_SHIFT01"
+			LoadPoints	= "LP_CAB01 LP_BSK01 LP_BIG01 LP_BIG02 LP_GIANT01" >
 				<GroupsHealth
 					Main   = "10000"	
 				/>
@@ -1261,7 +1283,7 @@ $Id: VehicleParts.xml,v 1.80 2005/11/28 07:43:57 anton Exp $
 			ModelFile			= "FV4005Cab01"
 			ResourceType		= "CROMWELL_CABIN"
 			NodeScale			= "1 1 1"
-			Mass				= "100.0"
+			Mass				= "10.0"
 			RepairCoef			= "0.8"
 			Durability			= "100"
 			DurCoeffsForDamageTypes		= "15 15 15"
@@ -1292,7 +1314,7 @@ $Id: VehicleParts.xml,v 1.80 2005/11/28 07:43:57 anton Exp $
 			ModelFile			= "CobraCab01"
 			ResourceType		= "COBRA_CABIN"
 			NodeScale			= "1 1 1"
-			Mass				= "100.0"
+			Mass				= "10.0"
 			RepairCoef			= "0.6"
 			Durability			= "50"
 			DurCoeffsForDamageTypes		= "5 10 5"
@@ -1323,7 +1345,7 @@ $Id: VehicleParts.xml,v 1.80 2005/11/28 07:43:57 anton Exp $
 			ModelFile			= "140Cab"
 			ResourceType		= "140_CABIN"
 			NodeScale			= "1 1 1"
-			Mass				= "100.0"
+			Mass				= "10.0"
 			RepairCoef			= "0.4"
 			Durability			= "125"
 			DurCoeffsForDamageTypes		= "10 20 10"
@@ -1354,12 +1376,12 @@ $Id: VehicleParts.xml,v 1.80 2005/11/28 07:43:57 anton Exp $
 			ModelFile			= "CromwellCab04"
 			ResourceType		= "CROMWELL_CABIN"
 			NodeScale			= "1 1 1"
-			Mass				= "100.0"
+			Mass				= "10.0"
 			RepairCoef			= "0.3"
 			Durability			= "40"
 			DurCoeffsForDamageTypes		= "10 0 0"
-			MaxTorque					= "500"
-			MaxSpeed					= "110.0"
+			MaxTorque					= "100"
+			MaxSpeed					= "90.0"
 			Price						= "20000"
 			BlowEffect	= "ET_PS_VEH_PART_BLOW_BIG_CAB"
 			FuelConsumption = "0.1"
@@ -1387,14 +1409,14 @@ $Id: VehicleParts.xml,v 1.80 2005/11/28 07:43:57 anton Exp $
 			Class				= "Cabin"
 			Name				= "PZ1CCab"
 			ModelFile			= "PZ1CCab"
-			ResourceType		= "CROMWELL_CABIN"
+			ResourceType		= "WOT_CABIN"
 			NodeScale			= "1 1 1"
-			Mass				= "190.0"
+			Mass				= "10.0"
 			RepairCoef			= "0.3"
 			Durability			= "15"
 			DurCoeffsForDamageTypes		= "5 0 0"
-			MaxTorque					= "500"
-			MaxSpeed					= "110.0"
+			MaxTorque					= "40"
+			MaxSpeed					= "90.0"
 			Price						= "2500"
 			BlowEffect	= "ET_PS_VEH_PART_BLOW_BIG_CAB"
 			FuelConsumption = "0.1"
@@ -1695,6 +1717,7 @@ $Id: VehicleParts.xml,v 1.80 2005/11/28 07:43:57 anton Exp $
 			EngineHighSound		        = "ET_S_ENGINE_SCOUT_1_HIGH"
 			BlowEffect	= "ET_PS_VEH_PART_BLOW_SMALL_CAB"
 			MaxSpeed			= "140.0"
+			RepairCoef			= "0.3"
 			LoadPoints			= "LP_SML01" >
 			<GadgetDescription>
 				<Slot
@@ -1746,7 +1769,8 @@ $Id: VehicleParts.xml,v 1.80 2005/11/28 07:43:57 anton Exp $
 			EngineHighSound		        = "ET_S_ENGINE_SCOUT_1_HIGH"
 			MaxTorque			= "60"
 			Price				= "1500"	
-			MaxSpeed			= "110.0"
+			MaxSpeed			= "105.0"
+			RepairCoef			= "0.2"
 			LoadPoints			= "LP_SML01" >
 			<GadgetDescription>
 				<Slot
@@ -1782,7 +1806,8 @@ $Id: VehicleParts.xml,v 1.80 2005/11/28 07:43:57 anton Exp $
 			MaxTorque			= "70"
 			Price				= "1800"	
 			BlowEffect	= "ET_PS_VEH_PART_BLOW_SMALL_CAB"
-			MaxSpeed			= "100.0"
+			MaxSpeed			= "120.0"
+			RepairCoef			= "0.3"
 			LoadPoints			= "LP_SML01" >
 			<GadgetDescription>
 				<Slot
@@ -1859,7 +1884,8 @@ $Id: VehicleParts.xml,v 1.80 2005/11/28 07:43:57 anton Exp $
 			MaxTorque			= "75"
 			Price				= "2100"	
 			BlowEffect	= "ET_PS_VEH_PART_BLOW_SMALL_CAB"
-			MaxSpeed			= "90.0"
+			MaxSpeed			= "110.0"
+			RepairCoef			= "0.3"
 			LoadPoints			= "LP_SML01" >
 			<GadgetDescription>
 				<Slot
@@ -1930,9 +1956,10 @@ $Id: VehicleParts.xml,v 1.80 2005/11/28 07:43:57 anton Exp $
 			MaxPower			= "120"
 			EngineHighSound			= "ET_S_ENGINE_FIGHTER_1_HIGH"
 			MaxTorque			= "80"
-			Price				= "3000"	
+			Price				= "5000"	
 			BlowEffect	= "ET_PS_VEH_PART_BLOW_SMALL_CAB"
-			MaxSpeed			= "100.0"
+			MaxSpeed			= "110.0"
+			RepairCoef			= "0.3"
 			LoadPoints			= "LP_SML01" >
 			<GadgetDescription>
 				<Slot
@@ -1963,8 +1990,9 @@ $Id: VehicleParts.xml,v 1.80 2005/11/28 07:43:57 anton Exp $
 			BlowEffect	= "ET_PS_VEH_PART_BLOW_SMALL_CAB"
 			MaxPower			= "120"
 			MaxTorque			= "80"
-			Price				= "6000"	
+			Price				= "7350"	
 			MaxSpeed			= "100.0"
+			RepairCoef			= "0.3"
 			LoadPoints			= "LP_SML01 LP_BIG01" >
 			<GadgetDescription>
 				<Slot
@@ -2025,8 +2053,9 @@ $Id: VehicleParts.xml,v 1.80 2005/11/28 07:43:57 anton Exp $
 			BlowEffect	= "ET_PS_VEH_PART_BLOW_SMALL_CAB"
 			MaxPower			= "120"
 			MaxTorque			= "80"
-			Price				= "5000"	
-			MaxSpeed			= "100.0"
+			Price				= "13000"	
+			MaxSpeed			= "90.0"
+			RepairCoef			= "0.2"
 			LoadPoints			= "LP_GIANT01" >
 			<GadgetDescription>
 				<Slot
@@ -2062,8 +2091,9 @@ $Id: VehicleParts.xml,v 1.80 2005/11/28 07:43:57 anton Exp $
 			EngineHighSound		        = "ET_S_ENGINE_HUNTER_1_HIGH"
 			BlowEffect	= "ET_PS_VEH_PART_BLOW_SMALL_CAB"
 			MaxTorque			= "80"
-			Price				= "3000"	
-			MaxSpeed			= "100.0"
+			Price				= "8000"	
+			MaxSpeed			= "110.0"
+			RepairCoef			= "0.3"
 			LoadPoints			= "LP_SML01 LP_BIG01" >
 			<GadgetDescription>
 				<Slot
@@ -2136,6 +2166,7 @@ $Id: VehicleParts.xml,v 1.80 2005/11/28 07:43:57 anton Exp $
 			MaxTorque			= "70"
 			Price				= "36000"	
 			MaxSpeed			= "140.0"
+			RepairCoef			= "0.3"
 			LoadPoints			= "LP_SML01 LP_BIG01" >
 			<GadgetDescription>
 				<Slot
@@ -2172,6 +2203,7 @@ $Id: VehicleParts.xml,v 1.80 2005/11/28 07:43:57 anton Exp $
 			MaxTorque			= "125"
 			Price				= "50000"	
 			MaxSpeed			= "160.0"
+			RepairCoef			= "0.4"
 			LoadPoints			= "LP_BIG01" >
 			<GadgetDescription>
 				<Slot
@@ -2209,6 +2241,7 @@ $Id: VehicleParts.xml,v 1.80 2005/11/28 07:43:57 anton Exp $
 			MaxTorque			= "150"
 			Price				= "70000"	
 			MaxSpeed			= "140.0"
+			RepairCoef			= "0.4"
 			LoadPoints			= "LP_BIG01" >
 			<GadgetDescription>
 				<Slot
@@ -2244,6 +2277,7 @@ $Id: VehicleParts.xml,v 1.80 2005/11/28 07:43:57 anton Exp $
 	        VisibleInEncyclopedia = "false"
 			Price				= "50000"	
 			MaxSpeed			= "85.0"
+			RepairCoef			= "0.5"
 			FuelConsumption                 = "0.001"
 			LoadPoints			= "LP_SML01" >
 			<GadgetDescription>
@@ -3155,6 +3189,37 @@ $Id: VehicleParts.xml,v 1.80 2005/11/28 07:43:57 anton Exp $
 
 		<Prototype
 			Class				= "Cabin"
+			Name				= "belazCabFake05"
+			ModelFile				= "belazCab05"
+			ResourceType			= "BELAZ_CABIN"
+			NodeScale			= "1 1 1"
+			Mass				= "180.0"
+			Durability			= "220"
+			DurCoeffsForDamageTypes		= "15 15 12"
+			MaxPower				= "1000"
+			MaxTorque			= "390"
+			MaxSpeed			= "180.0"
+			BlowEffect	= "ET_PS_VEH_PART_BLOW_BIG_CAB"
+			EngineHighSound			= "ET_S_ENGINE_BELAZ_5_HIGH"
+
+			Price				= "160000"
+			RepairCoef			= "0.5"
+                        FuelConsumption                 = "0.5">
+			<GroupsHealth
+				Main   = "0"	
+				Breakable1   = "0.5"	
+			    	Breakable2   = "0.3"
+				Breakable3   = "2"
+				Breakable4   = "2"
+				Breakable5   = "2"
+				Breakable6   = "1.5"
+				Breakable7   = "2"
+				Breakable8   = "2"
+			/>
+		</Prototype>
+
+		<Prototype
+			Class				= "Cabin"
 			Name				= "belazCab05Menu"
 			ModelFile				= "belazCab05"
 			ResourceType			= "BELAZ_CABIN"
@@ -3521,7 +3586,7 @@ $Id: VehicleParts.xml,v 1.80 2005/11/28 07:43:57 anton Exp $
 			Name				= "PZ1CCargo"
 			ModelFile			= "cub"
 			VisibleInEncyclopedia   = "false"
-			ResourceType		= "LTVZ_BASKET"
+			ResourceType		= "CROMWELL_BASKET"
 			Durability			= "25"
 			DurCoeffsForDamageTypes	= "5 5 5"
 			NodeScale			= "1 1 1"
@@ -4819,6 +4884,35 @@ $Id: VehicleParts.xml,v 1.80 2005/11/28 07:43:57 anton Exp $
 
 		<Prototype
 			Class				= "Basket"
+			Name				= "belazCargoFake03"
+			ModelFile				= "belazCargo03"
+			ResourceType			= "BELAZ_BASKET"
+			NodeScale			= "1 1 1"
+			Mass				= "120.0" 
+			Durability			= "140"
+			DurCoeffsForDamageTypes		= "11 10 5"
+			BlowEffect	= "ET_PS_VEH_PART_BLOW_BIG_CARGO"
+
+			Price				= "120000"
+			RepairCoef			= "0.4">
+
+			<RepositoryDescription
+				RepositorySize		= "0 0">
+			</RepositoryDescription>
+			<GroupsHealth
+				Main   = "0"	
+				Breakable1   = "1"	
+			    	Breakable2   = "2"
+				Breakable3   = "1"
+				Breakable4   = "0.5"
+				Breakable5   = "2"
+				Breakable6   = "1.5"
+				Breakable7   = "1.5"
+			/>			
+		</Prototype>
+
+		<Prototype
+			Class				= "Basket"
 			Name				= "mirotvorecCargo01"
 			ModelFile			= "mirotvorecCargo01"
 			ResourceType		= "MIROTVOTEC_BASKET"
@@ -5034,7 +5128,7 @@ $Id: VehicleParts.xml,v 1.80 2005/11/28 07:43:57 anton Exp $
 			NodeScale		= "1 1 1"
 			Mass			= "3.0"
 			SuspensionModelFile	= "cub"
-			SuspensionCFM	= "0.0005"
+			SuspensionCFM	= "0.0001"
 			SuspensionERP		= "0.25"
 			SuspensionRange	= "1.0"
 			mU			= "1.0"

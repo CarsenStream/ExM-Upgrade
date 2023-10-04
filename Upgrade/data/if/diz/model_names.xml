@@ -456,6 +456,11 @@
 		value="Щит" />
 
 	<Item
+		id="belazCabFake05"
+		locForm="0"
+		value="Щит" />
+
+	<Item
 		id="belazCargo01"
 		locForm="0"
 		value="Хост" />
@@ -467,6 +472,11 @@
 
 	<Item
 		id="belazCargo03"
+		locForm="0"
+		value="Колосс" />
+
+	<Item
+		id="belazCargoFake03"
 		locForm="0"
 		value="Колосс" />
 
@@ -562,6 +572,11 @@
 
 	<Item
 		id="BelazForSale"
+		locForm="0"
+		value="Белаз" />
+
+	<Item
+		id="BelazFake"
 		locForm="0"
 		value="Белаз" />
 

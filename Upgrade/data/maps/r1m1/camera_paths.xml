@@ -4,6 +4,14 @@
 		<Point  coord="0 0 0" rotation="0 0 0 1"/>   
 	</Path>
 
+	<Path Name = "start_game_dream">
+		<Point  coord="529.136 304.501 387.302" rotation="-0.003 0.994 -0.027 0.110"/>
+		<Point  coord="529.358 288.717 387.880" rotation="-0.001 0.990 -0.006 0.143"/>
+		<Point  coord="535.663 288.717 379.170" rotation="-0.002 0.780 -0.002 0.626"/>
+		<Point  coord="534.919 288.690 366.644" rotation="0.013 0.450 0.007 0.893"/>
+		<Point  coord="520.774 295.695 350.302" rotation="-0.024 -0.106 0.003 0.994"/>
+	</Path>
+
 	<Path Name = "camUp_randomquest1_1">                         
 		<Point  coord="890.276 312.811 854.969" rotation="-0.000 -0.615 0.000 0.789"/>
 	</Path>
@@ -40,9 +48,11 @@
 		<Point  coord="3340.705 373.665 3292.612" rotation="-0.146 -0.244 0.037 0.958"/>  
 		<Point  coord="3342.872 373.665 3291.333" rotation="-0.145 -0.182 0.027 0.972"/>  
 	</Path>
-	<Path Name = "start_rolik4">
-		<Point  coord="3358.524 370.779 3276.579" rotation="-0.019 0.059 -0.001 0.998"/>  
+	<Path Name = "start_rolik4"> 
 		<Point  coord="3359.000 370.779 3277.000" rotation="-0.019 0.059 -0.001 0.998"/>
+		<Point  coord="3350.477 369.722 3284.567" rotation="0.012 -0.444 -0.006 0.896"/>
+		<Point  coord="3350.490 370.933 3294.164" rotation="0.028 0.893 -0.056 -0.447"/>
+		<Point  coord="3356.147 373.335 3309.688" rotation="0.002 0.997 -0.079 -0.020"/>
 	</Path>
 	<Path Name = "start_rolik5">
 		<Point  coord="3347.710 371.891 3285.348" rotation="-0.025 0.132 -0.003 0.991"/>   

@@ -641,7 +641,7 @@
 		<event eventid="GE_OBJECT_ENTERS_LOCATION" ObjName="locRandomQuest2" />
 		<script>
 			TActivate("Question2Cin")
-
+			getObj("locRandomQuest2Ico"):SetProperty("Active",0)
 			trigger:Deactivate()
 		</script>
 	</trigger>
@@ -650,7 +650,7 @@
 		<event eventid="GE_OBJECT_ENTERS_LOCATION" ObjName="locRandomQuest3" />
 		<script>
 			TActivate("Question3Cin")
-
+			getObj("locRandomQuest3Ico"):SetProperty("Active",0)
 			trigger:Deactivate()
 		</script>
 	</trigger>

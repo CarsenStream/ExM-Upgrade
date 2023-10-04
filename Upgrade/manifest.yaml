@@ -3,8 +3,8 @@ name: Upgrade
 
 # required human readable info
 display_name: Upgrade для Community Remaster
-version: "1.0"
-build: "230925b"
+version: "1.0.1"
+build: "231004"
 description: |
   Upgrade - Сюжетно-технический мод. Добавляет новую карту, концовки и расширяет исползьуемый игроком автопарк.
 
@@ -44,9 +44,13 @@ screenshots:
       Ночной Кайо-Мерико
 
 # installation confguration
-prerequisites: 
-  - name: community_remaster
-    versions:
-      - "1.14"
+prerequisites:
+  - name: [community_remaster]
+    versions: 
+     - "1.14"
+    optional_content:
+     - hd_gun_models
+     - hd_vehicle_models
+     - ost_remaster
 patcher_version_requirement: "2.0"
 no_base_content: false

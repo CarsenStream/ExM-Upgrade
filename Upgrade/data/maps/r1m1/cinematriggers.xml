@@ -139,6 +139,13 @@
 
 			SetCameraBehindPlayerVehicle()
 			
+			local Workshop = GetEntityByName("TheTown_Workshop")
+			local Repository = Workshop:GetRepositoryByTypename("CabinsAndBaskets")
+			Repository:AddItems("belazCab01", 2)
+			Repository:AddItems("belazCab02", 1)
+			Repository:AddItems("belazCab03", 2)
+			Repository:AddItems("belazCab04", 2)
+			Repository:AddItems("belazCab05", 1)
 			trigger:Deactivate() 
 		</script>
 	</trigger>
@@ -252,8 +259,8 @@
 	<trigger Name="loc_lisa" active="0">
 		<event eventid="GE_OBJECT_ENTERS_LOCATION" ObjName="LisaRolik_loc" />
 		<script>
-			if GetPlayerMoney() >= 35000 then
-			AddPlayerMoney(-38782)
+			if GetPlayerMoney() >= 15000 and not(IsQuestComplete("TalkWithFather_Quest")) then
+			AddPlayerMoney(-3999999)
 			AddPlayerMoney(200)
 			end
 			RuleConsole("cinematic_spring_coeff 1.7")
@@ -1998,6 +2005,10 @@
 	<event eventid="GE_END_CINEMATIC" ObjName="Player1" />
 	<event eventid="GE_SKIP_CINEMATIC" ObjName="Player1" />
 	<script>
+		if GetPlayerMoney() >= 15000 and not(IsQuestComplete("TalkWithFather_Quest")) then
+		AddPlayerMoney(-3999999)
+		AddPlayerMoney(200)
+		end
 		GameFiltersUse()
 		RestoreAllToleranceStatus()
 		getObj("RQMan1"):Remove()
@@ -2072,6 +2083,13 @@
 		GameFiltersUse()
 		RestoreAllToleranceStatus()
 		getObj("RQMan1"):Remove()
+
+		if GetTolerance("1100","1002",RS_ALLY) then
+		SetTolerance("1002","1100",RS_ENEMY)
+		end
+		if GetTolerance("1100","1005",RS_ALLY) then
+		SetTolerance("1005","1100",RS_ENEMY)
+		end
 
 		TActivate("EnemysDie")
 		TActivate("AllyDie")
