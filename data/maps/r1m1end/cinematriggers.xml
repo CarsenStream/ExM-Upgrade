@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="windows-1251" standalone="yes" ?>
+<triggers>
+
+<!-- Начальный ролик. -->
+	<trigger Name="CutsceneCarsen" active="0">
+		<event timeout="0" eventid="GE_TIME_PERIOD" />
+		<script>
+			CinemaFiltersUse()
+
+			Fly("carsen_cam01", CINEMATIC_NO_AIM, 0, 16, 1, 0 )
+			Fly("carsen_cam02", CINEMATIC_NO_AIM, 0, 9, 0, 1 )
+			StartCinematic()
+
+			SaveAllToleranceStatus(RS_NEUTRAL)
+
+			TActivate("CutsceneCarsen1")
+			TActivate("CutsceneCarsen2")
+			TActivate("CutsceneCarsenEnd")
+
+			trigger:Deactivate()    
+		</script>
+	</trigger>
+
+	<trigger	Name="CutsceneCarsen1"	active="0">
+		<event eventid="GE_CINEMATIC_ENTER_FADE_IN" ObjName="Player1" />
+		<script>
+			GetPlayerVehicle():SetGamePositionOnGround( CVector(3375.186, 371.264, 3332.176))
+			GetPlayerVehicle():SetRotation(Quaternion(-0.040, 0.997, -0.062, -0.005))
+			GetPlayerVehicle():SetThrottle( 0 )
+			GetPlayerVehicle():SetCustomLinearVelocity( 0 )
+			
+			TeamCreate("Carsen",1002,CVector(3376.216, 368.424, 3268.017),{"UralCarsen"})
+			getObj("Carsen_vehicle_0"):SetGamePositionOnGround( CVector(3376.216, 368.424, 3268.017))
+			getObj("Carsen_vehicle_0"):SetRotation(Quaternion(-0.036, -0.011, 0.014, 0.999))
+			getObj("Carsen_vehicle_0"):AddModifier("MaxHP","= 100000")
+			getObj("Carsen_vehicle_0"):AddModifier("HP","= 100000")
+			getObj("Carsen_vehicle_0"):setImmortalMode(1)
+			TActivate("CarsenEnding")
+			AddCinematicMessage( 1, 0.1 )
+			trigger:Deactivate()    
+		</script>
+	</trigger>
+
+	<trigger Name="CutsceneCarsen2" active="0">
+		<event flypath="carsen_cam02" eventid="GE_START_CINEMATIC_FLY" ObjName="Player1" />
+		<script>
+			AddCinematicMessage( 2, 0.1 )
+			trigger:Deactivate()
+		</script>
+	</trigger>
+
+
+	<trigger Name="CutsceneCarsenEnd" active="0">
+		<event eventid="GE_END_CINEMATIC" ObjName="Player1" />
+		<event eventid="GE_SKIP_CINEMATIC" ObjName="Player1" />
+		<script>
+			GameFiltersUse()
+
+			RestoreAllToleranceStatus()
+			TActivate("Health1")
+			TDeactivate("CutsceneCarsen1")
+			TDeactivate("CutsceneCarsen2")
+			trigger:Deactivate()
+		</script>
+	</trigger>
+
+	<trigger Name="CutsceneCarsenEnding" active="0">
+		<event timeout="0" eventid="GE_TIME_PERIOD" />
+		<script>
+			CinemaFiltersUse()
+
+			Fly("carsen_cam02", CINEMATIC_NO_AIM, 0, 9, 1, 1 )
+			StartCinematic()
+
+			SaveAllToleranceStatus(RS_NEUTRAL)
+
+			TActivate("CutsceneCarsenEnding1")
+			TActivate("CutsceneCarsenEndingEnd")
+			
+			trigger:Deactivate()    
+		</script>
+	</trigger>
+
+	<trigger	Name="CutsceneCarsenEnding1"	active="0">
+		<event eventid="GE_CINEMATIC_ENTER_FADE_IN" ObjName="Player1" />
+		<script>
+			GetPlayerVehicle():SetGamePositionOnGround( CVector(3375.186, 371.264, 3332.176))
+			GetPlayerVehicle():SetRotation(Quaternion(-0.040, 0.997, -0.062, -0.005))
+			GetPlayerVehicle():SetThrottle( 0 )
+			GetPlayerVehicle():SetCustomLinearVelocity( 0 )
+			getObj("Carsen_vehicle_0"):SetGamePositionOnGround( CVector(3376.216, 368.424, 3268.017))
+			getObj("Carsen_vehicle_0"):SetRotation(Quaternion(-0.036, -0.011, 0.014, 0.999))
+			getObj("Carsen_vehicle_0"):AddModifier("MaxHP","= 100000")
+			getObj("Carsen_vehicle_0"):AddModifier("HP","= 100000")
+			getObj("Carsen_vehicle_0"):setImmortalMode(1)
+			AddCinematicMessage( 3, 0.1 )
+			trigger:Deactivate()    
+		</script>
+	</trigger>
+
+	<trigger Name="CutsceneCarsenEndingEnd" active="0">
+		<event eventid="GE_END_CINEMATIC" ObjName="Player1" />
+		<event eventid="GE_SKIP_CINEMATIC" ObjName="Player1" />
+		<script>
+			GameFiltersUse()
+			SetCameraBehindPlayerVehicle()
+			RestoreAllToleranceStatus()
+			getObj("Carsen_vehicle_0"):setImmortalMode(0)
+			getObj("Carsen_vehicle_0"):AddModifier("MaxHP","= 0")
+			TDeactivate("CutsceneCarsen1")
+			TDeactivate("CutsceneCarsen2")
+			TActivate("GameCrash")
+			trigger:Deactivate()
+		</script>
+	</trigger>
+</triggers>

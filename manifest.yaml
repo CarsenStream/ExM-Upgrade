@@ -1,0 +1,79 @@
+# unique service name
+name: Upgrade
+language: ru
+installment: exmachina
+# required human readable info
+display_name: Upgrade для Community Remaster
+version: "1.1.1"
+build: "231231b"
+description: |
+  Upgrade - Сюжетно-технический мод. Добавляет новую карту, концовки и расширяет исползьуемый игроком автопарк.
+
+  Отдельное спасибо людям, за участие в разработке модификации: 
+    Озвучка: OverLine, Traygen, __nEmPoBu4__, Joomer, Gnome627, стакан
+    Карта: RiverZone
+  
+authors: Carsen
+
+# optional human readable info
+release_date: "30.09.2023"
+language: ru
+link: https://github.com/CarsenStream/ExM-Upgrade
+trailer_url: https://www.youtube.com/watch?v=hKthXKB6Ysg
+logo: assets/upgrade_logo.png
+install_banner: assets/upgrade_banner.png
+tags: [gameplay, story, vehicles]
+change_log: assets/upgrade_changelog.md
+screenshots:
+  - img: assets/screen_1.jpg
+    text: |
+      Главное меню Upgrade
+  - img: assets/screen_2.jpg
+    text: |
+      Одно из случайных событий
+  - img: assets/screen_3.jpg
+    text: |
+      Новые авто в продаже
+  - img: assets/screen_4.jpg
+    text: |
+      Усложнённый квест с поиском артефактов
+  - img: assets/screen_5.jpg
+    text: |
+      Утренний Кайо-Мерико
+  - img: assets/screen_6.jpg
+    text: |
+      Ночной Кайо-Мерико
+
+# installation configuration
+no_base_content: false
+strict_requirements: true
+compatible_minor_versions: false
+compatible_patch_versions: false
+ 
+# installator compatibility
+patcher_version_requirement: "1.14"
+
+# community patch requirements
+prerequisites:
+  - name: [community_remaster]
+    versions: 
+     - "1.14"
+    optional_content:
+     - hd_gun_models
+     - hd_vehicle_models
+     - ost_remaster
+
+# optional mod content
+optional_content:
+  - name: Snowfall
+    display_name: Улучшенный снегопад
+    description: Более интенсивный и красивый снегопад в зимних локациях. Значительно влияет на производительность и не рекомендуется к установке людям со слабыми ПК.
+    default_option: skip
+  - name: Winter
+    display_name: Зима
+    description: Добавляет снег со снегопадом на все карты, на всех картах 4 типа погоды. Меняет всю растительность на заснеженную beta! Также стоит выключить блум, аддон плохо с ним работает.
+    default_option: skip
+  - name: Wheels
+    display_name: Новые колёса
+    description: Добавляет новые колёса для Молоковоза и Урала.
+    default_option: skip

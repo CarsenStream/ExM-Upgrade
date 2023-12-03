@@ -1,0 +1,266 @@
+<?xml version="1.0" encoding="windows-1251" standalone="yes" ?>
+<triggers>
+
+	<trigger Name="METALFELIXDIE1" active="1">
+		<event eventid="GE_OBJECT_LEAVES_LOCATION" ObjName="BattleLoc" />
+		<script>
+			GetPlayerVehicle():SetGamePositionOnGround( CVector(3375.186, 371.264, 3332.176))
+			GetPlayerVehicle():SetRotation(Quaternion(-0.040, 0.997, -0.062, -0.005))
+			GetPlayerVehicle():SetThrottle( 0 )
+			GetPlayerVehicle():SetCustomLinearVelocity( 0 )
+			getObj("Carsen_vehicle_0"):SetGamePositionOnGround( CVector(3376.216, 368.424, 3268.017))
+			getObj("Carsen_vehicle_0"):SetRotation(Quaternion(-0.036, -0.011, 0.014, 0.999))
+			getObj("Carsen_vehicle_0"):SetThrottle( 0 )
+			getObj("Carsen_vehicle_0"):SetCustomLinearVelocity( 0 )
+		</script>
+	</trigger>
+
+
+	<trigger Name="StartCas" active="1">
+		<event timeout="0.5" eventid="GE_TIME_PERIOD" />
+		<script>
+			TActivate("CutsceneCarsen")
+			trigger:Deactivate() 
+		</script>
+	</trigger>
+
+	<trigger Name="CarsenEnding" active="0">
+		<event eventid="GE_VEHICLE_WITHOUT_HEALTH" ObjName="Carsen_vehicle_0" />
+		<script>
+			TDeactivate("Memory10")
+			TDeactivate("Memory9")
+			TDeactivate("Memory8")
+			TDeactivate("Memory7")
+			TDeactivate("Memory6")
+			TDeactivate("Memory5")
+			TDeactivate("Memory4")
+			TDeactivate("Memory3")
+			TDeactivate("Memory2")
+			TDeactivate("Memory1")
+			TDeactivate("MemoryStarted")
+			TDeactivate("MemoryStart")
+
+			TActivate("CutsceneCarsenEnding")
+		</script>
+	</trigger>
+
+	<trigger Name="GameCrash" active="0">
+		<event timeout="1" eventid="GE_TIME_PERIOD" />
+		<script>
+			SpawnMessageBox("665")
+			SpawnMessageBox("666")
+			g_Console:InputLine '\\quit'
+			trigger:Deactivate() 
+		</script>
+	</trigger>
+
+	<trigger Name="Health1" active="0">
+		<event timeout="1" eventid="GE_TIME_PERIOD" />
+		<script>
+		if 80000 > getObj("Carsen_vehicle_0"):GetHealth() then
+			AddFadingMsgId( "fm_carsen_1")
+
+			TeamCreate("Helper",1002,CVector(3376.216, 368.424, 3268.017),{"UralShot"})
+			TeamCreate("Helper",1002,CVector(3370.216, 368.424, 3268.017),{"UralShot"})
+			TActivate("Health2")
+			trigger:Deactivate() 
+		end
+		</script>
+	</trigger>
+	
+	<trigger Name="Health2" active="0">
+		<event timeout="1" eventid="GE_TIME_PERIOD" />
+		<script>
+		if 70000 > getObj("Carsen_vehicle_0"):GetHealth() then
+			AddFadingMsgId( "fm_carsen_2")
+
+			TeamCreate("Helper",1002,CVector(3376.216, 368.424, 3268.017),{"UralShot"})
+			TeamCreate("Helper",1002,CVector(3370.216, 368.424, 3268.017),{"UralShot"})
+			TeamCreate("Helper",1002,CVector(3365.216, 368.424, 3268.017),{"UralShot"})
+			TeamCreate("Helper",1002,CVector(3360.216, 368.424, 3268.017),{"UralShot"})
+			TActivate("Health3")
+			trigger:Deactivate() 
+		end
+		</script>
+	</trigger>
+
+	<trigger Name="Health3" active="0">
+		<event timeout="1" eventid="GE_TIME_PERIOD" />
+		<script>
+		if 50000 > getObj("Carsen_vehicle_0"):GetHealth() then
+			AddFadingMsgId( "fm_carsen_3")
+			TeamCreate("Helper",1002,CVector(3376.216, 368.424, 3268.017),{"UralShot"})
+			TeamCreate("Helper",1002,CVector(3370.216, 368.424, 3268.017),{"UralShot"})
+			TeamCreate("Helper",1002,CVector(3365.216, 368.424, 3268.017),{"UralShot"})
+			TeamCreate("Helper",1002,CVector(3360.216, 368.424, 3268.017),{"UralShot"})
+			TActivate("Health4")
+			trigger:Deactivate() 
+		end
+		</script>
+	</trigger>
+
+	<trigger Name="Health4" active="0">
+		<event timeout="1" eventid="GE_TIME_PERIOD" />
+		<script>
+		if 35000 > getObj("Carsen_vehicle_0"):GetHealth() then
+		AddFadingMsgId( "fm_carsen_4")
+
+		local heal = getObj("Carsen_vehicle_0"):GetHealth()
+
+		TeamCreate("CarsenClone1",1002,CVector(3381.216, 368.424, 3268.017),{"UralCarsen"})
+		TeamCreate("CarsenClone2",1002,CVector(3371.216, 368.424, 3268.017),{"UralCarsen"})
+
+		getObj("CarsenClone1_vehicle_0"):AddModifier("hp","= heal")
+		getObj("CarsenClone2_vehicle_0"):AddModifier("hp","= heal")
+			TActivate("Health5")
+			trigger:Deactivate() 
+		end
+		</script>
+	</trigger>
+
+	<trigger Name="Health5" active="0">
+		<event timeout="1" eventid="GE_TIME_PERIOD" />
+		<script>
+		if 5000 > getObj("Carsen_vehicle_0"):GetHealth() then
+			AddFadingMsgId( "fm_carsen_last")
+			AllowSave( false )
+			TActivate("MemoryStart")
+			trigger:Deactivate() 
+		end
+		</script>
+	</trigger>
+
+	<trigger Name="MemoryStart" active="0">
+		<event timeout="1" eventid="GE_TIME_PERIOD" />
+		<script>
+			AddFadingMsgId( "fm_carsen_last")
+
+			TActivate("Memory10")
+			TActivate("Memory9")
+			TActivate("Memory8")
+			TActivate("Memory7")
+			TActivate("Memory6")
+			TActivate("Memory5")
+			TActivate("Memory4")
+			TActivate("Memory3")
+			TActivate("Memory2")
+			TActivate("Memory1")
+			TActivate("MemoryStarted")
+			trigger:Deactivate() 
+		</script>
+	</trigger>
+
+	<trigger Name="Memory10" active="0">
+		<event timeout="1" eventid="GE_TIME_PERIOD" />
+		<script>
+			AddFadingMsgId( "fm_memory_10")
+
+			trigger:Deactivate() 
+		</script>
+	</trigger>
+	
+	<trigger Name="Memory9" active="0">
+		<event timeout="2" eventid="GE_TIME_PERIOD" />
+		<script>
+			AddFadingMsgId( "fm_memory_9")
+
+			trigger:Deactivate() 
+		</script>
+	</trigger>
+
+	<trigger Name="Memory8" active="0">
+		<event timeout="3" eventid="GE_TIME_PERIOD" />
+		<script>
+			AddFadingMsgId( "fm_memory_8")
+
+			trigger:Deactivate() 
+		</script>
+	</trigger>
+	
+	<trigger Name="Memory7" active="0">
+		<event timeout="4" eventid="GE_TIME_PERIOD" />
+		<script>
+			AddFadingMsgId( "fm_memory_7")
+
+			trigger:Deactivate() 
+		</script>
+	</trigger>
+	
+	<trigger Name="Memory6" active="0">
+		<event timeout="5" eventid="GE_TIME_PERIOD" />
+		<script>
+			AddFadingMsgId( "fm_memory_6")
+
+			trigger:Deactivate() 
+		</script>
+	</trigger>
+	
+	<trigger Name="Memory5" active="0">
+		<event timeout="6" eventid="GE_TIME_PERIOD" />
+		<script>
+			AddFadingMsgId( "fm_memory_5")
+
+			trigger:Deactivate() 
+		</script>
+	</trigger>
+	
+	<trigger Name="Memory4" active="0">
+		<event timeout="7" eventid="GE_TIME_PERIOD" />
+		<script>
+			AddFadingMsgId( "fm_memory_4")
+
+			trigger:Deactivate() 
+		</script>
+	</trigger>
+	
+	<trigger Name="Memory3" active="0">
+		<event timeout="8" eventid="GE_TIME_PERIOD" />
+		<script>
+			AddFadingMsgId( "fm_memory_3")
+
+			trigger:Deactivate() 
+		</script>
+	</trigger>
+	
+	<trigger Name="Memory2" active="0">
+		<event timeout="9" eventid="GE_TIME_PERIOD" />
+		<script>
+			AddFadingMsgId( "fm_memory_2")
+
+			trigger:Deactivate() 
+		</script>
+	</trigger>
+	
+	<trigger Name="Memory1" active="0">
+		<event timeout="10" eventid="GE_TIME_PERIOD" />
+		<script>
+			AddFadingMsgId( "fm_memory_1")
+
+			trigger:Deactivate() 
+		</script>
+	</trigger>
+	
+	<trigger Name="MemoryStarted" active="0">
+		<event timeout="11" eventid="GE_TIME_PERIOD" />
+		<script>
+			AddFadingMsgId( "fm_memory_start")
+
+			TActivate("MemoryDie")
+			trigger:Deactivate() 
+		</script>
+	</trigger>
+
+	<trigger Name="MemoryDie" active="0">
+		<event timeout="0.1" eventid="GE_TIME_PERIOD" />
+		<script>
+			TeamCreate("Helper",1002,CVector(3376.216, 368.424, 3268.017),{"UralShot"})
+			TeamCreate("Helper",1002,CVector(3370.216, 368.424, 3268.017),{"UralShot"})
+			TeamCreate("Helper",1002,CVector(3365.216, 368.424, 3268.017),{"UralShot"})
+			TeamCreate("Helper",1002,CVector(3360.216, 368.424, 3268.017),{"UralShot"})
+			TeamCreate("Helper",1002,CVector(3376.216, 368.424, 3268.017),{"UralShot"})
+			TeamCreate("Helper",1002,CVector(3370.216, 368.424, 3268.017),{"UralShot"})
+			TeamCreate("Helper",1002,CVector(3365.216, 368.424, 3268.017),{"UralShot"})
+			TeamCreate("Helper",1002,CVector(3360.216, 368.424, 3268.017),{"UralShot"})
+		</script>
+	</trigger>
+</triggers>
