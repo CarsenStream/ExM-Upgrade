@@ -1071,7 +1071,7 @@
 
 			PlayCustomMusic("mainmenu")
 
-			Fly("end_game", CINEMATIC_NO_AIM, 0, 410, 1, 1 )
+			Fly("end_game", CINEMATIC_NO_AIM, 0, 292, 1, 1 )
 			StartCinematic()
 
 			AddCinematicMessage( 77772, 0.1)
@@ -1102,7 +1102,7 @@
 
 			PlayCustomMusic("mainmenu")
 
-			Fly("end_game", CINEMATIC_NO_AIM, 0, 430, 1, 1 )
+			Fly("end_game", CINEMATIC_NO_AIM, 0, 317, 1, 1 )
 			StartCinematic()
 
 			AddCinematicMessage( 77771, 0.1)

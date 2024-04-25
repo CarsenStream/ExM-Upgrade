@@ -4,8 +4,8 @@ language: ru
 installment: exmachina
 # required human readable info
 display_name: Upgrade для Community Remaster
-version: "1.1.1"
-build: "231231b"
+version: "1.1.2"
+build: "240425a"
 description: |
   Upgrade - Сюжетно-технический мод. Добавляет новую карту, концовки и расширяет исползьуемый игроком автопарк.
 
@@ -49,15 +49,17 @@ no_base_content: false
 strict_requirements: true
 compatible_minor_versions: false
 compatible_patch_versions: false
+
+options_base_dir: options
  
 # installator compatibility
-patcher_version_requirement: "2.0"
+patcher_version_requirement: "2.1.1"
 
 # community patch requirements
 prerequisites:
-  - name: [community_remaster]
-    versions: 
-     - "1.14"
+  - name: community_remaster
+    versions:
+      - ">=1.14.1"
     optional_content:
      - hd_gun_models
      - hd_vehicle_models
