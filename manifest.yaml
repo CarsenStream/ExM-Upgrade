@@ -5,7 +5,7 @@ installment: exmachina
 # required human readable info
 display_name: Upgrade для Community Remaster
 version: "1.1.2"
-build: "240425a"
+build: "240510a"
 description: |
   Upgrade - Сюжетно-технический мод. Добавляет новую карту, концовки и расширяет исползьуемый игроком автопарк.
 
