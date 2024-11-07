@@ -60,18 +60,18 @@
 
 ### Озвучка:
 
-**[OverLine](https://github.com/lineisover)**, **Traygen**, **[__nEmPoBu4__](https://github.com/lyokhatankist)**, **[Joomer](https://github.com/JoomerOffical)**, **[Gnome627](https://github.com/Gnome627)**, **[стакан](https://github.com/ksh1vn)**
+**[OverLine](https://github.com/lineisover)**, **Traygen**, **[__nEmPoBu4__](https://github.com/lyokhatankist)**, **[Joomer](https://github.com/JoomerOffical)**, **[Gnome627](https://github.com/Gnome627)**, **[стакан](https://github.com/stakanyash)**
 
 ### Карта Кайо-Мерико:
 **RiverZone**
 
 ### Тестирование:
-**[Gnome627](https://github.com/Gnome627)**, **MrKarfen**, **[стакан](https://github.com/ksh1vn)**
+**[Gnome627](https://github.com/Gnome627)**, **MrKarfen**, **[стакан](https://github.com/stakanyash)**
 
 ### Редактирование диалогов:
 
-**[стакан](https://github.com/ksh1vn)**
+**[стакан](https://github.com/stakanyash)**
 
 -----------------------------------------------------------------------------------------------
 
-README written by [стакан](https://github.com/ksh1vn)
+README written by [стакан](https://github.com/stakanyash)
