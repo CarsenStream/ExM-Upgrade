@@ -5,7 +5,7 @@
 # Ex Machina: Upgrade
 
 ![status](https://img.shields.io/badge/status-release-brightgreen?style=for-the-badge)
-[![version](https://img.shields.io/badge/version-2.0-blue?style=for-the-badge)](https://github.com/CarsenStream/ExM-Upgrade/releases/tag/upgrade_v_2_0)
+[![version](https://img.shields.io/badge/version-2.0-blue?style=for-the-badge)](https://github.com/CarsenStream/ExM-Upgrade/releases/latest)
 ![lang](https://img.shields.io/badge/language-RU-purple?style=for-the-badge)
 
 </div>
