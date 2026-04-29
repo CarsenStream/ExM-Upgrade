@@ -1,0 +1,1817 @@
+<?xml version="1.0" encoding="windows-1251" standalone="yes" ?>
+
+<!--
+$Id: SmallGuns.xml,v 1.58 2005/11/28 07:43:57 anton Exp $
+-->
+
+<Prototypes>
+
+
+	<Prototype
+		Class			= "CompoundGun"
+		Name				= "cirgun"
+		Price				= "25200"
+
+		Decal				= "DC_ROKET"
+		CanBeUsedInAutogenerating  =  "0"
+		CanBeDroppedFromEnemies		= "false"
+
+     		ApplyAffixes	= "false"
+		ResourceType		= "TARAN_WEAPON">	
+		<Part id = "BASKET_TARAN_GUN"	Prototype = "cir" /> 
+	</Prototype>
+
+	<Prototype
+		Class			= "BulletLauncher"
+		Name			= "cir"
+		ModelFile			= "cir"
+		ResourceType		= "TARAN_WEAPON"
+		NodeScale		= "1 1 1"
+		Mass			= "1.0"
+				
+		BulletPrototype		= "raybullet"
+		ExplosionType		= "MACHINEGUN"
+		FiringEffect		= "none"
+		Damage			= "30"
+		FiringRate			= "1500"
+		GroupingAngle		= "0.8"
+		FiringRange		= "1"
+		RecoilForce		= "2"
+		FiringType		= "MachineGun"
+		Price			= "1"
+		CanBeUsedInAutogenerating  =  "0"
+		Decal				= "DC_GUN"
+		TurningSpeed		= "60"
+		ChargeSize     = "1000"
+		RechargingTime = "0"
+		VisibleInEncyclopedia = "false"
+		IgnoreStopAnglesWhenFire = "true"
+		CanBeDroppedFromEnemies		= "false"
+		Durability			= "50" />
+
+	<Prototype
+		Class			= "CompoundGun"
+		Name				= "combinegun"
+		Price				= "80000"
+
+		Decal				= "DC_ROKET"
+		CanBeUsedInAutogenerating  =  "0"
+		CanBeDroppedFromEnemies		= "false"
+
+     		ApplyAffixes	= "false"
+		ResourceType		= "TARAN_WEAPON">	
+		<Part id = "BASKET_TARAN_GUN"	Prototype = "combine" /> 
+	</Prototype>
+
+	<Prototype
+		Class			= "BulletLauncher"
+		Name			= "combine"
+		ModelFile			= "combine"
+		ResourceType		= "TARAN_WEAPON"
+		NodeScale		= "1 1 1"
+		Mass			= "1.0"
+				
+		BulletPrototype		= "raybullet"
+		ExplosionType		= "MACHINEGUN"
+		FiringEffect		= "none"
+		Damage			= "50"
+		FiringRate			= "2000"
+		GroupingAngle		= "0.8"
+		FiringRange		= "1"
+		RecoilForce		= "2"
+		FiringType		= "MachineGun"
+		Price			= "1"
+		CanBeUsedInAutogenerating  =  "0"
+		Decal				= "DC_GUN"
+		TurningSpeed		= "60"
+		ChargeSize     = "1000"
+		RechargingTime = "0"
+		VisibleInEncyclopedia = "false"
+		IgnoreStopAnglesWhenFire = "true"
+		CanBeDroppedFromEnemies		= "false"
+		Durability			= "100" />
+
+	<Prototype
+		Class			= "CompoundGun"
+		Name				= "burgun"
+		Price				= "9100"
+
+		Decal				= "DC_ROKET"
+		CanBeUsedInAutogenerating  =  "0"
+		CanBeDroppedFromEnemies		= "false"
+
+     		ApplyAffixes	= "false"
+		ResourceType		= "TARAN_WEAPON">	
+		<Part id = "BASKET_TARAN_GUN"	Prototype = "bur01" /> 
+	</Prototype>
+
+	<Prototype
+		Class			= "BulletLauncher"
+		Name			= "bur01"
+		ModelFile			= "bur01"
+		ResourceType		= "TARAN_WEAPON"
+		NodeScale		= "1 1 1"
+		Mass			= "1.0"
+				
+		BulletPrototype		= "raybullet"
+		ExplosionType		= "MACHINEGUN"
+		FiringEffect		= "none"
+		Damage			= "15"
+		FiringRate			= "1100"
+		GroupingAngle		= "0.8"
+		FiringRange		= "1"
+		RecoilForce		= "2"
+		FiringType		= "MachineGun"
+		Price			= "1"
+		CanBeUsedInAutogenerating  =  "0"
+		Decal				= "DC_GUN"
+		TurningSpeed		= "60"
+		ChargeSize     = "1000"
+		RechargingTime = "0"
+		VisibleInEncyclopedia = "false"
+		IgnoreStopAnglesWhenFire = "true"
+		CanBeDroppedFromEnemies		= "false"
+		Durability			= "25" />
+
+	<Prototype
+		Class			= "Cabin"
+		Name			= "TuningNull"
+		ModelFile		= "point"
+		ResourceType	= "TUNING_CABIN"
+		NodeScale		= "1 1 1"
+		Mass			= "1.0"
+		ApplyAffixes	= "false"
+		BulletPrototype	= "smokeScreenLocation"
+		ExplosionType	= "MACHINEGUN"
+		FiringEffect	= "none"
+		Damage			= "0"
+		FiringRate		= "20"
+		GroupingAngle	= "0.5"
+		FiringRange		= "0"
+		RecoilForce		= "2"		
+		VisibleInEncyclopedia = "false"
+		CanBeUsedInAutogenerating  =  "0"
+		Price			= "1500"
+		
+
+		ChargeSize     		= "0"
+		RechargingTime 		= "3"
+		Durability		= "20" 
+		FiringType		= "Nail"
+	/>
+
+	<Prototype
+		Class			= "Cabin"
+		Name			= "uralTuningBody01"
+		ModelFile		= "uralTuningBody01"
+		ResourceType	= "TUNING_CABIN"
+		NodeScale		= "1 1 1"
+		Mass			= "1.0"
+		ApplyAffixes	= "false"
+		BulletPrototype	= "smokeScreenLocation"
+		ExplosionType	= "MACHINEGUN"
+		FiringEffect	= "none"
+		Damage			= "0"
+		FiringRate		= "20"
+		GroupingAngle	= "0.5"
+		FiringRange		= "0"
+		RecoilForce		= "2"		
+		VisibleInEncyclopedia = "false"
+		CanBeUsedInAutogenerating  =  "0"
+		Price			= "1500"
+		
+
+		ChargeSize     		= "0"
+		RechargingTime 		= "3"
+		Durability		= "20" 
+		FiringType		= "Nail"
+	/>
+
+	<Prototype
+		Class			= "Cabin"
+		Name			= "uralTuningBody02"
+		ModelFile		= "uralTuningBody02"
+		ResourceType	= "TUNING_CABIN"
+		NodeScale		= "1 1 1"
+		Mass			= "1.0"
+		ApplyAffixes	= "false"
+		BulletPrototype	= "smokeScreenLocation"
+		ExplosionType	= "MACHINEGUN"
+		FiringEffect	= "none"
+		Damage			= "0"
+		FiringRate		= "20"
+		GroupingAngle	= "0.5"
+		FiringRange		= "0"
+		RecoilForce		= "2"		
+		VisibleInEncyclopedia = "false"
+		CanBeUsedInAutogenerating  =  "0"
+		Price			= "1500"
+		
+
+		ChargeSize     		= "0"
+		RechargingTime 		= "3"
+		Durability		= "20" 
+		FiringType		= "Nail"
+	/>
+
+	<Prototype
+		Class			= "Cabin"
+		Name			= "uralTuningBody03"
+		ModelFile		= "uralTuningBody03"
+		ResourceType	= "TUNING_CABIN"
+		NodeScale		= "1 1 1"
+		Mass			= "1.0"
+		ApplyAffixes	= "false"
+		BulletPrototype	= "smokeScreenLocation"
+		ExplosionType	= "MACHINEGUN"
+		FiringEffect	= "none"
+		Damage			= "0"
+		FiringRate		= "20"
+		GroupingAngle	= "0.5"
+		FiringRange		= "0"
+		RecoilForce		= "2"		
+		VisibleInEncyclopedia = "false"
+		CanBeUsedInAutogenerating  =  "0"
+		Price			= "1500"
+		
+
+		ChargeSize     		= "0"
+		RechargingTime 		= "3"
+		Durability		= "20" 
+		FiringType		= "Nail"
+	/>
+
+	<Prototype
+		Class			= "Cabin"
+		Name			= "uralTuningTrofei01"
+		ModelFile		= "uralTuningTrofei01"
+		ResourceType	= "TUNING_CABIN"
+		NodeScale		= "1 1 1"
+		Mass			= "1.0"
+		ApplyAffixes	= "false"
+		BulletPrototype	= "smokeScreenLocation"
+		ExplosionType	= "MACHINEGUN"
+		FiringEffect	= "none"
+		Damage			= "0"
+		FiringRate		= "20"
+		GroupingAngle	= "0.5"
+		FiringRange		= "0"
+		RecoilForce		= "2"		
+		VisibleInEncyclopedia = "false"
+		CanBeUsedInAutogenerating  =  "0"
+		Price			= "1000"
+		
+
+		ChargeSize     		= "0"
+		RechargingTime 		= "3"
+		Durability		= "20" 
+		FiringType		= "Nail"
+	/>
+
+	<Prototype
+		Class			= "Cabin"
+		Name			= "uralTuningTrofei02"
+		ModelFile		= "uralTuningTrofei02"
+		ResourceType	= "TUNING_CABIN"
+		NodeScale		= "1 1 1"
+		Mass			= "1.0"
+		ApplyAffixes	= "false"
+		BulletPrototype	= "smokeScreenLocation"
+		ExplosionType	= "MACHINEGUN"
+		FiringEffect	= "none"
+		Damage			= "0"
+		FiringRate		= "20"
+		GroupingAngle	= "0.5"
+		FiringRange		= "0"
+		RecoilForce		= "2"		
+		VisibleInEncyclopedia = "false"
+		CanBeUsedInAutogenerating  =  "0"
+		Price			= "1000"
+		
+
+		ChargeSize     		= "0"
+		RechargingTime 		= "3"
+		Durability		= "20" 
+		FiringType		= "Nail"
+	/>
+
+	<Prototype
+		Class			= "Cabin"
+		Name			= "uralTuningTrofei03"
+		ModelFile		= "uralTuningTrofei03"
+		ResourceType	= "TUNING_CABIN"
+		NodeScale		= "1 1 1"
+		Mass			= "1.0"
+		ApplyAffixes	= "false"
+		BulletPrototype	= "smokeScreenLocation"
+		ExplosionType	= "MACHINEGUN"
+		FiringEffect	= "none"
+		Damage			= "0"
+		FiringRate		= "20"
+		GroupingAngle	= "0.5"
+		FiringRange		= "0"
+		RecoilForce		= "2"		
+		VisibleInEncyclopedia = "false"
+		CanBeUsedInAutogenerating  =  "0"
+		Price			= "1000"
+		
+
+		ChargeSize     		= "0"
+		RechargingTime 		= "3"
+		Durability		= "20" 
+		FiringType		= "Nail"
+	/>
+
+	<Prototype
+		Class			= "LocationPusher"
+		Name			= "uralTuningLights01"
+		ModelFile		= "uralTuningLights01"
+		ResourceType	= "TUNING_CABIN"
+		NodeScale		= "1 1 1"
+		Mass			= "1.0"
+		ApplyAffixes	= "false"
+		BulletPrototype	= "smokeScreenLocation"
+		ExplosionType	= "MACHINEGUN"
+		FiringEffect	= "none"
+		Damage			= "0"
+		FiringRate		= "20"
+		GroupingAngle	= "0.5"
+		FiringRange		= "0"
+		RecoilForce		= "2"		
+		VisibleInEncyclopedia = "false"
+		CanBeUsedInAutogenerating  =  "0"
+		Price			= "500"
+		
+
+		ChargeSize     		= "0"
+		RechargingTime 		= "3"
+		Durability		= "20" 
+		FiringType		= "Nail"
+	/>
+
+	<Prototype
+		Class			= "LocationPusher"
+		Name			= "uralTuningLights02"
+		ModelFile		= "uralTuningLights02"
+		ResourceType	= "TUNING_CABIN"
+		NodeScale		= "1 1 1"
+		Mass			= "1.0"
+		ApplyAffixes	= "false"
+		BulletPrototype	= "smokeScreenLocation"
+		ExplosionType	= "MACHINEGUN"
+		FiringEffect	= "none"
+		Damage			= "0"
+		FiringRate		= "20"
+		GroupingAngle	= "0.5"
+		FiringRange		= "0"
+		RecoilForce		= "2"		
+		VisibleInEncyclopedia = "false"
+		CanBeUsedInAutogenerating  =  "0"
+		Price			= "500"
+		
+
+		ChargeSize     		= "0"
+		RechargingTime 		= "3"
+		Durability		= "20" 
+		FiringType		= "Nail"
+	/>
+
+	<Prototype
+		Class			= "LocationPusher"
+		Name			= "uralTuningLights03"
+		ModelFile		= "uralTuningLights03"
+		ResourceType	= "TUNING_CABIN"
+		NodeScale		= "1 1 1"
+		Mass			= "1.0"
+		ApplyAffixes	= "false"
+		BulletPrototype	= "smokeScreenLocation"
+		ExplosionType	= "MACHINEGUN"
+		FiringEffect	= "none"
+		Damage			= "0"
+		FiringRate		= "20"
+		GroupingAngle	= "0.5"
+		FiringRange		= "0"
+		RecoilForce		= "2"		
+		VisibleInEncyclopedia = "false"
+		CanBeUsedInAutogenerating  =  "0"
+		Price			= "500"
+		
+
+		ChargeSize     		= "0"
+		RechargingTime 		= "3"
+		Durability		= "20" 
+		FiringType		= "Nail"
+	/>
+
+	<Prototype
+		Class			= "LocationPusher"
+		Name			= "scoutTuningLights01"
+		ModelFile		= "scoutTuningLights01"
+		ResourceType	= "TUNING_CABIN"
+		NodeScale		= "1 1 1"
+		Mass			= "1.0"
+		ApplyAffixes	= "false"
+		BulletPrototype	= "smokeScreenLocation"
+		ExplosionType	= "MACHINEGUN"
+		FiringEffect	= "none"
+		Damage			= "0"
+		FiringRate		= "20"
+		GroupingAngle	= "0.5"
+		FiringRange		= "0"
+		RecoilForce		= "2"		
+		VisibleInEncyclopedia = "false"
+		CanBeUsedInAutogenerating  =  "0"
+		Price			= "500"
+		
+
+		ChargeSize     		= "0"
+		RechargingTime 		= "3"
+		Durability		= "20" 
+		FiringType		= "Nail"
+	/>
+
+	<Prototype
+		Class			= "LocationPusher"
+		Name			= "scoutTuningLights02"
+		ModelFile		= "scoutTuningLights02"
+		ResourceType	= "TUNING_CABIN"
+		NodeScale		= "1 1 1"
+		Mass			= "1.0"
+		ApplyAffixes	= "false"
+		BulletPrototype	= "smokeScreenLocation"
+		ExplosionType	= "MACHINEGUN"
+		FiringEffect	= "none"
+		Damage			= "0"
+		FiringRate		= "20"
+		GroupingAngle	= "0.5"
+		FiringRange		= "0"
+		RecoilForce		= "2"		
+		VisibleInEncyclopedia = "false"
+		CanBeUsedInAutogenerating  =  "0"
+		Price			= "500"
+		
+
+		ChargeSize     		= "0"
+		RechargingTime 		= "3"
+		Durability		= "20" 
+		FiringType		= "Nail"
+	/>
+
+	<Prototype
+		Class			= "LocationPusher"
+		Name			= "scoutTuningLights03"
+		ModelFile		= "scoutTuningLights03"
+		ResourceType	= "TUNING_CABIN"
+		NodeScale		= "1 1 1"
+		Mass			= "1.0"
+		ApplyAffixes	= "false"
+		BulletPrototype	= "smokeScreenLocation"
+		ExplosionType	= "MACHINEGUN"
+		FiringEffect	= "none"
+		Damage			= "0"
+		FiringRate		= "20"
+		GroupingAngle	= "0.5"
+		FiringRange		= "0"
+		RecoilForce		= "2"		
+		VisibleInEncyclopedia = "false"
+		CanBeUsedInAutogenerating  =  "0"
+		Price			= "500"
+		
+
+		ChargeSize     		= "0"
+		RechargingTime 		= "3"
+		Durability		= "20" 
+		FiringType		= "Nail"
+	/>
+
+	<Prototype
+		Class			= "Cabin"
+		Name			= "scoutTuningBody01"
+		ModelFile		= "scoutTuningBody01"
+		ResourceType	= "TUNING_CABIN"
+		NodeScale		= "1 1 1"
+		Mass			= "1.0"
+		ApplyAffixes	= "false"
+		BulletPrototype	= "smokeScreenLocation"
+		ExplosionType	= "MACHINEGUN"
+		FiringEffect	= "none"
+		Damage			= "0"
+		FiringRate		= "20"
+		GroupingAngle	= "0.5"
+		FiringRange		= "0"
+		RecoilForce		= "2"		
+		VisibleInEncyclopedia = "false"
+		CanBeUsedInAutogenerating  =  "0"
+		Price			= "1500"
+		
+
+		ChargeSize     		= "0"
+		RechargingTime 		= "3"
+		Durability		= "20" 
+		FiringType		= "Nail"
+	/>
+
+	<Prototype
+		Class			= "Cabin"
+		Name			= "scoutTuningBody02"
+		ModelFile		= "scoutTuningBody02"
+		ResourceType	= "TUNING_CABIN"
+		NodeScale		= "1 1 1"
+		Mass			= "1.0"
+		ApplyAffixes	= "false"
+		BulletPrototype	= "smokeScreenLocation"
+		ExplosionType	= "MACHINEGUN"
+		FiringEffect	= "none"
+		Damage			= "0"
+		FiringRate		= "20"
+		GroupingAngle	= "0.5"
+		FiringRange		= "0"
+		RecoilForce		= "2"		
+		VisibleInEncyclopedia = "false"
+		CanBeUsedInAutogenerating  =  "0"
+		Price			= "1500"
+		
+
+		ChargeSize     		= "0"
+		RechargingTime 		= "3"
+		Durability		= "20" 
+		FiringType		= "Nail"
+	/>
+
+	<Prototype
+		Class			= "Cabin"
+		Name			= "scoutTuningBody03"
+		ModelFile		= "scoutTuningBody03"
+		ResourceType	= "TUNING_CABIN"
+		NodeScale		= "1 1 1"
+		Mass			= "1.0"
+		ApplyAffixes	= "false"
+		BulletPrototype	= "smokeScreenLocation"
+		ExplosionType	= "MACHINEGUN"
+		FiringEffect	= "none"
+		Damage			= "0"
+		FiringRate		= "20"
+		GroupingAngle	= "0.5"
+		FiringRange		= "0"
+		RecoilForce		= "2"		
+		VisibleInEncyclopedia = "false"
+		CanBeUsedInAutogenerating  =  "0"
+		Price			= "1500"
+		
+
+		ChargeSize     		= "0"
+		RechargingTime 		= "3"
+		Durability		= "20" 
+		FiringType		= "Nail"
+	/>
+
+	<Prototype
+		Class			= "Cabin"
+		Name			= "scoutTuningTrofei01"
+		ModelFile		= "scoutTuningTrofei01"
+		ResourceType	= "TUNING_CABIN"
+		NodeScale		= "1 1 1"
+		Mass			= "1.0"
+		ApplyAffixes	= "false"
+		BulletPrototype	= "smokeScreenLocation"
+		ExplosionType	= "MACHINEGUN"
+		FiringEffect	= "none"
+		Damage			= "0"
+		FiringRate		= "20"
+		GroupingAngle	= "0.5"
+		FiringRange		= "0"
+		RecoilForce		= "2"		
+		VisibleInEncyclopedia = "false"
+		CanBeUsedInAutogenerating  =  "0"
+		Price			= "1500"
+		
+
+		ChargeSize     		= "0"
+		RechargingTime 		= "3"
+		Durability		= "20" 
+		FiringType		= "Nail"
+	/>
+
+	<Prototype
+		Class			= "Cabin"
+		Name			= "scoutTuningTrofei02"
+		ModelFile		= "scoutTuningTrofei02"
+		ResourceType	= "TUNING_CABIN"
+		NodeScale		= "1 1 1"
+		Mass			= "1.0"
+		ApplyAffixes	= "false"
+		BulletPrototype	= "smokeScreenLocation"
+		ExplosionType	= "MACHINEGUN"
+		FiringEffect	= "none"
+		Damage			= "0"
+		FiringRate		= "20"
+		GroupingAngle	= "0.5"
+		FiringRange		= "0"
+		RecoilForce		= "2"		
+		VisibleInEncyclopedia = "false"
+		CanBeUsedInAutogenerating  =  "0"
+		Price			= "1500"
+		
+
+		ChargeSize     		= "0"
+		RechargingTime 		= "3"
+		Durability		= "20" 
+		FiringType		= "Nail"
+	/>
+
+	<Prototype
+		Class			= "Cabin"
+		Name			= "scoutTuningTrofei03"
+		ModelFile		= "scoutTuningTrofei03"
+		ResourceType	= "TUNING_CABIN"
+		NodeScale		= "1 1 1"
+		Mass			= "1.0"
+		ApplyAffixes	= "false"
+		BulletPrototype	= "smokeScreenLocation"
+		ExplosionType	= "MACHINEGUN"
+		FiringEffect	= "none"
+		Damage			= "0"
+		FiringRate		= "20"
+		GroupingAngle	= "0.5"
+		FiringRange		= "0"
+		RecoilForce		= "2"		
+		VisibleInEncyclopedia = "false"
+		CanBeUsedInAutogenerating  =  "0"
+		Price			= "1500"
+		
+
+		ChargeSize     		= "0"
+		RechargingTime 		= "3"
+		Durability		= "20" 
+		FiringType		= "Nail"
+	/>
+
+	<Prototype
+		Class			= "Cabin"
+		Name			= "bugTuningBody01"
+		ModelFile		= "bugTuningBody01"
+		ResourceType	= "TUNING_CABIN"
+		NodeScale		= "1 1 1"
+		Mass			= "1.0"
+		ApplyAffixes	= "false"
+		BulletPrototype	= "smokeScreenLocation"
+		ExplosionType	= "MACHINEGUN"
+		FiringEffect	= "none"
+		Damage			= "0"
+		FiringRate		= "20"
+		GroupingAngle	= "0.5"
+		FiringRange		= "0"
+		RecoilForce		= "2"		
+		VisibleInEncyclopedia = "false"
+		CanBeUsedInAutogenerating  =  "0"
+		Price			= "1500"
+		
+
+		ChargeSize     		= "0"
+		RechargingTime 		= "3"
+		Durability		= "20" 
+		FiringType		= "Nail"
+	/>
+
+	<Prototype
+		Class			= "Cabin"
+		Name			= "bugTuningBody02"
+		ModelFile		= "bugTuningBody02"
+		ResourceType	= "TUNING_CABIN"
+		NodeScale		= "1 1 1"
+		Mass			= "1.0"
+		ApplyAffixes	= "false"
+		BulletPrototype	= "smokeScreenLocation"
+		ExplosionType	= "MACHINEGUN"
+		FiringEffect	= "none"
+		Damage			= "0"
+		FiringRate		= "20"
+		GroupingAngle	= "0.5"
+		FiringRange		= "0"
+		RecoilForce		= "2"		
+		VisibleInEncyclopedia = "false"
+		CanBeUsedInAutogenerating  =  "0"
+		Price			= "1500"
+		
+
+		ChargeSize     		= "0"
+		RechargingTime 		= "3"
+		Durability		= "20" 
+		FiringType		= "Nail"
+	/>
+
+	<Prototype
+		Class			= "Cabin"
+		Name			= "bugTuningBody03"
+		ModelFile		= "bugTuningBody03"
+		ResourceType	= "TUNING_CABIN"
+		NodeScale		= "1 1 1"
+		Mass			= "1.0"
+		ApplyAffixes	= "false"
+		BulletPrototype	= "smokeScreenLocation"
+		ExplosionType	= "MACHINEGUN"
+		FiringEffect	= "none"
+		Damage			= "0"
+		FiringRate		= "20"
+		GroupingAngle	= "0.5"
+		FiringRange		= "0"
+		RecoilForce		= "2"		
+		VisibleInEncyclopedia = "false"
+		CanBeUsedInAutogenerating  =  "0"
+		Price			= "1500"
+		
+
+		ChargeSize     		= "0"
+		RechargingTime 		= "3"
+		Durability		= "20" 
+		FiringType		= "Nail"
+	/>
+
+	<Prototype
+		Class			= "LocationPusher"
+		Name			= "bugTuningLights01"
+		ModelFile		= "bugTuningLights01"
+		ResourceType	= "TUNING_CABIN"
+		NodeScale		= "1 1 1"
+		Mass			= "1.0"
+		ApplyAffixes	= "false"
+		BulletPrototype	= "smokeScreenLocation"
+		ExplosionType	= "MACHINEGUN"
+		FiringEffect	= "none"
+		Damage			= "0"
+		FiringRate		= "20"
+		GroupingAngle	= "0.5"
+		FiringRange		= "0"
+		RecoilForce		= "2"		
+		VisibleInEncyclopedia = "false"
+		CanBeUsedInAutogenerating  =  "0"
+		Price			= "500"
+		
+
+		ChargeSize     		= "0"
+		RechargingTime 		= "3"
+		Durability		= "20" 
+		FiringType		= "Nail"
+	/>
+
+	<Prototype
+		Class			= "LocationPusher"
+		Name			= "bugTuningLights02"
+		ModelFile		= "bugTuningLights02"
+		ResourceType	= "TUNING_CABIN"
+		NodeScale		= "1 1 1"
+		Mass			= "1.0"
+		ApplyAffixes	= "false"
+		BulletPrototype	= "smokeScreenLocation"
+		ExplosionType	= "MACHINEGUN"
+		FiringEffect	= "none"
+		Damage			= "0"
+		FiringRate		= "20"
+		GroupingAngle	= "0.5"
+		FiringRange		= "0"
+		RecoilForce		= "2"		
+		VisibleInEncyclopedia = "false"
+		CanBeUsedInAutogenerating  =  "0"
+		Price			= "500"
+		
+
+		ChargeSize     		= "0"
+		RechargingTime 		= "3"
+		Durability		= "20" 
+		FiringType		= "Nail"
+	/>
+
+	<Prototype
+		Class			= "LocationPusher"
+		Name			= "bugTuningLights03"
+		ModelFile		= "bugTuningLights03"
+		ResourceType	= "TUNING_CABIN"
+		NodeScale		= "1 1 1"
+		Mass			= "1.0"
+		ApplyAffixes	= "false"
+		BulletPrototype	= "smokeScreenLocation"
+		ExplosionType	= "MACHINEGUN"
+		FiringEffect	= "none"
+		Damage			= "0"
+		FiringRate		= "20"
+		GroupingAngle	= "0.5"
+		FiringRange		= "0"
+		RecoilForce		= "2"		
+		VisibleInEncyclopedia = "false"
+		CanBeUsedInAutogenerating  =  "0"
+		Price			= "500"
+		
+
+		ChargeSize     		= "0"
+		RechargingTime 		= "3"
+		Durability		= "20" 
+		FiringType		= "Nail"
+	/>
+
+	<Prototype
+		Class			= "Cabin"
+		Name			= "bugTuningTrofei01"
+		ModelFile		= "bugTuningTrofei01"
+		ResourceType	= "TUNING_CABIN"
+		NodeScale		= "1 1 1"
+		Mass			= "1.0"
+		ApplyAffixes	= "false"
+		BulletPrototype	= "smokeScreenLocation"
+		ExplosionType	= "MACHINEGUN"
+		FiringEffect	= "none"
+		Damage			= "0"
+		FiringRate		= "20"
+		GroupingAngle	= "0.5"
+		FiringRange		= "0"
+		RecoilForce		= "2"		
+		VisibleInEncyclopedia = "false"
+		CanBeUsedInAutogenerating  =  "0"
+		Price			= "1500"
+		
+
+		ChargeSize     		= "0"
+		RechargingTime 		= "3"
+		Durability		= "20" 
+		FiringType		= "Nail"
+	/>
+
+	<Prototype
+		Class			= "Cabin"
+		Name			= "bugTuningTrofei02"
+		ModelFile		= "bugTuningTrofei02"
+		ResourceType	= "TUNING_CABIN"
+		NodeScale		= "1 1 1"
+		Mass			= "1.0"
+		ApplyAffixes	= "false"
+		BulletPrototype	= "smokeScreenLocation"
+		ExplosionType	= "MACHINEGUN"
+		FiringEffect	= "none"
+		Damage			= "0"
+		FiringRate		= "20"
+		GroupingAngle	= "0.5"
+		FiringRange		= "0"
+		RecoilForce		= "2"		
+		VisibleInEncyclopedia = "false"
+		CanBeUsedInAutogenerating  =  "0"
+		Price			= "1500"
+		
+
+		ChargeSize     		= "0"
+		RechargingTime 		= "3"
+		Durability		= "20" 
+		FiringType		= "Nail"
+	/>
+
+	<Prototype
+		Class			= "Cabin"
+		Name			= "bugTuningTrofei03"
+		ModelFile		= "bugTuningTrofei03"
+		ResourceType	= "TUNING_CABIN"
+		NodeScale		= "1 1 1"
+		Mass			= "1.0"
+		ApplyAffixes	= "false"
+		BulletPrototype	= "smokeScreenLocation"
+		ExplosionType	= "MACHINEGUN"
+		FiringEffect	= "none"
+		Damage			= "0"
+		FiringRate		= "20"
+		GroupingAngle	= "0.5"
+		FiringRange		= "0"
+		RecoilForce		= "2"		
+		VisibleInEncyclopedia = "false"
+		CanBeUsedInAutogenerating  =  "0"
+		Price			= "1500"
+		
+
+		ChargeSize     		= "0"
+		RechargingTime 		= "3"
+		Durability		= "20" 
+		FiringType		= "Nail"
+	/>
+
+	<Prototype
+		Class			= "Cabin"
+		Name			= "molokovozTuningBody01"
+		ModelFile		= "molokovozTuningBody01"
+		ResourceType	= "TUNING_CABIN"
+		NodeScale		= "1 1 1"
+		Mass			= "1.0"
+		ApplyAffixes	= "false"
+		BulletPrototype	= "smokeScreenLocation"
+		ExplosionType	= "MACHINEGUN"
+		FiringEffect	= "none"
+		Damage			= "0"
+		FiringRate		= "20"
+		GroupingAngle	= "0.5"
+		FiringRange		= "0"
+		RecoilForce		= "2"		
+		VisibleInEncyclopedia = "false"
+		CanBeUsedInAutogenerating  =  "0"
+		Price			= "1500"
+		
+
+		ChargeSize     		= "0"
+		RechargingTime 		= "3"
+		Durability		= "20" 
+		FiringType		= "Nail"
+	/>
+
+	<Prototype
+		Class			= "Cabin"
+		Name			= "molokovozTuningBody02"
+		ModelFile		= "molokovozTuningBody02"
+		ResourceType	= "TUNING_CABIN"
+		NodeScale		= "1 1 1"
+		Mass			= "1.0"
+		ApplyAffixes	= "false"
+		BulletPrototype	= "smokeScreenLocation"
+		ExplosionType	= "MACHINEGUN"
+		FiringEffect	= "none"
+		Damage			= "0"
+		FiringRate		= "20"
+		GroupingAngle	= "0.5"
+		FiringRange		= "0"
+		RecoilForce		= "2"		
+		VisibleInEncyclopedia = "false"
+		CanBeUsedInAutogenerating  =  "0"
+		Price			= "1500"
+		
+
+		ChargeSize     		= "0"
+		RechargingTime 		= "3"
+		Durability		= "20" 
+		FiringType		= "Nail"
+	/>
+
+	<Prototype
+		Class			= "Cabin"
+		Name			= "molokovozTuningBody03"
+		ModelFile		= "molokovozTuningBody03"
+		ResourceType	= "TUNING_CABIN"
+		NodeScale		= "1 1 1"
+		Mass			= "1.0"
+		ApplyAffixes	= "false"
+		BulletPrototype	= "smokeScreenLocation"
+		ExplosionType	= "MACHINEGUN"
+		FiringEffect	= "none"
+		Damage			= "0"
+		FiringRate		= "20"
+		GroupingAngle	= "0.5"
+		FiringRange		= "0"
+		RecoilForce		= "2"		
+		VisibleInEncyclopedia = "false"
+		CanBeUsedInAutogenerating  =  "0"
+		Price			= "1500"
+		
+
+		ChargeSize     		= "0"
+		RechargingTime 		= "3"
+		Durability		= "20" 
+		FiringType		= "Nail"
+	/>
+
+	<Prototype
+		Class			= "LocationPusher"
+		Name			= "molokovozTuningLights01"
+		ModelFile		= "molokovozTuningLights01"
+		ResourceType	= "TUNING_CABIN"
+		NodeScale		= "1 1 1"
+		Mass			= "1.0"
+		ApplyAffixes	= "false"
+		BulletPrototype	= "smokeScreenLocation"
+		ExplosionType	= "MACHINEGUN"
+		FiringEffect	= "none"
+		Damage			= "0"
+		FiringRate		= "20"
+		GroupingAngle	= "0.5"
+		FiringRange		= "0"
+		RecoilForce		= "2"		
+		VisibleInEncyclopedia = "false"
+		CanBeUsedInAutogenerating  =  "0"
+		Price			= "500"
+		
+
+		ChargeSize     		= "0"
+		RechargingTime 		= "3"
+		Durability		= "20" 
+		FiringType		= "Nail"
+	/>
+
+	<Prototype
+		Class			= "LocationPusher"
+		Name			= "molokovozTuningLights02"
+		ModelFile		= "molokovozTuningLights02"
+		ResourceType	= "TUNING_CABIN"
+		NodeScale		= "1 1 1"
+		Mass			= "1.0"
+		ApplyAffixes	= "false"
+		BulletPrototype	= "smokeScreenLocation"
+		ExplosionType	= "MACHINEGUN"
+		FiringEffect	= "none"
+		Damage			= "0"
+		FiringRate		= "20"
+		GroupingAngle	= "0.5"
+		FiringRange		= "0"
+		RecoilForce		= "2"		
+		VisibleInEncyclopedia = "false"
+		CanBeUsedInAutogenerating  =  "0"
+		Price			= "500"
+		
+
+		ChargeSize     		= "0"
+		RechargingTime 		= "3"
+		Durability		= "20" 
+		FiringType		= "Nail"
+	/>
+
+	<Prototype
+		Class			= "LocationPusher"
+		Name			= "molokovozTuningLights03"
+		ModelFile		= "molokovozTuningLights03"
+		ResourceType	= "TUNING_CABIN"
+		NodeScale		= "1 1 1"
+		Mass			= "1.0"
+		ApplyAffixes	= "false"
+		BulletPrototype	= "smokeScreenLocation"
+		ExplosionType	= "MACHINEGUN"
+		FiringEffect	= "none"
+		Damage			= "0"
+		FiringRate		= "20"
+		GroupingAngle	= "0.5"
+		FiringRange		= "0"
+		RecoilForce		= "2"		
+		VisibleInEncyclopedia = "false"
+		CanBeUsedInAutogenerating  =  "0"
+		Price			= "500"
+		
+
+		ChargeSize     		= "0"
+		RechargingTime 		= "3"
+		Durability		= "20" 
+		FiringType		= "Nail"
+	/>
+
+	<Prototype
+		Class			= "Cabin"
+		Name			= "molokovozTuningTrofei01"
+		ModelFile		= "molokovozTuningTrofei01"
+		ResourceType	= "TUNING_CABIN"
+		NodeScale		= "1 1 1"
+		Mass			= "1.0"
+		ApplyAffixes	= "false"
+		BulletPrototype	= "smokeScreenLocation"
+		ExplosionType	= "MACHINEGUN"
+		FiringEffect	= "none"
+		Damage			= "0"
+		FiringRate		= "20"
+		GroupingAngle	= "0.5"
+		FiringRange		= "0"
+		RecoilForce		= "2"		
+		VisibleInEncyclopedia = "false"
+		CanBeUsedInAutogenerating  =  "0"
+		Price			= "1500"
+		
+
+		ChargeSize     		= "0"
+		RechargingTime 		= "3"
+		Durability		= "20" 
+		FiringType		= "Nail"
+	/>
+
+	<Prototype
+		Class			= "Cabin"
+		Name			= "molokovozTuningTrofei02"
+		ModelFile		= "molokovozTuningTrofei02"
+		ResourceType	= "TUNING_CABIN"
+		NodeScale		= "1 1 1"
+		Mass			= "1.0"
+		ApplyAffixes	= "false"
+		BulletPrototype	= "smokeScreenLocation"
+		ExplosionType	= "MACHINEGUN"
+		FiringEffect	= "none"
+		Damage			= "0"
+		FiringRate		= "20"
+		GroupingAngle	= "0.5"
+		FiringRange		= "0"
+		RecoilForce		= "2"		
+		VisibleInEncyclopedia = "false"
+		CanBeUsedInAutogenerating  =  "0"
+		Price			= "1500"
+		
+
+		ChargeSize     		= "0"
+		RechargingTime 		= "3"
+		Durability		= "20" 
+		FiringType		= "Nail"
+	/>
+
+	<Prototype
+		Class			= "Cabin"
+		Name			= "molokovozTuningTrofei03"
+		ModelFile		= "molokovozTuningTrofei03"
+		ResourceType	= "TUNING_CABIN"
+		NodeScale		= "1 1 1"
+		Mass			= "1.0"
+		ApplyAffixes	= "false"
+		BulletPrototype	= "smokeScreenLocation"
+		ExplosionType	= "MACHINEGUN"
+		FiringEffect	= "none"
+		Damage			= "0"
+		FiringRate		= "20"
+		GroupingAngle	= "0.5"
+		FiringRange		= "0"
+		RecoilForce		= "2"		
+		VisibleInEncyclopedia = "false"
+		CanBeUsedInAutogenerating  =  "0"
+		Price			= "1500"
+		
+
+		ChargeSize     		= "0"
+		RechargingTime 		= "3"
+		Durability		= "20" 
+		FiringType		= "Nail"
+	/>
+
+	<Prototype
+		Class			= "Cabin"
+		Name			= "mirotvorecTuningBody01"
+		ModelFile		= "mirotvorecTuningBody01"
+		ResourceType	= "TUNING_CABIN"
+		NodeScale		= "1 1 1"
+		Mass			= "1.0"
+		ApplyAffixes	= "false"
+		BulletPrototype	= "smokeScreenLocation"
+		ExplosionType	= "MACHINEGUN"
+		FiringEffect	= "none"
+		Damage			= "0"
+		FiringRate		= "20"
+		GroupingAngle	= "0.5"
+		FiringRange		= "0"
+		RecoilForce		= "2"		
+		VisibleInEncyclopedia = "false"
+		CanBeUsedInAutogenerating  =  "0"
+		Price			= "1500"
+		
+
+		ChargeSize     		= "0"
+		RechargingTime 		= "3"
+		Durability		= "20" 
+		FiringType		= "Nail"
+	/>
+
+	<Prototype
+		Class			= "Cabin"
+		Name			= "mirotvorecTuningBody02"
+		ModelFile		= "mirotvorecTuningBody02"
+		ResourceType	= "TUNING_CABIN"
+		NodeScale		= "1 1 1"
+		Mass			= "1.0"
+		ApplyAffixes	= "false"
+		BulletPrototype	= "smokeScreenLocation"
+		ExplosionType	= "MACHINEGUN"
+		FiringEffect	= "none"
+		Damage			= "0"
+		FiringRate		= "20"
+		GroupingAngle	= "0.5"
+		FiringRange		= "0"
+		RecoilForce		= "2"		
+		VisibleInEncyclopedia = "false"
+		CanBeUsedInAutogenerating  =  "0"
+		Price			= "1500"
+		
+
+		ChargeSize     		= "0"
+		RechargingTime 		= "3"
+		Durability		= "20" 
+		FiringType		= "Nail"
+	/>
+
+	<Prototype
+		Class			= "Cabin"
+		Name			= "mirotvorecTuningBody03"
+		ModelFile		= "mirotvorecTuningBody03"
+		ResourceType	= "TUNING_CABIN"
+		NodeScale		= "1 1 1"
+		Mass			= "1.0"
+		ApplyAffixes	= "false"
+		BulletPrototype	= "smokeScreenLocation"
+		ExplosionType	= "MACHINEGUN"
+		FiringEffect	= "none"
+		Damage			= "0"
+		FiringRate		= "20"
+		GroupingAngle	= "0.5"
+		FiringRange		= "0"
+		RecoilForce		= "2"		
+		VisibleInEncyclopedia = "false"
+		CanBeUsedInAutogenerating  =  "0"
+		Price			= "1500"
+		
+
+		ChargeSize     		= "0"
+		RechargingTime 		= "3"
+		Durability		= "20" 
+		FiringType		= "Nail"
+	/>
+
+	<Prototype
+		Class			= "LocationPusher"
+		Name			= "mirotvorecTuningLights01"
+		ModelFile		= "mirotvorecTuningLights01"
+		ResourceType	= "TUNING_CABIN"
+		NodeScale		= "1 1 1"
+		Mass			= "1.0"
+		ApplyAffixes	= "false"
+		BulletPrototype	= "smokeScreenLocation"
+		ExplosionType	= "MACHINEGUN"
+		FiringEffect	= "none"
+		Damage			= "0"
+		FiringRate		= "20"
+		GroupingAngle	= "0.5"
+		FiringRange		= "0"
+		RecoilForce		= "2"		
+		VisibleInEncyclopedia = "false"
+		CanBeUsedInAutogenerating  =  "0"
+		Price			= "500"
+		
+
+		ChargeSize     		= "0"
+		RechargingTime 		= "3"
+		Durability		= "20" 
+		FiringType		= "Nail"
+	/>
+
+	<Prototype
+		Class			= "LocationPusher"
+		Name			= "mirotvorecTuningLights02"
+		ModelFile		= "mirotvorecTuningLights02"
+		ResourceType	= "TUNING_CABIN"
+		NodeScale		= "1 1 1"
+		Mass			= "1.0"
+		ApplyAffixes	= "false"
+		BulletPrototype	= "smokeScreenLocation"
+		ExplosionType	= "MACHINEGUN"
+		FiringEffect	= "none"
+		Damage			= "0"
+		FiringRate		= "20"
+		GroupingAngle	= "0.5"
+		FiringRange		= "0"
+		RecoilForce		= "2"		
+		VisibleInEncyclopedia = "false"
+		CanBeUsedInAutogenerating  =  "0"
+		Price			= "500"
+		
+
+		ChargeSize     		= "0"
+		RechargingTime 		= "3"
+		Durability		= "20" 
+		FiringType		= "Nail"
+	/>
+
+	<Prototype
+		Class			= "LocationPusher"
+		Name			= "mirotvorecTuningLights03"
+		ModelFile		= "mirotvorecTuningLights03"
+		ResourceType	= "TUNING_CABIN"
+		NodeScale		= "1 1 1"
+		Mass			= "1.0"
+		ApplyAffixes	= "false"
+		BulletPrototype	= "smokeScreenLocation"
+		ExplosionType	= "MACHINEGUN"
+		FiringEffect	= "none"
+		Damage			= "0"
+		FiringRate		= "20"
+		GroupingAngle	= "0.5"
+		FiringRange		= "0"
+		RecoilForce		= "2"		
+		VisibleInEncyclopedia = "false"
+		CanBeUsedInAutogenerating  =  "0"
+		Price			= "500"
+		
+
+		ChargeSize     		= "0"
+		RechargingTime 		= "3"
+		Durability		= "20" 
+		FiringType		= "Nail"
+	/>
+
+	<Prototype
+		Class			= "Cabin"
+		Name			= "mirotvorecTuningTrofei01"
+		ModelFile		= "mirotvorecTuningTrofei01"
+		ResourceType	= "TUNING_CABIN"
+		NodeScale		= "1 1 1"
+		Mass			= "1.0"
+		ApplyAffixes	= "false"
+		BulletPrototype	= "smokeScreenLocation"
+		ExplosionType	= "MACHINEGUN"
+		FiringEffect	= "none"
+		Damage			= "0"
+		FiringRate		= "20"
+		GroupingAngle	= "0.5"
+		FiringRange		= "0"
+		RecoilForce		= "2"		
+		VisibleInEncyclopedia = "false"
+		CanBeUsedInAutogenerating  =  "0"
+		Price			= "1500"
+		
+
+		ChargeSize     		= "0"
+		RechargingTime 		= "3"
+		Durability		= "20" 
+		FiringType		= "Nail"
+	/>
+
+	<Prototype
+		Class			= "Cabin"
+		Name			= "mirotvorecTuningTrofei02"
+		ModelFile		= "mirotvorecTuningTrofei02"
+		ResourceType	= "TUNING_CABIN"
+		NodeScale		= "1 1 1"
+		Mass			= "1.0"
+		ApplyAffixes	= "false"
+		BulletPrototype	= "smokeScreenLocation"
+		ExplosionType	= "MACHINEGUN"
+		FiringEffect	= "none"
+		Damage			= "0"
+		FiringRate		= "20"
+		GroupingAngle	= "0.5"
+		FiringRange		= "0"
+		RecoilForce		= "2"		
+		VisibleInEncyclopedia = "false"
+		CanBeUsedInAutogenerating  =  "0"
+		Price			= "1500"
+		
+
+		ChargeSize     		= "0"
+		RechargingTime 		= "3"
+		Durability		= "20" 
+		FiringType		= "Nail"
+	/>
+
+	<Prototype
+		Class			= "Cabin"
+		Name			= "mirotvorecTuningTrofei03"
+		ModelFile		= "mirotvorecTuningTrofei03"
+		ResourceType	= "TUNING_CABIN"
+		NodeScale		= "1 1 1"
+		Mass			= "1.0"
+		ApplyAffixes	= "false"
+		BulletPrototype	= "smokeScreenLocation"
+		ExplosionType	= "MACHINEGUN"
+		FiringEffect	= "none"
+		Damage			= "0"
+		FiringRate		= "20"
+		GroupingAngle	= "0.5"
+		FiringRange		= "0"
+		RecoilForce		= "2"		
+		VisibleInEncyclopedia = "false"
+		CanBeUsedInAutogenerating  =  "0"
+		Price			= "1500"
+		
+
+		ChargeSize     		= "0"
+		RechargingTime 		= "3"
+		Durability		= "20" 
+		FiringType		= "Nail"
+	/>
+
+	<Prototype
+		Class			= "TurboAccelerationPusher"
+		Name			= "someTurboAccelerationPusher"
+		ModelFile		= "Turboakselerator"
+		ResourceType		= "SPECIAL_WEAPON"
+		NodeScale		= "1 1 1"
+		Mass			= "1.0"
+		ApplyAffixes		= "false"
+		BulletPrototype		= "turbo"
+		ExplosionType		= "MACHINEGUN"
+		FiringEffect		= "none"
+		Damage			= "0"
+		FiringRate		= "3"
+		GroupingAngle		= "1.0"
+		FiringRange		= "0"
+		RecoilForce		= "2"		
+
+		CanBeUsedInAutogenerating  =  "0"
+		Price			= "8600"
+		
+		ChargeSize     		= "1"
+		RechargingTime 		= "20"
+
+		Durability		= "20" 
+		
+		ShellsPoolSize		= "39"
+		WithShellsPoolLimit	= "true"
+		
+		AccelerationValue	= "1.5"
+		AccelerationTime	= "20"
+		FiringType		= "Turbo"
+	/>
+
+	<Prototype
+		Class			= "LocationPusher"
+		Name			= "engineOilPusher"
+		ModelFile		= "MasloRazliF"
+		ResourceType		= "SPECIAL_WEAPON"
+		NodeScale		= "1 1 1"
+		Mass			= "1.0"
+		ApplyAffixes		= "false"
+		BulletPrototype		= "engineOilLocation"
+		ExplosionType		= "MACHINEGUN"
+		FiringEffect		= "none"
+		Damage			= "0"
+		FiringRate		= "60"
+		GroupingAngle		= "0.5"
+		FiringRange		= "20"
+		RecoilForce		= "2"		
+
+		CanBeUsedInAutogenerating  =  "0"
+		Price			= "3670"
+		
+		ChargeSize     		= "20"
+		RechargingTime 		= "8"
+		ShellsPoolSize		= "80"
+		WithShellsPoolLimit	= "true"
+
+		Durability		= "20" 
+		FiringType		= "Oil"
+	/>
+
+	<Prototype
+		Class			= "LocationPusher"
+		Name			= "nailsPusher"
+		ModelFile		= "meXaNizm"
+		ResourceType		= "SPECIAL_WEAPON"
+		NodeScale		= "1 1 1"
+		Mass			= "1.0"
+		ApplyAffixes	= "false"
+		BulletPrototype		= "nailLocation"
+		ExplosionType		= "MACHINEGUN"
+		FiringEffect		= "none"
+		Damage			= "0"
+		FiringRate		= "60"
+		GroupingAngle		= "0.5"
+		FiringRange		= "10"
+		RecoilForce		= "2"		
+
+		CanBeUsedInAutogenerating  =  "0"
+		Price			= "4700"
+		
+
+		ChargeSize     		= "30"
+		RechargingTime 		= "10"
+
+		ShellsPoolSize		= "90"
+		WithShellsPoolLimit	= "true"
+		Durability		= "20" 
+		FiringType		= "Nail"
+	/>
+
+	<Prototype
+		Class			= "LocationPusher"
+		Name			= "Smoke"
+		ModelFile		= "Dimzavesa"
+		ResourceType	= "SPECIAL_WEAPON"
+		NodeScale		= "1 1 1"
+		Mass			= "1.0"
+		ApplyAffixes	= "false"
+		BulletPrototype	= "smokeScreenLocation"
+		ExplosionType	= "MACHINEGUN"
+		FiringEffect	= "none"
+		Damage			= "0"
+		FiringRate		= "20"
+		GroupingAngle	= "0.5"
+		FiringRange		= "0"
+		RecoilForce		= "2"		
+
+		CanBeUsedInAutogenerating  =  "0"
+		Price			= "1780"
+		
+
+		ChargeSize     		= "1"
+		RechargingTime 		= "3"
+		ShellsPoolSize		= "20"
+		WithShellsPoolLimit	= "true"
+
+		Durability		= "20" 
+		FiringType		= "Type_Smoke"
+	/>
+
+	<Prototype
+		Class			= "MinePusher"
+		Name			= "minePusher"
+		ModelFile		= "minoYkladchiK"
+		ResourceType		= "SPECIAL_WEAPON"
+		NodeScale		= "1 1 1"
+		Mass			= "1.0"
+		ApplyAffixes	= "false"
+		BulletPrototype		= "mine"
+		ExplosionType	= "CANNON"
+		FiringEffect		= "none"
+		Damage			= "150"
+		FiringRate		= "15"
+		GroupingAngle		= "0.5"
+		FiringRange		= "500"
+		RecoilForce		= "2"		
+
+		CanBeUsedInAutogenerating  =  "0"
+		Price				= "1120"
+		
+		ChargeSize     		= "1"
+		RechargingTime 		= "4"
+		DamageType	= "BLAST"
+		ShellsPoolSize		= "1"
+		WithShellsPoolLimit	= "true"
+
+		Durability		= "20" 
+		FiringType		= "Mine"
+	/>
+
+	<Prototype
+		Class			= "MinePusher"
+		Name			= "minePusher_1"
+		ModelFile		= "minoYkladchiK"
+		ResourceType		= "SPECIAL_WEAPON"
+		NodeScale		= "1 1 1"
+		Mass			= "1.0"
+		ApplyAffixes	= "false"
+		BulletPrototype		= "mine"
+		ExplosionType	= "CANNON"
+		FiringEffect		= "none"
+		Damage			= "400"
+		FiringRate		= "10"
+		GroupingAngle		= "0.5"
+		FiringRange			= "500"
+		RecoilForce			= "2"		
+      		DamageType	= "BLAST"
+		CanBeUsedInAutogenerating  =  "0"
+		Price			= "3540"
+		
+		ChargeSize     		= "1"
+		RechargingTime 		= "4"
+
+		ShellsPoolSize		= "20"
+		WithShellsPoolLimit	= "true"
+
+		Durability		= "20" 
+		FiringType		= "Mine"
+	/>
+
+	<Prototype
+		Class			= "MinePusher"
+		Name			= "minePusher_2"
+		ModelFile		= "minoYkladchiK"
+		ResourceType		= "SPECIAL_WEAPON"
+		NodeScale		= "1 1 1"
+		Mass			= "1.0"
+		ApplyAffixes	= "false"
+		BulletPrototype		= "mine"
+		ExplosionType	= "CANNON"
+		FiringEffect		= "none"
+		Damage			= "600"
+		FiringRate		= "8"
+		GroupingAngle		= "0.5"
+		FiringRange			= "500"
+		RecoilForce			= "2"		
+		DamageType	= "BLAST"
+		CanBeUsedInAutogenerating  =  "0"
+		Price			= "7400"
+		
+		ChargeSize     		= "1"
+		RechargingTime 		= "3"
+
+		ShellsPoolSize		= "20"
+		WithShellsPoolLimit	= "true"
+
+		Durability		= "20" 
+		FiringType		= "Mine"
+	/>
+
+	<Prototype
+		Class			= "BulletLauncher"
+		Name			= "hornet01"
+		ModelFile			= "hornet01"
+		ResourceType		= "SMALL_GUN"
+		NodeScale		= "1 1 1"
+		Mass			= "1.0"
+		TracerEffect 		="ET_PS_TRACER1"
+		TracerRange 		= "1" 
+		
+		BulletPrototype		= "raybullet"
+		ExplosionType		= "MACHINEGUN"
+		FiringEffect		= "none"
+		Damage			= "5"
+		FiringRate			= "400"
+		GroupingAngle		= "0.8"
+		FiringRange		= "500"
+		RecoilForce		= "2"
+                FiringType		= "MachineGun"
+		Price			= "280"
+		
+		Decal				= "DC_SML_MACHINEGUN"
+
+		ChargeSize     = "70"
+		RechargingTime = "2"
+
+		Durability			= "20" />
+
+	<Prototype
+		Class			= "BulletLauncher"
+		Name			= "specter01"
+		ModelFile			= "specter01"
+		ResourceType		= "SMALL_GUN"
+		NodeScale		= "1 1 1"
+		Mass			= "1.0"
+				
+		TracerEffect ="ET_PS_TRACER1"
+		TracerRange = "1" 
+			
+		BulletPrototype		= "raybullet"
+		ExplosionType		= "MACHINEGUN"
+		FiringEffect		= "none"
+		Damage			= "5"
+		FiringRate			= "600"
+		GroupingAngle		= "0.8"
+		FiringRange		= "500"
+		RecoilForce		= "2"
+		FiringType		= "MachineGun"
+		Price			= "590"
+		
+		Decal				= "DC_SML_MACHINEGUN"
+
+		ChargeSize     = "70"
+		RechargingTime = "2.5"
+
+		Durability			= "20" />
+
+	<Prototype
+		Class			= "BulletLauncher"
+		Name			= "specterfake"
+		ModelFile			= "specter01"
+		ResourceType		= "TANK_GUN"
+		NodeScale		= "1 1 1"
+		Mass			= "1.0"
+				
+		TracerEffect ="ET_PS_TRACER1"
+		TracerRange = "1" 
+			
+		BulletPrototype		= "raybullet"
+		ExplosionType		= "MACHINEGUN"
+		FiringEffect		= "none"
+		Damage			= "0"
+		FiringRate			= "1"
+		GroupingAngle		= "0.8"
+		FiringRange		= "500"
+		RecoilForce		= "2"
+		FiringType		= "MachineGun"
+		Price			= "590"
+		CanBeUsedInAutogenerating  =  "0"
+		Decal				= "DC_SML_MACHINEGUN"
+
+		ChargeSize     = "1"
+		RechargingTime = "10.5"
+
+		Durability			= "20" />
+
+	<Prototype
+		Class			= "BulletLauncher"
+		Name			= "pkt01"
+		ModelFile		= "pkt01"
+		ResourceType		= "SMALL_GUN"
+		NodeScale		= "1 1 1"
+		Mass			= "1.0"
+		
+		TracerEffect ="ET_PS_TRACER1"
+		TracerRange = "1" 
+	
+		BulletPrototype		= "raybullet"
+		ExplosionType		= "MACHINEGUN"
+		FiringEffect		= "none"
+		Damage		= "6"
+		FiringRate		= "650"
+		GroupingAngle		= "0.5"
+		FiringRange		= "1000"
+		RecoilForce		= "1"
+		FiringType		= "MachineGun"
+		Price			= "1670"
+		
+		Decal				= "DC_SML_MACHINEGUN"
+
+		ChargeSize     = "80"
+		RechargingTime = "3"
+
+		Durability		= "25"/>
+
+	<Prototype
+		Class			= "BulletLauncher"
+		Name			= "kord01"
+		ModelFile		= "kord01"
+		ResourceType		= "SMALL_GUN"
+		NodeScale		= "1 1 1"
+		Mass			= "1.0"
+		
+		TracerEffect ="ET_PS_TRACER1"
+		TracerRange = "1" 
+	
+		BulletPrototype		= "raybullet"
+		ExplosionType		= "MACHINEGUN"
+		FiringEffect		= "none"
+		Damage		= "10"
+		FiringRate		= "450"
+		GroupingAngle		= "0.9"
+		FiringRange		= "1000"
+		RecoilForce		= "2"
+                FiringType		= "MachineGun"
+		Price			= "3680"
+		
+		Decal				= "DC_SML_MACHINEGUN"
+
+		ChargeSize     = "55"
+		RechargingTime = "3"
+
+		Durability		= "25"/>
+
+
+	<Prototype
+		Class			= "PlasmaBunchLauncher"
+		Name			= "maxim01"
+		ModelFile		= "maxim01"
+		ResourceType		= "SMALL_GUN"
+		NodeScale		= "1 1 1"
+		Mass			= "1.0"
+		
+		BulletPrototype	= "someLaserBeamGreen"
+		ExplosionType	= "LASER"
+		FiringEffect	= "none"
+		Damage		= "65"
+		FiringRate		= "90"
+		GroupingAngle		= "0.3"
+		FiringRange		= "800"
+		RecoilForce		= "0"
+                FiringType		= "Laser"
+		Price			= "26600"
+		
+		Decal				= "DC_LASER"
+
+		ChargeSize     = "35"
+		RechargingTime = "3"
+
+		Durability		= "40"/>
+
+
+	<Prototype
+		Class			= "BulletLauncher"
+		Name			= "storm01"
+		ModelFile		= "storm01"
+		ResourceType	= "SMALL_GUN"
+		NodeScale		= "1 1 1"
+		Mass			= "1.0"
+		
+		TracerEffect ="ET_PS_TRACER1"
+		TracerRange = "1" 
+	
+		BulletPrototype	= "raybullet"
+		ExplosionType	= "MACHINEGUN"
+		FiringEffect	= "none"
+		Damage		= "160"
+		FiringRate		= "60"
+		GroupingAngle	= "3"
+		NumBulletsInShot	= "20"
+		FiringRange		= "200"
+		RecoilForce		= "3"
+                FiringType		= "ShotGun"
+		Price			= "3450"
+		
+		Decal				= "DC_SML_MACHINEGUN"
+
+		ChargeSize     = "5"
+		RechargingTime = "7"
+
+		Durability		= "50"/>
+
+	<Prototype
+		Class			= "PlasmaBunchLauncher"
+		Name			= "fagot01"
+		ModelFile		= "fagot01"
+		ResourceType		= "SMALL_GUN"
+		NodeScale		= "1 1 1"
+		Mass			= "1.0"
+		
+		BulletPrototype		= "somePlasmaBunch"
+		ExplosionType		= "PLASMA"
+		FiringEffect		= "none"
+		Damage			= "400"
+		FiringRate		= "15"
+		GroupingAngle		= "0.1"
+		FiringRange		= "2000"
+		RecoilForce		= "1"
+                FiringType		= "Plasma"
+		Price			= "25500"
+				
+		Decal				= "DC_LASER"
+
+		ChargeSize     = "1"
+		RechargingTime = "4"
+
+		Durability		= "40"/>
+</Prototypes>

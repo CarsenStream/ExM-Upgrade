@@ -1,0 +1,437 @@
+<?xml version="1.0" encoding="windows-1251" standalone="yes" ?>
+<triggers>
+	<trigger	Name="GlobalVar"	active="1">
+		<event	timeout="0.1"		eventid="GE_TIME_PERIOD" />
+		<script>
+--			println("Map Region 4 map 2: Initialised")
+			SetVar("CountArmyKill",0)
+			local test=0
+			if test==1 then
+--				println("TESTING: MAP DON'T WORK CORRECT WITH ANOTHER MAPS ")
+				CompleteQuest("r4m1_RescueBuharsCivilian")
+				TakeQuest("r4m1_GotoAivenGo")
+			end             
+			SetVar("PlayerExitVeh", 0)
+			trigger:Deactivate()
+		</script>
+	</trigger>
+
+	<trigger	Name="StartMapAndCheck"	active="1">
+		<event eventid="GE_GAME_START" ObjName="Player1" />
+		<script>
+				local diff = GetDifficultyLevel()
+				if diff == 0 then
+					RuleConsole("/ai_clash_coeff 0.000015")
+					RuleConsole("/ai_player_weapons_damage_coeff 1.5")
+					RuleConsole("/ai_enemies_ramming_damage_coeff 2")
+					RuleConsole("/ai_min_hit_velocity 30")
+				elseif diff == 1 then
+					RuleConsole("/ai_clash_coeff 0.000015")
+					RuleConsole("/ai_player_weapons_damage_coeff 1")
+					RuleConsole("/ai_enemies_ramming_damage_coeff 1")
+					RuleConsole("/ai_min_hit_velocity 30")
+				elseif diff == 2 then
+					RuleConsole("/ai_clash_coeff 0.003")
+					RuleConsole("/ai_player_weapons_damage_coeff 0.75")
+					RuleConsole("/ai_enemies_ramming_damage_coeff 1")
+					RuleConsole("/ai_min_hit_velocity 30")
+				end
+				
+		</script>
+	</trigger>
+
+	<trigger	Name="trStartMap"	active="1">
+		<event eventid="GE_GAME_START" ObjName="Player1" />
+		<script>
+			if QuestStatus("r4m2_FightWithCrazy")==Q_CANBEGIVEN then
+				TActivate("trMoveToFatherCar")
+				TActivate("trMoveToMilitaryBase")
+				TActivate("trNearBase")
+
+				CreateNewDummyObject( "mirotvorecCargo05", "mirCargo", -1, -1, CVector(1554.298, 329.958, 338.369), Quaternion(-0.0383, 0.7107, 0.0388, 0.7014), 8)
+				CreateNewDummyObject( "mirotvorecCab05", "mirCab", -1, -1, CVector(1559.402, 329.696, 338.649), Quaternion(0.0278, 0.7066, -0.0278, 0.7066), 8)
+
+				local Acab = GetEntityByName("mirCab")
+				if Acab then Acab:SetBelong(1042) end
+
+				local Acargo = GetEntityByName("mirCargo")
+				if Acargo then Acargo:SetBelong(1042) end
+
+				trigger:Deactivate()
+			end
+		</script>
+	</trigger>
+
+	<trigger	Name="trMoveToFatherCar"	active="0">
+		<event	eventid="GE_OBJECT_ENTERS_LOCATION"	ObjName="FatherCar_loc" />
+		<script>
+--			println("Father Car")
+
+			SaveAllToleranceStatus(RS_NEUTRAL)
+
+			local Plf = GetPlayerVehicle()
+			Plf:SetCustomControlEnabled( true )
+			Plf:SetCustomLinearVelocity( 0 )
+			Plf:SetThrottle( 0 )
+			Plf:SetCustomControlEnabled( false )
+
+			Fly("FatherCar_Cam", CINEMATIC_NO_AIM, 0, 28, 1, 1 )
+			StartCinematic()
+
+			AddCinematicMessage( 201, 0.25 )
+			AddCinematicMessage( 202, 0.25 )
+			AddCinematicMessage( 203, 0.25 )
+			AddCinematicMessage( 204, 0.25 )
+
+			TActivate("trMoveToFatherCar_End")
+
+			trigger:Deactivate()
+		</script>
+	</trigger>
+
+	<trigger Name="trMoveToFatherCar_End" active="0">
+		<event eventid="GE_END_CINEMATIC" ObjName="Player1" />
+		<event eventid="GE_SKIP_CINEMATIC" ObjName="Player1" />
+		<script>
+			RestoreAllToleranceStatus()
+
+			SetCameraBehindPlayerVehicle()
+
+			AddPlayerMoney(20000)
+			AddHistory( "r4_FindFatherCar" )
+			AddFadingMsgId( "fm_history_got" )
+			trigger:Deactivate()
+		</script>
+	</trigger>
+
+	<trigger	Name="trNearBase"	active="0">
+		<event	eventid="GE_OBJECT_ENTERS_LOCATION"	ObjName="NearEnterBase_loc" />
+		<script>
+--			println("Near Base")
+            TakeQuest("r4m2_FightWithCrazy")
+			TActivate("cinNearBase")
+			trigger:Deactivate()
+		</script>
+	</trigger>
+
+
+	<trigger	Name="trMoveToMilitaryBase"	active="0">
+		<event	eventid="GE_OBJECT_ENTERS_LOCATION"	ObjName="MilitaryBase_loc"/>
+		<script>
+--			println("Military Base")
+			if QuestStatus("r4m2_FightWithCrazy")==Q_CANBEGIVEN then
+				TActivate("trActivateArmyDie")
+				CompleteQuest("r4m1_FindMilitaryBase")
+				trigger:Deactivate()
+			end
+		</script>
+	</trigger>
+
+	<trigger	Name="trMBArmy01Die"	active="0">
+		<event	eventid="GE_OBJECT_DIE"	ObjName="MBArmy01" />
+		<event	eventid="GE_OBJECT_DIE"	ObjName="MBArmy02" />
+		<event	eventid="GE_OBJECT_DIE"	ObjName="MBArmy03" />
+		<event	eventid="GE_OBJECT_DIE"	ObjName="MBArmy04" />
+		<script>
+			TActivate("trActivateArmyDie")
+			trigger:Deactivate()
+		</script>
+	</trigger>
+
+	<trigger	Name="trActivateArmyDie"	active="0">
+		<event	timeout="0.5"		eventid="GE_TIME_PERIOD" />
+		<script>
+		    local count = GetVar("CountArmyKill").AsInt
+			if count>=6 then
+			   TActivate("trHelpers1")
+			   TDeactivate("trMBArmy01Die")
+			else
+				for i = 1,4 do
+					if getObj("MBArmy0"..i)==nil then
+						count = count + 1
+						local vehlist={"Tank01","Hunter01","Hunter02","Cruiser01","Cruiser02","UralShot","HunterKamikaze"}
+						local veh1=vehlist[random(getn(vehlist))]
+						local veh2=vehlist[random(getn(vehlist))]
+						CreateTeam("MBArmy0"..i, 1062, CVector(getPos("SpawnCrazy"..random(17).."_loc")),{veh1,veh2},CVector(getPos("MilitaryBase_loc")))
+					end
+				end
+				TActivate("trMBArmy01Die")
+				SetVar("CountArmyKill", count)
+			end
+			trigger:Deactivate()
+		</script>
+	</trigger>
+
+	<trigger	Name="trHelpers1"	active="0">
+		<event	timeout="2"		eventid="GE_TIME_PERIOD" />
+		<script>
+--			println("Helpers1")
+			TActivate("cinHelpersFirst")
+			trigger:Deactivate()
+		</script>
+	</trigger>
+
+	<trigger	Name="trNearPlate"	active="0">
+		<event	eventid="GE_OBJECT_ENTERS_LOCATION"	ObjName="NearPlateRadiation_loc" />
+		<script>
+--			println("trNearPlate")
+
+			TActivate("cinLookToTarelkaFirst")
+
+			AddHistory( "r4_NearTarelka" )
+--			AddHistory( "r4_AfterTarelka" )
+			AddFadingMsgId( "fm_history_got" )
+			CompleteQuest("r4m2_InvestigationPlate")
+			trigger:Deactivate()
+		</script>
+	</trigger>
+
+	<trigger	Name="trMoveToPlate"	active="1">
+		<event	eventid="GE_OBJECT_ENTERS_LOCATION"	ObjName="PlateRadiation_loc" />
+		<script>
+--			println("PLATE")
+			if GetVar("PlayerExitVeh").AsInt == 1 then
+				AddPlayerMoney(GetVar("money").AsInt)
+				SetVar("PlayerExitVeh", 0)
+				local plcarname=GetVar("PlayerCarName").AsString
+				local veh=getObj(plcarname)
+				GetPlayerVehicle():SetNameFromScript("PlayerHuman")
+				CapturePlayerVehicle()
+				getObj("PlayerHuman"):Remove()
+				g_Player:AddChild(veh)
+				GetPlayerVehicle():setGodMode(0)
+				GetPlayerVehicle():SetCustomControlEnabled(0)
+				TDeactivate("trPlayerReturnVehicleDist")
+				TActivate("trExitToR4M1")
+				RestoreWeaponGroups()
+				AllowSave( true )
+			end
+			TActivate("cinPlateFirst")
+			trigger:Deactivate()
+		</script>
+	</trigger>
+
+	<trigger Name="trExitToR4M1" active="1">
+		<event	eventid="GE_OBJECT_ENTERS_LOCATION"	ObjName="ExitFromMap" />
+		<script>
+			GetPlayerVehicle():SetCustomLinearVelocity( 0 )
+			local b = SpawnMessageBox( "8801" )
+
+			if b == 1 then
+--				println ("Yes")
+				PassToMap("r4m1", "FromR4M2", -1)
+			else
+--				println ("No")
+				TActivate("cinExit41ReturnFirst")				
+			end
+ 		</script>
+	</trigger>
+
+	<trigger	Name="trExitFromCity"	active="0">
+		<event	eventid="GE_LEAVE_TOWN"	ObjName="ScientiferVillage" />
+		<script>
+			TActivate("cinAfterTalkScienfFirst")
+			trigger:Deactivate()
+ 		</script>
+	</trigger>
+
+<!-- Концовка, уничтожение базы безумцев -->
+
+	<trigger	Name="DestroyBaseLoc"	active="0">
+		<event	eventid="GE_OBJECT_ENTERS_LOCATION"	ObjName="MilitaryBase_loc"/>
+		<script>
+			TActivate("DestroyBase")
+			trigger:Deactivate()
+		</script>
+	</trigger>
+
+	<trigger	Name="DestroyBase"	active="0">
+		<event timeout="1" eventid="GE_TIME_PERIOD" />
+		<script>
+			CreateTeam("BaseFighter1",1062,CVector(2357.583, 297.712, 1188.729),{"Tank01","BelazShot","UralShot","CruiserShot","Tank01"}, nil, Quaternion(0.000, 0.340, 0.002, 0.941))
+			CreateTeam("BaseFighter2",1062,CVector(2303.711, 297.356, 1187.997),{"Dozer01","BelazShot","Hunter02Menu","MirotvorecShot","Tank01"}, nil, Quaternion(-0.000, -0.898, -0.000, 0.439))
+			CreateTeam("BaseFighter3",1062,CVector(2339.106, 297.483, 1078.573),{"Tank01","Hunter01","UralShot","zil130_test","Tank01"}, nil, Quaternion(-0.005, -0.459, -0.010, -0.888))
+			TActivate("KillCounterDestroyBase")
+			trigger:Deactivate()
+		</script>
+	</trigger>
+
+	<trigger Name="KillCounterDestroyBase" active="0">
+	<event eventid="GE_OBJECT_DIE" ObjName="BaseFighter1" />
+	<event eventid="GE_OBJECT_DIE" ObjName="BaseFighter2" />
+	<event eventid="GE_OBJECT_DIE" ObjName="BaseFighter3" />
+		<script>
+			trigger:IncCount()
+			local count = trigger:GetCount()
+			if 3>count then
+				return
+			end
+			CompleteQuest("quest309")
+			TakeQuest("quest310")
+			trigger:Deactivate() 
+		</script>
+	</trigger>
+
+<!-- Выход из машины и наоборот - начало -->
+
+	<trigger Name="trPlayerExitVehicle" active="0">
+		<event timeout="1" eventid="GE_TIME_PERIOD" />
+		<script>
+			if GetVar("PlayerExitVeh").AsInt == 0 and IsQuestComplete("NewGame") then
+			SetVar("money", GetPlayerMoney())
+				g_Player:AddMoney(-999999999)
+			local pospl = GetPlayerVehicle():GetPosition()
+			local rotpl = GetPlayerVehicle():GetRotation(Quaternion())
+			local coord = GetPlayerVehicle():GetPosition()
+			SetVar("PlayerExitVeh", 1)
+--			SetVar("PlayerCarName",GetPlayerVehicle():GetName())
+				GetPlayerVehicle():SetCustomLinearVelocity( 0 )
+				GetPlayerVehicle():SetThrottle( 0 )
+			if	getObj("OldPlayerCar") then
+				local i = random(1,10000)
+				getObj("OldPlayerCar"):SetNameFromScript("OldPlayerCar0"..i)
+			end
+				GetPlayerVehicle():SetNameFromScript("OldPlayerCar")
+				CapturePlayerVehicle()
+				getObj("OldPlayerCar"):setGodMode(0)
+				getObj("OldPlayerCar"):SetCustomControlEnabled(0)
+				getObj("OldPlayerCar"):SetBelong(1080)
+--				local plcarname=GetVar("PlayerCarName").AsString
+--				local veh=getObj(plcarname)
+--				veh:setGodMode(0)
+--				veh:SetBelong(1080)
+				AddPlayerVehicle("Human01") 
+				GetPlayerVehicle():SetNameFromScript("PlayerHuman")
+				GetPlayerVehicle():SetBelong(1080)
+				TActivate("LocPlayerlll")
+				TDeactivate("triggerExitToMap11")
+				TDeactivate("triggerExitToMap13")
+				AllowSave( false )
+				GetPlayerVehicle():SetGamePositionOnGround( CVector(pospl))
+				coord.x = coord.x + 5
+        		coord.y = coord.y + 0
+        		coord.z = coord.z + 5
+        		GetPlayerVehicle():SetGamePositionOnGround(CVector(coord))
+				GetPlayerVehicle():SetRotation(Quaternion(rotpl))
+				TDeactivate("PlayerEnterCar")
+			end
+				trigger:Deactivate()
+		</script>
+	</trigger>
+	
+<!-- Выход из машины и наоборот - конец -->
+
+<!-- возможность сесть в любую машину!!! -->
+
+
+	<trigger Name="LocPlayerlll" active="1">
+		<event timeout="0.1" eventid="GE_TIME_PERIOD" />
+		<script>
+		if GetVar("PlayerExitVeh").AsInt == 1 then
+			local coord = GetPlayerVehicle():GetPosition()
+				coord.x = coord.x + 4
+        		coord.y = coord.y + 0
+        		coord.z = coord.z + 4
+			getObj("player_veh_loc1"):SetPosition(CVector(coord))
+				coord.x = coord.x - 8
+        		coord.y = coord.y + 0
+        		coord.z = coord.z - 8
+			getObj("player_veh_loc2"):SetPosition(CVector(coord))
+				coord.x = coord.x - 0
+        		coord.y = coord.y + 0
+        		coord.z = coord.z + 8
+			getObj("player_veh_loc3"):SetPosition(CVector(coord))
+				coord.x = coord.x + 8
+        		coord.y = coord.y + 0
+        		coord.z = coord.z - 8
+			getObj("player_veh_loc4"):SetPosition(CVector(coord))
+		else
+			trigger:Deactivate()
+		end 
+		</script>
+	</trigger>
+
+	<trigger Name="CarEnterLoc" active="1">
+		<event eventid="GE_OBJECT_ENTERS_LOCATION" ObjName="player_veh_loc1" />
+		<event eventid="GE_OBJECT_ENTERS_LOCATION" ObjName="player_veh_loc2" />
+		<event eventid="GE_OBJECT_ENTERS_LOCATION" ObjName="player_veh_loc3" />
+		<event eventid="GE_OBJECT_ENTERS_LOCATION" ObjName="player_veh_loc4" />
+		<script>
+			CarId = GetEntityByID(trigger:GetTriggeredObjectID(0))
+			local PlayerId = GetPlayerVehicle()
+			CaridBelong = CarId:GetBelong()
+
+			println(PlayerId)
+			println(CarId)
+
+			if CarId == PlayerId then
+			getObj("player_veh_loc1"):SetPosition(CVector(20,0,20))
+			getObj("player_veh_loc2"):SetPosition(CVector(20,0,20))
+			getObj("player_veh_loc3"):SetPosition(CVector(20,0,20))
+			getObj("player_veh_loc4"):SetPosition(CVector(20,0,20))
+			println("Player cannot enter the car because he is alone in the location.")
+			TDeactivate("CarLeaveLoc")
+			SetVar("PlayerWithCar", 0)
+			else
+			TActivate("CarLeaveLoc")
+			SetVar("PlayerWithCar", 1)
+			AddImportantFadingMsgByStrIdFormatted("fm_entervehtrue_1")
+			trigger:Deactivate()
+			end
+		</script>
+	</trigger>
+
+	<trigger Name="CarLeaveLoc" active="0">
+		<event eventid="GE_OBJECT_LEAVES_LOCATION" ObjName="player_veh_loc1" />
+		<event eventid="GE_OBJECT_LEAVES_LOCATION" ObjName="player_veh_loc2" />
+		<event eventid="GE_OBJECT_LEAVES_LOCATION" ObjName="player_veh_loc3" />
+		<event eventid="GE_OBJECT_LEAVES_LOCATION" ObjName="player_veh_loc4" />
+		<script>
+				TActivate("CarEnterLoc")
+				SetVar("PlayerWithCar", 0)
+				AddImportantFadingMsgByStrIdFormatted("fm_entervehfalse_1")
+				trigger:Deactivate()
+		</script>
+	</trigger>
+
+	<trigger Name="PlayerEnterCar" active="0">
+		<event timeout="0.1" eventid="GE_TIME_PERIOD" />
+		<script>
+			if GetVar("PlayerExitVeh").AsInt == 1 and GetVar("PlayerWithCar").AsInt == 1 and CarId:IsAlive() then
+				AllowSave( true )
+				GetPlayerVehicle():SetNameFromScript("PlayerHuman")
+				CapturePlayerVehicle()
+				getObj("PlayerHuman"):Remove()
+				g_Player:AddChild(CarId)
+
+				SetVar("PlayerWithCar", 0)
+				SetVar("PlayerExitVeh", 0)
+
+				TActivate("CarEnterLoc")
+				TActivate("LocPlayerlll")
+
+				GetPlayerVehicle():setGodMode(0)
+				GetPlayerVehicle():SetCustomControlEnabled(0)
+				GetPlayerVehicle():SetBelong(CaridBelong)
+				GetPlayerVehicle():SetCustomControlEnabled(0)
+				GetPlayerVehicle():SetExternalPathByName("")
+
+				TActivate("triggerExitToMap11")
+				TActivate("triggerExitToMap13")
+				TDeactivate("trPlayerExitVehicle")
+				getObj("player_veh_loc1"):SetPosition(CVector(20,0,20))
+				getObj("player_veh_loc2"):SetPosition(CVector(20,0,20))
+				getObj("player_veh_loc3"):SetPosition(CVector(20,0,20))
+				getObj("player_veh_loc4"):SetPosition(CVector(20,0,20))
+				g_Player:AddMoney(GetVar("money").AsInt)
+				if GetPlayerVehicle():GetBelong() == 1080 then
+					GetPlayerVehicle():SetBelong("1100")
+				end
+			end
+
+				trigger:Deactivate()
+		</script>
+	</trigger>
+<!-- возможность сесть в любую машину!!! -->
+
+</triggers>

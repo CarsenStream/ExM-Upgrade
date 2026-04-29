@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="windows-1251" standalone="yes"?>
+<Paths>
+	<Path Name = "carsen_cam01">
+		<Point  coord="3375.840 371.515 3277.497" rotation="0.003 0.994 -0.109 -0.026"/>
+		<Point  coord="3375.547 372.705 3282.848" rotation="0.003 0.994 -0.109 -0.026"/>
+		<Point  coord="3356.233 380.792 3300.072" rotation="0.067 0.896 -0.144 -0.416"/>
+		<Point  coord="3333.195 390.385 3300.564" rotation="-0.141 -0.691 0.140 0.695"/>  
+	</Path>
+
+	<Path Name = "carsen_cam02">
+		<Point  coord="3372.011 370.031 3258.198" rotation="0.013 -0.005 -0.000 1.000"/>
+		<Point  coord="3372.074 370.213 3264.835" rotation="0.013 -0.005 -0.000 1.000"/>
+	</Path>
+
+	<Path Name = "carsenend_cam1">                         
+		<Point  coord="890.276 312.811 854.969" rotation="-0.000 -0.615 0.000 0.789"/>
+	</Path>
+
+</Paths>

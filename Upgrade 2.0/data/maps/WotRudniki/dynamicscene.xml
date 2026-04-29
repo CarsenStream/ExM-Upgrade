@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="windows-1251" standalone="yes" ?>
+<DynamicScene
+	LastId="31">
+	<TargetNamesForDestroy
+		Names="" />
+
+	<Object
+		Name="Player1"
+		Belong="1100"
+		Prototype="player" />
+
+	<Object
+		Name="barricade4_wGw3"
+		Belong="1001"
+		Prototype="barricade4_wGw"
+		Pos="1418.483 255.000 1327.580"
+		Probability="0.500">
+		<Object
+			Name="barricade4_wGw3_Team"
+			Belong="1001"
+			Prototype="settlementTeam">
+			<Formation
+				Belong="1001"
+				Prototype="caravanFormation"
+				DistBetweenVehicles="30.000"
+				Pos="0.000 0.000 0.000"
+				Direction="0.000 0.000 1.000"
+				LinearVelocity="100.000"
+				AngularVelocity="0.500"
+				NumPathPoint="-1" />
+		</Object>
+	</Object>
+
+	<Object
+		Name="vehicleSplinter18"
+		Belong="1001"
+		Prototype="vehicleSplinter"
+		Pos="1486.274 255.000 1174.501" />
+
+	<Object
+		Name="scoutCab0119"
+		Belong="1001"
+		Prototype="scoutCab01" />
+
+	<Object
+		Name="scoutCab0120"
+		Belong="1001"
+		Prototype="scoutCab01" />
+
+	<Object
+		Name="fighterCab0221"
+		Belong="1001"
+		Prototype="fighterCab02" />
+
+	<Object
+		Name="bugCargo0323"
+		Belong="1001"
+		Prototype="bugCargo03" />
+
+	<Object
+		Name="sml2Chassis24"
+		Belong="1001"
+		Prototype="sml2Chassis" />
+
+	<Object
+		Name="bar26"
+		Belong="1001"
+		Prototype="bar" />
+
+	<Object
+		Name="agro_tech1_breakable27"
+		Belong="1001"
+		Prototype="agro_tech1_breakable"
+		Pos="1477.630 255.000 686.110"
+		Mass="469.469"
+		NodeScale="2.273" />
+
+	<Object
+		Name="brokvehicle1_breakable28"
+		Belong="1001"
+		Prototype="brokvehicle1_breakable"
+		Pos="1467.351 257.002 672.692"
+		Mass="187.445"
+		NodeScale="1.673" />
+
+	<Object
+		Name="brokvehicle2_breakable29"
+		Belong="1001"
+		Prototype="brokvehicle2_breakable"
+		Pos="1449.537 255.000 738.707" />
+
+	<Object
+		Name="brokvehicle2_breakable30"
+		Belong="1001"
+		Prototype="brokvehicle2_breakable"
+		Pos="1520.215 255.000 848.258" />
+</DynamicScene>

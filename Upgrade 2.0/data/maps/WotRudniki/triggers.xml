@@ -1,0 +1,707 @@
+<?xml version="1.0" encoding="windows-1251" standalone="yes" ?>
+<triggers>
+	<trigger Name="PlayerVehAndRandom" active="1">
+		<event timeout="0" eventid="GE_TIME_PERIOD" />
+		<script>
+			GetPlayerVehicle():SetNameFromScript("PlayerOwnCar")
+			GetPlayerVehicle():SetGamePositionOnGround( CVector(1831.811, 375.276, 1834.494))
+			CapturePlayerVehicle()
+
+			local tanks = {{"KV1","KV2","KV1s","VK4503","OIEXP"},{"T34","T3485","PZ4","CromwellB"},{"SU85I","SU85","SU100"},{"ELC","AMX1357"}}
+
+			local playerveh = math.random(getn(tanks))
+			AddPlayerVehicle(tanks[playerveh][math.random(getn(tanks[playerveh]))])
+			local playerteam = math.random(2)
+			GetPlayerVehicle():SetNameFromScript("PlayerTank")
+
+			local team1heavys = 3
+			local team1mediums = 3
+			local team1pt = 2
+			local team1lt = 2
+
+			local team2heavys = 3
+			local team2mediums = 3
+			local team2pt = 2
+			local team2lt = 2
+			println(3)
+			if playerteam == 1 then
+				if playerveh == 1 then
+					team1heavys = team1heavys - 1 
+				elseif playerveh == 2 then
+					team1mediums  = team1mediums - 1
+				elseif playerveh == 3 then
+					team1pt = team1pt - 1
+				else
+					team1lt = team1lt - 1
+				end
+			else 
+				if playerveh == 1 then
+					team2heavys = team2heavys - 1 
+				elseif playerveh == 2 then
+					team2mediums  = team2mediums - 1
+				elseif playerveh == 3 then
+					team2pt = team2pt - 1
+				else
+					team2lt = team2lt - 1
+				end
+			end
+
+			local team1 = {}
+			local team2 = {}
+			local jopa = 1
+			for i=1, team1heavys do 
+				team1[jopa] = tanks[1][math.random(getn(tanks[1]))]
+				jopa = jopa + 1 
+			end
+			for i=1, team1mediums do 
+				team1[jopa] = tanks[2][math.random(getn(tanks[2]))]
+				jopa = jopa + 1 
+			end
+			for i=1, team1pt do 
+				team1[jopa] = tanks[3][math.random(getn(tanks[3]))]
+				jopa = jopa + 1 
+			end
+			for i=1, team1lt do 
+				team1[jopa] = tanks[4][math.random(getn(tanks[4]))]
+				jopa = jopa + 1 
+			end
+
+			jopa = 1
+			for i=1, team2heavys do 
+				team2[jopa] = tanks[1][math.random(getn(tanks[1]))]
+				jopa = jopa + 1 
+			end
+			for i=1, team2mediums do 
+				team2[jopa] = tanks[2][math.random(getn(tanks[2]))]
+				jopa = jopa + 1 
+			end
+			for i=1, team2pt do 
+				team2[jopa] = tanks[3][math.random(getn(tanks[3]))]
+				jopa = jopa + 1 
+			end
+			for i=1, team2lt do 
+				team2[jopa] = tanks[4][math.random(getn(tanks[4]))]
+				jopa = jopa + 1 
+			end
+
+			local team1belong = 1002
+			local team2belong = 1100
+			if playerteam == 1 then
+				team1belong = 1100
+				team2belong = 1002
+			end
+
+			TeamCreate("team11",team1belong,CVector(1439.347, 300.402, 244.210),{team1[1]})
+			TeamCreate("team12",team1belong,CVector(1458.700, 301.184, 230.595),{team1[2]})
+			TeamCreate("team13",team1belong,CVector(1480.334, 301.907, 239.080),{team1[3]})
+			TeamCreate("team14",team1belong,CVector(1476.686, 301.860, 209.812),{team1[4]})
+			TeamCreate("team15",team1belong,CVector(1347.378, 302.646, 141.134),{team1[5]})
+			TeamCreate("team16",team1belong,CVector(1343.880, 300.916, 161.440),{team1[6]})
+			TeamCreate("team17",team1belong,CVector(1323.349, 300.081, 160.293),{team1[7]})
+			
+			TeamCreate("team21",team2belong,CVector(814.691, 263.599, 1605.276),{team2[1]})
+			TeamCreate("team22",team2belong,CVector(579.822, 260.884, 1759.054),{team2[2]})
+			TeamCreate("team23",team2belong,CVector(549.537, 260.677, 1786.942),{team2[3]})
+			TeamCreate("team24",team2belong,CVector(549.437, 260.988, 1767.720),{team2[4]})
+			TeamCreate("team25",team2belong,CVector(549.344, 261.338, 1745.549),{team2[5]})
+			TeamCreate("team26",team2belong,CVector(528.814, 261.417, 1740.273),{team2[6]})
+			TeamCreate("team27",team2belong,CVector(526.400, 261.201, 1758.997),{team2[7]})
+
+			local plVeh = GetPlayerVehicle()
+			if playerteam == 1 then
+				TeamCreate("team18",team1belong,CVector(1240.876, 292.901, 195.652),{team1[8]})
+				TeamCreate("team19",team1belong,CVector(1242.312, 292.560, 182.707),{team1[9]})
+				TeamCreate("team28",team2belong,CVector(510.537, 261.515, 1701.849),{team2[8]})
+				TeamCreate("team29",team2belong,CVector(510.989, 261.602, 1685.124),{team2[9]})
+				TeamCreate("team20",team2belong,CVector(537.765, 261.738, 1674.188),{team2[10]})
+				if plVeh then
+					plVeh:SetPosition(CVector(1352.603, 299.820, 202.842))
+				end
+			else
+				TeamCreate("team18",team1belong,CVector(1240.876, 292.901, 195.652),{team1[8]})
+				TeamCreate("team19",team1belong,CVector(1242.312, 292.560, 182.707),{team1[9]})
+				TeamCreate("team10",team1belong,CVector(1223.107, 291.163, 193.800),{team1[10]})
+				TeamCreate("team28",team2belong,CVector(510.537, 261.515, 1701.849),{team2[8]})
+				TeamCreate("team29",team2belong,CVector(510.989, 261.602, 1685.124),{team2[9]})
+				if plVeh then
+					plVeh:SetPosition(CVector(497.178, 261.042, 1782.074))
+				end
+			end
+			
+			GetPlayerVehicle():SetCustomControlEnabled(1)
+			GetPlayerVehicle():setImmortalMode(1)
+
+			if playerteam == 1 then
+				TActivate("KillCounterTeam2Enemy")
+				TActivate("KillCounterTeam1Ally")
+			else
+				TActivate("KillCounterTeam2Ally")
+				TActivate("KillCounterTeam1Enemy")
+			end
+
+			TActivate("Start")
+			TActivate("PlayerDie")
+			TActivate("PlayerTeamRule")
+			AllowSave(0)
+			SetCameraBehindPlayerVehicle()
+			trigger:Deactivate() 
+		</script>
+	</trigger>
+
+	<trigger Name="Start" active="0">
+		<event timeout="10" eventid="GE_TIME_PERIOD" />
+		<script>
+		local music = random (5)
+		if music == 1 then
+			PlayCustomMusic("WotBattle01")
+		elseif music == 2 then
+			PlayCustomMusic("WotBattle02")
+		elseif music == 3 then
+			PlayCustomMusic("WotBattle03")
+		elseif music == 4 then
+			PlayCustomMusic("WotBattle04")
+		else
+			PlayCustomMusic("WotBattle05")
+		end
+
+		GetPlayerVehicle():SetCustomControlEnabled(0)
+		SpawnMessageBox(1)
+		
+		local t = GetEntityByName("team11")
+		if t then
+			t:StackOpen()
+			t:SetDestination( CVector(1377.680, 255.821, 781.569))
+			t:SetDestination( CVector(1496.273, 255.636, 1228.518))
+			t:SetDestination( CVector(1293.778, 255.642, 1430.834))
+			t:SetDestination( CVector(965.037, 257.616, 1469.807))
+			t:SetDestination( CVector(851.216, 278.636, 1176.531))
+			t:SetDestination( CVector(873.968, 274.588, 1085.437))
+			t:SetDestination( CVector(821.166, 262.259, 1571.258))
+			t:SetDestination( CVector(566.616, 264.415, 1473.187))
+			t:SetDestination( CVector(131.216, 298.694, 1151.612))
+			t:SetDestination( CVector(103.520, 262.644, 738.822))
+			t:SetDestination( CVector(1091.682, 255.654, 596.482))
+			t:StackLoop()
+			t:StackClose()
+		end
+		
+		t = GetEntityByName("team12")
+		if t then
+			t:StackOpen()
+			t:SetDestination( CVector(1377.680, 255.821, 781.569))
+			t:SetDestination( CVector(1496.273, 255.636, 1228.518))
+			t:SetDestination( CVector(1293.778, 255.642, 1430.834))
+			t:SetDestination( CVector(965.037, 257.616, 1469.807))
+			t:SetDestination( CVector(851.216, 278.636, 1176.531))
+			t:SetDestination( CVector(873.968, 274.588, 1085.437))
+			t:SetDestination( CVector(821.166, 262.259, 1571.258))
+			t:SetDestination( CVector(566.616, 264.415, 1473.187))
+			t:SetDestination( CVector(131.216, 298.694, 1151.612))
+			t:SetDestination( CVector(103.520, 262.644, 738.822))
+			t:SetDestination( CVector(1091.682, 255.654, 596.482))
+			t:StackLoop()
+			t:StackClose()
+		end
+
+		t = GetEntityByName("team13")
+		if t then
+			t:StackOpen()
+			t:SetDestination( CVector(1377.680, 255.821, 781.569))
+			t:SetDestination( CVector(1496.273, 255.636, 1228.518))
+			t:SetDestination( CVector(1293.778, 255.642, 1430.834))
+			t:SetDestination( CVector(965.037, 257.616, 1469.807))
+			t:SetDestination( CVector(851.216, 278.636, 1176.531))
+			t:SetDestination( CVector(873.968, 274.588, 1085.437))
+			t:SetDestination( CVector(821.166, 262.259, 1571.258))
+			t:SetDestination( CVector(566.616, 264.415, 1473.187))
+			t:SetDestination( CVector(131.216, 298.694, 1151.612))
+			t:SetDestination( CVector(103.520, 262.644, 738.822))
+			t:SetDestination( CVector(1091.682, 255.654, 596.482))
+			t:StackLoop()
+			t:StackClose()
+		end
+
+		t = GetEntityByName("team14")
+		if t then
+			t:StackOpen()
+			t:SetDestination( CVector(1377.680, 255.821, 781.569))
+			t:SetDestination( CVector(1496.273, 255.636, 1228.518))
+			t:SetDestination( CVector(1293.778, 255.642, 1430.834))
+			t:SetDestination( CVector(965.037, 257.616, 1469.807))
+			t:SetDestination( CVector(851.216, 278.636, 1176.531))
+			t:SetDestination( CVector(873.968, 274.588, 1085.437))
+			t:SetDestination( CVector(821.166, 262.259, 1571.258))
+			t:SetDestination( CVector(566.616, 264.415, 1473.187))
+			t:SetDestination( CVector(131.216, 298.694, 1151.612))
+			t:SetDestination( CVector(103.520, 262.644, 738.822))
+			t:SetDestination( CVector(1091.682, 255.654, 596.482))
+			t:StackLoop()
+			t:StackClose()
+		end
+
+		t = GetEntityByName("team15")
+		if t then
+			t:StackOpen()
+			t:SetDestination( CVector(989.771, 283.412, 281.323))
+			t:SetDestination( CVector(546.656, 256.447, 544.183))
+			t:SetDestination( CVector(109.421, 263.546, 744.474))
+			t:SetDestination( CVector(120.094, 301.580, 1080.325))
+			t:SetDestination( CVector(709.796, 263.750, 1568.499))
+			t:SetDestination( CVector(842.433, 263.246, 1471.747))
+			t:SetDestination( CVector(850.798, 277.505, 1096.556))
+			t:SetDestination( CVector(897.809, 266.007, 1382.558))
+			t:SetDestination( CVector(1139.529, 255.678, 1475.852))
+			t:SetDestination( CVector(1426.435, 255.642, 1309.895))
+			t:SetDestination( CVector(1480.060, 255.644, 1201.147))
+			t:SetDestination( CVector(1372.581, 255.643, 837.090))
+			t:SetDestination( CVector(1141.388, 255.636, 660.956))
+			t:StackLoop()
+			t:StackClose()
+		end
+
+		t = GetEntityByName("team16")
+		if t then
+			t:StackOpen()
+			t:SetDestination( CVector(989.771, 283.412, 281.323))
+			t:SetDestination( CVector(546.656, 256.447, 544.183))
+			t:SetDestination( CVector(109.421, 263.546, 744.474))
+			t:SetDestination( CVector(120.094, 301.580, 1080.325))
+			t:SetDestination( CVector(709.796, 263.750, 1568.499))
+			t:SetDestination( CVector(842.433, 263.246, 1471.747))
+			t:SetDestination( CVector(850.798, 277.505, 1096.556))
+			t:SetDestination( CVector(897.809, 266.007, 1382.558))
+			t:SetDestination( CVector(1139.529, 255.678, 1475.852))
+			t:SetDestination( CVector(1426.435, 255.642, 1309.895))
+			t:SetDestination( CVector(1480.060, 255.644, 1201.147))
+			t:SetDestination( CVector(1372.581, 255.643, 837.090))
+			t:SetDestination( CVector(1141.388, 255.636, 660.956))
+			t:StackLoop()
+			t:StackClose()
+		end
+
+		t = GetEntityByName("team17")
+		if t then
+			t:StackOpen()
+			t:SetDestination( CVector(989.771, 283.412, 281.323))
+			t:SetDestination( CVector(546.656, 256.447, 544.183))
+			t:SetDestination( CVector(109.421, 263.546, 744.474))
+			t:SetDestination( CVector(120.094, 301.580, 1080.325))
+			t:SetDestination( CVector(709.796, 263.750, 1568.499))
+			t:SetDestination( CVector(842.433, 263.246, 1471.747))
+			t:SetDestination( CVector(850.798, 277.505, 1096.556))
+			t:SetDestination( CVector(897.809, 266.007, 1382.558))
+			t:SetDestination( CVector(1139.529, 255.678, 1475.852))
+			t:SetDestination( CVector(1426.435, 255.642, 1309.895))
+			t:SetDestination( CVector(1480.060, 255.644, 1201.147))
+			t:SetDestination( CVector(1372.581, 255.643, 837.090))
+			t:SetDestination( CVector(1141.388, 255.636, 660.956))
+			t:StackLoop()
+			t:StackClose()
+		end
+
+		t = GetEntityByName("team18")
+		if t then
+			t:StackOpen()
+			t:SetDestination( CVector(1028.369, 284.113, 265.624))
+			t:SetDestination( CVector(801.437, 278.449, 1017.211))
+			t:SetDestination( CVector(1057.382, 255.888, 1509.804))
+			t:SetDestination( CVector(1416.872, 255.641, 1323.697))
+			t:SetDestination( CVector(1479.706, 255.644, 1204.116))
+			t:SetDestination( CVector(1360.677, 255.644, 838.163))
+			t:SetDestination( CVector(1017.050, 260.040, 500.272))
+			t:StackLoop()
+			t:StackClose()
+		end
+
+		t = GetEntityByName("team19")
+		if t then
+			t:StackOpen()
+			t:SetDestination( CVector(1028.369, 284.113, 265.624))
+			t:SetDestination( CVector(801.437, 278.449, 1017.211))
+			t:SetDestination( CVector(1057.382, 255.888, 1509.804))
+			t:SetDestination( CVector(1416.872, 255.641, 1323.697))
+			t:SetDestination( CVector(1479.706, 255.644, 1204.116))
+			t:SetDestination( CVector(1360.677, 255.644, 838.163))
+			t:SetDestination( CVector(1017.050, 260.040, 500.272))
+			t:StackLoop()
+			t:StackClose()
+		end
+
+	if GetEntityByName("team10") then
+		t = GetEntityByName("team10")
+		if t then
+			t:StackOpen()
+			t:SetDestination( CVector(1028.369, 284.113, 265.624))
+			t:SetDestination( CVector(801.437, 278.449, 1017.211))
+			t:SetDestination( CVector(1057.382, 255.888, 1509.804))
+			t:SetDestination( CVector(1416.872, 255.641, 1323.697))
+			t:SetDestination( CVector(1479.706, 255.644, 1204.116))
+			t:SetDestination( CVector(1360.677, 255.644, 838.163))
+			t:SetDestination( CVector(1017.050, 260.040, 500.272))
+			t:StackLoop()
+			t:StackClose()
+		end
+	end
+		t = GetEntityByName("team21")
+		if t then
+			t:StackOpen()
+			t:SetDestination( CVector(841.460, 261.131, 1568.551))
+			t:SetDestination( CVector(1110.303, 255.641, 1509.435))
+			t:SetDestination( CVector(1424.096, 255.644, 1303.685))
+			t:SetDestination( CVector(1484.860, 255.643, 1188.906))
+			t:SetDestination( CVector(1379.180, 255.640, 874.261))
+			t:SetDestination( CVector(1252.689, 255.641, 757.882))
+			t:SetDestination( CVector(999.886, 258.993, 741.655))
+			t:SetDestination( CVector(911.754, 271.806, 884.219))
+			t:SetDestination( CVector(934.562, 267.805, 1044.819))
+			t:SetDestination( CVector(854.168, 278.178, 1136.859))
+			t:SetDestination( CVector(848.631, 261.330, 1490.468))
+			t:SetDestination( CVector(700.791, 264.319, 1540.619))
+			t:SetDestination( CVector(193.776, 287.820, 1215.319))
+			t:SetDestination( CVector(111.685, 301.069, 1053.912))
+			t:SetDestination( CVector(118.385, 278.937, 842.722))
+			t:SetDestination( CVector(258.765, 255.626, 752.481))
+			t:SetDestination( CVector(641.342, 263.825, 1596.668))
+			t:StackLoop()
+			t:StackClose()
+		end
+		
+		t = GetEntityByName("team22")
+		if t then
+			t:StackOpen()
+			t:SetDestination( CVector(841.460, 261.131, 1568.551))
+			t:SetDestination( CVector(1110.303, 255.641, 1509.435))
+			t:SetDestination( CVector(1424.096, 255.644, 1303.685))
+			t:SetDestination( CVector(1484.860, 255.643, 1188.906))
+			t:SetDestination( CVector(1379.180, 255.640, 874.261))
+			t:SetDestination( CVector(1252.689, 255.641, 757.882))
+			t:SetDestination( CVector(999.886, 258.993, 741.655))
+			t:SetDestination( CVector(911.754, 271.806, 884.219))
+			t:SetDestination( CVector(934.562, 267.805, 1044.819))
+			t:SetDestination( CVector(854.168, 278.178, 1136.859))
+			t:SetDestination( CVector(848.631, 261.330, 1490.468))
+			t:SetDestination( CVector(700.791, 264.319, 1540.619))
+			t:SetDestination( CVector(193.776, 287.820, 1215.319))
+			t:SetDestination( CVector(111.685, 301.069, 1053.912))
+			t:SetDestination( CVector(118.385, 278.937, 842.722))
+			t:SetDestination( CVector(258.765, 255.626, 752.481))
+			t:SetDestination( CVector(641.342, 263.825, 1596.668))
+			t:StackLoop()
+			t:StackClose()
+		end
+
+		t = GetEntityByName("team23")
+		if t then
+			t:StackOpen()
+			t:SetDestination( CVector(841.460, 261.131, 1568.551))
+			t:SetDestination( CVector(1110.303, 255.641, 1509.435))
+			t:SetDestination( CVector(1424.096, 255.644, 1303.685))
+			t:SetDestination( CVector(1484.860, 255.643, 1188.906))
+			t:SetDestination( CVector(1379.180, 255.640, 874.261))
+			t:SetDestination( CVector(1252.689, 255.641, 757.882))
+			t:SetDestination( CVector(999.886, 258.993, 741.655))
+			t:SetDestination( CVector(911.754, 271.806, 884.219))
+			t:SetDestination( CVector(934.562, 267.805, 1044.819))
+			t:SetDestination( CVector(854.168, 278.178, 1136.859))
+			t:SetDestination( CVector(848.631, 261.330, 1490.468))
+			t:SetDestination( CVector(700.791, 264.319, 1540.619))
+			t:SetDestination( CVector(193.776, 287.820, 1215.319))
+			t:SetDestination( CVector(111.685, 301.069, 1053.912))
+			t:SetDestination( CVector(118.385, 278.937, 842.722))
+			t:SetDestination( CVector(258.765, 255.626, 752.481))
+			t:SetDestination( CVector(641.342, 263.825, 1596.668))
+			t:StackLoop()
+			t:StackClose()
+		end
+		
+		t = GetEntityByName("team24")
+		if t then
+			t:StackOpen()
+			t:SetDestination( CVector(841.460, 261.131, 1568.551))
+			t:SetDestination( CVector(1110.303, 255.641, 1509.435))
+			t:SetDestination( CVector(1424.096, 255.644, 1303.685))
+			t:SetDestination( CVector(1484.860, 255.643, 1188.906))
+			t:SetDestination( CVector(1379.180, 255.640, 874.261))
+			t:SetDestination( CVector(1252.689, 255.641, 757.882))
+			t:SetDestination( CVector(999.886, 258.993, 741.655))
+			t:SetDestination( CVector(911.754, 271.806, 884.219))
+			t:SetDestination( CVector(934.562, 267.805, 1044.819))
+			t:SetDestination( CVector(854.168, 278.178, 1136.859))
+			t:SetDestination( CVector(848.631, 261.330, 1490.468))
+			t:SetDestination( CVector(700.791, 264.319, 1540.619))
+			t:SetDestination( CVector(193.776, 287.820, 1215.319))
+			t:SetDestination( CVector(111.685, 301.069, 1053.912))
+			t:SetDestination( CVector(118.385, 278.937, 842.722))
+			t:SetDestination( CVector(258.765, 255.626, 752.481))
+			t:SetDestination( CVector(641.342, 263.825, 1596.668))
+			t:StackLoop()
+			t:StackClose()
+		end
+
+		t = GetEntityByName("team25")
+		if t then
+			t:StackOpen()
+			t:SetDestination( CVector(612.782, 263.799, 1468.318))
+			t:SetDestination( CVector(179.482, 287.897, 1229.157))
+			t:SetDestination( CVector(99.780, 301.865, 1042.058))
+			t:SetDestination( CVector(125.735, 277.561, 838.919))
+			t:SetDestination( CVector(642.678, 255.644, 534.036))
+			t:SetDestination( CVector(1278.260, 255.640, 743.671))
+			t:SetDestination( CVector(1419.096, 255.640, 921.927))
+			t:SetDestination( CVector(1487.251, 255.639, 1199.030))
+			t:SetDestination( CVector(1402.708, 255.638, 1340.831))
+			t:SetDestination( CVector(1100.473, 255.639, 1477.496))
+			t:SetDestination( CVector(855.987, 275.253, 1263.063))
+			t:SetDestination( CVector(868.375, 275.884, 1097.906))
+			t:SetDestination( CVector(764.912, 264.119, 1597.501))
+			t:StackLoop()
+			t:StackClose()
+		end
+
+		t = GetEntityByName("team26")
+		if t then
+			t:StackOpen()
+			t:SetDestination( CVector(612.782, 263.799, 1468.318))
+			t:SetDestination( CVector(179.482, 287.897, 1229.157))
+			t:SetDestination( CVector(99.780, 301.865, 1042.058))
+			t:SetDestination( CVector(125.735, 277.561, 838.919))
+			t:SetDestination( CVector(642.678, 255.644, 534.036))
+			t:SetDestination( CVector(1278.260, 255.640, 743.671))
+			t:SetDestination( CVector(1419.096, 255.640, 921.927))
+			t:SetDestination( CVector(1487.251, 255.639, 1199.030))
+			t:SetDestination( CVector(1402.708, 255.638, 1340.831))
+			t:SetDestination( CVector(1100.473, 255.639, 1477.496))
+			t:SetDestination( CVector(855.987, 275.253, 1263.063))
+			t:SetDestination( CVector(868.375, 275.884, 1097.906))
+			t:SetDestination( CVector(764.912, 264.119, 1597.501))
+			t:StackLoop()
+			t:StackClose()
+		end
+
+		t = GetEntityByName("team27")
+		if t then
+			t:StackOpen()
+			t:SetDestination( CVector(612.782, 263.799, 1468.318))
+			t:SetDestination( CVector(179.482, 287.897, 1229.157))
+			t:SetDestination( CVector(99.780, 301.865, 1042.058))
+			t:SetDestination( CVector(125.735, 277.561, 838.919))
+			t:SetDestination( CVector(642.678, 255.644, 534.036))
+			t:SetDestination( CVector(1278.260, 255.640, 743.671))
+			t:SetDestination( CVector(1419.096, 255.640, 921.927))
+			t:SetDestination( CVector(1487.251, 255.639, 1199.030))
+			t:SetDestination( CVector(1402.708, 255.638, 1340.831))
+			t:SetDestination( CVector(1100.473, 255.639, 1477.496))
+			t:SetDestination( CVector(855.987, 275.253, 1263.063))
+			t:SetDestination( CVector(868.375, 275.884, 1097.906))
+			t:SetDestination( CVector(764.912, 264.119, 1597.501))
+			t:StackLoop()
+			t:StackClose()
+		end
+
+		t = GetEntityByName("team28")
+		if t then
+			t:StackOpen()
+			t:SetDestination( CVector(763.549, 263.232, 1567.526))
+			t:SetDestination( CVector(857.849, 264.085, 1444.781))
+			t:SetDestination( CVector(858.134, 278.667, 1159.729))
+			t:SetDestination( CVector(925.489, 268.166, 1050.480))
+			t:SetDestination( CVector(888.215, 273.769, 932.754))
+			t:SetDestination( CVector(964.091, 262.480, 769.875))
+			t:SetDestination( CVector(1185.525, 255.640, 724.030))
+			t:SetDestination( CVector(1373.812, 255.638, 849.533))
+			t:SetDestination( CVector(1497.884, 255.641, 1196.567))
+			t:SetDestination( CVector(1401.028, 255.641, 1349.387))
+			t:SetDestination( CVector(883.553, 259.703, 1589.609))
+			t:StackLoop()
+			t:StackClose()
+		end
+
+		t = GetEntityByName("team29")
+		if t then
+			t:StackOpen()
+			t:SetDestination( CVector(763.549, 263.232, 1567.526))
+			t:SetDestination( CVector(857.849, 264.085, 1444.781))
+			t:SetDestination( CVector(858.134, 278.667, 1159.729))
+			t:SetDestination( CVector(925.489, 268.166, 1050.480))
+			t:SetDestination( CVector(888.215, 273.769, 932.754))
+			t:SetDestination( CVector(964.091, 262.480, 769.875))
+			t:SetDestination( CVector(1185.525, 255.640, 724.030))
+			t:SetDestination( CVector(1373.812, 255.638, 849.533))
+			t:SetDestination( CVector(1497.884, 255.641, 1196.567))
+			t:SetDestination( CVector(1401.028, 255.641, 1349.387))
+			t:SetDestination( CVector(883.553, 259.703, 1589.609))
+			t:StackLoop()
+			t:StackClose()
+		end
+
+	if GetEntityByName("team20") then
+		t = GetEntityByName("team20")
+		if t then
+			t:StackOpen()
+			t:SetDestination( CVector(763.549, 263.232, 1567.526))
+			t:SetDestination( CVector(857.849, 264.085, 1444.781))
+			t:SetDestination( CVector(858.134, 278.667, 1159.729))
+			t:SetDestination( CVector(925.489, 268.166, 1050.480))
+			t:SetDestination( CVector(888.215, 273.769, 932.754))
+			t:SetDestination( CVector(964.091, 262.480, 769.875))
+			t:SetDestination( CVector(1185.525, 255.640, 724.030))
+			t:SetDestination( CVector(1373.812, 255.638, 849.533))
+			t:SetDestination( CVector(1497.884, 255.641, 1196.567))
+			t:SetDestination( CVector(1401.028, 255.641, 1349.387))
+			t:SetDestination( CVector(883.553, 259.703, 1589.609))
+			t:StackLoop()
+			t:StackClose()
+		end
+	end
+		TActivate("MusicRandom")
+		trigger:Deactivate() 
+		</script>
+	</trigger>
+
+	<trigger Name="MusicRandom" active="0">
+	<event timeout="120" eventid="GE_TIME_PERIOD" />
+		<script>
+		local music = random (5)
+		if music == 1 then
+			PlayCustomMusic("WotBattle01")
+		elseif music == 2 then
+			PlayCustomMusic("WotBattle02")
+		elseif music == 3 then
+			PlayCustomMusic("WotBattle03")
+		elseif music == 4 then
+			PlayCustomMusic("WotBattle04")
+		else
+			PlayCustomMusic("WotBattle05")
+		end
+		</script>
+	</trigger>
+
+	<trigger Name="PlayerDie" active="0">
+	<event timeout="0.5" eventid="GE_TIME_PERIOD" />
+		<script>
+		if GetPlayerVehicle():GetHealth() == 0 then
+			AddPlayerVehicle("Sml1ForSale")
+			SpawnMessageBox(3)
+			GetPlayerVehicle():SetBelong(1012)
+			GetPlayerVehicle():setGodMode(1)
+			SetTolerance("1012","1002",RS_ALLY)
+			trigger:Deactivate() 
+		end
+		</script>
+	</trigger>
+
+	<trigger Name="KillCounterTeam2Enemy" active="0">
+	<event eventid="GE_OBJECT_DIE" ObjName="team21" />
+	<event eventid="GE_OBJECT_DIE" ObjName="team22" />
+	<event eventid="GE_OBJECT_DIE" ObjName="team23" />
+	<event eventid="GE_OBJECT_DIE" ObjName="team24" />
+	<event eventid="GE_OBJECT_DIE" ObjName="team25" />
+	<event eventid="GE_OBJECT_DIE" ObjName="team26" />
+	<event eventid="GE_OBJECT_DIE" ObjName="team27" />
+	<event eventid="GE_OBJECT_DIE" ObjName="team28" />
+	<event eventid="GE_OBJECT_DIE" ObjName="team29" />
+	<event eventid="GE_OBJECT_DIE" ObjName="team20" />
+		<script>
+			trigger:IncCount()
+			local count = trigger:GetCount()
+			if 10>count then
+				return
+			end
+			SpawnMessageBox(2)
+			AddPlayerMoney(50000)
+			CapturePlayerVehicle()
+			local ownplvh = getObj("PlayerOwnCar")
+			g_Player:AddChild(ownplvh)
+			PassToMap("r3m1", "Set_enter")
+			GetPlayerVehicle():SetCustomControlEnabled(0)
+			AllowSave(1)
+			trigger:Deactivate() 
+		</script>
+	</trigger>
+	
+	<trigger Name="KillCounterTeam1Ally" active="0">
+	<event eventid="GE_OBJECT_DIE" ObjName="team11" />
+	<event eventid="GE_OBJECT_DIE" ObjName="team12" />
+	<event eventid="GE_OBJECT_DIE" ObjName="team13" />
+	<event eventid="GE_OBJECT_DIE" ObjName="team14" />
+	<event eventid="GE_OBJECT_DIE" ObjName="team15" />
+	<event eventid="GE_OBJECT_DIE" ObjName="team16" />
+	<event eventid="GE_OBJECT_DIE" ObjName="team17" />
+	<event eventid="GE_OBJECT_DIE" ObjName="team18" />
+	<event eventid="GE_OBJECT_DIE" ObjName="team19" />
+	<event eventid="GE_OBJECT_DIE" ObjName="PlayerTank" />
+		<script>
+			trigger:IncCount()
+			local count = trigger:GetCount()
+			if 10>count then
+				return
+			end
+			SpawnMessageBox(4)
+			AddPlayerMoney(5000)
+			CapturePlayerVehicle()
+			local ownplvh = getObj("PlayerOwnCar")
+			g_Player:AddChild(ownplvh)
+			PassToMap("r3m1", "Set_enter")
+			GetPlayerVehicle():SetCustomControlEnabled(0)
+			AllowSave(1)
+			trigger:Deactivate() 
+		</script>
+	</trigger>
+
+	<trigger Name="KillCounterTeam1Enemy" active="0">
+	<event eventid="GE_OBJECT_DIE" ObjName="team11" />
+	<event eventid="GE_OBJECT_DIE" ObjName="team12" />
+	<event eventid="GE_OBJECT_DIE" ObjName="team13" />
+	<event eventid="GE_OBJECT_DIE" ObjName="team14" />
+	<event eventid="GE_OBJECT_DIE" ObjName="team15" />
+	<event eventid="GE_OBJECT_DIE" ObjName="team16" />
+	<event eventid="GE_OBJECT_DIE" ObjName="team17" />
+	<event eventid="GE_OBJECT_DIE" ObjName="team18" />
+	<event eventid="GE_OBJECT_DIE" ObjName="team19" />
+	<event eventid="GE_OBJECT_DIE" ObjName="team10" />
+		<script>
+			trigger:IncCount()
+			local count = trigger:GetCount()
+			if 10>count then
+				return
+			end
+			SpawnMessageBox(2)
+			AddPlayerMoney(50000)
+			CapturePlayerVehicle()
+			local ownplvh = getObj("PlayerOwnCar")
+			g_Player:AddChild(ownplvh)
+			PassToMap("r3m1", "Set_enter")
+			GetPlayerVehicle():SetCustomControlEnabled(0)
+			AllowSave(1)
+			trigger:Deactivate() 
+		</script>
+	</trigger>
+	<trigger Name="KillCounterTeam2Ally" active="0">
+	<event eventid="GE_OBJECT_DIE" ObjName="team21" />
+	<event eventid="GE_OBJECT_DIE" ObjName="team22" />
+	<event eventid="GE_OBJECT_DIE" ObjName="team23" />
+	<event eventid="GE_OBJECT_DIE" ObjName="team24" />
+	<event eventid="GE_OBJECT_DIE" ObjName="team25" />
+	<event eventid="GE_OBJECT_DIE" ObjName="team26" />
+	<event eventid="GE_OBJECT_DIE" ObjName="team27" />
+	<event eventid="GE_OBJECT_DIE" ObjName="team28" />
+	<event eventid="GE_OBJECT_DIE" ObjName="team29" />
+	<event eventid="GE_OBJECT_DIE" ObjName="PlayerTank" />
+		<script>
+			trigger:IncCount()
+			local count = trigger:GetCount()
+			if 10>count then
+				return
+			end
+			SpawnMessageBox(4)
+			AddPlayerMoney(5000)
+			CapturePlayerVehicle()
+			local ownplvh = getObj("PlayerOwnCar")
+			g_Player:AddChild(ownplvh)
+			PassToMap("r3m1", "Set_enter")
+			GetPlayerVehicle():SetCustomControlEnabled(0)
+			AllowSave(1)
+			trigger:Deactivate() 
+		</script>
+	</trigger>
+</triggers>

@@ -1,0 +1,488 @@
+<?xml version="1.0" encoding="windows-1251" standalone="yes" ?>
+<triggers>
+	<trigger Name="GlobalVar" active="1">
+		<event timeout="1" eventid="GE_TIME_PERIOD" />
+		<script>
+			local rloc = random(3)
+			SetVar("PlayerExitVeh", 0)
+			trigger:Deactivate()
+		</script>
+	</trigger>
+
+	<trigger Name="TrToR1M4" active="1">
+		<event	eventid="GE_OBJECT_ENTERS_LOCATION"	ObjName="ToR1M4" />
+		<script>
+			GetPlayerVehicle():SetCustomLinearVelocity( 0 )
+			local b = SpawnMessageBox( "8801" )
+
+			if b == 1 then
+				PassToMap("r1m4", "FromR1M0", -1)
+			else
+				GetPlayerVehicle():SetGamePositionOnGround( CVector(263.984, 342.669, 3767.442))
+				GetPlayerVehicle():SetRotation(Quaternion(0.001, -0.942, -0.004, -0.335))
+			end
+ 		</script>
+	</trigger>
+
+	<trigger	Name="GoodEnd"	active="0">
+		<event eventid="GE_END_CINEMATIC" ObjName="Player1" />
+		<event eventid="GE_SKIP_CINEMATIC" ObjName="Player1" />
+		<script>
+			Fly("end_game", CINEMATIC_NO_AIM, 0, 335, 1, 1 )
+			StartCinematic()
+			AddCinematicMessage(5967, 0.1)
+			AddCinematicMessage(5968, 0.1)
+			AddCinematicMessage(5969, 0.1)
+			AddCinematicMessage(5970, 0.1)
+			AddCinematicMessage(5971, 0.1)
+			TActivate("HelpGG1")
+			TActivate("HelpGG2")
+			TActivate("HelpGG3")
+			TActivate("HelpGGEnd")
+			GetPlayerVehicle():Remove()
+			SetGameTime(6,0)
+			trigger:Deactivate()
+		</script>
+	</trigger>
+
+	<trigger	Name="HelpGG"	active="0">
+		<event eventid="GE_END_CINEMATIC" ObjName="Player1" />
+		<event eventid="GE_SKIP_CINEMATIC" ObjName="Player1" />
+		<script>
+			Fly("end_game", CINEMATIC_NO_AIM, 0, 310, 1, 1 )
+			StartCinematic()
+			AddCinematicMessage(5966, 0.1)
+			AddCinematicMessage(5968, 0.1)
+			AddCinematicMessage(5969, 0.1)
+			AddCinematicMessage(5970, 0.1)
+			AddCinematicMessage(5971, 0.1)
+			TActivate("HelpGG1")
+			TActivate("HelpGG2")
+			TActivate("HelpGG3")
+			TActivate("HelpGGEnd")
+			GetPlayerVehicle():Remove()
+			SetGameTime(6,0)
+			trigger:Deactivate()
+		</script>
+	</trigger>
+
+	<trigger Name="HelpGG1" active="0">
+		<event msgid="5968" eventid="GE_START_CINEMATIC_MSG" ObjName="Player1" />
+		<script>
+			PlayCustomMusic("EndGame")
+			trigger:Deactivate()
+		</script>
+	</trigger>
+
+
+	<trigger Name="HelpGG2" active="0">
+		<event msgid="5969" eventid="GE_START_CINEMATIC_MSG" ObjName="Player1" />
+		<script>
+			SetGameTime(0,0)
+			trigger:Deactivate()
+		</script>
+	</trigger>
+
+	<trigger Name="HelpGG3" active="0">
+		<event msgid="5970" eventid="GE_START_CINEMATIC_MSG" ObjName="Player1" />
+		<script>
+			SetGameTime(6,0)
+			trigger:Deactivate()
+		</script>
+	</trigger>
+
+	<trigger	Name="HelpGGEnd"	active="0">
+		<event eventid="GE_END_CINEMATIC" ObjName="Player1" />
+		<event eventid="GE_SKIP_CINEMATIC" ObjName="Player1" />
+		<script>
+			ShowDeathMenu()
+			trigger:Deactivate()
+		</script>
+	</trigger>
+
+	<trigger Name="ChangeGG" active="0">
+		<event timeout="1" eventid="GE_TIME_PERIOD" />
+		<script>
+			CapturePlayerVehicle()
+			AddPlayerVehicle("LisaCar")
+			GetPlayerVehicle():SetSkin(2)
+			GetPlayerVehicle():SetGamePositionOnGround( CVector(192.910, 324.341, 216.808))
+			GetPlayerVehicle():SetRotation(Quaternion(-0.001, 0.791, 0.002, 0.612))
+			PassToMap("r1m2", "FromR1M3")
+			trigger:Deactivate()
+		</script>
+	</trigger>
+
+	<trigger	Name="trWentToFactory"	active="1">
+		<event timeout="2" eventid="GE_TIME_PERIOD" />
+		<script>
+			local rloc = random(10)
+			if rloc == 1 then
+			local art1 = CreateNewSgNodeObject( "quest_komp_splav", "artefact1", -1, -1, CVector(3451.046, 334.300, 2388.262), Quaternion(0, 0, 0, 1), 1)
+			TActivate("trSplav1")
+			local art1 = CreateNewSgNodeObject( "lom", "artefact2", -1, -1, CVector(2887.009, 326.169, 3747.179), Quaternion(0, 0, 0, 1), 1)
+			TActivate("trMetal1")
+			elseif rloc == 2 then
+			local art1 = CreateNewSgNodeObject( "quest_komp_splav", "artefact1", -1, -1, CVector(3571.936, 336.150, 2537.881), Quaternion(0, 0, 0, 1), 1)
+			TActivate("trSplav2")
+			local art1 = CreateNewSgNodeObject( "lom", "artefact2", -1, -1, CVector(3266.325, 319.521, 3823.089), Quaternion(0, 0, 0, 1), 1)
+			TActivate("trMetal2")
+			elseif rloc == 3 then
+			local art1 = CreateNewSgNodeObject( "quest_komp_splav", "artefact1", -1, -1, CVector(3389.467, 334.597, 2899.280), Quaternion(0, 0, 0, 1), 1)
+			TActivate("trSplav3")
+			local art1 = CreateNewSgNodeObject( "lom", "artefact2", -1, -1, CVector(3038.070, 334.977, 3479.331), Quaternion(0, 0, 0, 1), 1)
+			TActivate("trMetal3")
+			elseif rloc == 4 then
+			local art1 = CreateNewSgNodeObject( "quest_komp_splav", "artefact1", -1, -1, CVector(3451.046, 334.300, 2388.262), Quaternion(0, 0, 0, 1), 1)
+			TActivate("trSplav1")
+			local art1 = CreateNewSgNodeObject( "lom", "artefact2", -1, -1, CVector(2887.009, 326.169, 3747.179), Quaternion(0, 0, 0, 1), 1)
+			TActivate("trMetal1")
+			elseif rloc == 5 then
+			local art1 = CreateNewSgNodeObject( "quest_komp_splav", "artefact1", -1, -1, CVector(3571.936, 336.150, 2537.881), Quaternion(0, 0, 0, 1), 1)
+			TActivate("trSplav2")
+			local art1 = CreateNewSgNodeObject( "lom", "artefact2", -1, -1, CVector(3266.325, 319.521, 3823.089), Quaternion(0, 0, 0, 1), 1)
+			TActivate("trMetal2")
+			elseif rloc == 6 then
+			local art1 = CreateNewSgNodeObject( "quest_komp_splav", "artefact1", -1, -1, CVector(3389.467, 334.597, 2899.280), Quaternion(0, 0, 0, 1), 1)
+			TActivate("trSplav3")
+			local art1 = CreateNewSgNodeObject( "lom", "artefact2", -1, -1, CVector(3038.070, 334.977, 3479.331), Quaternion(0, 0, 0, 1), 1)
+			TActivate("trMetal3")
+			elseif rloc == 7 then
+			local art1 = CreateNewSgNodeObject( "quest_komp_splav", "artefact1", -1, -1, CVector(3451.046, 334.300, 2388.262), Quaternion(0, 0, 0, 1), 1)
+			TActivate("trSplav1")
+			local art1 = CreateNewSgNodeObject( "lom", "artefact2", -1, -1, CVector(2887.009, 326.169, 3747.179), Quaternion(0, 0, 0, 1), 1)
+			TActivate("trMetal1")
+			elseif rloc == 8 then
+			local art1 = CreateNewSgNodeObject( "quest_komp_splav", "artefact1", -1, -1, CVector(3571.936, 336.150, 2537.881), Quaternion(0, 0, 0, 1), 1)
+			TActivate("trSplav2")
+			local art1 = CreateNewSgNodeObject( "lom", "artefact2", -1, -1, CVector(3266.325, 319.521, 3823.089), Quaternion(0, 0, 0, 1), 1)
+			TActivate("trMetal2")
+			elseif rloc == 9 then
+			local art1 = CreateNewSgNodeObject( "quest_komp_splav", "artefact1", -1, -1, CVector(3389.467, 334.597, 2899.280), Quaternion(0, 0, 0, 1), 1)
+			TActivate("trSplav3")
+			local art1 = CreateNewSgNodeObject( "lom", "artefact2", -1, -1, CVector(3038.070, 334.977, 3479.331), Quaternion(0, 0, 0, 1), 1)
+			TActivate("trMetal3")
+			elseif rloc == 10 then
+			local art1 = CreateNewSgNodeObject( "quest_komp_splav", "artefact1", -1, -1, CVector(3451.046, 334.300, 2388.262), Quaternion(0, 0, 0, 1), 1)
+			TActivate("trSplav1")
+			local art1 = CreateNewSgNodeObject( "lom", "artefact2", -1, -1, CVector(2887.009, 326.169, 3747.179), Quaternion(0, 0, 0, 1), 1)
+			TActivate("trMetal1")
+			end
+			trigger:Deactivate()
+		</script>
+	</trigger>
+
+	<trigger	Name="trSplav1"	active="0">
+		<event	eventid="GE_OBJECT_ENTERS_LOCATION"	ObjName="Splav1_loc" />
+		<script>
+			if QuestStatus("Metalfordrey")==Q_TAKEN then
+				FailQuest("Metalfordrey")
+			end
+
+			if QuestStatus("DolgRayana1")==Q_TAKEN then
+				FailQuest("DolgRayana1")
+			end
+
+			if QuestStatus("DolgRayana")==Q_TAKEN then
+				FailQuest("DolgRayana")
+			end
+
+			local Plf = GetPlayerVehicle()
+			Plf:SetCustomLinearVelocity(0)
+			Plf:SetThrottle(0)
+
+			TakeQuest("SplavFinded")
+
+			AddQuestItem("quest_komp_splav")
+			CompleteQuest("FindSplavKaio")
+			CompleteQuest("SplavFindKaio1")
+			getObj("artefact1"):Remove()
+			if getObj("artefact2") then
+			getObj("artefact2"):Remove()
+			end
+			trigger:Deactivate()
+		</script>
+	</trigger>
+
+	<trigger	Name="trSplav2"	active="0">
+		<event	eventid="GE_OBJECT_ENTERS_LOCATION"	ObjName="Splav2_loc" />
+		<script>
+			if QuestStatus("Metalfordrey")==Q_TAKEN then
+				FailQuest("Metalfordrey")
+			end
+
+			if QuestStatus("DolgRayana1")==Q_TAKEN then
+				FailQuest("DolgRayana1")
+			end
+
+			if QuestStatus("DolgRayana")==Q_TAKEN then
+				FailQuest("DolgRayana")
+			end
+
+			TakeQuest("SplavFinded")
+
+			local Plf = GetPlayerVehicle()
+			Plf:SetCustomLinearVelocity(0)
+			Plf:SetThrottle(0)
+
+			AddQuestItem("quest_komp_splav")
+			CompleteQuest("FindSplavKaio")
+			CompleteQuest("SplavFindKaio1")
+			getObj("artefact1"):Remove()
+			if getObj("artefact2") then
+			getObj("artefact2"):Remove()
+			end
+			trigger:Deactivate()
+		</script>
+	</trigger>
+
+	<trigger	Name="trSplav3"	active="0">
+		<event	eventid="GE_OBJECT_ENTERS_LOCATION"	ObjName="Splav3_loc" />
+		<script>
+			if QuestStatus("Metalfordrey")==Q_TAKEN then
+				FailQuest("Metalfordrey")
+			end
+
+			if QuestStatus("DolgRayana1")==Q_TAKEN then
+				FailQuest("DolgRayana1")
+			end
+
+			if QuestStatus("DolgRayana")==Q_TAKEN then
+				FailQuest("DolgRayana")
+			end
+
+			TakeQuest("SplavFinded")
+
+			local Plf = GetPlayerVehicle()
+			Plf:SetCustomLinearVelocity(0)
+			Plf:SetThrottle(0)
+
+			AddQuestItem("quest_komp_splav")
+			CompleteQuest("FindSplavKaio")
+			CompleteQuest("SplavFindKaio1")
+			getObj("artefact1"):Remove()
+			if getObj("artefact2") then
+			getObj("artefact2"):Remove()
+			end
+			trigger:Deactivate()
+		</script>
+	</trigger>
+	
+	<trigger	Name="trMetal1"	active="0">
+		<event	eventid="GE_OBJECT_ENTERS_LOCATION"	ObjName="Metal1_loc" />
+		<script>
+		if QuestStatus("Metalfordrey")==Q_TAKEN then
+			local Plf = GetPlayerVehicle()
+			Plf:SetCustomLinearVelocity(0)
+			Plf:SetThrottle(0)
+
+			CompleteQuest("Metalfordrey")
+			TakeQuest("MetalForDrey1")
+			if getObj("artefact2") then
+			getObj("artefact2"):Remove()
+			end
+			trigger:Deactivate()
+		end
+		</script>
+	</trigger>
+
+	<trigger	Name="trMetal2"	active="0">
+		<event	eventid="GE_OBJECT_ENTERS_LOCATION"	ObjName="Metal2_loc" />
+		<script>
+		if QuestStatus("Metalfordrey")==Q_TAKEN then
+			local Plf = GetPlayerVehicle()
+			Plf:SetCustomLinearVelocity(0)
+			Plf:SetThrottle(0)
+
+			CompleteQuest("Metalfordrey")
+			TakeQuest("MetalForDrey1")
+			if getObj("artefact2") then
+			getObj("artefact2"):Remove()
+			end
+			trigger:Deactivate()
+		end
+		</script>
+	</trigger>
+
+	<trigger	Name="trMetal3"	active="0">
+		<event	eventid="GE_OBJECT_ENTERS_LOCATION"	ObjName="Metal3_loc" />
+		<script>
+		if QuestStatus("Metalfordrey")==Q_TAKEN then
+			local Plf = GetPlayerVehicle()
+			Plf:SetCustomLinearVelocity(0)
+			Plf:SetThrottle(0)
+
+			CompleteQuest("Metalfordrey")
+			TakeQuest("MetalForDrey1")
+			if getObj("artefact2") then
+			getObj("artefact2"):Remove()
+			end
+			trigger:Deactivate()
+		end
+		</script>
+	</trigger>
+
+	
+<!-- Выход из машины и наоборот - начало -->
+
+	<trigger Name="trPlayerExitVehicle" active="0">
+		<event timeout="1" eventid="GE_TIME_PERIOD" />
+		<script>
+			if GetVar("PlayerExitVeh").AsInt == 0 and IsQuestComplete("NewGame") then
+			SetVar("money", GetPlayerMoney())
+				g_Player:AddMoney(-999999999)
+			local pospl = GetPlayerVehicle():GetPosition()
+			local rotpl = GetPlayerVehicle():GetRotation(Quaternion())
+			local coord = GetPlayerVehicle():GetPosition()
+			SetVar("PlayerExitVeh", 1)
+--			SetVar("PlayerCarName",GetPlayerVehicle():GetName())
+				GetPlayerVehicle():SetCustomLinearVelocity( 0 )
+				GetPlayerVehicle():SetThrottle( 0 )
+			if	getObj("OldPlayerCar") then
+				local i = random(1,10000)
+				getObj("OldPlayerCar"):SetNameFromScript("OldPlayerCar0"..i)
+			end
+				GetPlayerVehicle():SetNameFromScript("OldPlayerCar")
+				CapturePlayerVehicle()
+				getObj("OldPlayerCar"):setGodMode(0)
+				getObj("OldPlayerCar"):SetCustomControlEnabled(0)
+				getObj("OldPlayerCar"):SetBelong(1080)
+--				local plcarname=GetVar("PlayerCarName").AsString
+--				local veh=getObj(plcarname)
+--				veh:setGodMode(0)
+--				veh:SetBelong(1080)
+				AddPlayerVehicle("Human01") 
+				GetPlayerVehicle():SetNameFromScript("PlayerHuman")
+				GetPlayerVehicle():SetBelong(1080)
+				TActivate("LocPlayerlll")
+				TDeactivate("triggerExitToMap11")
+				TDeactivate("triggerExitToMap13")
+				AllowSave( false )
+				GetPlayerVehicle():SetGamePositionOnGround( CVector(pospl))
+				coord.x = coord.x + 5
+        		coord.y = coord.y + 0
+        		coord.z = coord.z + 5
+        		GetPlayerVehicle():SetGamePositionOnGround(CVector(coord))
+				GetPlayerVehicle():SetRotation(Quaternion(rotpl))
+				TDeactivate("PlayerEnterCar")
+			end
+				trigger:Deactivate()
+		</script>
+	</trigger>
+	
+<!-- Выход из машины и наоборот - конец -->
+
+<!-- возможность сесть в любую машину!!! -->
+
+
+	<trigger Name="LocPlayerlll" active="1">
+		<event timeout="0.1" eventid="GE_TIME_PERIOD" />
+		<script>
+		if GetVar("PlayerExitVeh").AsInt == 1 then
+			local coord = GetPlayerVehicle():GetPosition()
+				coord.x = coord.x + 4
+        		coord.y = coord.y + 0
+        		coord.z = coord.z + 4
+			getObj("player_veh_loc1"):SetPosition(CVector(coord))
+				coord.x = coord.x - 8
+        		coord.y = coord.y + 0
+        		coord.z = coord.z - 8
+			getObj("player_veh_loc2"):SetPosition(CVector(coord))
+				coord.x = coord.x - 0
+        		coord.y = coord.y + 0
+        		coord.z = coord.z + 8
+			getObj("player_veh_loc3"):SetPosition(CVector(coord))
+				coord.x = coord.x + 8
+        		coord.y = coord.y + 0
+        		coord.z = coord.z - 8
+			getObj("player_veh_loc4"):SetPosition(CVector(coord))
+		else
+			trigger:Deactivate()
+		end 
+		</script>
+	</trigger>
+
+	<trigger Name="CarEnterLoc" active="1">
+		<event eventid="GE_OBJECT_ENTERS_LOCATION" ObjName="player_veh_loc1" />
+		<event eventid="GE_OBJECT_ENTERS_LOCATION" ObjName="player_veh_loc2" />
+		<event eventid="GE_OBJECT_ENTERS_LOCATION" ObjName="player_veh_loc3" />
+		<event eventid="GE_OBJECT_ENTERS_LOCATION" ObjName="player_veh_loc4" />
+		<script>
+			CarId = GetEntityByID(trigger:GetTriggeredObjectID(0))
+			local PlayerId = GetPlayerVehicle()
+			CaridBelong = CarId:GetBelong()
+
+			println(PlayerId)
+			println(CarId)
+
+			if CarId == PlayerId then
+			getObj("player_veh_loc1"):SetPosition(CVector(20,0,20))
+			getObj("player_veh_loc2"):SetPosition(CVector(20,0,20))
+			getObj("player_veh_loc3"):SetPosition(CVector(20,0,20))
+			getObj("player_veh_loc4"):SetPosition(CVector(20,0,20))
+			println("Player cannot enter the car because he is alone in the location.")
+			TDeactivate("CarLeaveLoc")
+			SetVar("PlayerWithCar", 0)
+			else
+			TActivate("CarLeaveLoc")
+			SetVar("PlayerWithCar", 1)
+			AddImportantFadingMsgByStrIdFormatted("fm_entervehtrue_1")
+			trigger:Deactivate()
+			end
+		</script>
+	</trigger>
+
+	<trigger Name="CarLeaveLoc" active="0">
+		<event eventid="GE_OBJECT_LEAVES_LOCATION" ObjName="player_veh_loc1" />
+		<event eventid="GE_OBJECT_LEAVES_LOCATION" ObjName="player_veh_loc2" />
+		<event eventid="GE_OBJECT_LEAVES_LOCATION" ObjName="player_veh_loc3" />
+		<event eventid="GE_OBJECT_LEAVES_LOCATION" ObjName="player_veh_loc4" />
+		<script>
+				TActivate("CarEnterLoc")
+				SetVar("PlayerWithCar", 0)
+				AddImportantFadingMsgByStrIdFormatted("fm_entervehfalse_1")
+				trigger:Deactivate()
+		</script>
+	</trigger>
+
+	<trigger Name="PlayerEnterCar" active="0">
+		<event timeout="0.1" eventid="GE_TIME_PERIOD" />
+		<script>
+			if GetVar("PlayerExitVeh").AsInt == 1 and GetVar("PlayerWithCar").AsInt == 1 and CarId:IsAlive() then
+				AllowSave( true )
+				GetPlayerVehicle():SetNameFromScript("PlayerHuman")
+				CapturePlayerVehicle()
+				getObj("PlayerHuman"):Remove()
+				g_Player:AddChild(CarId)
+
+				SetVar("PlayerWithCar", 0)
+				SetVar("PlayerExitVeh", 0)
+
+				TActivate("CarEnterLoc")
+				TActivate("LocPlayerlll")
+
+				GetPlayerVehicle():setGodMode(0)
+				GetPlayerVehicle():SetCustomControlEnabled(0)
+				GetPlayerVehicle():SetBelong(CaridBelong)
+				GetPlayerVehicle():SetCustomControlEnabled(0)
+				GetPlayerVehicle():SetExternalPathByName("")
+
+				TActivate("triggerExitToMap11")
+				TActivate("triggerExitToMap13")
+				TDeactivate("trPlayerExitVehicle")
+				getObj("player_veh_loc1"):SetPosition(CVector(20,0,20))
+				getObj("player_veh_loc2"):SetPosition(CVector(20,0,20))
+				getObj("player_veh_loc3"):SetPosition(CVector(20,0,20))
+				getObj("player_veh_loc4"):SetPosition(CVector(20,0,20))
+				g_Player:AddMoney(GetVar("money").AsInt)
+				if GetPlayerVehicle():GetBelong() == 1080 then
+					GetPlayerVehicle():SetBelong("1100")
+				end
+			end
+
+				trigger:Deactivate()
+		</script>
+	</trigger>
+<!-- возможность сесть в любую машину!!! -->
+
+</triggers>

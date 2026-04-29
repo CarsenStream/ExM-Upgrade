@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="windows-1251" standalone="yes" ?>
+<triggers>
+	<trigger Name="NewGame" active="1">
+		<event timeout="0.1" eventid="GE_TIME_PERIOD" />
+		<script>
+			trigger:Deactivate()
+
+			TakeQuest("NewGame")
+			CompleteQuest("NewGame")
+			
+				local diff = GetDifficultyLevel()
+				if diff == 0 then
+					RuleConsole("/ai_clash_coeff 0.000015")
+					RuleConsole("/ai_player_weapons_damage_coeff 1.5")
+					RuleConsole("/ai_enemies_ramming_damage_coeff 2")
+					RuleConsole("/ai_min_hit_velocity 30")
+				elseif diff == 1 then
+					RuleConsole("/ai_clash_coeff 0.000015")
+					RuleConsole("/ai_player_weapons_damage_coeff 1")
+					RuleConsole("/ai_enemies_ramming_damage_coeff 1")
+					RuleConsole("/ai_min_hit_velocity 30")
+				elseif diff == 2 then
+					RuleConsole("/ai_clash_coeff 0.003")
+					RuleConsole("/ai_player_weapons_damage_coeff 0.75")
+					RuleConsole("/ai_enemies_ramming_damage_coeff 1")
+					RuleConsole("/ai_min_hit_velocity 30")
+				end
+
+			bb = SpawnMessageBox("777")
+			AutoSave()
+			g_Console:InputLine "/exit"
+
+			PassToMap("r1m1","FromR1M2")
+		</script>
+	</trigger>
+
+	<trigger Name="NewGame1" active="1">
+		<event timeout="0.3" eventid="GE_TIME_PERIOD" />
+		<script>
+			PassToMap("r1m1","FromR1M2")
+			trigger:Deactivate()
+		</script>
+	</trigger>
+</triggers>

@@ -1,0 +1,956 @@
+<?xml version="1.0" encoding="windows-1251" standalone="yes" ?>
+<triggers>
+
+	<trigger	Name="trAutoSave"	active="0">
+		<event eventid="GE_GAME_START" ObjName="Player1" />
+		<script>
+		</script>
+	</trigger>
+
+	<trigger	Name="StartMapAndCheck"	active="1">
+		<event eventid="GE_GAME_START" ObjName="Player1" />
+		<script>
+				local diff = GetDifficultyLevel()
+				if diff == 0 then
+					RuleConsole("/ai_clash_coeff 0.000015")
+					RuleConsole("/ai_player_weapons_damage_coeff 1.5")
+					RuleConsole("/ai_enemies_ramming_damage_coeff 2")
+					RuleConsole("/ai_min_hit_velocity 30")
+				elseif diff == 1 then
+					RuleConsole("/ai_clash_coeff 0.000015")
+					RuleConsole("/ai_player_weapons_damage_coeff 1")
+					RuleConsole("/ai_enemies_ramming_damage_coeff 1")
+					RuleConsole("/ai_min_hit_velocity 30")
+				elseif diff == 2 then
+					RuleConsole("/ai_clash_coeff 0.003")
+					RuleConsole("/ai_player_weapons_damage_coeff 0.75")
+					RuleConsole("/ai_enemies_ramming_damage_coeff 1")
+					RuleConsole("/ai_min_hit_velocity 30")
+				end
+
+		</script>
+	</trigger>
+
+	<trigger	Name="trStartMap"	active="1">
+		<event eventid="GE_GAME_START" ObjName="Player1" />
+		<script>
+			local submar = getObj("SubmR2M2")
+			if submar then
+				submar:Remove()
+			end
+			SetVar("PlayerExitVeh", 0)
+			TActivate("trMoveR2ToR4M1")
+			
+			trigger:Deactivate()
+
+		</script>
+	</trigger>
+
+	<trigger	Name="trGraciassPlaceSecret"	active="1">
+		<event	timeout="0.1"			eventid="GE_TIME_PERIOD" />
+		<script>
+			local gunlist = {"hornet01","specter01","pkt01","kord01","vector01","kpvt01","rainmetal01","flag01","maxim01","fagot01","octopus01","elephant01","odin01"}
+			local len = getn(gunlist)
+
+			for i=1,12 do
+				--println("step"..i.."succesful")
+				CreateBoxWithAffixGun(CVector(getPos("SecretPlace"..i.."_loc")), gunlist[random(len)], random(0, 2))
+			end
+			trigger:Deactivate()
+		</script>
+	</trigger>
+
+
+	<trigger Name="SNGPROVIANT" active="0">
+		<event	timeout="0" eventid="GE_TIME_PERIOD" />
+		<script>
+			SetTolerance( 1100, 1015, RS_ALLY )
+			SetTolerance( 1100, 1016, RS_ENEMY )
+
+			TeamCreate("SNGProviantRiders",1016,CVector(1237, 261, 3657),{"Molokovoz02","UralShot","Molokovoz02"}, CVector(2658, 316, 3485), 1)
+			
+			TActivate("SNGPROVIANTDIE")
+
+			TakeQuest("r2m2_GiveBardakToEnemy")
+
+			trigger:Deactivate()
+		</script>
+	</trigger>
+
+	<trigger Name="SNGPROVIANTDIE" active="0">
+		<event eventid="GE_OBJECT_DIE" ObjName="SNGProviantRiders" />
+		<script>
+			CompleteQuest( "r2m2_GiveBardakToEnemy" )
+
+			CinemaFiltersUse()
+
+			SaveAllToleranceStatus(RS_NEUTRAL)
+
+			local Plf = GetPlayerVehicle()
+			local PlfID = GetPlayerVehicleId()
+			local PlfCoor = Plf:GetPosition()
+			PlfCoor.y = PlfCoor.y + 3
+			PlfCoor.z = PlfCoor.z + 40
+
+			Plf:SetCustomControlEnabled( true )
+			Plf:SetCustomLinearVelocity( 0 )
+			Plf:SetThrottle( 0 )
+			Plf:SetCustomControlEnabled( false )
+
+			FlyAround( 1, 0, 35, 18, PlfCoor, PlfID, 1, 1 )
+			StartCinematic()
+
+			AddCinematicMessage( 1, 1 )
+			AddCinematicMessage( 2, 0.1 )
+
+			TActivate( "SNGPROVIANTDIE_ce" )
+
+			trigger:Deactivate()
+		</script>
+	</trigger>
+	<trigger Name="SNGPROVIANTDIE_ce"	active="0">
+		<event eventid="GE_SKIP_CINEMATIC"	ObjName="Player1" />
+		<event eventid="GE_END_CINEMATIC"	ObjName="Player1" />
+		<script>
+			GameFiltersUse()
+
+			RestoreAllToleranceStatus()
+
+			SetCameraBehindPlayerVehicle()
+
+			TeamCreate("SNGInVill1",1016,CVector(1367, 261, 3709),{"r2m1_Bug1","r2m2_Fighter01","r2m1_scout02"}, CVector(1233, 261, 3656), 1)
+
+			TakeQuest("r2m2_GiveBardakToSideVillage")
+
+			TActivate( "INVILL1DIE" )
+
+			trigger:Deactivate() 
+		</script>
+	</trigger>
+
+	<trigger	Name="INVILL1DIE" active="0">
+		<event	eventid="GE_OBJECT_DIE" ObjName="SNGInVill1" />
+		<script>
+			TeamCreate("SNGInVill2",1016,CVector(1143, 261, 3951),{"r1m2_bug04","r1m3_Fighter02","r2m1_Bug1","r2m1_scout03"}, CVector(1233, 261, 3656), 1)
+
+			CompleteQuest("r2m2_GiveBardakToSideVillage_1")
+
+			TActivate( "INVILL2DIE" )
+
+			trigger:Deactivate()
+		</script>
+	</trigger>
+
+	<trigger	Name="INVILL2DIE" active="0">
+		<event	eventid="GE_OBJECT_DIE" ObjName="SNGInVill2" />
+		<script>
+			CompleteQuest( "r2m2_GiveBardakToSideVillage_2" )
+
+			CinemaFiltersUse()
+
+			SaveAllToleranceStatus(RS_NEUTRAL)
+
+			local Plf = GetPlayerVehicle()
+			local PlfID = GetPlayerVehicleId()
+			local PlfCoor = Plf:GetPosition()
+			PlfCoor.y = PlfCoor.y + 3
+			PlfCoor.z = PlfCoor.z + 70
+
+			Plf:SetCustomControlEnabled( true )
+			Plf:SetCustomLinearVelocity( 0 )
+			Plf:SetThrottle( 0 )
+			Plf:SetCustomControlEnabled( false )
+
+			FlyAround( 1, 1, 25, 7, PlfCoor, PlfID, 1, 1 )
+			StartCinematic()
+
+			AddCinematicMessage( 3, 1 )
+
+			TActivate( "INVILL2DIE_ce" )
+
+			trigger:Deactivate()
+		</script>
+	</trigger>
+	<trigger Name="INVILL2DIE_ce"	active="0">
+		<event eventid="GE_SKIP_CINEMATIC"	ObjName="Player1" />
+		<event eventid="GE_END_CINEMATIC"	ObjName="Player1" />
+		<script>
+			GameFiltersUse()
+
+			RestoreAllToleranceStatus()
+
+			SetCameraBehindPlayerVehicle()
+
+			trigger:Deactivate() 
+		</script>
+	</trigger>
+
+
+
+
+	<trigger Name="FELIXMONAX"	active="0">
+		<event eventid="GE_OBJECT_ENTERS_LOCATION" ObjName="Arena" />
+		<script>
+			TActivate("RolikBegin_FELIXMONAX")
+
+			trigger:Deactivate()    
+		</script>
+	</trigger>
+
+	<trigger Name="FELIXMONAXDIE" active="0">
+		<event eventid="GE_OBJECT_DIE" ObjName="FelixCars" />
+		<script>
+			CompleteQuest( "r2m2_FightFelix_2" )
+
+			CinemaFiltersUse()
+
+			SaveAllToleranceStatus(RS_NEUTRAL)
+
+			local Plf = GetPlayerVehicle()
+			local PlfID = GetPlayerVehicleId()
+			local PlfCoor = Plf:GetPosition()
+			PlfCoor.y = PlfCoor.y + 5
+			PlfCoor.z = PlfCoor.z + 50
+
+			Plf:SetCustomControlEnabled( true )
+			Plf:SetCustomLinearVelocity( 0 )
+			Plf:SetThrottle( 0 )
+			Plf:SetCustomControlEnabled( false )
+
+			FlyAround( 1, 1, 40, 7, PlfCoor, PlfID, 1, 1 )
+			StartCinematic()
+
+			AddCinematicMessage( 6, 1 )
+
+			TActivate("FELIXMONAXDIE_ce")
+
+			StopPlayingCustomMusic()
+
+			trigger:Deactivate()    
+		</script>
+	</trigger>
+	<trigger Name="FELIXMONAXDIE_ce"	active="0">
+		<event eventid="GE_SKIP_CINEMATIC"	ObjName="Player1" />
+		<event eventid="GE_END_CINEMATIC"	ObjName="Player1" />
+		<script>
+			GameFiltersUse()
+
+			RestoreAllToleranceStatus()
+			SetTolerance( 1100, 1013, RS_ENEMY )
+
+			SetCameraBehindPlayerVehicle()
+
+			trigger:Deactivate() 
+		</script>
+	</trigger>
+
+
+
+
+	<trigger Name="LAGERNOWAR" active="0">
+		<event	timeout="0" eventid="GE_TIME_PERIOD" />
+		<script>
+			SetTolerance( 1100, 1040, RS_ALLY )
+			SetTolerance( 1100, 1016, RS_ALLY )
+			SetTolerance( 1100, 1015, RS_ENEMY )
+
+			TeamCreate("ARRR",1015,CVector(1149,247,2787),{"Molokovoz02","r2m2_Hunter01","r2m1_Bug1"}, CVector(863,248,2519), 1)
+
+			trigger:Deactivate()    
+		</script>
+	</trigger>
+
+	<trigger	Name="LAGERWARBEGIN" active="0">
+		<event	timeout="0" eventid="GE_TIME_PERIOD" />
+		<script>
+			SetTolerance( 1100, 1040, RS_ENEMY )
+			SetTolerance( 1016, 1015, RS_ENEMY )
+
+			TeamCreate("LagerCarrrs",1040,CVector(812,248,2453),{"r2m1_scout01","r2m2_Molokovoz01","UralShot","Cruiser01","r2m1_scout03"}, CVector(932,248,2591), 1)
+			TeamCreate("ARRR",1015,CVector(1149,247,2787),{"r2m2_Fighter02","r2m2_Hunter01","Cruiser02"}, CVector(863,248,2519))
+
+			TActivate( "LAGERWARBEGINDIE" )
+
+			CompleteQuest("r2m2_ToKillAllSNGPeople_1")
+
+			trigger:Deactivate()    
+		</script>
+	</trigger>
+
+	<trigger	Name="LAGERWARBEGINDIE"	active="0">
+		<event	eventid="GE_OBJECT_DIE" ObjName="LagerCarrrs" />
+		<script>
+			CompleteQuest( "r2m2_ToKillAllSNGPeople_2" )
+
+			CinemaFiltersUse()
+
+			SaveAllToleranceStatus(RS_NEUTRAL)
+
+			local Plf = GetPlayerVehicle()
+			local PlfID = GetPlayerVehicleId()
+			local PlfCoor = Plf:GetPosition()
+			PlfCoor.y = PlfCoor.y + 5
+			PlfCoor.z = PlfCoor.z + 50
+
+			Plf:SetCustomControlEnabled( true )
+			Plf:SetCustomLinearVelocity( 0 )
+			Plf:SetThrottle( 0 )
+			Plf:SetCustomControlEnabled( false )
+
+			FlyAround( 1, 0, 40, 23, PlfCoor, PlfID, 1, 1 )
+			StartCinematic()
+
+			AddCinematicMessage( 7, 1 )
+			AddCinematicMessage( 8, 0.1 )
+			AddCinematicMessage( 9, 0.25 )
+
+			TActivate( "LAGERWARBEGINDIE_ce" )
+
+			trigger:Deactivate()   
+		</script>
+	</trigger>
+	<trigger Name="LAGERWARBEGINDIE_ce"	active="0">
+		<event eventid="GE_SKIP_CINEMATIC" ObjName="Player1" />
+		<event eventid="GE_END_CINEMATIC" ObjName="Player1" />
+		<script>
+			GameFiltersUse()
+
+			RestoreAllToleranceStatus()
+
+			SetCameraBehindPlayerVehicle()
+
+			trigger:Deactivate() 
+		</script>
+	</trigger>
+
+
+
+
+	<trigger Name="LEADERMEET"	active="0">
+		<event timeout="0" eventid="GE_TIME_PERIOD" />
+		<script>
+			SetTolerance( 1100, 1016, RS_ENEMY )
+
+			TeamCreate("LeadersSNG",1016,CVector(770,261,3281),{"r2m2_Hunter01","Molokovoz02","UralShot"}, nil, 1)
+
+			TakeQuest("r2m2_KillMrPresidentAndOther")
+
+			TActivate( "LEADERMEETDIE" )
+
+			trigger:Deactivate()    
+		</script>
+	</trigger>
+
+	<trigger Name="LEADERMEETDIE"	active="0">
+		<event eventid="GE_OBJECT_DIE" ObjName="LeadersSNG" />
+		<script>
+			CompleteQuest( "r2m2_KillMrPresidentAndOther" )
+
+			CinemaFiltersUse()
+
+			SaveAllToleranceStatus(RS_NEUTRAL)
+
+			local Plf = GetPlayerVehicle()
+			local PlfID = GetPlayerVehicleId()
+			local PlfCoor = Plf:GetPosition()
+			PlfCoor.y = PlfCoor.y + 5
+			PlfCoor.z = PlfCoor.z + 40
+
+			Plf:SetCustomControlEnabled( true )
+			Plf:SetCustomLinearVelocity( 0 )
+			Plf:SetThrottle( 0 )
+			Plf:SetCustomControlEnabled( false )
+
+			FlyAround( 1, 0.1, 40, 15, PlfCoor, PlfID, 1, 1 )
+			StartCinematic()
+
+			AddCinematicMessage( 10, 1 )
+
+			TActivate( "LEADERMEETDIE_ce" )
+
+			AddHistory( "r2_Before_Axel_00" )
+			AddFadingMsgId( "fm_history_got" )
+
+			trigger:Deactivate()   
+		</script>
+	</trigger>
+	<trigger Name="LEADERMEETDIE_ce"	active="0">
+		<event eventid="GE_SKIP_CINEMATIC"	ObjName="Player1" />
+		<event eventid="GE_END_CINEMATIC"	ObjName="Player1" />
+		<script>
+			GameFiltersUse()
+
+			RestoreAllToleranceStatus()
+
+			SetCameraBehindPlayerVehicle()
+
+			trigger:Deactivate() 
+		</script>
+	</trigger>
+
+
+
+
+	<trigger Name="AXELARENA" active="0">
+		<event eventid="GE_OBJECT_ENTERS_LOCATION" ObjName="Arena" />
+		<script>
+			TActivate( "RolikBegin_AXELARENA" )
+
+			trigger:Deactivate()    
+		</script>
+	</trigger>
+
+	<trigger Name="AXELARENADIE" active="0">
+		<event eventid="GE_VEHICLE_WITHOUT_HEALTH" ObjName="AxelCarWar_vehicle_0" />
+		<script>
+			GameFiltersUse()
+
+			CompleteQuest( "r2m2_FightWithAxelInArena_Quest_2" )
+
+			if IsQuestComplete("d_Lisa_Quest") then
+				TActivate("RolikBegin_AXELARENADIE")
+				
+				TakeQuest( "r2m2_FindLisAfterAxelAndFatherDie_Quest" )
+
+				AddHistory( "r2_After_Axel_01" )
+				AddFadingMsgId( "fm_history_got" )
+			else
+				TActivate("RolikBegin_AXELARENADIE")
+				
+				TakeQuest( "r2m2_ToLisaToMonastir" )
+
+				AddHistory( "r2_After_Axel_02" )
+				AddFadingMsgId( "fm_history_got" )
+			end
+
+			trigger:Deactivate()   
+		</script>
+	</trigger>
+
+
+
+	<trigger Name="AxelActive"	active="0">
+		<event timeout="0.1" eventid="GE_TIME_PERIOD" />
+		<script>
+			SetTolerance("1015","1041",RS_ALLY)
+			TeamCreate("AxelCarWar",1041,CVector(1767.571, 263.233, 860.623),{"AxelVehicle"})
+			TActivate( "AxelDie" )
+			trigger:Deactivate()    
+		</script>
+	</trigger>
+
+	<trigger Name="AxelDie" active="0">
+		<event eventid="GE_OBJECT_DIE" ObjName="AxelCarWar_vehicle_0" />
+		<script>
+			CompleteQuest("DieAxel")
+			CompleteQuest("r1m3_LisaWithOberegAndDisk_Quest")
+			TakeQuest( "r2m2_GiveDisk2ToOrakul" )
+			trigger:Deactivate()
+		</script>
+	</trigger>
+
+	<trigger Name="LISARUNOUT"	active="0">
+		<event timeout="0" eventid="GE_TIME_PERIOD" />
+		<script>
+			SetTolerance( 1100, 1042, RS_ENEMY )
+
+			TeamCreate("LisaRunCar",1042,CVector(2760,260,901),{"LisaCar"}, CVector(2589,280,970), 1)
+			local FVehicle = GetEntityByName("LisaRunCar_vehicle_0")
+			if FVehicle then
+				FVehicle:SetSkin ( 2 )
+				FVehicle:setImmortalMode(1)
+				FVehicle:AddItemsToRepository("add_damage_guns_and_grouping_angle_guns", 1)
+			end
+
+			TakeQuest("r2m2_FightLisaToMonastir")
+
+			TActivate( "LISARUNOUTDIE" )
+
+			trigger:Deactivate()    
+		</script>
+	</trigger>
+
+	<trigger	Name="LISARUNOUTDIE" active="0">
+		<event eventid="GE_VEHICLE_WITHOUT_HEALTH" ObjName="LisaRunCar_vehicle_0" />
+		<script>
+			CompleteQuest( "r2m2_FightLisaToMonastir" )
+
+			TActivate("RolikBegin_LISARUNOUTDIE")
+
+			AddQuestItem("quest_disk_1")
+			AddQuestItem("quest_disk_2")
+			AddQuestItem("quest_key_for_submarine")
+
+			AddHistory( "r2_Lisa_After_Axel_01" )
+			AddFadingMsgId( "fm_history_got" )
+
+			trigger:Deactivate()   
+		</script>
+	</trigger>
+
+	<trigger Name="DIEMYDAK" active="0">
+		<event eventid="GE_OBJECT_DIE" ObjName="ARCAR" />
+		<script>
+			TActivate("LisaDiedCas")
+			CompleteQuest("DieMydak")
+			trigger:Deactivate()
+		</script>
+	</trigger>
+
+	<trigger	Name="LAGERLEADER" active="0">
+		<event	timeout="0" eventid="GE_TIME_PERIOD" />
+		<script>
+			TeamCreate("ARRR",1015,CVector(1149,247,2787),{"Fighter01","Hunter02","Scout02"}, CVector(863,248,2519), 1)
+
+			trigger:Deactivate()    
+		</script>
+	</trigger>
+
+
+
+
+
+	<trigger	Name="ZNAKIZNAKI"	active="1">
+		<event	eventid="GE_OBJECT_ENTERS_LOCATION"	ObjName="ZnakiLoc2" />
+		<script>
+			if IsQuestTaken("r2m2_Znaki2_Quest") and not( IsQuestComplete("r2m2_Znaki2_Quest")) then
+				CompleteQuest("r2m2_Znaki2_Quest")
+
+				CinemaFiltersUse()
+				TActivate("RolikBegin_ZNAKIZNAKI")
+
+				trigger:Deactivate() 
+			end  
+		</script>
+	</trigger>
+
+
+
+
+
+	<trigger Name="trMoveR2ToR4M1" active="1">
+		<event	eventid="GE_OBJECT_ENTERS_LOCATION"	ObjName="EnterToSubmarine_loc" />
+		<script>
+			if IsQuestTaken("r4m1_FindNative") then
+				trigger:Deactivate()
+
+				local Plf = GetPlayerVehicle()
+				local PlfID = GetPlayerVehicleId()
+				local PlfCoor = Plf:GetPosition()
+				PlfCoor.y = PlfCoor.y + 25*0.74
+				PlfCoor.z = PlfCoor.z + 25*0.74
+
+				Plf:SetCustomControlEnabled( true )
+				Plf:SetCustomLinearVelocity( 0 )
+				Plf:SetThrottle( 0 )
+				Plf:SetCustomControlEnabled( false )
+ 
+				local b = SpawnMessageBox( "8800" )
+				if b == 1 then
+					TActivate ("cinMovePlToR4M1_begin")
+				else
+					SaveAllToleranceStatus(RS_NEUTRAL)
+
+					TActivate ("StartR4M1No")
+
+					Plf:SetExternalPathByName("r4m1_path")
+
+					FlyAround( 6, 0, 25, 5, PlfCoor, PlfID, 1, 1 )
+					StartCinematic()
+				end
+			end
+
+			trigger:Deactivate()
+ 		</script>
+	</trigger>
+
+	<trigger	Name="StartR4M1No"	active="0">
+		<event	eventid="GE_SKIP_CINEMATIC"	ObjName="Player1" />
+		<event	eventid="GE_END_CINEMATIC"	ObjName="Player1" />
+		<script>
+			RestoreAllToleranceStatus()
+
+			local vehPlayer = GetPlayerVehicle()
+			if vehPlayer then
+				vehPlayer:SetExternalPathByName("r4m1_path")
+				vehPlayer:PlaceToEndOfPath("r4m1_path")
+				vehPlayer:SetCustomLinearVelocity( 0 )
+				vehPlayer:SetThrottle( 0 )
+				vehPlayer:SetPosition( CVector(2944.455, 267.272, 2014.799))
+		   		vehPlayer:SetRotation(Quaternion(0.002, 0.944, -0.001, -0.331))
+		   	end
+
+			SetCameraBehindPlayerVehicle()
+
+			TActivate("trMoveR2ToR4M1")
+
+			trigger:Deactivate() 
+		</script>
+	</trigger>
+
+
+
+
+
+	<trigger	Name="ShamanesTriggerCreate" active="0">
+		<event	timeout="0" eventid="GE_TIME_PERIOD" />
+		<script>
+			TeamCreate("ShamanCar1",1005,CVector(2771,262,501),{"r2m2_ShamanHunter01"}, nil, 1)
+			TeamCreate("ShamanCar2",1002,CVector(1638,293,2251),{"r2m2_ShamanHunter01"}, nil, 1)
+
+			TActivate ("Shaman1TriggerDie")
+			TActivate ("Shaman2TriggerDie")
+
+			trigger:Deactivate()    
+		</script>
+	</trigger>
+
+	<trigger	Name="Shaman1TriggerDie" active="0">
+		<event	eventid="GE_OBJECT_DIE" ObjName="ShamanCar1" />
+		<script>
+			AddQuestItem("quest_shaman_head1")
+		
+			CompleteQuest( "r2m2_Head1HunterQuest" )
+
+			trigger:Deactivate()   
+		</script>
+	</trigger>
+
+	<trigger	Name="Shaman2TriggerDie" active="0">
+		<event	eventid="GE_OBJECT_DIE" ObjName="ShamanCar2" />
+		<script>
+			AddQuestItem("quest_shaman_head2")
+
+			CompleteQuest( "r2m2_Head2HunterQuest" )
+
+			trigger:Deactivate()   
+		</script>
+	</trigger>
+
+
+
+
+
+	<trigger Name="triggerExitToMap21" active="1">
+		<event eventid="GE_OBJECT_ENTERS_LOCATION" ObjName="ToR2M1" />
+		<script>
+			local Plf = GetPlayerVehicle()
+			Plf:SetThrottle( 0 )
+			Plf:SetCustomLinearVelocity( 0 )
+
+			local PlfID = GetPlayerVehicleId()
+			local PlfCoor = Plf:GetPosition()
+			PlfCoor.y = PlfCoor.y + 25*0.74
+			PlfCoor.z = PlfCoor.z + 25*0.74
+
+			if QuestStatus("r2m2_FightLisaToMonastir")~=Q_TAKEN and QuestStatus("r2m2_FightWithAxelInArena_Quest_2")~=Q_TAKEN and QuestStatus("r2m2_FightFelix_2")~=Q_TAKEN then
+				local b = SpawnMessageBox( "8801" )
+				if b == 1 then
+					PassToMap("r2m1", "FromR2M2", -1 )
+				else
+					SaveAllToleranceStatus(RS_NEUTRAL)
+
+					FlyAround(1, 0, 25, 1, PlfCoor, PlfID, 1, 1 )
+					StartCinematic()
+
+					TActivate ("RolikExitToMap21")
+					TActivate ("RolikENDExitToMap21")
+				end
+			else
+				SaveAllToleranceStatus(RS_NEUTRAL)
+
+				FlyAround(1, 0, 25, 1, PlfCoor, PlfID, 1, 1 )
+				StartCinematic()
+
+				TActivate ("RolikExitToMap21")
+				TActivate ("RolikENDExitToMap21")
+			end
+ 		</script>
+	</trigger>
+	<trigger Name="RolikExitToMap21" active="0">
+		<event eventid="GE_CINEMATIC_ENTER_FADE_IN" ObjName="Player1" />
+		<script>
+			CinemaFiltersUse()
+
+			RotationPlayerByPoints(CVector(getPos("ToR2M1")), CVector(getPos("FromR2M1")))
+			GetPlayerVehicle():SetGamePositionOnGround(CVector(getPos("FromR2M1")))
+
+			trigger:Deactivate()    
+		</script>
+	</trigger>
+	<trigger Name="RolikENDExitToMap21" active="0">
+		<event eventid="GE_END_CINEMATIC" ObjName="Player1" />
+		<event eventid="GE_SKIP_CINEMATIC" ObjName="Player1" />
+		<script>
+			GameFiltersUse()
+
+			RestoreAllToleranceStatus()
+
+			GetPlayerVehicle():SetGamePositionOnGround(CVector(getPos("FromR2M1")))
+
+			TDeactivate( "RolikExitToMap21" )
+
+			SetCameraBehindPlayerVehicle()
+
+			trigger:Deactivate()
+		</script>
+	</trigger>
+
+
+
+
+
+	<trigger Name="triggerExitToMap21small" active="1">
+		<event eventid="GE_OBJECT_ENTERS_LOCATION" ObjName="ToR2M1small" />
+		<script>
+			local Plf = GetPlayerVehicle()
+			Plf:SetThrottle( 0 )
+			Plf:SetCustomLinearVelocity( 0 )
+
+			local PlfID = GetPlayerVehicleId()
+			local PlfCoor = Plf:GetPosition()
+			PlfCoor.y = PlfCoor.y + 25*0.74
+			PlfCoor.z = PlfCoor.z + 25*0.74
+
+			if IsQuestTaken("d_GetAkselBandit_Quest") and QuestStatus("r2m2_FightLisaToMonastir")~=Q_TAKEN and QuestStatus("r2m2_FightWithAxelInArena_Quest_2")~=Q_TAKEN and QuestStatus("r2m2_FightFelix_2")~=Q_TAKEN then 
+				local b = SpawnMessageBox( "8801" )
+				if b == 1 then
+					PassToMap("r2m1", "FromR2M2small", -1 )
+				else
+					SaveAllToleranceStatus(RS_NEUTRAL)
+
+					FlyAround(1, 0, 25, 1, PlfCoor, PlfID, 1, 1 )
+					StartCinematic()
+
+					TActivate ("RolikExitToMap21small")
+					TActivate ("RolikENDExitToMap21small")
+				end
+			else
+				SaveAllToleranceStatus(RS_NEUTRAL)
+				FlyAround(1, 0, 25, 6, PlfCoor, PlfID, 1, 1 )
+				StartCinematic()
+				if not(IsQuestTaken("d_GetAkselBandit_Quest")) then
+					AddCinematicMessage( 8803, 0.5 )
+				end
+
+				TActivate ("RolikExitToMap21small")
+				TActivate ("RolikENDExitToMap21small")
+			end
+ 		</script>
+	</trigger>
+	<trigger Name="RolikExitToMap21small" active="0">
+		<event eventid="GE_CINEMATIC_ENTER_FADE_IN" ObjName="Player1" />
+		<script>
+			CinemaFiltersUse()
+
+			RotationPlayerByPoints(CVector(getPos("ToR2M1small")), CVector(getPos("FromR2M1small")))
+			GetPlayerVehicle():SetGamePositionOnGround(CVector(getPos("FromR2M1small")))
+
+			trigger:Deactivate()    
+		</script>
+	</trigger>
+	<trigger Name="RolikENDExitToMap21small" active="0">
+		<event eventid="GE_END_CINEMATIC" ObjName="Player1" />
+		<event eventid="GE_SKIP_CINEMATIC" ObjName="Player1" />
+		<script>
+			GameFiltersUse()
+
+			RestoreAllToleranceStatus()
+
+			GetPlayerVehicle():SetGamePositionOnGround(CVector(getPos("FromR2M1small")))
+
+			TDeactivate( "RolikExitToMap21" )
+
+			SetCameraBehindPlayerVehicle()
+
+			trigger:Deactivate()
+		</script>
+	</trigger>
+
+
+<!-- Выход из машины и наоборот - начало -->
+
+	<trigger Name="trPlayerExitVehicle" active="0">
+		<event timeout="1" eventid="GE_TIME_PERIOD" />
+		<script>
+			if GetVar("PlayerExitVeh").AsInt == 0 and IsQuestComplete("NewGame") then
+			SetVar("money", GetPlayerMoney())
+				g_Player:AddMoney(-999999999)
+			local pospl = GetPlayerVehicle():GetPosition()
+			local rotpl = GetPlayerVehicle():GetRotation(Quaternion())
+			local coord = GetPlayerVehicle():GetPosition()
+			SetVar("PlayerExitVeh", 1)
+--			SetVar("PlayerCarName",GetPlayerVehicle():GetName())
+				GetPlayerVehicle():SetCustomLinearVelocity( 0 )
+				GetPlayerVehicle():SetThrottle( 0 )
+			if	getObj("OldPlayerCar") then
+				local i = random(1,10000)
+				getObj("OldPlayerCar"):SetNameFromScript("OldPlayerCar0"..i)
+			end
+				GetPlayerVehicle():SetNameFromScript("OldPlayerCar")
+				CapturePlayerVehicle()
+				getObj("OldPlayerCar"):setGodMode(0)
+				getObj("OldPlayerCar"):SetCustomControlEnabled(0)
+				getObj("OldPlayerCar"):SetBelong(1080)
+--				local plcarname=GetVar("PlayerCarName").AsString
+--				local veh=getObj(plcarname)
+--				veh:setGodMode(0)
+--				veh:SetBelong(1080)
+				AddPlayerVehicle("Human01") 
+				GetPlayerVehicle():SetNameFromScript("PlayerHuman")
+				GetPlayerVehicle():SetBelong(1080)
+				TActivate("LocPlayerlll")
+				TDeactivate("triggerExitToMap11")
+				TDeactivate("triggerExitToMap13")
+				AllowSave( false )
+				GetPlayerVehicle():SetGamePositionOnGround( CVector(pospl))
+				coord.x = coord.x + 5
+        		coord.y = coord.y + 0
+        		coord.z = coord.z + 5
+        		GetPlayerVehicle():SetGamePositionOnGround(CVector(coord))
+				GetPlayerVehicle():SetRotation(Quaternion(rotpl))
+				TDeactivate("PlayerEnterCar")
+			end
+				trigger:Deactivate()
+		</script>
+	</trigger>
+	
+<!-- Выход из машины и наоборот - конец -->
+
+<!-- возможность сесть в любую машину!!! -->
+
+
+	<trigger Name="LocPlayerlll" active="1">
+		<event timeout="0.1" eventid="GE_TIME_PERIOD" />
+		<script>
+		if GetVar("PlayerExitVeh").AsInt == 1 then
+			local coord = GetPlayerVehicle():GetPosition()
+				coord.x = coord.x + 4
+        		coord.y = coord.y + 0
+        		coord.z = coord.z + 4
+			getObj("player_veh_loc1"):SetPosition(CVector(coord))
+				coord.x = coord.x - 8
+        		coord.y = coord.y + 0
+        		coord.z = coord.z - 8
+			getObj("player_veh_loc2"):SetPosition(CVector(coord))
+				coord.x = coord.x - 0
+        		coord.y = coord.y + 0
+        		coord.z = coord.z + 8
+			getObj("player_veh_loc3"):SetPosition(CVector(coord))
+				coord.x = coord.x + 8
+        		coord.y = coord.y + 0
+        		coord.z = coord.z - 8
+			getObj("player_veh_loc4"):SetPosition(CVector(coord))
+		else
+			trigger:Deactivate()
+		end 
+		</script>
+	</trigger>
+
+	<trigger Name="CarEnterLoc" active="1">
+		<event eventid="GE_OBJECT_ENTERS_LOCATION" ObjName="player_veh_loc1" />
+		<event eventid="GE_OBJECT_ENTERS_LOCATION" ObjName="player_veh_loc2" />
+		<event eventid="GE_OBJECT_ENTERS_LOCATION" ObjName="player_veh_loc3" />
+		<event eventid="GE_OBJECT_ENTERS_LOCATION" ObjName="player_veh_loc4" />
+		<script>
+			CarId = GetEntityByID(trigger:GetTriggeredObjectID(0))
+			local PlayerId = GetPlayerVehicle()
+			CaridBelong = CarId:GetBelong()
+
+			println(PlayerId)
+			println(CarId)
+
+			if CarId == PlayerId then
+			getObj("player_veh_loc1"):SetPosition(CVector(20,0,20))
+			getObj("player_veh_loc2"):SetPosition(CVector(20,0,20))
+			getObj("player_veh_loc3"):SetPosition(CVector(20,0,20))
+			getObj("player_veh_loc4"):SetPosition(CVector(20,0,20))
+			println("Player cannot enter the car because he is alone in the location.")
+			TDeactivate("CarLeaveLoc")
+			SetVar("PlayerWithCar", 0)
+			else
+			TActivate("CarLeaveLoc")
+			SetVar("PlayerWithCar", 1)
+			AddImportantFadingMsgByStrIdFormatted("fm_entervehtrue_1")
+			trigger:Deactivate()
+			end
+		</script>
+	</trigger>
+
+	<trigger Name="CarLeaveLoc" active="0">
+		<event eventid="GE_OBJECT_LEAVES_LOCATION" ObjName="player_veh_loc1" />
+		<event eventid="GE_OBJECT_LEAVES_LOCATION" ObjName="player_veh_loc2" />
+		<event eventid="GE_OBJECT_LEAVES_LOCATION" ObjName="player_veh_loc3" />
+		<event eventid="GE_OBJECT_LEAVES_LOCATION" ObjName="player_veh_loc4" />
+		<script>
+				TActivate("CarEnterLoc")
+				SetVar("PlayerWithCar", 0)
+				AddImportantFadingMsgByStrIdFormatted("fm_entervehfalse_1")
+				trigger:Deactivate()
+		</script>
+	</trigger>
+
+	<trigger Name="PlayerEnterCar" active="0">
+		<event timeout="0.1" eventid="GE_TIME_PERIOD" />
+		<script>
+			if GetVar("PlayerExitVeh").AsInt == 1 and GetVar("PlayerWithCar").AsInt == 1 and CarId:IsAlive() then
+				AllowSave( true )
+				GetPlayerVehicle():SetNameFromScript("PlayerHuman")
+				CapturePlayerVehicle()
+				getObj("PlayerHuman"):Remove()
+				g_Player:AddChild(CarId)
+
+				SetVar("PlayerWithCar", 0)
+				SetVar("PlayerExitVeh", 0)
+
+				TActivate("CarEnterLoc")
+				TActivate("LocPlayerlll")
+
+				GetPlayerVehicle():setGodMode(0)
+				GetPlayerVehicle():SetCustomControlEnabled(0)
+				GetPlayerVehicle():SetBelong(CaridBelong)
+				GetPlayerVehicle():SetCustomControlEnabled(0)
+				GetPlayerVehicle():SetExternalPathByName("")
+
+				TActivate("triggerExitToMap11")
+				TActivate("triggerExitToMap13")
+				TDeactivate("trPlayerExitVehicle")
+				getObj("player_veh_loc1"):SetPosition(CVector(20,0,20))
+				getObj("player_veh_loc2"):SetPosition(CVector(20,0,20))
+				getObj("player_veh_loc3"):SetPosition(CVector(20,0,20))
+				getObj("player_veh_loc4"):SetPosition(CVector(20,0,20))
+				g_Player:AddMoney(GetVar("money").AsInt)
+				if GetPlayerVehicle():GetBelong() == 1080 then
+					GetPlayerVehicle():SetBelong("1100")
+				end
+			end
+
+				trigger:Deactivate()
+		</script>
+	</trigger>
+<!-- возможность сесть в любую машину!!! -->
+
+	<trigger Name="trPlayerInQuestion1" active="1">
+		<event eventid="GE_OBJECT_ENTERS_LOCATION" ObjName="locRandomQuest1" />
+		<script>
+			getObj("locRandomQuest1Ico"):SetProperty("Active",0)
+			TActivate("Question1Cin")
+			trigger:Deactivate()
+		</script>
+	</trigger>
+
+	<trigger Name="trPlayerInQuestion2" active="1">
+		<event eventid="GE_OBJECT_ENTERS_LOCATION" ObjName="locRandomQuest2" />
+		<script>
+			UpdateWeather(1)
+			getObj("locRandomQuest2Ico"):SetProperty("Active",0)
+			TeamCreate("Kris",1101,CVector(3438.282, 303.540, 693.166),{"TornadoKristina"})
+			getObj("Kris_vehicle_0"):SetGamePositionOnGround( CVector(3438.282, 303.540, 693.166))
+			getObj("Kris_vehicle_0"):SetRotation(Quaternion(0.002, 0.697, 0.002, -0.717))
+			getObj("Kris_vehicle_0"):SetSkin(8)
+			CreateEffectTTLed("ET_PS_LIGHT_WEATHER1", CVector(3438.282, 303.540, 693.166), Quaternion(0, 0, 0, 0), 6000)
+			trigger:Deactivate()
+		</script>
+	</trigger>
+
+</triggers>

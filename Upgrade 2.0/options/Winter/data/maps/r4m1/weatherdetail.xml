@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="windows-1251" standalone="yes" ?>
+<Weather>
+	<WeatherItem
+		name="clear01">
+		<ColorType
+			name="sunrise"
+			LightmapTexture="lightmap_rise_r4m1.dds"
+			CloudsTexture="skyclear1.dds" />
+
+		<ColorType
+			name="day"
+			LightmapTexture="lightmap_day_r4m1.dds"
+			CloudsTexture="skycloudy.dds" />
+
+		<ColorType
+			name="sunset"
+			LightmapTexture="lightmap_set_r4m1.dds"
+			CloudsTexture="skyblight3.dds" />
+
+		<ColorType
+			name="night"
+			LightmapTexture="lightmap_night_r4m1.dds"
+			CloudsTexture="skyrainy.dds" />
+	</WeatherItem>
+
+	<WeatherItem
+		name="clear02">
+		<ColorType
+			name="sunrise"
+			LightmapTexture="lightmap_rise_r4m1.dds"
+			CloudsTexture="skyashstorm.dds" />
+
+		<ColorType
+			name="day"
+			LightmapTexture="lightmap_day_r4m1.dds"
+			CloudsTexture="skyrainy.dds" />
+
+		<ColorType
+			name="sunset"
+			LightmapTexture="lightmap_set_r4m1.dds"
+			CloudsTexture="skyashstorm.dds" />
+
+		<ColorType
+			name="night"
+			LightmapTexture="lightmap_night_r4m1.dds"
+			CloudsTexture="SkyStormy.tga" />
+	</WeatherItem>
+
+	<WeatherItem
+		name="snowfall01">
+		<ColorType
+			name="sunrise"
+			LightmapTexture="lightmap_rise_r4m1.dds"
+			CloudsTexture="skyashstorm.dds" />
+
+		<ColorType
+			name="day"
+			LightmapTexture="lightmap_day_r4m1.dds"
+			CloudsTexture="skyrainy.dds" />
+
+		<ColorType
+			name="sunset"
+			LightmapTexture="lightmap_set_r4m1.dds"
+			CloudsTexture="skyashstorm.dds" />
+
+		<ColorType
+			name="night"
+			LightmapTexture="lightmap_night_r4m1.dds"
+			CloudsTexture="skyashstorm.dds" />
+	</WeatherItem>
+
+	<WeatherItem
+		name="snowfall02">
+		<ColorType
+			name="sunrise"
+			LightmapTexture="lightmap_rise_r4m1.dds"
+			CloudsTexture="skyashstorm.dds" />
+
+		<ColorType
+			name="day"
+			LightmapTexture="lightmap_day_r4m1.dds"
+			CloudsTexture="skystormy.dds" />
+
+		<ColorType
+			name="sunset"
+			LightmapTexture="lightmap_set_r4m1.dds"
+			CloudsTexture="skyashstorm.dds" />
+
+		<ColorType
+			name="night"
+			LightmapTexture="lightmap_night_r4m1.dds"
+			CloudsTexture="SkyStormy.tga" />
+	</WeatherItem>
+</Weather>

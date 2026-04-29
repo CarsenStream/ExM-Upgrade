@@ -1,0 +1,636 @@
+<?xml version="1.0" encoding="windows-1251" standalone="yes" ?>
+
+<Prototypes>
+
+<!-- Среднее оружие -->
+	<Prototype
+		Class			= "BulletLauncher"
+		Name			= "rapier02"
+		ModelFile		= "rapier02"
+		ResourceType		= "BIG_GUN"
+		NodeScale		= "1 1 1"
+		Mass			= "1.0"
+		
+		BulletPrototype		= "raybullet"
+		ExplosionType		= "CANNON"
+		FiringEffect		= "none"
+		Damage			= "135"
+		FiringRate		= "55"
+		GroupingAngle		= "0.6"
+		FiringRange		= "1000"
+		RecoilForce		= "50"
+		DamageType		= "BLAST"
+		Decal			= "DC_GUN"
+
+		ChargeSize     		= "3"
+		RechargingTime 		= "3.2"
+
+		Durability		= "80"
+		
+		BlastWavePrototype      = "smallBlastWave"
+		Price			= "27310"
+		FiringType		= "Cannon"
+		/>
+
+	<Prototype
+		Class			= "BulletLauncher"
+		Name			= "rapier03"
+		ModelFile		= "rapier03"
+		ResourceType		= "BIG_GUN"
+		NodeScale		= "1 1 1"
+		Mass			= "1.0"
+		
+		BulletPrototype		= "raybullet"
+		ExplosionType		= "CANNON"
+		FiringEffect		= "none"
+		Damage			= "100"
+		FiringRate		= "50"
+		GroupingAngle		= "0.6"
+		FiringRange		= "1000"
+		RecoilForce		= "50"
+		DamageType		= "BLAST"
+		Decal			= "DC_GUN"
+
+		ChargeSize     		= "6"
+		RechargingTime 		= "4.5"
+
+		Durability		= "75"
+		
+		BlastWavePrototype      = "smallBlastWave"
+		Price			= "31340"
+		FiringType		= "Cannon"
+		/>
+
+	<Prototype
+		Class			= "BulletLauncher"
+		Name			= "vector01Mod"
+		ModelFile		= "vector02"
+		ResourceType		= "BIG_GUN"
+		NodeScale		= "1 1 1"
+		Mass			= "1.0"
+		
+		TracerEffect 		="ET_PS_TRACER1"
+		TracerRange 		= "1" 
+
+		BulletPrototype		= "raybullet"
+		ExplosionType		= "MACHINEGUN"
+		FiringEffect		= "none"
+		Damage			= "45"
+		FiringRate		= "130"
+		GroupingAngle		= "1.4"
+		FiringRange		= "850"
+		RecoilForce		= "50"
+		
+		ChargeSize     		= "70"
+		RechargingTime 		= "3.5"
+
+		Decal			= "DC_BIG_MACHINEGUN"
+
+		Price			= "6870"
+		FiringType		= "MachineGun"
+		Durability		= "80"/>
+
+	<Prototype
+		Class			= "BulletLauncher"
+		Name			= "vulcan01Mod"
+		ModelFile		= "vulcan02"
+		ResourceType		= "BIG_GUN"
+		NodeScale		= "1 1 1"
+		Mass			= "1.0"
+		
+		BulletPrototype		= "raybullet"
+		ExplosionType		= "MACHINEGUN"
+		FiringEffect		= "none"
+		Damage			= "15"
+		FiringRate		= "1000"
+		GroupingAngle		= "0.9"
+		FiringRange		= "400"
+		RecoilForce		= "50"
+		
+		ChargeSize     		= "250"
+		RechargingTime 		= "7"
+
+		Decal			= "DC_BIG_MACHINEGUN"
+
+		Price			= "9530"
+		FiringType		= "MachineGun"
+		Durability		= "50"/>
+
+	<Prototype
+		Class			= "BulletLauncher"
+		Name			= "rainmetal01Mod"
+		ModelFile		= "rainmetal02"
+		ResourceType		= "BIG_GUN"
+		NodeScale		= "1 1 1"
+		Mass			= "1.0"
+		
+		BulletPrototype		= "raybullet"
+		ExplosionType		= "AUTOCANNON"
+		FiringEffect		= "none"
+		Damage			= "35"
+		FiringRate		= "210"
+		GroupingAngle		= "1.0"
+		FiringRange		= "930"
+		RecoilForce		= "300"
+		
+		Decal			= "DC_BIG_MACHINEGUN"
+
+		ChargeSize     		= "90"
+		RechargingTime 		= "5"
+
+		Price			= "9400"
+                FiringType		= "Cannon"
+		BlastWavePrototype      = "smallBlastWave"
+		Durability		= "140" />
+
+	<Prototype
+		Class			= "PlasmaBunchLauncher"
+		Name			= "elephant02"
+		ModelFile		= "big_elephant02"
+		ResourceType		= "BIG_GUN"
+		NodeScale		= "1 1 1"
+		Mass			= "1.0"
+
+		BulletPrototype		= "somePlasmaBunch"
+		ExplosionType		= "PLASMA"
+		FiringEffect		= "none"
+		Damage			= "300"
+		FiringRate		= "50"
+		GroupingAngle		= "0.8"
+		FiringRange		= "200"
+		RecoilForce		= "500"
+		
+		ChargeSize     		= "3"
+		RechargingTime 		= "4.5"
+
+		Decal			= "DC_LASER"
+		FiringType		= "Plasma"
+		Price			= "86130"
+
+		Durability		= "300"/>
+	
+	<Prototype
+		Class			= "PlasmaBunchLauncher"
+		Name			= "odin02"
+		ModelFile		= "odin02"
+		ResourceType		= "BIG_GUN"
+		NodeScale		= "1 1 1"
+		Mass			= "1.0"
+		
+		Decal			= "DC_LASER"
+
+		BulletPrototype		= "someLaserBeamBlue"
+		ExplosionType		= "LASER"
+		FiringEffect		= "none"
+		Damage			= "260"
+		FiringRate		= "45"
+		GroupingAngle		= "0.3"
+		FiringRange		= "800"
+		RecoilForce		= "300"
+
+		ChargeSize     		= "10"
+		RechargingTime 		= "3.5"
+		FiringType		= "Laser"
+		Price			= "102500"
+
+		Durability		= "250"/>
+
+<!-- Крупное -->
+	<Prototype
+		Class			= "BulletLauncher"
+		Name			= "octopus01Mod"
+		ModelFile		= "octopus02"
+		ResourceType		= "GIANT_GUN"
+		NodeScale		= "1 1 1"
+		Mass			= "1.0"
+		
+		Decal			= "DC_GUN"
+
+		BulletPrototype		= "raybullet"
+		ExplosionType		= "AUTOCANNON"
+		FiringEffect		= "none"
+		Damage			= "42"
+		FiringRate		= "325"
+		GroupingAngle		= "2.2"
+		FiringRange		= "950"
+		RecoilForce		= "400"
+		
+		ChargeSize     		= "200"
+		RechargingTime 		= "5"
+                FiringType		= "MachineGun"
+		Price			= "35420"
+		Durability		= "250" />
+
+	<Prototype
+		Class			= "BulletLauncher"
+		Name			= "octopus01Uno"
+		ModelFile		= "octopus03"
+		ResourceType		= "GIANT_GUN"
+		NodeScale		= "1 1 1"
+		Mass			= "1.0"
+		
+		Decal			= "DC_GUN"
+
+		BulletPrototype		= "raybullet"
+		ExplosionType		= "AUTOCANNON"
+		FiringEffect		= "none"
+		Damage			= "38"
+		FiringRate		= "475"
+		GroupingAngle		= "2.2"
+		FiringRange		= "900"
+		RecoilForce		= "400"
+                VisibleInEncyclopedia 	= "false"
+		
+		ChargeSize     		= "200"
+		RechargingTime 		= "5"
+                FiringType		= "MachineGun"
+		Price			= "39380"
+		Durability		= "240" />
+
+<!-- Танкетка -->
+	<Prototype
+		Class			= "BulletLauncher"
+		Name			= "leotank01"
+		ModelFile		= "leotank01"
+		ResourceType		= "TANK_GUN"
+		NodeScale		= "1 1 1"
+		Mass			= "35.0"
+		
+		Decal			= "DC_GUN"
+
+		BulletPrototype		= "raybullet"
+		ExplosionType		= "BLAST"
+		DamageType		= "BLAST"
+		FiringEffect		= "none"
+		Damage			= "600"
+		FiringRate		= "35"
+		GroupingAngle		= "0.1"
+		FiringRange		= "1250"
+		RecoilForce		= "600"
+		BlastWavePrototype      = "smallBlastWave"
+
+		TurningSpeed		= "30"
+	CanBeUsedInAutogenerating 	= "0"
+                VisibleInEncyclopedia 	= "false"
+		Price			= "75000"
+                FiringType		= "Cannon"
+		Durability		= "500"/>
+
+	<Prototype
+		Class			= "RocketLauncher"
+                Name                    = "draconus01"
+                ModelFile               = "dragon01"
+                ResourceType            = "TANK_GUN"
+                NodeScale               = "1 1 1"
+                Mass                    = "1.0"
+                
+                Decal                   = "DC_ROKET"
+                FiringType              = "Rocket"
+                BulletPrototype         = "dragon_rocket"
+                ExplosionType           = "BLAST" 
+		Damage			= "840"
+		FiringRate		= "30"
+                GroupingAngle           = "1"
+                FiringRange             = "500"
+                RecoilForce             = "150"
+		ChargeSize 		= "16"
+                RechargingTime 		= "12"
+                MaxCharges 		= "4"
+
+	CanBeUsedInAutogenerating 	= "0"
+                Price 			= "178000" 
+                VisibleInEncyclopedia 	= "false"
+
+                Durability 		= "600" />
+
+<!-- Электромагнитное -->
+	<Prototype
+		Class			= "BulletLauncher"
+		Name			= "relsotron01"
+		ModelFile		= "relsotron01"
+		ResourceType		= "GIANT_GUN"
+		NodeScale		= "1 1 1"
+		Mass			= "1.0"
+			
+		TracerEffect 		= "ET_PS_TRACER3"
+		TracerRange 		= "1" 
+			
+		BulletPrototype		= "relsabullet"
+		ExplosionType		= "LASER"
+		FiringEffect		= "none"
+		Damage			= "3000"
+		FiringRate		= "25"
+		GroupingAngle		= "0.0"
+		FiringRange		= "5000"
+		RecoilForce		= "150"
+		DamageType		= "BLAST"
+		Decal			= "DC_LASER"
+		CanBeUsedInAutogenerating 	= "0"
+		
+		ShellsPoolSize		= "8"
+		WithShellsPoolLimit	= "true"
+		ChargeSize     		= "1"
+		RechargingTime 		= "5.0"
+
+		Durability		= "500"
+		Price			= "186480"
+		FiringType		= "Plasma"
+		/>
+
+	<Prototype
+		Class			= "BulletLauncher"
+		Name			= "gauss01"
+		ModelFile		= "gauss01"
+		ResourceType		= "GIANT_GUN"
+		NodeScale		= "1 1 1"
+		Mass			= "1.0"
+			
+		TracerEffect 		= "ET_PS_TRACER4"
+		TracerRange 		= "1" 
+			
+		BulletPrototype		= "gaussbullet"
+		ExplosionType		= "LASER"
+		FiringEffect		= "none"
+		Damage			= "300"
+		FiringRate		= "75"
+		GroupingAngle		= "0.05"
+		FiringRange		= "1000"
+		RecoilForce		= "150"
+		DamageType		= "BLAST"
+		Decal			= "DC_LASER"
+
+		ShellsPoolSize		= "140"
+		WithShellsPoolLimit	= "true"
+		ChargeSize     		= "35"
+		RechargingTime 		= "2.5"
+
+		Durability		= "500"
+		Price			= "143250"
+		FiringType		= "Laser"
+		/>
+
+<!-- Плазмострелы -->
+	<Prototype
+		Class			= "PlasmaBunchLauncher"
+		Name			= "hammer02"
+		ModelFile		= "big_hammer02"
+		ResourceType		= "GIANT_GUN"
+		NodeScale		= "1 1 1"
+		Mass			= "1.0"
+		
+		Decal			= "DC_LASER"
+
+		BulletPrototype		= "somePlasmaBunchBig"
+		ExplosionType		= "PLASMA"
+		FiringEffect		= "none"
+		Damage			= "1750"
+		FiringRate		= "12"
+		GroupingAngle		= "0.1"
+		FiringRange		= "280"
+		RecoilForce		= "550"
+		FiringType		= "Plasma"
+		ChargeSize     		= "1"
+		RechargingTime 		= "5"
+                CanBeUsedInAutogenerating  =  "0"
+		Price			= "208000"
+
+		Durability		= "450"/>
+
+	<Prototype
+		Class			= "PlasmaBunchLauncher"
+		Name			= "hammer03"
+		ModelFile		= "big_hammer03"
+		ResourceType		= "GIANT_GUN"
+		NodeScale		= "1 1 1"
+		Mass			= "1.0"
+		
+		Decal			= "DC_LASER"
+
+		BulletPrototype		= "somePlasmaBunchBig"
+		ExplosionType		= "PLASMA"
+		FiringEffect		= "none"
+		Damage			= "500"
+		FiringRate		= "75"
+		GroupingAngle		= "0.1"
+		FiringRange		= "220"
+		RecoilForce		= "550"
+		FiringType		= "Plasma"
+		ChargeSize     		= "4"
+		RechargingTime 		= "5"
+                CanBeUsedInAutogenerating  =  "0"
+		Price			= "217600"
+
+		Durability		= "400"/>
+
+<!-- Боковое -->
+	<Prototype
+		Class			= "RocketLauncher"
+		Name			= "mammut01L"
+		ModelFile		= "mammut01L"
+		ResourceType		= "SIDE_GUN"
+		NodeScale		= "1 1 1"
+		Mass			= "1.0"
+		
+		BulletPrototype		= "rocket_sml01"
+		ExplosionType		= "BLAST"
+		FiringEffect		= "none"
+		Damage			= "125"
+		FiringRate		= "80"
+		GroupingAngle		= "1"
+		FiringRange		= "450"
+                FiringType		= "Rocket"
+		ChargeSize     		= "6"
+		RechargingTime 		= "6"
+     		ApplyAffixes		= "false"
+
+		ShellsPoolSize		= "18"
+		WithShellsPoolLimit	= "true"
+		Durability		= "350"
+		
+		VisibleInEncyclopedia 		= "false"
+		CanBeUsedInAutogenerating  	= "0"
+		/>
+
+	<Prototype
+		Class			= "RocketLauncher"
+		Name			= "mammut01R"
+		ModelFile		= "mammut01R"
+		ResourceType		= "SIDE_GUN"
+		NodeScale		= "1 1 1"
+		Mass			= "1.0"
+		
+		BulletPrototype		= "rocket_sml01"
+		ExplosionType		= "BLAST"
+		FiringEffect		= "none"
+		Damage			= "125"
+		FiringRate		= "80"
+		GroupingAngle		= "1"
+		FiringRange		= "450"
+                FiringType		= "Rocket"
+     		ApplyAffixes		= "false"
+		ChargeSize     		= "6"
+		RechargingTime 		= "6"
+
+		ShellsPoolSize		= "18"
+		WithShellsPoolLimit	= "true"
+		Durability		= "350"
+
+		VisibleInEncyclopedia 		= "false"
+		CanBeUsedInAutogenerating  	= "0"
+		/>
+
+	<Prototype
+		Class			= "CompoundGun"
+		Name			= "mammutSideGun"
+
+		Price				= "52900"
+		Decal				= "DC_ROKET"
+		CanBeUsedInAutogenerating  	= "1"
+     		ApplyAffixes			= "false"
+		ResourceType			= "SIDE_GUN">	
+
+		<Part id = "BASKET_SIDE_GUN_L"	Prototype = "mammut01L" /> 
+		<Part id = "BASKET_SIDE_GUN_R"	Prototype = "mammut01R" /> 
+	</Prototype>
+
+	<Prototype
+		Class			= "RocketLauncher"
+		Name			= "mammut02L"
+		ModelFile		= "mammut02L"
+		ResourceType		= "SIDE_GUN"
+		NodeScale		= "1 1 1"
+		Mass			= "1.0"
+		
+		BulletPrototype		= "hurricane_rocket"
+		ExplosionType		= "BLAST"
+		FiringEffect		= "none"
+		Damage			= "250"
+		FiringRate		= "80"
+		GroupingAngle		= "1"
+		FiringRange		= "450"
+                FiringType		= "Rocket"
+		ChargeSize     		= "6"
+		RechargingTime 		= "6"
+     		ApplyAffixes		= "false"
+
+		ShellsPoolSize		= "18"
+		WithShellsPoolLimit	= "true"
+		Durability		= "400"
+		
+		VisibleInEncyclopedia 		= "false"
+		CanBeUsedInAutogenerating  	= "0"
+		/>
+
+	<Prototype
+		Class			= "RocketLauncher"
+		Name			= "mammut02R"
+		ModelFile		= "mammut02R"
+		ResourceType		= "SIDE_GUN"
+		NodeScale		= "1 1 1"
+		Mass			= "1.0"
+		
+		BulletPrototype		= "hurricane_rocket"
+		ExplosionType		= "BLAST"
+		FiringEffect		= "none"
+		Damage			= "250"
+		FiringRate		= "80"
+		GroupingAngle		= "1"
+		FiringRange		= "450"
+                FiringType		= "Rocket"
+     		ApplyAffixes		= "false"
+		ChargeSize     		= "6"
+		RechargingTime 		= "6"
+
+		ShellsPoolSize		= "18"
+		WithShellsPoolLimit	= "true"
+		Durability		= "400"
+
+		VisibleInEncyclopedia 		= "false"
+		CanBeUsedInAutogenerating  	= "0"
+		/>
+
+	<Prototype
+		Class			= "CompoundGun"
+		Name			= "mammut02SideGun"
+
+		Price				= "92700"
+		Decal				= "DC_ROKET"
+		CanBeUsedInAutogenerating  	= "1"
+     		ApplyAffixes			= "false"
+		ResourceType			= "SIDE_GUN">	
+
+		<Part id = "BASKET_SIDE_GUN_L"	Prototype = "mammut02L" /> 
+		<Part id = "BASKET_SIDE_GUN_R"	Prototype = "mammut02R" /> 
+	</Prototype>
+
+	<Prototype
+		Class			= "RocketLauncher"
+		Name			= "mammut03L"
+		ModelFile		= "mammut03L"
+		ResourceType		= "SIDE_GUN"
+		NodeScale		= "1 1 1"
+		Mass			= "1.0"
+		
+		BulletPrototype		= "swingfire_rocket"
+		ExplosionType		= "BLAST"
+		FiringEffect		= "none"
+		Damage			= "300"
+		FiringRate		= "90"
+		GroupingAngle		= "1"
+		FiringRange		= "650"
+                FiringType		= "Rocket"
+		ChargeSize     		= "6"
+		RechargingTime 		= "5"
+     		ApplyAffixes		= "false"
+
+		ShellsPoolSize		= "24"
+		WithShellsPoolLimit	= "true"
+		Durability		= "380"
+		
+		VisibleInEncyclopedia 		= "false"
+		CanBeUsedInAutogenerating  	= "0"
+		/>
+
+	<Prototype
+		Class			= "RocketLauncher"
+		Name			= "mammut03R"
+		ModelFile		= "mammut03R"
+		ResourceType		= "SIDE_GUN"
+		NodeScale		= "1 1 1"
+		Mass			= "1.0"
+		
+		BulletPrototype		= "swingfire_rocket"
+		ExplosionType		= "BLAST"
+		FiringEffect		= "none"
+		Damage			= "300"
+		FiringRate		= "90"
+		GroupingAngle		= "1"
+		FiringRange		= "650"
+                FiringType		= "Rocket"
+     		ApplyAffixes		= "false"
+		ChargeSize     		= "6"
+		RechargingTime 		= "5"
+
+		ShellsPoolSize		= "24"
+		WithShellsPoolLimit	= "true"
+		Durability		= "380"
+
+		VisibleInEncyclopedia 		= "false"
+		CanBeUsedInAutogenerating  	= "0"
+		/>
+
+	<Prototype
+		Class			= "CompoundGun"
+		Name			= "mammut03SideGun"
+
+		Price				= "137250"
+		Decal				= "DC_ROKET"
+		CanBeUsedInAutogenerating  	= "1"
+     		ApplyAffixes			= "false"
+		ResourceType			= "SIDE_GUN">	
+
+		<Part id = "BASKET_SIDE_GUN_L"	Prototype = "mammut03L" /> 
+		<Part id = "BASKET_SIDE_GUN_R"	Prototype = "mammut03R" /> 
+	</Prototype>
+
+</Prototypes>

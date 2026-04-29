@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="windows-1251" standalone="yes" ?>
+<resource>
+	<string
+		id="1"
+		value="ExMachina Upgrade|Задача||Столкнуть в воду всех соперников используя Флаг «Импульс»"
+		numButtons="1" />
+
+	<string
+		id="2"
+		value="ExMachina Upgrade|Задача выполнена!||Получено денег: 5000"
+		numButtons="1" />
+
+	<string
+		id="3"
+		value="ExMachina Upgrade|Задача провалена, машина уничтожена!||Получено денег: 250"
+		numButtons="1" />
+</resource>

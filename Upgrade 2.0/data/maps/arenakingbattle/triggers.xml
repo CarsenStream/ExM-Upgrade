@@ -1,0 +1,404 @@
+<?xml version="1.0" encoding="windows-1251" standalone="yes" ?>
+<triggers>
+		<trigger Name="PlayerVehAndRandom" active="1">
+		<event timeout="0" eventid="GE_TIME_PERIOD" />
+		<script>
+			GetPlayerVehicle():SetNameFromScript("PlayerOwnCar")
+			GetPlayerVehicle():SetGamePositionOnGround( CVector(1831.811, 375.276, 1834.494))
+			CapturePlayerVehicle()
+			AddPlayerVehicle("ArcadeScout02")
+			GetPlayerVehicle():SetPosition( CVector(2603.933, 322.643, 1698.991))
+			GetPlayerVehicle():SetRotation(Quaternion(0.003, -1.000, -0.003, 0.024))
+			GetPlayerVehicle():setImmortalMode(1)
+			GetPlayerVehicle():SetSkin(random(0,2))
+			GetPlayerVehicle():SetCustomLinearVelocity(50)
+
+			TeamCreate("Enemy1",1002,CVector(2570.735, 322.577, 1690.726),{"ArcadeScout02"})
+			TeamCreate("Enemy2",1002,CVector(2657.204, 322.829, 1683.914),{"ArcadeScout02"})
+			TeamCreate("Enemy3",1002,CVector(2694.642, 322.684, 1690.257),{"ArcadeScout02"})
+			TeamCreate("Enemy4",1002,CVector(2706.522, 322.697, 1664.335),{"ArcadeScout02"})
+			TeamCreate("Enemy5",1002,CVector(2687.767, 322.676, 1594.142),{"ArcadeScout02"})
+			TeamCreate("Enemy6",1002,CVector(2614.555, 322.678, 1601.007),{"ArcadeScout02"})
+			g_Console:InputLine '/ai_clash_coeff 0'
+			g_Console:InputLine '/ai_location_debug 1'
+			TActivate("PlayerDie")
+			AllowSave(0)
+			local coord = getObj("locZero"):GetPosition()
+				coord.x = coord.x + random(100)
+        		coord.z = coord.z + random(100)
+				coord.x = coord.x - random(100)
+        		coord.z = coord.z - random(100)
+			getObj("locbattle8"):SetPosition(CVector(coord))
+
+		</script>
+	</trigger>
+
+		<trigger Name="Box" active="1">
+		<event timeout="0.5" eventid="GE_TIME_PERIOD" />
+		<script>
+			PlayCustomMusic("TUNER")
+			SpawnMessageBox("1")
+			trigger:Deactivate() 
+		</script>
+	</trigger>
+	
+	<trigger Name="VictoryTr" active="0">
+	<event timeout="0.5" eventid="GE_TIME_PERIOD" />
+		<script>
+			SpawnMessageBox("2")
+			AddPlayerMoney(50000)
+			CapturePlayerVehicle()
+			local ownplvh = getObj("PlayerOwnCar")
+			g_Player:AddChild(ownplvh)
+			PassToMap("r4m1", "TheKazif_enter")
+			StopPlayingCustomMusic()
+				local diff = GetDifficultyLevel()
+				if diff == 0 then
+					RuleConsole("/ai_clash_coeff 0.000015")
+					RuleConsole("/ai_player_weapons_damage_coeff 1.5")
+					RuleConsole("/ai_enemies_ramming_damage_coeff 2")
+					RuleConsole("/ai_min_hit_velocity 30")
+				elseif diff == 1 then
+					RuleConsole("/ai_clash_coeff 0.000015")
+					RuleConsole("/ai_player_weapons_damage_coeff 1")
+					RuleConsole("/ai_enemies_ramming_damage_coeff 1")
+					RuleConsole("/ai_min_hit_velocity 30")
+				elseif diff == 2 then
+					RuleConsole("/ai_clash_coeff 0.003")
+					RuleConsole("/ai_player_weapons_damage_coeff 0.75")
+					RuleConsole("/ai_enemies_ramming_damage_coeff 1")
+					RuleConsole("/ai_min_hit_velocity 30")
+				end
+			g_Console:InputLine '/ai_location_debug 0'
+			AllowSave(1)
+			GetPlayerVehicle():SetCustomControlEnabled(0)
+			trigger:Deactivate() 
+		</script>
+	</trigger>
+
+	<trigger Name="PlayerDie" active="0">
+	<event timeout="0.5" eventid="GE_TIME_PERIOD" />
+		<script>
+		if 2 > GetPlayerVehicle():GetHealth() then
+			SpawnMessageBox("3")
+			AddPlayerMoney(5000)
+			CapturePlayerVehicle()
+			local ownplvh = getObj("PlayerOwnCar")
+			g_Player:AddChild(ownplvh)
+			PassToMap("r4m1", "TheKazif_enter")
+				local diff = GetDifficultyLevel()
+				if diff == 0 then
+					RuleConsole("/ai_clash_coeff 0.000015")
+					RuleConsole("/ai_player_weapons_damage_coeff 1.5")
+					RuleConsole("/ai_enemies_ramming_damage_coeff 2")
+					RuleConsole("/ai_min_hit_velocity 30")
+				elseif diff == 1 then
+					RuleConsole("/ai_clash_coeff 0.000015")
+					RuleConsole("/ai_player_weapons_damage_coeff 1")
+					RuleConsole("/ai_enemies_ramming_damage_coeff 1")
+					RuleConsole("/ai_min_hit_velocity 30")
+				elseif diff == 2 then
+					RuleConsole("/ai_clash_coeff 0.003")
+					RuleConsole("/ai_player_weapons_damage_coeff 0.75")
+					RuleConsole("/ai_enemies_ramming_damage_coeff 1")
+					RuleConsole("/ai_min_hit_velocity 30")
+				end
+			g_Console:InputLine '/ai_location_debug 0'
+			StopPlayingCustomMusic()
+			AllowSave(1)
+			GetPlayerVehicle():SetCustomControlEnabled(0)
+			trigger:Deactivate() 
+		end
+		</script>
+	</trigger>
+
+	<trigger Name="ScriptTimerLoc8" active="1">
+	<event timeout="30" eventid="GE_TIME_PERIOD" />
+		<script>
+			TActivate("ScriptPassLoc8")
+			trigger:Deactivate()
+		
+		</script>
+	</trigger>
+
+	<trigger Name="ScriptPassLoc8" active="0">
+	<event timeout="0.5" eventid="GE_TIME_PERIOD" />
+		<script>
+			local run = GetEntityByName("locbattle8")
+			local pl = GetPlayerVehicle()
+			local len
+
+			if run then
+				len = Dist(pl, run)
+
+				if (len > 50) then
+					GetPlayerVehicle():AddModifier("HP","= 0")
+				end
+			end
+
+		local coord = getObj("locZero"):GetPosition()
+				coord.x = coord.x + random(100)
+        		coord.z = coord.z + random(100)
+				coord.x = coord.x - random(100)
+        		coord.z = coord.z - random(100)
+			getObj("locbattle7"):SetPosition(CVector(coord))
+			getObj("locbattle8"):Remove()
+			TActivate("ScriptTimerLoc7")
+
+			trigger:Deactivate()
+		</script>
+	</trigger>
+	
+	<trigger Name="ScriptTimerLoc7" active="0">
+	<event timeout="30" eventid="GE_TIME_PERIOD" />
+		<script>
+			TActivate("ScriptPassLoc7")
+			trigger:Deactivate()
+		
+		</script>
+	</trigger>
+
+	<trigger Name="ScriptPassLoc7" active="0">
+	<event timeout="0.5" eventid="GE_TIME_PERIOD" />
+		<script>
+			local run = GetEntityByName("locbattle7")
+			local pl = GetPlayerVehicle()
+			local len
+
+			if run then
+				len = Dist(pl, run)
+
+				if (len > 45) then
+					GetPlayerVehicle():AddModifier("HP","= 0")
+				end
+			end
+
+		local coord = getObj("locZero"):GetPosition()
+				coord.x = coord.x + random(100)
+        		coord.z = coord.z + random(100)
+				coord.x = coord.x - random(100)
+        		coord.z = coord.z - random(100)
+			getObj("locbattle6"):SetPosition(CVector(coord))
+			getObj("locbattle7"):Remove()
+			TActivate("ScriptTimerLoc6")
+
+			trigger:Deactivate()
+		</script>
+	</trigger>
+	
+	<trigger Name="ScriptTimerLoc6" active="0">
+	<event timeout="30" eventid="GE_TIME_PERIOD" />
+		<script>
+			TActivate("ScriptPassLoc6")
+			trigger:Deactivate()
+		
+		</script>
+	</trigger>
+
+	<trigger Name="ScriptPassLoc6" active="0">
+	<event timeout="0.5" eventid="GE_TIME_PERIOD" />
+		<script>
+			local run = GetEntityByName("locbattle6")
+			local pl = GetPlayerVehicle()
+			local len
+
+			if run then
+				len = Dist(pl, run)
+
+				if (len > 40) then
+					GetPlayerVehicle():AddModifier("HP","= 0")
+				end
+			end
+
+		local coord = getObj("locZero"):GetPosition()
+				coord.x = coord.x + random(100)
+        		coord.z = coord.z + random(100)
+				coord.x = coord.x - random(100)
+        		coord.z = coord.z - random(100)
+			getObj("locbattle5"):SetPosition(CVector(coord))
+			getObj("locbattle6"):Remove()
+			TActivate("ScriptTimerLoc5")
+
+			trigger:Deactivate()
+		</script>
+	</trigger>
+	
+	<trigger Name="ScriptTimerLoc5" active="0">
+	<event timeout="30" eventid="GE_TIME_PERIOD" />
+		<script>
+			TActivate("ScriptPassLoc5")
+			trigger:Deactivate()
+		
+		</script>
+	</trigger>
+
+	<trigger Name="ScriptPassLoc5" active="0">
+	<event timeout="0.5" eventid="GE_TIME_PERIOD" />
+		<script>
+			local run = GetEntityByName("locbattle5")
+			local pl = GetPlayerVehicle()
+			local len
+
+			if run then
+				len = Dist(pl, run)
+
+				if (len > 35) then
+					GetPlayerVehicle():AddModifier("HP","= 0")
+				end
+			end
+
+		local coord = getObj("locZero"):GetPosition()
+				coord.x = coord.x + random(100)
+        		coord.z = coord.z + random(100)
+				coord.x = coord.x - random(100)
+        		coord.z = coord.z - random(100)
+			getObj("locbattle4"):SetPosition(CVector(coord))
+			getObj("locbattle5"):Remove()
+			TActivate("ScriptTimerLoc4")
+
+			trigger:Deactivate()
+		</script>
+	</trigger>
+	
+	<trigger Name="ScriptTimerLoc4" active="0">
+	<event timeout="30" eventid="GE_TIME_PERIOD" />
+		<script>
+			TActivate("ScriptPassLoc4")
+			trigger:Deactivate()
+		
+		</script>
+	</trigger>
+
+	<trigger Name="ScriptPassLoc4" active="0">
+	<event timeout="0.5" eventid="GE_TIME_PERIOD" />
+		<script>
+			local run = GetEntityByName("locbattle4")
+			local pl = GetPlayerVehicle()
+			local len
+
+			if run then
+				len = Dist(pl, run)
+
+				if (len > 30) then
+					GetPlayerVehicle():AddModifier("HP","= 0")
+				end
+			end
+
+		local coord = getObj("locZero"):GetPosition()
+				coord.x = coord.x + random(100)
+        		coord.z = coord.z + random(100)
+				coord.x = coord.x - random(100)
+        		coord.z = coord.z - random(100)
+			getObj("locbattle3"):SetPosition(CVector(coord))
+			getObj("locbattle4"):Remove()
+			TActivate("ScriptTimerLoc3")
+
+			trigger:Deactivate()
+		</script>
+	</trigger>
+	
+	<trigger Name="ScriptTimerLoc3" active="0">
+	<event timeout="30" eventid="GE_TIME_PERIOD" />
+		<script>
+			TActivate("ScriptPassLoc3")
+			trigger:Deactivate()
+		
+		</script>
+	</trigger>
+
+	<trigger Name="ScriptPassLoc3" active="0">
+	<event timeout="0.5" eventid="GE_TIME_PERIOD" />
+		<script>
+			local run = GetEntityByName("locbattle3")
+			local pl = GetPlayerVehicle()
+			local len
+
+			if run then
+				len = Dist(pl, run)
+
+				if (len > 20) then
+					GetPlayerVehicle():AddModifier("HP","= 0")
+				end
+			end
+
+		local coord = getObj("locZero"):GetPosition()
+				coord.x = coord.x + random(100)
+        		coord.z = coord.z + random(100)
+				coord.x = coord.x - random(100)
+        		coord.z = coord.z - random(100)
+			getObj("locbattle2"):SetPosition(CVector(coord))
+			getObj("locbattle3"):Remove()
+			TActivate("ScriptTimerLoc2")
+
+			trigger:Deactivate()
+		</script>
+	</trigger>
+	
+	<trigger Name="ScriptTimerLoc2" active="0">
+	<event timeout="30" eventid="GE_TIME_PERIOD" />
+		<script>
+			TActivate("ScriptPassLoc2")
+			trigger:Deactivate()
+		
+		</script>
+	</trigger>
+
+	<trigger Name="ScriptPassLoc2" active="0">
+	<event timeout="0.5" eventid="GE_TIME_PERIOD" />
+		<script>
+			local run = GetEntityByName("locbattle2")
+			local pl = GetPlayerVehicle()
+			local len
+
+			if run then
+				len = Dist(pl, run)
+
+				if (len > 10) then
+					GetPlayerVehicle():AddModifier("HP","= 0")
+				end
+			end
+
+		local coord = getObj("locZero"):GetPosition()
+				coord.x = coord.x + random(100)
+        		coord.z = coord.z + random(100)
+				coord.x = coord.x - random(100)
+        		coord.z = coord.z - random(100)
+			getObj("locbattle1"):SetPosition(CVector(coord))
+			getObj("locbattle2"):Remove()
+			TActivate("ScriptTimerLoc1")
+
+			trigger:Deactivate()
+		</script>
+	</trigger>
+	
+	<trigger Name="ScriptTimerLoc1" active="0">
+	<event timeout="30" eventid="GE_TIME_PERIOD" />
+		<script>
+			TActivate("ScriptPassLoc1")
+			trigger:Deactivate()
+		
+		</script>
+	</trigger>
+
+	<trigger Name="ScriptPassLoc1" active="0">
+	<event timeout="0.5" eventid="GE_TIME_PERIOD" />
+		<script>
+			local run = GetEntityByName("locbattle1")
+			local pl = GetPlayerVehicle()
+			local len
+
+			if run then
+				len = Dist(pl, run)
+
+				if (len > 3) then
+					GetPlayerVehicle():AddModifier("HP","= 0")
+				else
+					TActivate("VictoryTr")
+				end
+			end
+
+			trigger:Deactivate()
+		</script>
+	</trigger>
+	
+</triggers>

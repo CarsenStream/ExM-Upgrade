@@ -1,0 +1,190 @@
+<?xml version="1.0" encoding="windows-1251" standalone="yes" ?>
+<triggers>
+		<trigger Name="PlayerVehAndRandom" active="1">
+		<event timeout="0" eventid="GE_TIME_PERIOD" />
+		<script>
+			GetPlayerVehicle():SetNameFromScript("PlayerOwnCar")
+			GetPlayerVehicle():SetGamePositionOnGround( CVector(1831.811, 375.276, 1834.494))
+			CapturePlayerVehicle()
+			AddPlayerVehicle("ArcadeScout02")
+			GetPlayerVehicle():SetPosition( CVector(2603.933, 322.643, 1698.991))
+			GetPlayerVehicle():SetRotation(Quaternion(0.003, -1.000, -0.003, 0.024))
+			GetPlayerVehicle():setImmortalMode(1)
+			GetPlayerVehicle():SetSkin(random(0,2))
+
+			TeamCreate("Enemy1",1101,CVector(2570.735, 322.577, 1690.726),{"ArcadeScout02"})
+			TeamCreate("Enemy2",1102,CVector(2657.204, 322.829, 1683.914),{"ArcadeScout02"})
+			TeamCreate("Enemy3",1103,CVector(2694.642, 322.684, 1690.257),{"ArcadeScout02"})
+			TeamCreate("Enemy4",1104,CVector(2706.522, 322.697, 1664.335),{"ArcadeScout02"})
+			TeamCreate("Enemy5",1105,CVector(2687.767, 322.676, 1594.142),{"ArcadeScout02"})
+			TeamCreate("Enemy6",1106,CVector(2614.555, 322.678, 1601.007),{"ArcadeScout02"})
+			TeamCreate("Enemy7",1107,CVector(2564.547, 323.481, 1612.778),{"ArcadeScout02"})
+			g_Console:InputLine '/ai_clash_coeff 0'
+			TActivate("KillCounterTeam1Ally")
+			TActivate("PlayerDie")
+			TActivate("LocLeavePl")
+			TActivate("LocLeaveBot1")
+			TActivate("LocLeaveBot2")
+			TActivate("LocLeaveBot3")
+			TActivate("LocLeaveBot4")
+			TActivate("LocLeaveBot5")
+			TActivate("LocLeaveBot6")
+			TActivate("LocLeaveBot7")
+			AllowSave(0)
+			trigger:Deactivate() 
+		</script>
+	</trigger>
+
+		<trigger Name="Box" active="1">
+		<event timeout="0.5" eventid="GE_TIME_PERIOD" />
+		<script>
+			PlayCustomMusic("Battle03")
+			SpawnMessageBox("1")
+			trigger:Deactivate() 
+		</script>
+	</trigger>
+	
+	<trigger Name="KillCounterTeam1Ally" active="0">
+	<event eventid="GE_OBJECT_DIE" ObjName="Enemy1" />
+	<event eventid="GE_OBJECT_DIE" ObjName="Enemy2" />
+	<event eventid="GE_OBJECT_DIE" ObjName="Enemy3" />
+	<event eventid="GE_OBJECT_DIE" ObjName="Enemy4" />
+	<event eventid="GE_OBJECT_DIE" ObjName="Enemy5" />
+	<event eventid="GE_OBJECT_DIE" ObjName="Enemy6" />
+	<event eventid="GE_OBJECT_DIE" ObjName="Enemy7" />
+		<script>
+			trigger:IncCount()
+			local count = trigger:GetCount()
+			if 7>count then
+				return
+			end
+			SpawnMessageBox("2")
+			AddPlayerMoney(5000)
+			CapturePlayerVehicle()
+			local ownplvh = getObj("PlayerOwnCar")
+			g_Player:AddChild(ownplvh)
+			PassToMap("r1m3", "Minin_enter")
+			StopPlayingCustomMusic()
+				local diff = GetDifficultyLevel()
+				if diff == 0 then
+					RuleConsole("/ai_clash_coeff 0.000015")
+					RuleConsole("/ai_player_weapons_damage_coeff 1.5")
+					RuleConsole("/ai_enemies_ramming_damage_coeff 2")
+					RuleConsole("/ai_min_hit_velocity 30")
+				elseif diff == 1 then
+					RuleConsole("/ai_clash_coeff 0.000015")
+					RuleConsole("/ai_player_weapons_damage_coeff 1")
+					RuleConsole("/ai_enemies_ramming_damage_coeff 1")
+					RuleConsole("/ai_min_hit_velocity 30")
+				elseif diff == 2 then
+					RuleConsole("/ai_clash_coeff 0.003")
+					RuleConsole("/ai_player_weapons_damage_coeff 0.75")
+					RuleConsole("/ai_enemies_ramming_damage_coeff 1")
+					RuleConsole("/ai_min_hit_velocity 30")
+				end
+			AllowSave(1)
+			GetPlayerVehicle():SetCustomControlEnabled(0)
+			trigger:Deactivate() 
+		</script>
+	</trigger>
+
+	<trigger Name="PlayerDie" active="0">
+	<event timeout="0.5" eventid="GE_TIME_PERIOD" />
+		<script>
+		if 2 > GetPlayerVehicle():GetHealth() then
+			SpawnMessageBox("3")
+			AddPlayerMoney(5000)
+			CapturePlayerVehicle()
+			local ownplvh = getObj("PlayerOwnCar")
+			g_Player:AddChild(ownplvh)
+			PassToMap("r1m3", "Minin_enter")
+				local diff = GetDifficultyLevel()
+				if diff == 0 then
+					RuleConsole("/ai_clash_coeff 0.000015")
+					RuleConsole("/ai_player_weapons_damage_coeff 1.5")
+					RuleConsole("/ai_enemies_ramming_damage_coeff 2")
+					RuleConsole("/ai_min_hit_velocity 30")
+				elseif diff == 1 then
+					RuleConsole("/ai_clash_coeff 0.000015")
+					RuleConsole("/ai_player_weapons_damage_coeff 1")
+					RuleConsole("/ai_enemies_ramming_damage_coeff 1")
+					RuleConsole("/ai_min_hit_velocity 30")
+				elseif diff == 2 then
+					RuleConsole("/ai_clash_coeff 0.003")
+					RuleConsole("/ai_player_weapons_damage_coeff 0.75")
+					RuleConsole("/ai_enemies_ramming_damage_coeff 1")
+					RuleConsole("/ai_min_hit_velocity 30")
+				end
+			StopPlayingCustomMusic()
+			AllowSave(1)
+			GetPlayerVehicle():SetCustomControlEnabled(0)
+			trigger:Deactivate() 
+		end
+		</script>
+	</trigger>
+
+	<trigger Name="LocLeavePl" active="0">
+	<event eventid="GE_OBJECT_LEAVES_LOCATION" ObjName="locReSpawnPl" />
+		<script>
+		GetPlayerVehicle():SetPosition( CVector(2603.933, 322.643, 1698.991))
+		GetPlayerVehicle():SetRotation(Quaternion(0.003, -1.000, -0.003, 0.024))
+		</script>
+	</trigger>
+
+	<trigger Name="LocLeaveBot1" active="0">
+	<event eventid="GE_OBJECT_LEAVES_LOCATION" ObjName="locReSpawnBot1" />
+		<script>
+		getObj("Enemy1_vehicle_0"):SetPosition( CVector(2603.933, 322.643, 1698.991))
+		getObj("Enemy1_vehicle_0"):SetRotation(Quaternion(0.003, -1.000, -0.003, 0.024))
+		</script>
+	</trigger>
+
+	<trigger Name="LocLeaveBot2" active="0">
+	<event eventid="GE_OBJECT_LEAVES_LOCATION" ObjName="locReSpawnBot2" />
+		<script>
+		getObj("Enemy1_vehicle_0"):SetPosition( CVector(2603.933, 322.643, 1698.991))
+		getObj("Enemy1_vehicle_0"):SetRotation(Quaternion(0.003, -1.000, -0.003, 0.024))
+		</script>
+	</trigger>
+	
+	<trigger Name="LocLeaveBot3" active="0">
+	<event eventid="GE_OBJECT_LEAVES_LOCATION" ObjName="locReSpawnBot3" />
+		<script>
+		getObj("Enemy3_vehicle_0"):SetPosition( CVector(2603.933, 322.643, 1698.991))
+		getObj("Enemy3_vehicle_0"):SetRotation(Quaternion(0.003, -1.000, -0.003, 0.024))
+		</script>
+	</trigger>
+	
+	<trigger Name="LocLeaveBot4" active="0">
+	<event eventid="GE_OBJECT_LEAVES_LOCATION" ObjName="locReSpawnBot4" />
+		<script>
+		getObj("Enemy4_vehicle_0"):SetPosition( CVector(2603.933, 322.643, 1698.991))
+		getObj("Enemy4_vehicle_0"):SetRotation(Quaternion(0.003, -1.000, -0.003, 0.024))
+		</script>
+	</trigger>
+	
+	<trigger Name="LocLeaveBot5" active="0">
+	<event eventid="GE_OBJECT_LEAVES_LOCATION" ObjName="locReSpawnBot5" />
+		<script>
+		getObj("Enemy5_vehicle_0"):SetPosition( CVector(2603.933, 322.643, 1698.991))
+		getObj("Enemy5_vehicle_0"):SetRotation(Quaternion(0.003, -1.000, -0.003, 0.024))
+		</script>
+	</trigger>
+	
+	<trigger Name="LocLeaveBot6" active="0">
+	<event eventid="GE_OBJECT_LEAVES_LOCATION" ObjName="locReSpawnBot6" />
+		<script>
+		getObj("Enemy6_vehicle_0"):SetPosition( CVector(2603.933, 322.643, 1698.991))
+		getObj("Enemy6_vehicle_0"):SetRotation(Quaternion(0.003, -1.000, -0.003, 0.024))
+		</script>
+	</trigger>
+	
+	<trigger Name="LocLeaveBot7" active="0">
+	<event eventid="GE_OBJECT_LEAVES_LOCATION" ObjName="locReSpawnBot7" />
+		<script>
+		getObj("Enemy7_vehicle_0"):SetPosition( CVector(2603.933, 322.643, 1698.991))
+		getObj("Enemy7_vehicle_0"):SetRotation(Quaternion(0.003, -1.000, -0.003, 0.024))
+		</script>
+	</trigger>
+	
+</triggers>

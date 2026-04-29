@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="windows-1251" standalone="yes" ?>
+<PSEditor>
+	<PS
+		Name="PS21"
+		Class="LandSprite">
+		<Emitter
+			ParticleAgeMin="1.000"
+			ParticleAgeMax="1.000"
+			MaxParticles="200"
+			EmitAtPeriod="1.000"
+			Phase="0.000"
+			EmitLength="1.000"
+			RepeatPeriod="1.000"
+			ResetTime="2.000"
+			LocalStop="0"
+			StopTime="0.000"
+			PhaseMax="0.000" />
+
+		<Force
+			Min="0.000 0.000 0.000"
+			Max="0.000 0.000 0.000"
+			Type="sphere"
+			PosMin="0.000 1.000 0.000"
+			PosMax="0.000 0.000 0.000" />
+
+		<Mesh
+			Enable="0"
+			Points="0"
+			Radius="5.000"
+			Point1="0.000 0.000 0.000"
+			Point2="0.000 0.000 0.000"
+			Forv="1"
+			Back="0" />
+
+		<Keys>
+			<Color
+				k:0="255"
+				k:1="-16777216"
+				k:2="255"
+				k:3="-16777216"
+				k:4="255"
+				k:5="-16777216"
+				k:6="255"
+				k:7="-16777216"
+				k:8="255"
+				k:9="-16777216"
+				k:10="-16777216"
+				k:11="-16777216"
+				k:12="-16777216"
+				k:13="-16777216"
+				k:14="-16777216"
+				k:15="255"
+				k:16="-16777216"
+				k:17="255"
+				k:18="-16777216"
+				k:19="-16777216"/>
+
+
+			<Size
+				k:0="1.801"
+				k:1="2.801"
+				k:2="4.801"
+				k:3="6.801"
+				k:4="9.801"
+				k:5="9.801"
+				k:6="9.801"
+				k:7="9.801"
+				k:8="9.801"
+				k:9="9.801"
+				k:10="9.801"
+				k:11="9.801"
+				k:12="9.801"
+				k:13="9.801"
+				k:14="9.801"
+				k:15="9.801"
+				k:16="9.801"
+				k:17="9.801"
+				k:18="9.801"
+				k:19="9.801" />
+		</Keys>
+
+		<Render
+			ShaderType="1"
+			TrailLen="14"
+			ScaleParts="2.800"
+			BlendMode="2"
+			UpdateXForm="0"
+			SpriteAngle="0.000"
+			Orient="0"
+			Texture="data\fx\flare1.bmp"
+			Specific="1"
+			TexTiling="1"
+			ParentDependency="0.000"
+			BBoxMin="-20.000 -20.000 -20.000"
+			BBoxMax="20.000 20.000 20.000" />
+
+		<Attr
+			Name="SpaceAttractor3"
+			Class="Space">
+			<Emitter
+				SystemMode="cart"
+				FuncMode="rnd"
+				WorkMode="vel"
+				PeriodX="2.000"
+				PeriodY="2.000"
+				PeriodZ="2.000"
+				Phase="0.000"
+				EmitLength="1.000"
+				RepeatPeriod="1.000"
+				TimeMode="global"
+				EmitterOn="0" />
+
+			<Force
+				Min="0.000 0.000 0.000"
+				Max="0.000 0.000 0.000" />
+		</Attr>
+	</PS>
+</PSEditor>

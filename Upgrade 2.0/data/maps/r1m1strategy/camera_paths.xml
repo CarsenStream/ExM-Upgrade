@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="windows-1251" standalone="yes"?>
+<Paths>
+	<Path Name = "start_game">
+		<Point  coord="0 0 0" rotation="0 0 0 1"/>   
+	</Path>
+
+	<Path Name = "EnergyStationPath">
+		<Point  coord="1330.603 287.829 2905.164" rotation="0.007 0.354 0.007 0.935"/>
+	</Path>
+
+	<Path Name = "EnergyStationPath2">
+		<Point  coord="1367.472 289.479 2879.084" rotation="-0.028 0.968 0.019 -0.249"/>
+	</Path>
+
+	<Path Name = "LightFactoryPath">
+		<Point  coord="1317.589 287.752 2884.067" rotation="0.001 0.855 0.005 0.519"/>
+	</Path>
+	
+	<Path Name = "HeavyFactoryPath">
+		<Point  coord="1353.402 289.607 2858.885" rotation="0.035 -0.423 0.026 0.905"/>
+	</Path>
+		
+	<Path Name = "DotPath">
+		<Point  coord="1308.199 287.923 2867.184" rotation="0.005 0.879 0.002 0.477"/>
+	</Path>
+
+	<Path Name = "Oilmine1Path">
+		<Point  coord="1383.356 288.945 2900.449" rotation="0.008 -0.971 -0.004 0.238"/>
+	</Path>
+	
+	<Path Name = "Oilmine2Path">
+		<Point  coord="1355.645 288.150 2949.755" rotation="-0.007 -0.055 0.014 0.998"/>
+	</Path>
+
+	<Path Name = "Oilmine3Path">
+		<Point  coord="1407.686 287.648 2942.886" rotation="-0.007 -0.055 0.014 0.998"/>
+	</Path>
+
+	<Path Name = "EnergyStationPathEnemy">
+		<Point  coord="1069.753 292.859 2244.694" rotation="-0.046 -0.967 0.008 -0.252"/>
+	</Path>
+
+	<Path Name = "EnergyStationPath2Enemy">
+		<Point  coord="1060.782 291.582 2287.439" rotation="0.001 -0.023 0.012 -1.000"/>
+	</Path>
+
+	<Path Name = "LightFactoryPathEnemy">
+		<Point  coord="1095.765 291.627 2237.052" rotation="-0.007 -0.004 0.000 -1.000"/>
+	</Path>
+	
+	<Path Name = "HeavyFactoryPathEnemy">
+		<Point  coord="1106.482 291.619 2286.504" rotation="0.001 -0.993 0.006 0.116"/>
+	</Path>
+		
+	<Path Name = "DotPathEnemy">
+		<Point  coord="1132.252 289.610 2269.569" rotation="-0.004 -0.780 0.005 -0.626"/>
+	</Path>
+
+	<Path Name = "Oilmine1PathEnemy">
+		<Point  coord="1031.046 294.654 2233.155" rotation="0.009 -0.925 -0.006 0.380"/>
+	</Path>
+	
+	<Path Name = "Oilmine2PathEnemy">
+		<Point  coord="1009.987 303.699 2334.356" rotation="0.026 0.194 0.008 0.981"/>
+	</Path>
+</Paths>

@@ -1,0 +1,784 @@
+<?xml version="1.0" encoding="windows-1251" standalone="yes" ?>
+
+<Prototypes>
+
+<!-- Голые прототипы -->
+
+	<!-- Богатырь -->
+	
+	<Prototype
+		Class			= "Vehicle"
+		Name			= "Volat"
+		ResourceType		= "VEHICLE"
+
+		PressingForce		= "2.2"
+
+		BlastWave		= "bigBlastWave"
+		
+		DiffRatio		= "8.0"
+		MaxEngineRpm		= "10000"
+		LowGearShiftLimit	= "2500"
+		HighGearShiftLimit	= "6500"
+		DestroyEffectPiercing	= "ET_PS_VEH_EXP1_MED"
+		DestroyEffectBlast	= "ET_PS_VEH_EXP2_MED"
+		DestroyEffectEnergy	= "ET_PS_VEH_EXP3_MED"
+		DestroyEffectWater	= "ET_PS_VEH_EXP2_MED"
+
+		SteeringSpeed		= "0.5"
+
+		CameraHeight            = "6"
+		CameraMaxDist		= "38"
+
+		HornSound		= "ET_S_HORN06"
+
+		DecisionMatrix		= "vehiclemain.lua"
+
+		LookRadius		= "200.0"
+		IntersectionRadius	= "9.0"
+		TakingRadius		= "30.0"
+
+		DriftCoeff		= "0.02"
+
+		MassSize		= "4 4 12"
+		MassTranslation		= "0 -2.0 0"
+
+		Abstract 		= "true" >
+
+		<MainPartDescription id = "CHASSIS" partResourceType = "VOLAT_CHASSIS">
+			<PartDescription id = "CABIN" partResourceType = "VOLAT_CABIN" lpName = "LP_CAB01" >
+				<PartDescription id="CABIN_SMALL_GUN" partResourceType = "SMALL_GUN" lpName = "LP_SML01" />
+				<PartDescription id="CABIN_SMALL_GUN_1" partResourceType = "SMALL_GUN" lpName = "LP_SML02" />
+				<PartDescription id="CABIN_BIG_GUN_1" partResourceType = "BIG_GUN" lpName = "LP_BIG01" />
+				<PartDescription id="CABIN_BIG_GUN_2" partResourceType = "BIG_GUN" lpName = "LP_BIG02" />
+				<PartDescription id = "CABIN_GIANT_GUN" partResourceType = "GIANT_GUN" lpName = "LP_GIANT01" />
+				<PartDescription id = "CABIN_GIANT_GUN_1" partResourceType = "GIANT_GUN" lpName = "LP_GIANT02" />
+			</PartDescription>
+			<PartDescription id = "BASKET" partResourceType="VOLAT_BASKET" lpName = "LP_BSK01" >
+				<PartDescription id="BASKET_SMALL_GUN_0" partResourceType = "SMALL_GUN" lpName = "LP_SML01" />
+				<PartDescription id="BASKET_SMALL_GUN_1" partResourceType = "SMALL_GUN" lpName = "LP_SML02" />
+				<PartDescription id="BASKET_BIG_GUN_0" partResourceType = "BIG_GUN" lpName = "LP_BIG01" />
+				<PartDescription id="BASKET_BIG_GUN_1" partResourceType = "BIG_GUN" lpName = "LP_BIG02" />
+				<PartDescription id="BASKET_BIG_GUN_2" partResourceType = "BIG_GUN" lpName = "LP_BIG03" />
+				<PartDescription id="BASKET_GIANT_GUN" partResourceType = "GIANT_GUN" lpName = "LP_GIANT01" />
+				<PartDescription id="BASKET_SIDE_GUN_0" partResourceType = "SIDE_GUN" lpName = "LP_SIDE01L,LP_SIDE01R" />
+				<PartDescription id="BASKET_SPECIAL_WEAPON" partResourceType = "SPECIAL_WEAPON"/>
+			</PartDescription>
+		</MainPartDescription>
+
+		<Parts>
+			<Part id = "CHASSIS"		Prototype = "volatChassis" />
+		</Parts>
+
+		<Wheels>
+			<Wheel Prototype = "volatWheel01L" steering = "correct" />
+			<Wheel Prototype = "volatWheel01R" steering = "correct" />
+			<Wheel Prototype = "volatWheel01L" steering = "correct" />
+			<Wheel Prototype = "volatWheel01R" steering = "correct" />
+			<Wheel Prototype = "volatWheel01L" />
+			<Wheel Prototype = "volatWheel01R" />
+			<Wheel Prototype = "volatWheel01L" />
+			<Wheel Prototype = "volatWheel01R" />
+		</Wheels>
+	</Prototype>
+
+	<Prototype
+		Class			= "Vehicle"
+		Name			= "VolatExtra"
+		ResourceType		= "VEHICLE"
+
+		PressingForce		= "2.2"
+
+		BlastWave		= "bigBlastWave"
+		
+		DiffRatio		= "8.0"
+		MaxEngineRpm		= "10000"
+		LowGearShiftLimit	= "2500"
+		HighGearShiftLimit	= "6500"
+		DestroyEffectPiercing	= "ET_PS_VEH_EXP1_MED"
+		DestroyEffectBlast	= "ET_PS_VEH_EXP2_MED"
+		DestroyEffectEnergy	= "ET_PS_VEH_EXP3_MED"
+		DestroyEffectWater	= "ET_PS_VEH_EXP2_MED"
+
+		SteeringSpeed		= "0.5"
+
+		CameraHeight            = "6"
+		CameraMaxDist		= "38"
+
+		HornSound		= "ET_S_HORN06"
+
+		DecisionMatrix		= "vehiclemain.lua"
+
+		LookRadius		= "200.0"
+		IntersectionRadius	= "9.0"
+		TakingRadius		= "30.0"
+
+		DriftCoeff		= "0.02"
+
+		MassSize		= "4 4 12"
+		MassTranslation		= "0 -2.0 0"
+
+		Abstract 		= "true" >
+
+		<MainPartDescription id = "CHASSIS" partResourceType = "VOLAT_CHASSIS">
+			<PartDescription id = "CABIN" partResourceType = "VOLAT_CABIN" lpName = "LP_CAB01" >
+				<PartDescription id="CABIN_SMALL_GUN" partResourceType = "SMALL_GUN" lpName = "LP_SML01" />
+				<PartDescription id="CABIN_SMALL_GUN_1" partResourceType = "SMALL_GUN" lpName = "LP_SML02" />
+				<PartDescription id="CABIN_BIG_GUN_1" partResourceType = "BIG_GUN" lpName = "LP_BIG01" />
+				<PartDescription id="CABIN_BIG_GUN_2" partResourceType = "BIG_GUN" lpName = "LP_BIG02" />
+				<PartDescription id = "CABIN_GIANT_GUN" partResourceType = "GIANT_GUN" lpName = "LP_GIANT01" />
+				<PartDescription id = "CABIN_GIANT_GUN_1" partResourceType = "GIANT_GUN" lpName = "LP_GIANT02" />
+			</PartDescription>
+			<PartDescription id = "BASKET" partResourceType="VOLAT_BASKET" lpName = "LP_BSK01" >
+				<PartDescription id="BASKET_SMALL_GUN_0" partResourceType = "SMALL_GUN" lpName = "LP_SML01" />
+				<PartDescription id="BASKET_SMALL_GUN_1" partResourceType = "SMALL_GUN" lpName = "LP_SML02" />
+				<PartDescription id="BASKET_BIG_GUN_0" partResourceType = "BIG_GUN" lpName = "LP_BIG01" />
+				<PartDescription id="BASKET_BIG_GUN_1" partResourceType = "BIG_GUN" lpName = "LP_BIG02" />
+				<PartDescription id="BASKET_BIG_GUN_2" partResourceType = "BIG_GUN" lpName = "LP_BIG03" />
+				<PartDescription id="BASKET_GIANT_GUN" partResourceType = "GIANT_GUN" lpName = "LP_GIANT01" />
+				<PartDescription id="BASKET_SIDE_GUN_0" partResourceType = "SIDE_GUN" lpName = "LP_SIDE01L,LP_SIDE01R" />
+				<PartDescription id="BASKET_SPECIAL_WEAPON" partResourceType = "SPECIAL_WEAPON"/>
+			</PartDescription>
+		</MainPartDescription>
+
+		<Parts>
+			<Part id = "CHASSIS"		Prototype = "volatChassisExtra" />
+		</Parts>
+
+		<Wheels>
+			<Wheel Prototype = "volatWheelF01L" steering = "correct" />
+			<Wheel Prototype = "volatWheelF01R" steering = "correct" />
+			<Wheel Prototype = "volatWheelF01L" steering = "correct" />
+			<Wheel Prototype = "volatWheelF01R" steering = "correct" />
+			<Wheel Prototype = "volatWheelF01L" />
+			<Wheel Prototype = "volatWheelF01R" />
+			<Wheel Prototype = "volatWheelF01L" />
+			<Wheel Prototype = "volatWheelF01R" />
+		</Wheels>
+	</Prototype>
+
+	<!-- Защитник -->
+
+	<Prototype
+		Class			= "Vehicle"
+		Name			= "Defensor"
+		ResourceType		= "VEHICLE"
+
+		DiffRatio		= "5.0"
+		MaxEngineRpm		= "5000"
+		LowGearShiftLimit	= "1000"
+		HighGearShiftLimit	= "2000"
+
+		PressingForce		= "1.3"
+		SteeringSpeed		= "0.5"
+
+		HornSound		= "ET_S_HORN01"
+
+		DecisionMatrix		= "vehiclemain.lua"
+
+		LookRadius		= "200.0"
+		IntersectionRadius	= "4.5"
+		TakingRadius		= "30.0"
+
+		CameraHeight            = "4"
+		CameraMaxDist		= "26"
+
+		MassSize		= "10 1 5"
+		MassTranslation		= "0 -1.6 0"
+		DestroyEffectPiercing	= "ET_PS_VEH_EXP1_MED"
+		DestroyEffectBlast	= "ET_PS_VEH_EXP2_MED"
+		DestroyEffectEnergy	= "ET_PS_VEH_EXP3_MED"
+		DestroyEffectWater	= "ET_PS_VEH_EXP2_MED"
+
+		DriftCoeff		= "0.6"
+		Abstract 		= "true"	>
+
+		<MainPartDescription id = "CHASSIS" partResourceType = "HUNTER_CHASSIS">
+			<PartDescription id = "CABIN" partResourceType = "HUNTER_CABIN" lpName = "LP_CAB01" >
+				<PartDescription id="CABIN_SMALL_GUN" partResourceType = "SMALL_GUN" lpName = "LP_SML01" />
+				<PartDescription id="CABIN_SMALL_GUN_1" partResourceType = "SMALL_GUN" lpName = "LP_SML02" />
+				<PartDescription id="CABIN_BIG_GUN_1" partResourceType = "BIG_GUN" lpName = "LP_BIG01" />
+				<PartDescription id="CABIN_BIG_GUN_2" partResourceType = "BIG_GUN" lpName = "LP_BIG02" />
+				<PartDescription id="CABIN_GIANT_GUN" partResourceType = "GIANT_GUN" lpName = "LP_GIANT01" />
+				<PartDescription id="CABIN_GIANT_GUN_1" partResourceType = "GIANT_GUN" lpName = "LP_GIANT02" />
+				<PartDescription id="CABIN_SIDE_GUN_0" partResourceType = "SIDE_GUN" lpName = "LP_SIDE01L,LP_SIDE01R" />
+			</PartDescription>
+			<PartDescription id = "BASKET" partResourceType="FAKE_BASKET" lpName = "LP_CAB01" >
+				<PartDescription id="BASKET_SPECIAL_WEAPON" partResourceType = "SPECIAL_WEAPON"/>
+			</PartDescription>
+		</MainPartDescription>
+
+		<Parts>
+			<Part id = "CHASSIS"			Prototype = "defensorChassis" />
+		</Parts>
+
+		<Wheels>
+			<Wheel Prototype = "hunterWheelB01l" steering = "correct" />
+			<Wheel Prototype = "hunterWheelB01r" steering = "correct" />
+			<Wheel Prototype = "hunterWheelB01l" />
+			<Wheel Prototype = "hunterWheelB01r" />
+		</Wheels>
+	</Prototype>
+
+	<!-- Простой седан -->
+
+	<Prototype
+		Class				= "Vehicle"
+		Name				= "Sedan"
+		ResourceType			= "VEHICLE"
+
+		DiffRatio			= "2.0"
+		MaxEngineRpm		= "7000"
+		LowGearShiftLimit		= "1000"
+		HighGearShiftLimit	= "3500"
+
+		SteeringSpeed		= "1.0"
+		
+		HornSound		= "ET_S_HORN01"
+
+		DecisionMatrix		= "vehiclemain.lua"
+		AdditionalWheelsHover   ="0.1"
+
+		LookRadius			= "200.0"
+		IntersectionRadius	= "2.5"
+		TakingRadius		= "30.0"
+		DriftCoeff		="0.3"
+		MassSize			= "4 1 1"
+		MassTranslation		= "0 -0.5 0"
+		DestroyEffectPiercing	= "ET_PS_VEH_EXP1_SMALL"
+		DestroyEffectBlast	= "ET_PS_VEH_EXP2_SMALL"
+		DestroyEffectEnergy	= "ET_PS_VEH_EXP3_SMALL"
+		DestroyEffectWater	= "ET_PS_VEH_EXP2_SMALL"
+		Abstract 			= "true"	>
+
+		<MainPartDescription id = "CHASSIS" partResourceType = "SEDAN_CHASSIS">
+			<PartDescription id = "CABIN" partResourceType = "SEDAN_CABIN" lpName = "LP_CAB01" >
+				<PartDescription id="CABIN_SMALL_GUN" partResourceType = "SMALL_GUN" lpName = "LP_SML01" />
+				<PartDescription id="CABIN_SMALL_GUN_1" partResourceType = "SMALL_GUN" lpName = "LP_SML02" />
+				<PartDescription id="CABIN_BIG_GUN_1" partResourceType = "BIG_GUN" lpName = "LP_BIG01" />
+			</PartDescription>
+			<PartDescription id = "BASKET" partResourceType="FAKE_BASKET" lpName = "LP_CAB01" >
+				<PartDescription id="BASKET_SPECIAL_WEAPON" partResourceType = "SPECIAL_WEAPON"/>
+			</PartDescription>
+		</MainPartDescription>
+
+		<Parts>
+			<Part id = "CHASSIS"			Prototype = "sedanChassis" />
+		</Parts>
+
+		<Wheels>
+			<Wheel Prototype = "sedanWheel01" steering = "correct" />
+			<Wheel Prototype = "sedanWheel01" steering = "correct" />
+			<Wheel Prototype = "sedanWheel01" />
+			<Wheel Prototype = "sedanWheel01" />
+		</Wheels>
+	</Prototype>
+
+	<!-- Полноразмерный Бульдозер -->
+
+	<Prototype
+		Class			= "Vehicle"
+		Name			= "NeoDozer"
+		ResourceType		= "VEHICLE"
+
+		DiffRatio		= "2.0"
+		MaxEngineRpm		= "5000"
+		LowGearShiftLimit	= "1000"
+		HighGearShiftLimit	= "2000"
+
+		SteeringSpeed		= "0.5"
+		PressingForce		= "2.0"
+
+		HornSound		= "ET_S_HORN01"
+
+		DecisionMatrix		= "vehiclemain.lua"
+
+		CameraHeight            = "5"
+		CameraMaxDist		= "35"
+
+		LookRadius		= "200.0"
+		IntersectionRadius	= "5.5"
+		TakingRadius		= "30.0"
+
+		MassSize		= "18 1 13"
+		MassTranslation		= "0 -1.0 0"
+		DestroyEffectPiercing	= "ET_PS_VEH_EXP1_MED"
+		DestroyEffectBlast	= "ET_PS_VEH_EXP2_MED"
+		DestroyEffectEnergy	= "ET_PS_VEH_EXP3_MED"
+		DestroyEffectWater	= "ET_PS_VEH_EXP2_MED"
+		Abstract 		= "true">
+
+		<MainPartDescription id = "CHASSIS" partResourceType = "NEODOZER_CHASSIS">
+			<PartDescription id = "CABIN" partResourceType = "NEODOZER_CABIN" lpName = "LP_CAB01" >
+				<PartDescription id="CABIN_SMALL_GUN" partResourceType = "SMALL_GUN" lpName = "LP_SML01" />
+				<PartDescription id="CABIN_BIG_GUN_1" partResourceType = "BIG_GUN" lpName = "LP_BIG01" />
+				<PartDescription id="CABIN_BIG_GUN_2" partResourceType = "BIG_GUN" lpName = "LP_BIG02" />
+			</PartDescription>
+			<PartDescription id = "BASKET" partResourceType="NEODOZER_BASKET" lpName = "LP_BSK01" >
+				<PartDescription id="BASKET_BIG_GUN_0" partResourceType = "BIG_GUN" lpName = "LP_BIG01" />
+				<PartDescription id="BASKET_BIG_GUN_1" partResourceType = "BIG_GUN" lpName = "LP_BIG02" />
+				<PartDescription id="BASKET_GIANT_GUN_0" partResourceType = "GIANT_GUN" lpName = "LP_GIANT01" />
+				<PartDescription id="BASKET_SIDE_GUN_0" partResourceType = "SIDE_GUN" lpName = "LP_SIDE01L,LP_SIDE01R" />
+				<PartDescription id="BASKET_SPECIAL_WEAPON" partResourceType = "SPECIAL_WEAPON"/>
+			</PartDescription>
+		</MainPartDescription>
+
+		<Parts>
+			<Part id = "CHASSIS"			Prototype = "neodozerChassis" />
+		</Parts>
+
+		<Wheels>
+			<Wheel Prototype = "neodozerWheel01L" steering = "correct" />
+			<Wheel Prototype = "neodozerWheel01R" steering = "correct" />
+			<Wheel Prototype = "neodozerWheel02L" />
+			<Wheel Prototype = "neodozerWheel02R" />
+			<Wheel Prototype = "neodozerWheel02L" />
+			<Wheel Prototype = "neodozerWheel02R" />
+		</Wheels>
+	</Prototype>
+
+	<Prototype
+		Class			= "Vehicle"
+		Name			= "NeoDozerExtra"
+		ResourceType		= "VEHICLE"
+
+		DiffRatio		= "2.0"
+		MaxEngineRpm		= "5000"
+		LowGearShiftLimit	= "1000"
+		HighGearShiftLimit	= "2000"
+
+		SteeringSpeed		= "0.5"
+		PressingForce		= "2.0"
+
+		HornSound		= "ET_S_HORN01"
+
+		DecisionMatrix		= "vehiclemain.lua"
+
+		CameraHeight            = "5"
+		CameraMaxDist		= "35"
+
+		LookRadius		= "200.0"
+		IntersectionRadius	= "5.5"
+		TakingRadius		= "30.0"
+
+		MassSize		= "18 1 13"
+		MassTranslation		= "0 -1.0 0"
+		DestroyEffectPiercing	= "ET_PS_VEH_EXP1_MED"
+		DestroyEffectBlast	= "ET_PS_VEH_EXP2_MED"
+		DestroyEffectEnergy	= "ET_PS_VEH_EXP3_MED"
+		DestroyEffectWater	= "ET_PS_VEH_EXP2_MED"
+		Abstract 		= "true">
+
+		<MainPartDescription id = "CHASSIS" partResourceType = "NEODOZER_CHASSIS">
+			<PartDescription id = "CABIN" partResourceType = "NEODOZER_CABIN" lpName = "LP_CAB01" >
+				<PartDescription id="CABIN_SMALL_GUN" partResourceType = "SMALL_GUN" lpName = "LP_SML01" />
+				<PartDescription id="CABIN_BIG_GUN_1" partResourceType = "BIG_GUN" lpName = "LP_BIG01" />
+				<PartDescription id="CABIN_BIG_GUN_2" partResourceType = "BIG_GUN" lpName = "LP_BIG02" />
+			</PartDescription>
+			<PartDescription id = "BASKET" partResourceType="NEODOZER_BASKET" lpName = "LP_BSK01" >
+				<PartDescription id="BASKET_BIG_GUN_0" partResourceType = "BIG_GUN" lpName = "LP_BIG01" />
+				<PartDescription id="BASKET_BIG_GUN_1" partResourceType = "BIG_GUN" lpName = "LP_BIG02" />
+				<PartDescription id="BASKET_GIANT_GUN_0" partResourceType = "GIANT_GUN" lpName = "LP_GIANT01" />
+				<PartDescription id="BASKET_SIDE_GUN_0" partResourceType = "SIDE_GUN" lpName = "LP_SIDE01L,LP_SIDE01R" />
+				<PartDescription id="BASKET_SPECIAL_WEAPON" partResourceType = "SPECIAL_WEAPON"/>
+			</PartDescription>
+		</MainPartDescription>
+
+		<Parts>
+			<Part id = "CHASSIS"			Prototype = "neodozerChassisExtra" />
+		</Parts>
+
+		<Wheels>
+			<Wheel Prototype = "neodozerWheelV01L" steering = "correct" />
+			<Wheel Prototype = "neodozerWheelV01R" steering = "correct" />
+			<Wheel Prototype = "neodozerWheelV02L" />
+			<Wheel Prototype = "neodozerWheelV02R" />
+			<Wheel Prototype = "neodozerWheelV02L" />
+			<Wheel Prototype = "neodozerWheelV02R" />
+		</Wheels>
+	</Prototype>
+
+	<!-- Крутой танк -->
+
+	<Prototype
+		Class			= "Vehicle"
+		Name			= "LeoTank"
+		ResourceType		= "VEHICLE"
+
+		DiffRatio		= "7.0"
+		MaxEngineRpm		= "5000"
+		LowGearShiftLimit	= "1000"
+		HighGearShiftLimit	= "2000"
+
+		SteeringSpeed		= "0.5"
+
+		HornSound		= "ET_S_HORN01"
+
+		DecisionMatrix		= "vehiclemain.lua"
+
+		LookRadius		= "200.0"
+		IntersectionRadius	= "7.0"
+		TakingRadius		= "30.0"
+
+		MassSize		= "18 1 13"
+		MassTranslation		= "0 -1.5 0"
+		DestroyEffectPiercing	= "ET_PS_VEH_EXP1_MED"
+		DestroyEffectBlast	= "ET_PS_VEH_EXP2_MED"
+		DestroyEffectEnergy	= "ET_PS_VEH_EXP3_MED"
+		DestroyEffectWater	= "ET_PS_VEH_EXP2_MED"
+
+		DriftCoeff		= "0.9"
+
+		Abstract 		= "true" >
+
+		<MainPartDescription id = "CHASSIS" partResourceType = "TANK_CHASSIS">
+			<PartDescription id = "CABIN" partResourceType = "TANK_CABIN" lpName = "LP_CAB01" >
+				<PartDescription id="TANK_GUN" partResourceType = "TANK_GUN" lpName = "LP_GIANT05" />
+			</PartDescription>
+			<PartDescription id = "BASKET" partResourceType="FAKE_BASKET" lpName = "LP_CAB01" />
+		</MainPartDescription>
+
+		<Parts>
+			<Part id = "CHASSIS"			Prototype = "leotankChassis" />
+		</Parts>
+
+		<Wheels>
+			<Wheel Prototype = "leotankWheel01" steering = "correct" />
+			<Wheel Prototype = "leotankWheel01" steering = "correct" />
+			<Wheel Prototype = "leotankWheel01" steering = "correct" />
+			<Wheel Prototype = "leotankWheel01" steering = "correct" />
+			<Wheel Prototype = "leotankWheel01" />
+			<Wheel Prototype = "leotankWheel01" />
+			<Wheel Prototype = "leotankWheel01" steering = "inverse" />
+			<Wheel Prototype = "leotankWheel01" steering = "inverse" />
+		</Wheels>
+	</Prototype>
+
+	<!-- Облегченный Крейсер -->
+
+	<Prototype
+		Class			= "Vehicle"
+		Name			= "CruiserZero"
+		ResourceType		= "VEHICLE"
+
+		DiffRatio		= "4.0"
+		MaxEngineRpm		= "8000"
+		LowGearShiftLimit	= "1500"
+		HighGearShiftLimit	= "4000"
+
+		SteeringSpeed		= "0.9"
+
+		CameraHeight            = "4"
+		CameraMaxDist		= "30"
+	
+		HornSound		= "ET_S_HORN01"
+
+		DecisionMatrix		= "vehiclemain.lua"
+
+		LookRadius		= "200.0"
+		IntersectionRadius	= "5.5"
+		TakingRadius		= "30.0"
+
+		MassSize		= "10 1 5"
+		MassTranslation		= "0 -1.6 0"
+		DestroyEffectPiercing	= "ET_PS_VEH_EXP1_MED"
+		DestroyEffectBlast	= "ET_PS_VEH_EXP2_MED"
+		DestroyEffectEnergy	= "ET_PS_VEH_EXP3_MED"
+		DestroyEffectWater	= "ET_PS_VEH_EXP2_MED"
+
+		Abstract 		= "true"	>
+
+		<MainPartDescription id = "CHASSIS" partResourceType = "CRUISER_CHASSIS">
+			<PartDescription id = "CABIN" partResourceType = "CRUISER_CABIN" lpName = "LP_CAB01" >
+				<PartDescription id="CABIN_SMALL_GUN" partResourceType = "SMALL_GUN" lpName = "LP_SML01" />
+				<PartDescription id="CABIN_BIG_GUN_1" partResourceType = "BIG_GUN" lpName = "LP_BIG01" />
+				<PartDescription id="CABIN_BIG_GUN_2" partResourceType = "BIG_GUN" lpName = "LP_BIG02" />
+				<PartDescription id="CABIN_GIANT_GUN" partResourceType = "GIANT_GUN" lpName = "LP_GIANT01" />
+				<PartDescription id="CABIN_SIDE_GUN_0" partResourceType = "SIDE_GUN" lpName = "LP_SIDE01L,LP_SIDE01R" />
+			</PartDescription>
+			<PartDescription id = "BASKET" partResourceType="CRUISER_BASKET" lpName = "LP_CAB01" >
+				<PartDescription id="BASKET_BIG_GUN_0" partResourceType = "BIG_GUN" lpName = "LP_BIG01" />
+				<PartDescription id="BASKET_BIG_GUN_1" partResourceType = "BIG_GUN" lpName = "LP_BIG02" />
+				<PartDescription id="BASKET_GIANT_GUN" partResourceType = "GIANT_GUN" lpName = "LP_GIANT01" />
+				<PartDescription id="BASKET_SIDE_GUN_0" partResourceType = "SIDE_GUN" lpName = "LP_SIDE01L,LP_SIDE01R" />
+				<PartDescription id="BASKET_SPECIAL_WEAPON" partResourceType = "SPECIAL_WEAPON"/>
+			</PartDescription>
+		</MainPartDescription>
+
+		<Parts>
+			<Part id = "CHASSIS"			Prototype = "cruiserChassisZero" />
+		</Parts>
+
+		<Wheels>
+			<Wheel Prototype = "cruiserWheel01l" steering = "correct" />
+			<Wheel Prototype = "cruiserWheel01r" steering = "correct" />
+			<Wheel Prototype = "cruiserWheel01l" steering = "correct" />
+			<Wheel Prototype = "cruiserWheel01r" steering = "correct" />
+			<Wheel Prototype = "cruiserWheel01l" />
+			<Wheel Prototype = "cruiserWheel01r" />
+			<Wheel Prototype = "cruiserWheel01l" />
+			<Wheel Prototype = "cruiserWheel01r" />
+		</Wheels>
+	</Prototype>
+
+	<Prototype
+		Class			= "Vehicle"
+		Name			= "CruiserUno"
+		ResourceType		= "VEHICLE"
+
+		DiffRatio		= "4.0"
+		MaxEngineRpm		= "6700"
+		LowGearShiftLimit	= "1500"
+		HighGearShiftLimit	= "2800"
+
+		SteeringSpeed		= "0.9"
+
+		HornSound		= "ET_S_HORN01"
+
+		CameraHeight            = "4"
+		CameraMaxDist		= "30"
+	
+		DecisionMatrix		= "vehiclemain.lua"
+
+		LookRadius		= "200.0"
+		IntersectionRadius	= "5.5"
+		TakingRadius		= "30.0"
+
+		MassSize		= "10 1 5"
+		MassTranslation		= "0 -1.6 0"
+		DestroyEffectPiercing	= "ET_PS_VEH_EXP1_MED"
+		DestroyEffectBlast	= "ET_PS_VEH_EXP2_MED"
+		DestroyEffectEnergy	= "ET_PS_VEH_EXP3_MED"
+		DestroyEffectWater	= "ET_PS_VEH_EXP2_MED"
+
+		Abstract 		= "true"	>
+
+		<MainPartDescription id = "CHASSIS" partResourceType = "CRUISER_CHASSIS">
+			<PartDescription id = "CABIN" partResourceType = "CRUISER_CABIN" lpName = "LP_CAB01" >
+				<PartDescription id="CABIN_SMALL_GUN" partResourceType = "SMALL_GUN" lpName = "LP_SML01" />
+				<PartDescription id="CABIN_BIG_GUN_1" partResourceType = "BIG_GUN" lpName = "LP_BIG01" />
+				<PartDescription id="CABIN_BIG_GUN_2" partResourceType = "BIG_GUN" lpName = "LP_BIG02" />
+				<PartDescription id="CABIN_GIANT_GUN" partResourceType = "GIANT_GUN" lpName = "LP_GIANT01" />
+				<PartDescription id="CABIN_SIDE_GUN_0" partResourceType = "SIDE_GUN" lpName = "LP_SIDE01L,LP_SIDE01R" />
+			</PartDescription>
+			<PartDescription id = "BASKET" partResourceType="CRUISER_BASKET" lpName = "LP_CAB01" >
+				<PartDescription id="BASKET_BIG_GUN_0" partResourceType = "BIG_GUN" lpName = "LP_BIG01" />
+				<PartDescription id="BASKET_BIG_GUN_1" partResourceType = "BIG_GUN" lpName = "LP_BIG02" />
+				<PartDescription id="BASKET_GIANT_GUN" partResourceType = "GIANT_GUN" lpName = "LP_GIANT01" />
+				<PartDescription id="BASKET_SIDE_GUN_0" partResourceType = "SIDE_GUN" lpName = "LP_SIDE01L,LP_SIDE01R" />
+				<PartDescription id="BASKET_SPECIAL_WEAPON" partResourceType = "SPECIAL_WEAPON"/>
+			</PartDescription>
+		</MainPartDescription>
+
+		<Parts>
+			<Part id = "CHASSIS"			Prototype = "cruiserChassisUno" />
+		</Parts>
+
+		<Wheels>
+			<Wheel Prototype = "cruiserWheelRM01l" steering = "correct" />
+			<Wheel Prototype = "cruiserWheelRM01r" steering = "correct" />
+			<Wheel Prototype = "cruiserWheelRM01l" steering = "correct" />
+			<Wheel Prototype = "cruiserWheelRM01r" steering = "correct" />
+			<Wheel Prototype = "cruiserWheelRM01l" />
+			<Wheel Prototype = "cruiserWheelRM01r" />
+			<Wheel Prototype = "cruiserWheelRM01l" />
+			<Wheel Prototype = "cruiserWheelRM01r" />
+		</Wheels>
+	</Prototype>
+
+	<!-- Мышонок -->
+
+	<Prototype
+		Class				= "Vehicle"
+		Name				= "Laoshu"
+		ResourceType			= "VEHICLE"
+
+		DiffRatio			= "2.0"
+		MaxEngineRpm			= "7000"
+		LowGearShiftLimit		= "1000"
+		HighGearShiftLimit		= "3500"
+
+		SteeringSpeed			= "0.8"
+		
+		HornSound			= "ET_S_HORN01"
+
+		DecisionMatrix			= "vehiclemain.lua"
+		AdditionalWheelsHover   	= "0.1"
+
+		LookRadius			= "200.0"
+		IntersectionRadius		= "2.5"
+		TakingRadius			= "30.0"
+		DriftCoeff			= "0.1"
+		MassSize			= "4 1 2"
+		MassTranslation			= "0 -0.5 0"
+
+		DestroyEffectPiercing		= "ET_PS_VEH_EXP1_SMALL"
+		DestroyEffectBlast		= "ET_PS_VEH_EXP2_SMALL"
+		DestroyEffectEnergy		= "ET_PS_VEH_EXP3_SMALL"
+		DestroyEffectWater		= "ET_PS_VEH_EXP2_SMALL"
+		Abstract 			= "true" >
+
+		<MainPartDescription id = "CHASSIS" partResourceType = "BRDM_CHASSIS">
+			<PartDescription id = "CABIN" partResourceType = "BRDM_CABIN" lpName = "LP_CAB01" >
+				<PartDescription id="CABIN_SMALL_GUN" partResourceType = "SMALL_GUN" lpName = "LP_SML01" />
+				<PartDescription id="CABIN_BIG_GUN_1" partResourceType = "BIG_GUN" lpName = "LP_BIG01" />
+			</PartDescription>
+			<PartDescription id = "BASKET" partResourceType="FAKE_BASKET" lpName = "LP_CAB01" >
+				<PartDescription id="BASKET_SPECIAL_WEAPON" partResourceType = "SPECIAL_WEAPON"/>
+			</PartDescription>
+		</MainPartDescription>
+
+		<Parts>
+			<Part id = "CHASSIS"			Prototype = "laoshuChassis" />
+		</Parts>
+
+		<Wheels>
+			<Wheel Prototype = "laoshuWheel01L"  steering = "correct" />
+			<Wheel Prototype = "laoshuWheel01R"  steering = "correct" />
+			<Wheel Prototype = "laoshuWheel01L" />
+			<Wheel Prototype = "laoshuWheel01R" />
+		</Wheels>
+	</Prototype>
+
+	<!-- Колун -->
+
+	<Prototype
+		Class			= "Vehicle"
+		Name			= "Kolun"
+		ResourceType		= "VEHICLE"
+
+		PressingForce		= "2.0"
+
+		DiffRatio		= "4.0"
+		MaxEngineRpm		= "8000"
+		LowGearShiftLimit	= "3000"
+		HighGearShiftLimit	= "5500"
+
+		SteeringSpeed		= "0.6"
+
+		BlastWave		= "bigBlastWave"
+		
+		CameraHeight            = "5"
+		CameraMaxDist		= "28"
+	
+		HornSound		= "ET_S_HORN03"
+
+		DecisionMatrix		= "vehiclemain.lua"
+
+		LookRadius		= "200.0"
+		IntersectionRadius	= "7.0"
+		TakingRadius		= "30.0"
+
+		DriftCoeff		= "0.08"
+
+		MassSize		= "5 3 12"
+		MassTranslation		= "0 -2.3 0"
+		DestroyEffectPiercing	= "ET_PS_VEH_EXP1_MED"
+		DestroyEffectBlast	= "ET_PS_VEH_EXP2_MED"
+		DestroyEffectEnergy	= "ET_PS_VEH_EXP3_MED"
+		DestroyEffectWater	= "ET_PS_VEH_EXP2_MED"
+
+		Abstract 		= "true"	>
+
+		<MainPartDescription id = "CHASSIS" partResourceType = "KOLUN_CHASSIS">
+			<PartDescription id = "CABIN" partResourceType = "KOLUN_CABIN" lpName = "LP_CAB01" >
+				<PartDescription id="CABIN_BIG_GUN_1" partResourceType = "BIG_GUN" lpName = "LP_BIG01" />
+				<PartDescription id="CABIN_BIG_GUN_2" partResourceType = "BIG_GUN" lpName = "LP_BIG02" />
+				<PartDescription id="CABIN_SIDE_GUN_0" partResourceType = "SIDE_GUN" lpName = "LP_SIDE01L,LP_SIDE01R" />
+				<PartDescription id="CABIN_SMALL_GUN" partResourceType = "SMALL_GUN" lpName = "LP_SML01" />
+				<PartDescription id="CABIN_SMALL_GUN_1" partResourceType = "SMALL_GUN" lpName = "LP_SML02" />
+			</PartDescription>
+			<PartDescription id = "BASKET" partResourceType="KOLUN_BASKET" lpName = "LP_BSK01" >
+				<PartDescription id="BASKET_GIANT_GUN" partResourceType = "GIANT_GUN" lpName = "LP_GIANT01" />
+				<PartDescription id="BASKET_BIG_GUN_0" partResourceType = "BIG_GUN" lpName = "LP_BIG01" />
+				<PartDescription id="BASKET_BIG_GUN_1" partResourceType = "BIG_GUN" lpName = "LP_BIG02" />
+				<PartDescription id="BASKET_SIDE_GUN_0" partResourceType = "SIDE_GUN" lpName = "LP_SIDE01L,LP_SIDE01R" />
+				<PartDescription id="BASKET_SPECIAL_WEAPON" partResourceType = "SPECIAL_WEAPON"/>
+			</PartDescription>
+		</MainPartDescription>
+
+		<Parts>
+			<Part id = "CHASSIS"		Prototype = "kolunChassis" />
+		</Parts>
+
+		<Wheels>
+			<Wheel Prototype = "kolunWheel01L" steering = "correct" />
+			<Wheel Prototype = "kolunWheel01R" steering = "correct" />
+			<Wheel Prototype = "kolunWheel01L" />
+			<Wheel Prototype = "kolunWheel01R" />
+			<Wheel Prototype = "kolunWheel01L" />
+			<Wheel Prototype = "kolunWheel01R" />
+		</Wheels>
+	</Prototype>
+	
+	<!-- Аркадный тягач -->
+
+	<Prototype
+		Class			= "Vehicle"
+		Name			= "WesternStar"
+		ResourceType		= "VEHICLE"
+
+		PressingForce		= "2.0"
+
+		DiffRatio		= "4.0"
+		MaxEngineRpm		= "8000"
+		LowGearShiftLimit	= "3000"
+		HighGearShiftLimit	= "5500"
+
+		SteeringSpeed		= "0.6"
+
+		BlastWave		= "bigBlastWave"
+		
+		CameraHeight            = "5"
+		CameraMaxDist		= "35"
+	
+		HornSound		= "ET_S_HORN03"
+
+		DecisionMatrix		= "vehiclemain.lua"
+
+		LookRadius		= "200.0"
+		IntersectionRadius	= "7.0"
+		TakingRadius		= "30.0"
+
+		DriftCoeff		= "0.08"
+
+		MassSize		= "5 3 12"
+		MassTranslation		= "0 -2.3 0"
+		DestroyEffectPiercing	= "ET_PS_VEH_EXP1_MED"
+		DestroyEffectBlast	= "ET_PS_VEH_EXP2_MED"
+		DestroyEffectEnergy	= "ET_PS_VEH_EXP3_MED"
+		DestroyEffectWater	= "ET_PS_VEH_EXP2_MED"
+
+		Abstract 		= "true"	>
+
+		<MainPartDescription id = "CHASSIS" partResourceType = "WESTR_CHASSIS">
+			<PartDescription id = "CABIN" partResourceType = "WESTR_CABIN" lpName = "LP_CAB01" >
+				<PartDescription id="CABIN_BIG_GUN_1" partResourceType = "BIG_GUN" lpName = "LP_BIG01" />
+				<PartDescription id="CABIN_BIG_GUN_2" partResourceType = "BIG_GUN" lpName = "LP_BIG02" />
+				<PartDescription id="CABIN_SMALL_GUN" partResourceType = "SMALL_GUN" lpName = "LP_SML01" />
+			</PartDescription>
+			<PartDescription id = "BASKET" partResourceType="WESTR_BASKET" lpName = "LP_BSK01" >
+				<PartDescription id="BASKET_GIANT_GUN" partResourceType = "GIANT_GUN" lpName = "LP_GIANT01" />
+				<PartDescription id="BASKET_BIG_GUN_0" partResourceType = "BIG_GUN" lpName = "LP_BIG01" />
+				<PartDescription id="BASKET_SIDE_GUN_0" partResourceType = "SIDE_GUN" lpName = "LP_SIDE01L,LP_SIDE01R" />
+				<PartDescription id="BASKET_SPECIAL_WEAPON" partResourceType = "SPECIAL_WEAPON"/>
+			</PartDescription>
+		</MainPartDescription>
+
+		<Parts>
+			<Part id = "CHASSIS"		Prototype = "westernChassis" />
+		</Parts>
+
+		<Wheels>
+			<Wheel Prototype = "magnumWheel01L" steering = "correct" />
+			<Wheel Prototype = "magnumWheel01R" steering = "correct" />
+			<Wheel Prototype = "magnumWheel02L" />
+			<Wheel Prototype = "magnumWheel02R" />
+			<Wheel Prototype = "magnumWheel02L" />
+			<Wheel Prototype = "magnumWheel02R" />
+		</Wheels>
+	</Prototype>
+
+<!-- Конец голых прототипов -->
+
+
+</Prototypes>

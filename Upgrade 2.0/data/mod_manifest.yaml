@@ -1,0 +1,20 @@
+community_remaster:
+  base: 'yes'
+  hd_gun_models: 'yes'
+  hd_vehicle_models: 'yes'
+  ost_remaster: 'yes'
+  version: 1.14.1
+  build: 240403b
+  language: ru
+  installment: exmachina
+  display_name: Community Remaster
+Upgrade:
+  base: 'yes'
+  Snowfall: skip
+  Winter: skip
+  Wheels: skip
+  version: 1.1.2
+  build: 240510a
+  language: ru
+  installment: exmachina
+  display_name: Upgrade для Community Remaster

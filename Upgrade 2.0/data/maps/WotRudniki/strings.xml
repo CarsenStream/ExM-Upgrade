@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="windows-1251" standalone="yes" ?>
+<resource>
+	<string
+		id="1"
+		value="ExMachina World Of Tanks||Добро пожаловать в модификацию EM WOT.||Стандартный бой 10vs10|Задача|Уничтожить всю технику противника"
+		numButtons="1" />
+	<string
+		id="2"
+		value="ExMachina World Of Tanks||Победа!|Вся техника противника уничтожена!||Получено денег:50000"
+		numButtons="1" />
+	<string
+		id="3"
+		value="ExMachina World Of Tanks||Ваша машина уничтожена, но вы можете наблюдать за исходом боя!"
+		numButtons="1" />
+	<string
+		id="4"
+		value="ExMachina World Of Tanks||Поражение!|Вся техника союзников уничтожена!||Получено денег:10000|Потрачено на ремонт техники:5000"
+		numButtons="1" />
+</resource>

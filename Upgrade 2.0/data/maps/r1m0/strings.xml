@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="windows-1251" standalone="yes" ?>
+<resource>
+	<string
+		id="8801"
+		value="Вы желаете покинуть эту область?"
+		numButtons="2" />
+
+	<string
+		id="5966"
+		msgType="SCROLL"
+		image="data\if\ico\CinemaPanel\foreground_movie_shade_midle121.dds"
+		upOverlay="data\if\ico\CinemaPanel\foreground_movie_shade_midle121.dds"
+		downOverlay="data\if\ico\CinemaPanel\foreground_movie_shade_midle121.dds"
+		value="@ffE5E5E5|Лиса спасла главного героя, и увезла из Кайо-Мерико, по крайней мере, так думала она. К сожалению он больше не смог жить в радиационном мире, и умер как только был доставлен к Бену. Лиса и Бен пытались предпринять хоть какие-то попытки привести главного героя в чувство, но всё тщетно. Он не смог жить в этом мире с теми знаниями, которые получил от неизвестного."
+		sound="data\sounds\Speech\newend\Dictor_2_1.ogg"
+		fontSize="18"
+		scrollSpeed="1.23"
+		time="21" />
+
+	<string
+		id="5967"
+		msgType="SCROLL"
+		image="data\if\ico\CinemaPanel\foreground_movie_shade_midle121.dds"
+		upOverlay="data\if\ico\CinemaPanel\foreground_movie_shade_midle121.dds"
+		downOverlay="data\if\ico\CinemaPanel\foreground_movie_shade_midle121.dds"
+		value="@ffE5E5E5|Главный герой был временно изолирован и отправлен на лечение в Кайо-Мерико. Он отказался от прошлой жизни, веря что всё это лишь отголоски прошлого. А также веря рассказам незнакомца, что мира, который он видел за пределами Кайо-Мерико не существует. Кроме выгоревшей земли, там ничего нет, и всё что он видел - лишь его выдумки, кроме тех людей, которых он мог повстречать. Спустя большой промежуток времени главный герой наконец увидел свет, реальных людей и никаких масок. Также пришлось снова научиться управлять транспортом. Поскольку местные машины совсем не похожи по управлению на те, что видел главный герой. Иногда Лиса приезжала чтобы навестить его, и в конце-концов, её тоже вылечили."
+		sound="data\sounds\Speech\newend\Dictor_2_2.ogg"
+		fontSize="18"
+		scrollSpeed="0.75"
+		time="42" />
+
+
+	<string
+		id="5968"
+		msgType="SCROLL"
+		image="data\if\ico\CinemaPanel\foreground_movie_shade_midle121.dds"
+		upOverlay="data\if\ico\CinemaPanel\foreground_movie_shade_midle121.dds"
+		downOverlay="data\if\ico\CinemaPanel\foreground_movie_shade_midle121.dds"
+		value="@ffffa600Компания «Targem Games»| | | |@ffffa600Продюсер||@ffffffffСтанислав «scorp» Скорб| | |@ffffa600Технический директор проекта||@ffffffffАлексей Скрябин| | |@ffffa600Менеджер проекта||@ffffffffЕвгений «Hrrr» Хрунов| | |@ffffa600Сценарий||@ffffffffАлексей «Alex TG» Честных| | |@ffffa600Ведущий программист проекта||@ffffffffАнтон «anger» Савин| | |@ffffa600Главный дизайнер проекта||@ffffffffАлексей «Alex TG» Честных| | |@ffffa600Ведущий художник проекта||@ffffffffАлександр «Alex ML» Маргушин| | |@ffffa600Дизайн игры||@ffffffffДенис «mif2000» Галанин|@ffffffffСергей «JSinx» Удюрминский|@ffffffffАлексей «Razaz» Ануфриев|@ffffffffСтанислав «scorp» Скорб|@ffffffffБорис «borg» Смирнов| | |@ffffa600Программирование||@ffffffffЕлена «SoftKitty» Евдокимова|@ffffffffИван «Vano» Власов|@ffffffffИлья «phosgen» Рузаков|@ffffffffМаксим «Shadow» Сарманов|@ffffffffСергей «Ice Cat» Ключковский|@ffffffffИгорь «Goryh» Дегтярев| | |@ffffa600Графика||@ffffffffАлександр «Alex ML» Маргушин|@ffffffffИван Снигирев|@ffffffffЕвгений «Dzhin» Гольцов|@ffffffffВладимир «Price» Селезнев|@ffffffffСтанислав «Staz» Черва|@ffffffffРустам «Rychi» Турей|@ffffffffЕвгений Токарев|@ffffffffСергей «Sega» Митряев|@ffffffffВиктор «isymbosi» Корьякин|@ffffffffРоман Латынов| | |@ffffa600Дизайн миссий||@ffffffffДенис «mif2000» Галанин|@ffffffffСергей «JSinx» Удюрминский|@ffffffffАртем «solo» Соловьев|@ffffffffКондратьев «HiKiller» Даниил|@ffffffffСтанислав «Staz» Черва| | |@ffffa600Разработка интерфейсов||@ffffffffМихаил «Rai» Матвиенко| | |@ffffa600Спецэффекты||@ffffffffАлексей «Hal» Лобанов| | |@ffffa600Музыка/звуки||@ffffffffАнтон Попов|@ffffffffЕкатерина Швеммер| | |@ffffa600Тестирование||@ffffffffВячеслав «ls» Авдеев| | |@ffffa600PR-менеджер||@ffffffffСветлана «Сrystal» Честных| | |@ffffa600В игре использовались композиции победителей музыкального|@ffffa600конкурса||@ffffffffАлександр Чекстер|@ffffffffБорис Веденский|@ffffffffАлександр Трегер|@ffffffffМихаил Сидоров|@ffffffffАлександр Лисенков|@ffffffffParalaxeen|@ffffffffИгорь Белоусов| | |@ffffa600Также принимали участие на разных этапах||@ffffffffКонстантин Сохарев - программирование|@ffffffffСвятослав Паташников - руководство|@ffffffffАлексей Андрущенко - Веб-дизайн"
+		sound=""
+		fontSize="18"
+		scrollSpeed="2.48"
+		time="67" />
+
+	<string
+		id="5969"
+		msgType="SCROLL"
+		image="data\if\ico\CinemaPanel\foreground_movie_shade_midle121.dds"
+		upOverlay="data\if\ico\CinemaPanel\foreground_movie_shade_midle121.dds"
+		downOverlay="data\if\ico\CinemaPanel\foreground_movie_shade_midle121.dds"
+		value="@ffffa600Компания «Бука»| | | |@ffffa600Продюсер||@ffffffffИван Бунаков| | |@ffffa600Старший продюсер||@ffffffffИван Мороз| | |@ffffa600Менеджеры по продвижению продуктов||@ffffffffЮрий Вирич|@ffffffffАлексей Писклюков| | |@ffffa600Технический эксперт||@ffffffffКирилл Бестемьянов| | |@ffffa600Эксперт по звуку||@ffffffffРуслан Дмитриев| | |@ffffa600Дизайнеры-полиграфисты||@ffffffffСанан Ушанов|@ffffffffДаниелла Климашевская| | |@ffffa600PR-менеджер||@ffffffffАлексей Пастушенко| | |@ffffa600Ассистент PR-менеджера||@ffffffffОлег Морозов| | |@ffffa600Ассистент продюсера||@ffffffffАлексей Пешехонов|@ffffffffНиколай Сафронов| | |@ffffa600Менеджер по новым командам||@ffffffffНиколай Сафронов| | |@ffffa600Выпускающий продюсер||@ffffffffАлександр Пак| | |@ffffa600Старший тестировщик||@ffffffffЕвгений Попов|@ffffffffИван Рид| | |@ffffa600Служба тестирования||@ffffffffАнтон Епишин|@ffffffffАлексей Петров|@ffffffffАлександр Полосин|@ffffffffЕвгений Попов|@ffffffffИван Райнов|@ffffffffИван Рид|@ffffffffАлексей Чеботарев| | |@ffffa600Внешнее тестирование||@ffffffffПетр Беляев|@ffffffffАлексей Бунак|@ffffffffИгорь Дмитриев|@ffffffffМихаил Матюшов|@ffffffffДенис Соколов|@ffffffffИгорь Пешехонцев|@ffffffffДмитрий Чичков|@ffffffffАлексей Шеховцов|@ffffffffИлья Юсипов|@ffffffffТимур Юсипов| | |@ffffa600Служба продаж||@ffffffffМаксим О. Алексеев|@ffffffffМаксим Ю. Алексеев|@ffffffffМаксим А. Алексеев|@ffffffffНаталья Анкундинова|@ffffffffЕлена Антонова|@ffffffffИлья Бровченко|@ffffffffПавел Григорьев|@ffffffffВиктория Киселева|@ffffffffАлександр Кочетков|@ffffffffПавел Круглов|@ffffffffАндрей Осипов|@ffffffffАлександр Петринский|@ffffffffОльга Полковникова|@ffffffffЛариса Савельева|@ffffffffЕвгений Самсонов|@ffffffffСветлана Самсонова|@ffffffffВалерий Тихвинский|@ffffffffСергей Федосов| | |@ffffa600Торговый маркетинг||@ffffffffТатьяна Васекина| | |@ffffa600Комьюнити менеджер||@ffffffffАлександр Ковалев| | |@ffffa600Экспертный совет||@ffffffffВладимир Миняев|@ffffffffМаксим Н. Михалев|@ffffffffИван Мороз|@ffffffffСергей Руденко|@ffffffffВиталий Харитоненко| | |@ffffa600Юридическая поддержка||@ffffffffГеоргий Виталиев| | |@ffffa600Техническая поддержка||@ffffffffЕвгений Дмитриев| | |@ffffa600Генеральный директор||@ffffffffАлександр Михайлов| | |@ffffa600Финансовый директор||@ffffffffМарина Равун| | |@ffffa600Руководитель отдела маркетинга||@ffffffffМаксим Н. Михалев| | |@ffffa600Руководитель коммерческого отдела||@ffffffffТатьяна Устинова| | |@ffffa600Руководитель отдела разработок||@ffffffffИван Бунаков| | |@ffffa600Отдельное спасибо||@ffffffffЮлия Белова|@ffffffffСергей Бобков|@ffffffffИлья Бровченко|@ffffffffДмитрий Захаров|@ffffffffДмитрий Кулешов|@ffffffffДмитрий Лесин|@ffffffffВладимир Миняев|@ffffffffИван Мороз|@ffffffffМарина Равун|@ffffffffИван Рид|@ffffffffИнна Суцепина|@ffffffffИгорь Устинов|@ffffffffИрина Царева|@ffffffffВиктория Эннс"
+		sound=""
+		fontSize="18"
+		scrollSpeed="2.31"
+		time="98" />
+
+	<string
+		id="5970"
+		msgType="SCROLL"
+		image="data\if\ico\CinemaPanel\foreground_movie_shade_midle121.dds"
+		upOverlay="data\if\ico\CinemaPanel\foreground_movie_shade_midle121.dds"
+		downOverlay="data\if\ico\CinemaPanel\foreground_movie_shade_midle121.dds"
+		value="@ffffa600Community Patch / Remaster| | | |@ffffa600Александр «Seel» Парфененков||@ffffffffменеджер проекта, инструментарий, дизайн| | |@ffffa600Александр «ThePlain» Фатеев||@ffffffffинструментарий, графика, 3D моделирование| | |@ffffa600Алексей «__nEmPoBu4__» Смирнов||@ffffffff3D моделирование, скрипты, квесты| | |@ffffa600Анна Жукова||@ffffffffграфический дизайн| | |@ffffa600Антон Попов||@ffffffffмузыка| | |@ffffa600Владислав «OverLine» Курочкин||@ffffffffконтент-дизайн, картостроение| | |@ffffa600Дмитрий «Гном» Сащенко||@ffffffffскрипты, квесты, 3D моделирование| | |@ffffa600Иван «ICAS-14» Черепанов||@ffffffff3D моделирование| | |@ffffa600Леонид «KoYoT» Кочетов||@ffffffffисправление ошибок| | |@ffffa600Максим «Spok» Бердников||@ffffffff3D моделирование| | |@ffffa600Марк «Apocalypse007» Малыгин||@ffffffffтекстовые правки| | |@ffffa600Ник «BIBIKUZ» Кононенко||@ffffffff3D моделирование| | |@ffffa600Павел «pavlikrpg» Иванов||@ffffffffскрипты, квесты| | |@ffffa600Серафим «Varisane» Шагин||@ffffffffконтент-дизайн, текстовые правки| | |@ffffa600Экспертный совет||@ffffffffBuba|@ffffffffOracle|@ffffffffRusya_27|@ffffffffTraygen|@ffffffffСемимахов| | |@ffffa600Тестирование||@ffffffffSuslo Red|@ffffffffИван «MrKarfen» Атаманов|@ffffffffСемён «Omezera» Озерицкий|@ffffffffPushistik_7977|@ffffffffAnarxolis|@ffffffffScorpyX|@ffffffffАлександр192|@ffffffffTerorchat| | |@ffffa600Отдельное спасибо||@ffffffffСообществу Deus Ex Machina|@ffffffffdiscord.gg/qKK2Efx||@ffffffffСообществу EM2ch|@ffffffffvk.com/em2ch||@ffffffffПаблику Ex Machina Вконтакте|@ffffffffvk.com/exmachina2||@ffffffffЗрителям канала «Павлик RPG»||@ffffffffНашим жёнам, девушкам, родственникам и кошкам,|@ffffffffкоторые терпели нас во время разработки||@ffffffffВсем тем, кто ждал и поддерживал этот проект"
+		sound=""
+		fontSize="18"
+		scrollSpeed="2.8"
+		time="54" />
+
+	<string
+		id="5971"
+		msgType="SCROLL"
+		image="data\if\ico\CinemaPanel\foreground_movie_shade_midle121.dds"
+		upOverlay="data\if\ico\CinemaPanel\foreground_movie_shade_midle121.dds"
+		downOverlay="data\if\ico\CinemaPanel\foreground_movie_shade_midle121.dds"
+		value="@ffffa600«ExM Upgrade»| | | |@ffffa600Музыка| |@ffffffffexitale - lifelong serenity|@ffffffffАндрей Романов - Rust and sand|@ffffffffЦИФЕi - На рубеже времён|@ffffffffMr. Kitty - After Dark| | | |@ffffa600Заимствования из модов| |@ffffffffImproved Storyline (Павлик RPG) - титры|@ffffffffGlobal Map Mod (RiverZone) - Кайо-Перико|@ffffffffDoomer Wave (стакан) - Катсцена титров в Либриуме|@ffffffffZil Mod (Отдел «М») - Зил 130|@ffffffffExtra Machines (Spok) - Весь контент| | |@ffffa600Помощь в скриптах| |@ffffffffПавлик RPG|@ffffffff__nEmPoBu4__| | |@ffffa600Помощь в озвучке| |@ffffffffOverline - Диктор, случайные события, битва в Олимпийской|@ffffffffGnome627 - Фразы бандитов в бою, случайные события, битва в Олимпийской|@ffffffffTraygen - Озвучка Бандитов|@ffffffffJoomer - Озвучка случайных событий|@ffffffffстакан - Озвучка случайных событий, битва в Олимпийской|@ffffffff__nEmPoBu4__ – Озвучка случайных событий, битва в Олимпийской|@ffffffffICAS-14 - Озвучка случайных событий|@ffffffffПавлик RPG - Битва в Олимпийской|@ffffffffTalimancer - Битва в Олимпийской| | |@ffffa600UpgradeTeam - участники| |@ffffffffCarsen|стакан|ICAS-14|Joomer|Apocalypse007|Albinio|Destya|Traygen|Павлик RPG|Gnome627|__nEmPoBu4__|OverLine|RiverZone|Talimancer|wetpaz| | |@ffffa600Спасибо за тестирование|@ffffffffстакан|@ffffffffGnome627|@ffffffffMrKarfen|@ffffffffwetpaz| |@ffffffffА также всем багрепортерам|@ffffffffи тем, кто просто помог советом| | |@ffffa600Спасибо за игру!"
+		sound=""
+		fontSize="18"
+		scrollSpeed="1.7"
+		time="57" />
+</resource>

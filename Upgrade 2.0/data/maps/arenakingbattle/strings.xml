@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="windows-1251" standalone="yes" ?>
+<resource>
+	<string
+		id="1"
+		value="ExMachina Upgrade|Задача||Заезжать в круг в течении 30 секунд и оставаться в нём по истечению таймера. Выжить оставшись в круге 8 раз.||Локация будет уменьшаться и постоянно перемещаться.||Внимание!|Данная мини-игра очень сложная"
+		numButtons="1" />
+
+	<string
+		id="2"
+		value="ExMachina Upgrade|Задача выполнена!||Получено денег: 50000"
+		numButtons="1" />
+
+	<string
+		id="3"
+		value="ExMachina Upgrade|Задача провалена, машина уничтожена!||Получено денег: 250"
+		numButtons="1" />
+</resource>

@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="windows-1251" standalone="yes" ?>
+<resource>
+	<string
+		id="777"
+		value="Upgrade|Внимание!|Требуется перезапуск игры! Сейчас будет сохранение и игра закроется. Запустите это сохранение после перезапуска."
+		numButtons="1" />
+</resource>

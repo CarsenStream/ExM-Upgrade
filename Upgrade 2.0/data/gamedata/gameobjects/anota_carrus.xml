@@ -1,0 +1,647 @@
+<?xml version="1.0" encoding="windows-1251" standalone="yes" ?>
+
+<Prototypes>
+
+<!-- Пустышки для продажи -->
+	<Prototype
+		Class			= "Vehicle"
+		Name			= "SedanNullis"
+		ParentPrototype 	= "Sedan"
+		VisibleInEncyclopedia	= "true">
+		<Parts>
+			<Part id = "CABIN"		Prototype = "sedanCab01" />
+			<Part id = "BASKET"		Prototype = "defensorCargo" />
+		</Parts>
+	</Prototype>
+
+	<Prototype
+		Class				= "Vehicle"
+		Name				= "DefensorNullis01"
+		ParentPrototype 		= "Defensor"
+		VisibleInEncyclopedia		= "true">
+		<Parts>
+			<Part id = "CABIN"			Prototype = "defensorCab01" />
+			<Part id = "BASKET"			Prototype = "defensorCargo" />
+		</Parts>
+	</Prototype>
+
+	<Prototype
+		Class				= "Vehicle"
+		Name				= "LaoshuNullis"
+		ParentPrototype 		= "Laoshu"
+		VisibleInEncyclopedia		= "true">
+		<Parts>
+			<Part id = "CABIN"			Prototype = "laoshuCab01" />
+			<Part id = "BASKET"			Prototype = "quadraCargo" />
+		</Parts>
+	</Prototype>
+
+	<Prototype
+		Class				= "Vehicle"
+		Name				= "VolatNullis01"
+		VisibleInEncyclopedia		= "true"
+		ParentPrototype			= "Volat">
+		<Parts>
+			<Part id = "CABIN"			Prototype = "volatCab01" />
+			<Part id = "BASKET"			Prototype = "volatCargo01" />
+		</Parts>
+	</Prototype>
+
+	<Prototype
+		Class				= "Vehicle"
+		Name				= "VolatNullis02"
+		ParentPrototype			= "Volat">
+		<Parts>
+			<Part id = "CABIN"			Prototype = "volatCab02" />
+			<Part id = "BASKET"			Prototype = "volatCargo02" />
+		</Parts>
+	</Prototype>
+	
+	<Prototype
+		Class				= "Vehicle"
+		Name				= "VolatNullisExtra"
+		VisibleInEncyclopedia		= "false"
+		ParentPrototype			= "VolatExtra">
+		<Parts>
+			<Part id = "CABIN"			Prototype = "volatCab01" />
+			<Part id = "BASKET"			Prototype = "volatCargo01" />
+		</Parts>
+	</Prototype>
+
+	<Prototype
+		Class			= "Vehicle"
+		Name			= "PercDozerNullis"
+		ParentPrototype 	= "NeoDozer"
+		VisibleInEncyclopedia	= "true">
+		<Parts>
+			<Part id = "CABIN"		Prototype = "neodozerCab01" />
+			<Part id = "BASKET"		Prototype = "neodozerCargo01" />
+		</Parts>
+	</Prototype>
+
+<!-- Пустышки для бандитов -->
+
+	<Prototype
+		Class			= "Vehicle"
+		Name			= "CruiserZeroNullis"
+		ParentPrototype 	= "CruiserZero">
+		<Parts>
+			<Part id = "CABIN"			Prototype = "cruiserCab01" />
+			<Part id = "BASKET"			Prototype = "cruiserCargo01" />
+		</Parts>
+	</Prototype>
+
+	<Prototype
+		Class			= "Vehicle"
+		Name			= "CruiserUnoNullis"
+		ParentPrototype 	= "CruiserUno">
+		<Parts>
+			<Part id = "CABIN"			Prototype = "cruiserCab01" />
+			<Part id = "BASKET"			Prototype = "cruiserCargo01" />
+		</Parts>
+	</Prototype>
+
+	<Prototype
+		Class			= "Vehicle"
+		Name			= "KolunNullis"
+		ParentPrototype 	= "Kolun"
+		VisibleInEncyclopedia	= "true">
+		<Parts>
+			<Part id = "CABIN"			Prototype = "kolunCab01" />
+			<Part id = "BASKET"			Prototype = "kolunCargo01" />
+		</Parts>
+	</Prototype>
+
+<!-- Конец пустышек -->
+
+
+<!-- Сборки начало -->
+	<Prototype
+		Class			= "Vehicle"
+		Name			= "Sedan01"
+		ParentPrototype 	= "Sedan">
+		<Parts>
+			<Part id = "CABIN"			Prototype = "sedanCab01" />
+			<Part id = "CABIN_SMALL_GUN"		Prototype = "specter01" /> 
+			<Part id = "BASKET"			Prototype = "defensorCargo" />
+		</Parts>
+	</Prototype>
+
+	<Prototype
+		Class			= "Vehicle"
+		Name			= "Sedan02"
+		ParentPrototype 	= "Sedan"
+		VisibleInEncyclopedia	= "false" >
+		<Parts>
+			<Part id = "CABIN"			Prototype = "sedanCab02" />
+			<Part id = "CABIN_SMALL_GUN"		Prototype = "specter01" /> 
+			<Part id = "CABIN_SMALL_GUN_1"		Prototype = "hornet01" /> 
+			<Part id = "BASKET"			Prototype = "defensorCargo" />
+		</Parts>
+	</Prototype>
+
+	<Prototype
+		Class			= "Vehicle"
+		Name			= "Sedan03"
+		ParentPrototype 	= "Sedan"
+		VisibleInEncyclopedia	= "false" >
+		<Parts>
+			<Part id = "CABIN"			Prototype = "sedanCab03" />
+			<Part id = "CABIN_BIG_GUN_1"		Prototype = "vulcan01" /> 
+			<Part id = "BASKET"			Prototype = "defensorCargo" />
+		</Parts>
+	</Prototype>
+
+	<Prototype
+		Class				= "Vehicle"
+		Name				= "Defensor01"
+		ParentPrototype 		= "Defensor"
+		VisibleInEncyclopedia		= "false" >
+		<Parts>
+			<Part id = "CABIN"			Prototype = "defensorCab01" />
+			<Part id = "CABIN_SMALL_GUN"		Prototype = "specter01" /> 
+			<Part id = "BASKET"			Prototype = "defensorCargo" />
+		</Parts>
+	</Prototype>
+
+	<Prototype
+		Class				= "Vehicle"
+		Name				= "Defensor02"
+		ParentPrototype 		= "Defensor"
+		VisibleInEncyclopedia		= "false" >
+		<Parts>
+			<Part id = "CABIN"			Prototype = "defensorCab02" />
+			<Part id = "CABIN_BIG_GUN_1"		Prototype = "bumblebee01" /> 
+			<Part id = "BASKET"			Prototype = "defensorCargo" />
+		</Parts>
+	</Prototype>
+
+	<Prototype
+		Class				= "Vehicle"
+		Name				= "Defensor03"
+		ParentPrototype 		= "Defensor"
+		VisibleInEncyclopedia		= "false" >
+		<Parts>
+			<Part id = "CABIN"			Prototype = "defensorCab03" />
+			<Part id = "CABIN_SMALL_GUN"		Prototype = "storm01" /> 
+			<Part id = "CABIN_GIANT_GUN"		Prototype = "octopus01" /> 
+			<Part id = "BASKET"			Prototype = "quadraCargo" />
+		</Parts>
+	</Prototype>
+
+	<Prototype
+		Class			= "Vehicle"
+		Name			= "Laoshu01"
+		ParentPrototype 	= "Laoshu"
+		VisibleInEncyclopedia	= "false" >
+		<Parts>
+			<Part id = "CABIN"			Prototype = "laoshuCab01" />
+			<Part id = "CABIN_BIG_GUN_1"		Prototype = "rapier01" /> 
+			<Part id = "BASKET"			Prototype = "quadraCargo" />
+		</Parts>
+	</Prototype>
+
+	<Prototype
+		Class			= "Vehicle"
+		Name			= "Laoshu02"
+		ParentPrototype 	= "Laoshu"
+		VisibleInEncyclopedia	= "false" >
+		<Parts>
+			<Part id = "CABIN"			Prototype = "laoshuCab02" />
+			<Part id = "CABIN_BIG_GUN_1"		Prototype = "vector01" /> 
+			<Part id = "BASKET"			Prototype = "quadraCargo" />
+		</Parts>
+	</Prototype>
+
+	<Prototype
+		Class			= "Vehicle"
+		Name			= "Kolun01"
+		ParentPrototype 	= "Kolun">
+		<Parts>
+			<Part id = "CABIN"			Prototype = "kolunCab01" />
+			<Part id = "BASKET"			Prototype = "kolunCargo01" />
+			<Part id = "BASKET_GIANT_GUN"		Prototype = "octopus01" /> 
+		</Parts>
+	</Prototype>
+
+	<Prototype
+		Class				= "Vehicle"
+		Name				= "CruiserZero01"
+		ParentPrototype 		= "CruiserZero"
+		VisibleInEncyclopedia		= "false">
+		<Parts>
+			<Part id = "CABIN"			Prototype = "cruiserCab01" />
+			<Part id = "CABIN_BIG_GUN_1"		Prototype = "flag01" /> 
+			<Part id = "BASKET"			Prototype = "cruiserCargo01" />
+			<Part id = "BASKET_GIANT_GUN"		Prototype = "rocketLauncher" /> 
+		</Parts>
+	</Prototype>
+
+	<Prototype
+		Class				= "Vehicle"
+		Name				= "CruiserUno01"
+		ParentPrototype 		= "CruiserUno"
+		VisibleInEncyclopedia		= "false">
+		<Parts>
+			<Part id = "CABIN"			Prototype = "cruiserCab02" />
+			<Part id = "CABIN_BIG_GUN_1"		Prototype = "flag01" /> 
+			<Part id = "BASKET"			Prototype = "cruiserCargo02" />
+			<Part id = "BASKET_GIANT_GUN"		Prototype = "cyclops01" /> 
+			<Part id = "BASKET_SIDE_GUN_0"		Prototype = "mrakSideGun" /> 
+		</Parts>
+	</Prototype>
+
+	<Prototype
+		Class			= "Vehicle"
+		Name			= "Cruiser04"
+		ParentPrototype 	= "Cruiser"
+		VisibleInEncyclopedia	= "false" >
+		<Parts>
+			<Part id = "CABIN"			Prototype = "cruiserCab01" />
+			<Part id = "CABIN_BIG_GUN_1"		Prototype = "rainmetal01" /> 
+			<Part id = "BASKET"			Prototype = "cruiserCargo02" />
+			<Part id = "BASKET_GIANT_GUN"		Prototype = "cyclops01" /> 
+			<Part id = "BASKET_SIDE_GUN_0"		Prototype = "marsSideGun" /> 
+		</Parts>
+	</Prototype>
+
+	<Prototype
+		Class				= "Vehicle"
+		Name				= "D2_Storm01"
+		ParentPrototype 		= "CruiserZero"
+		VisibleInEncyclopedia		= "false">
+		<Parts>
+			<Part id = "CABIN"			Prototype = "cruiserCab05" />
+			<Part id = "BASKET"			Prototype = "cruiserCargo05" />
+		</Parts>
+	</Prototype>
+
+	<Prototype
+		Class			= "Vehicle"
+		Name			= "Sonderkraft01"
+		ParentPrototype 	= "Cruiser"
+		VisibleInEncyclopedia	= "false">
+		<Parts>
+			<Part id = "CABIN"			Prototype = "cruiserCab03" />
+			<Part id = "CABIN_SMALL_GUN"		Prototype = "specter01" />
+			<Part id = "BASKET"			Prototype = "cruiserCargo03" />
+			<Part id = "BASKET_BIG_GUN_0"		Prototype = "flag01" />
+			<Part id = "BASKET_BIG_GUN_1"		Prototype = "flag01" />
+		</Parts>
+	</Prototype>
+
+	<!-- Идентификаторы изменены -->
+	<Prototype
+		Class				= "Vehicle"
+		Name				= "Dozer01a"
+		ParentPrototype 		= "NeoDozer"
+		VisibleInEncyclopedia		= "false">
+		<Parts>
+			<Part id = "CABIN"			Prototype = "neodozerCab01" />
+			<Part id = "CABIN_SMALL_GUN"		Prototype = "specter01" />
+			<Part id = "BASKET"			Prototype = "neodozerCargo01" />
+			<Part id = "BASKET_GIANT_GUN_0"		Prototype = "octopus01" />
+		</Parts>
+	</Prototype>
+	<Prototype
+		Class				= "Vehicle"
+		Name				= "Traktor01a"
+		ParentPrototype 		= "NeoDozerExtra"
+		VisibleInEncyclopedia		= "false">
+		<Parts>
+			<Part id = "CABIN"		Prototype = "neodozerCab01" />
+			<Part id = "BASKET"		Prototype = "neodozerCargo01" />
+		</Parts>
+	</Prototype>
+
+	<Prototype
+		Class				= "Vehicle"
+		Name				= "NeoDozer01"
+		ParentPrototype 		= "NeoDozer"
+		VisibleInEncyclopedia		= "true" >
+		<Parts>
+			<Part id = "CABIN"			Prototype = "neodozerCab01" />
+			<Part id = "CABIN_SMALL_GUN"		Prototype = "specter01" />
+			<Part id = "BASKET"			Prototype = "neodozerCargo01" />
+			<Part id = "BASKET_GIANT_GUN_0"		Prototype = "hammer01" />
+		</Parts>
+	</Prototype>
+
+	<Prototype
+		Class				= "Vehicle"
+		Name				= "NeoDozer02"
+		ParentPrototype 		= "NeoDozer" >
+		<Parts>
+			<Part id = "CABIN"			Prototype = "neodozerCab02" />
+			<Part id = "CABIN_SMALL_GUN"		Prototype = "maxim01" />
+			<Part id = "BASKET"			Prototype = "neodozerCargo02" />
+			<Part id = "BASKET_BIG_GUN_0"		Prototype = "vulcan01" /> 
+			<Part id = "BASKET_GIANT_GUN_0"		Prototype = "rocketLauncher" />
+		</Parts>
+	</Prototype>
+
+	<Prototype
+		Class				= "Vehicle"
+		Name				= "NeoDozer03"
+		ParentPrototype 		= "NeoDozer"
+		VisibleInEncyclopedia		= "false" >
+		<Parts>
+			<Part id = "CABIN"			Prototype = "neodozerCab03" />
+			<Part id = "CABIN_BIG_GUN_2"		Prototype = "flag01" />
+			<Part id = "BASKET"			Prototype = "neodozerCargo03" />
+			<Part id = "BASKET_BIG_GUN_0"		Prototype = "flag01" />
+			<Part id = "BASKET_BIG_GUN_1"		Prototype = "flag01" />
+		</Parts>
+	</Prototype>
+
+	<Prototype
+		Class				= "Vehicle"
+		Name				= "MiniDozer01"
+		ParentPrototype 		= "Dozer"
+		VisibleInEncyclopedia		= "true">
+		<Parts>
+			<Part id = "CABIN"				Prototype = "dozerCab01" />
+			<Part id = "CABIN_SMALL_GUN"			Prototype = "specter01" />
+			<Part id = "BASKET"				Prototype = "fakeCargo" />
+		</Parts>
+	</Prototype>
+	
+	<Prototype
+		Class				= "Vehicle"
+		Name				= "LeoTank01"
+		ParentPrototype 		= "LeoTank"
+		VisibleInEncyclopedia	= "true">
+		<Parts>
+			<Part id = "CABIN"			Prototype = "leotankCab01" />
+			<Part id = "TANK_GUN"			Prototype = "leotank01" />
+			<Part id = "BASKET"			Prototype = "fakeCargo" />
+		</Parts>
+	</Prototype>
+
+	<Prototype
+		Class				= "Vehicle"
+		Name				= "LeoTank02"
+		ParentPrototype 		= "LeoTank">
+		<Parts>
+			<Part id = "CABIN"			Prototype = "leotankCab02" />
+			<Part id = "TANK_GUN"			Prototype = "leotank01" />
+			<Part id = "BASKET"			Prototype = "quadraCargo" />
+		</Parts>
+	</Prototype>
+
+	<Prototype
+		Class				= "Vehicle"
+		Name				= "LeoTank03"
+		ParentPrototype 		= "LeoTank">
+		<Parts>
+			<Part id = "CABIN"			Prototype = "leotankCab01" />
+			<Part id = "TANK_GUN"			Prototype = "tank01" />
+			<Part id = "BASKET"			Prototype = "fakeCargo" />
+		</Parts>
+	</Prototype>
+
+	<Prototype
+		Class			= "Vehicle"
+		Name			= "Western01"
+		ParentPrototype 	= "WesternStar"
+		VisibleInEncyclopedia	= "true">
+		<Parts>
+			<Part id = "CABIN"			Prototype = "westernCab01" />
+			<Part id = "BASKET"			Prototype = "westernCargo02" />
+		</Parts>
+	</Prototype>
+
+	<Prototype
+		Class			= "Vehicle"
+		Name			= "Western02"
+		ParentPrototype 	= "WesternStar">
+		<Parts>
+			<Part id = "CABIN"			Prototype = "westernCab01" />
+			<Part id = "BASKET"			Prototype = "westernCargo01" />
+		</Parts>
+	</Prototype>
+
+	<Prototype
+		Class			= "Vehicle"
+		Name			= "Western03"
+		ParentPrototype 	= "WesternStar"
+		VisibleInEncyclopedia	= "true">
+		<Parts>
+			<Part id = "CABIN"			Prototype = "westernCab01" />
+			<Part id = "BASKET"			Prototype = "westernCargo01" />
+			<Part id = "BASKET_SIDE_GUN_0"		Prototype = "mrakSideGun" /> 
+		</Parts>
+	</Prototype>
+
+	<!-- Богатыри на выбор -->
+	<Prototype
+		Class			= "Vehicle"
+		Name			= "Volat01"
+		ParentPrototype		= "Volat" >
+		<Parts>
+			<Part id = "CABIN"			Prototype = "volatCab01" />
+			<Part id = "BASKET"			Prototype = "volatCargo01" />
+			<Part id = "BASKET_BIG_GUN_0"		Prototype = "vulcan01" /> 
+			<Part id = "BASKET_BIG_GUN_1"		Prototype = "vulcan01" /> 
+		</Parts>
+	</Prototype>
+
+	<Prototype
+		Class				= "Vehicle"
+		Name				= "Volat02"
+		HealthRegeneration 		= "1.0"
+		DurabilityRegeneration		= "0.03"
+		ParentPrototype			= "VolatExtra" >
+		<Parts>
+			<Part id = "CABIN"					Prototype = "volatCab02" />
+			<Part id = "BASKET"					Prototype = "volatCargo02" />
+			<Part id = "CABIN_BIG_GUN_1"		Prototype = "rapier01" />
+			<Part id = "CABIN_BIG_GUN_2"		Prototype = "rapier01" /> 
+			<Part id = "BASKET_GIANT_GUN"		Prototype = "big_swingfire01" /> 
+			<Part id = "BASKET_SIDE_GUN_0"		Prototype = "zeusSideGun" /> 
+		</Parts>
+	</Prototype>
+
+	<Prototype
+		Class			= "Vehicle"
+		Name			= "Volat03"
+		ParentPrototype		= "Volat" >
+		<Parts>
+			<Part id = "CABIN"			Prototype = "volatCab03" />
+			<Part id = "BASKET"			Prototype = "volatCargo03" />
+			<Part id = "CABIN_GIANT_GUN"		Prototype = "octopus01" />
+			<Part id = "CABIN_GIANT_GUN_1"		Prototype = "octopus01" />
+			<Part id = "BASKET_SMALL_GUN_0"		Prototype = "specter01" /> 
+			<Part id = "BASKET_SMALL_GUN_1"		Prototype = "specter01" /> 
+			<Part id = "BASKET_GIANT_GUN"		Prototype = "hammer01" /> 
+			<Part id = "BASKET_SIDE_GUN_0"		Prototype = "mrakSideGun" /> 
+		</Parts>
+	</Prototype>
+
+	<Prototype
+		Class			= "Vehicle"
+		Name			= "Volat04"
+		ParentPrototype		= "Volat" >
+		<Parts>
+			<Part id = "CABIN"					Prototype = "volatCab04" />
+			<Part id = "BASKET"					Prototype = "volatCargo04" />
+			<Part id = "CABIN_SMALL_GUN"		Prototype = "fagot01" />
+			<Part id = "CABIN_GIANT_GUN_1"		Prototype = "rocketLauncher" />
+		</Parts>
+	</Prototype>
+	<!-- Окончание списка Богатырей -->
+<!-- Сборки конец -->
+
+
+<!-- Машины для караванов -->
+	<Prototype
+		Class			= "Vehicle"
+		Name			= "r2m2_CaravanWestern01"
+		ParentPrototype 	= "WesternStar">
+		<Parts>
+			<Part id = "CABIN"			Prototype = "westernCab01" />
+			<Part id = "BASKET"			Prototype = "westernCargo02" />
+		</Parts>
+	</Prototype>
+<!-- Окончание машин для караванов -->
+
+
+<!-- Охрана караванов -->
+	<Prototype
+		Class			= "Vehicle"
+		Name			= "r1m1_SedanGuard01"
+		ParentPrototype 	= "Sedan"
+		VisibleInEncyclopedia	= "false" >
+		<Parts>
+			<Part id = "CABIN"		Prototype = "sedanCab01" />
+			<Part id = "CABIN_SMALL_GUN"	Prototype = "hornet01" /> 
+			<Part id = "BASKET"		Prototype = "defensorCargo" />
+		</Parts>
+	</Prototype>
+
+	<Prototype
+		Class			= "Vehicle"
+		Name			= "r1m2_SedanGuard01"
+		ParentPrototype 	= "Sedan"
+		VisibleInEncyclopedia	= "false" >
+		<Parts>
+			<Part id = "CABIN"		Prototype = "sedanCab02" />
+			<Part id = "CABIN_SMALL_GUN"	Prototype = "specter01" /> 
+			<Part id = "CABIN_SMALL_GUN_1"	Prototype = "specter01" /> 
+			<Part id = "BASKET"		Prototype = "defensorCargo" />
+		</Parts>
+	</Prototype>
+
+	<Prototype
+		Class			= "Vehicle"
+		Name			= "r1m2_SedanGuard02"
+		ParentPrototype 	= "Sedan"
+		VisibleInEncyclopedia	= "false" >
+		<Parts>
+			<Part id = "CABIN"		Prototype = "sedanCab03" />
+			<Part id = "CABIN_BIG_GUN_1"	Prototype = "vector01" /> 
+			<Part id = "BASKET"		Prototype = "defensorCargo" />
+		</Parts>
+	</Prototype>
+
+	<Prototype
+		Class			= "Vehicle"
+		Name			= "r1m2_LaoshuGuard01"
+		ParentPrototype 	= "Laoshu"
+		VisibleInEncyclopedia	= "false" >
+		<Parts>
+			<Part id = "CABIN"			Prototype = "laoshuCab01" />
+			<Part id = "CABIN_BIG_GUN_1"		Prototype = "vector01" /> 
+			<Part id = "BASKET"			Prototype = "defensorCargo" />
+		</Parts>
+	</Prototype>
+
+	<Prototype
+		Class			= "Vehicle"
+		Name			= "r1m2_DefensorGuard01"
+		ParentPrototype 	= "Defensor"
+		VisibleInEncyclopedia	= "false" >
+		<Parts>
+			<Part id = "CABIN"			Prototype = "defensorCab01" />
+			<Part id = "CABIN_SMALL_GUN"		Prototype = "specter01" /> 
+			<Part id = "CABIN_SMALL_GUN_1"		Prototype = "hornet01" />
+			<Part id = "BASKET"			Prototype = "defensorCargo" />
+		</Parts>
+	</Prototype>
+
+	<Prototype
+		Class			= "Vehicle"
+		Name			= "r1m2_DefensorGuard02"
+		ParentPrototype 	= "Defensor"
+		VisibleInEncyclopedia	= "false" >
+		<Parts>
+			<Part id = "CABIN"			Prototype = "defensorCab02" />
+			<Part id = "CABIN_BIG_GUN_1"		Prototype = "rapier01" /> 
+			<Part id = "BASKET"			Prototype = "quadraCargo" />
+		</Parts>
+	</Prototype>
+
+	<Prototype
+		Class			= "Vehicle"
+		Name			= "r1m2_DefensorGuard03"
+		ParentPrototype 	= "Defensor"
+		VisibleInEncyclopedia	= "false" >
+		<Parts>
+			<Part id = "CABIN"			Prototype = "defensorCab02" />
+			<Part id = "CABIN_BIG_GUN_1"		Prototype = "flag01" /> 
+			<Part id = "BASKET"			Prototype = "defensorCargo" />
+		</Parts>
+	</Prototype>
+
+	<Prototype
+		Class			= "Vehicle"
+		Name			= "r1m3_DefensorGuard01"
+		ParentPrototype 	= "Defensor"
+		VisibleInEncyclopedia	= "false" >
+		<Parts>
+			<Part id = "CABIN"			Prototype = "defensorCab03" />
+			<Part id = "CABIN_SMALL_GUN"		Prototype = "hornet01" /> 
+			<Part id = "CABIN_GIANT_GUN"		Prototype = "octopus01" /> 
+			<Part id = "BASKET"			Prototype = "defensorCargo" />
+		</Parts>
+	</Prototype>
+
+	<Prototype
+		Class			= "Vehicle"
+		Name			= "r1m3_DefensorGuard02"
+		ParentPrototype 	= "Defensor"
+		VisibleInEncyclopedia	= "false" >
+		<Parts>
+			<Part id = "CABIN"			Prototype = "defensorCab03" />
+			<Part id = "CABIN_SMALL_GUN"		Prototype = "storm01" /> 
+			<Part id = "CABIN_GIANT_GUN"		Prototype = "cyclops01" /> 
+			<Part id = "BASKET"			Prototype = "quadraCargo" />
+		</Parts>
+	</Prototype>
+
+	<Prototype
+		Class			= "Vehicle"
+		Name			= "r1m3_LaoshuGuard01"
+		ParentPrototype 	= "Laoshu"
+		VisibleInEncyclopedia	= "false" >
+		<Parts>
+			<Part id = "CABIN"			Prototype = "laoshuCab02" />
+			<Part id = "CABIN_BIG_GUN_1"		Prototype = "rapier01" /> 
+			<Part id = "BASKET"			Prototype = "quadraCargo" />
+		</Parts>
+	</Prototype>
+
+	<Prototype
+		Class			= "Vehicle"
+		Name			= "r2m2_KolunGuard01"
+		ParentPrototype 	= "Kolun">
+		<Parts>
+			<Part id = "CABIN"			Prototype = "kolunCab01" />
+			<Part id = "CABIN_SMALL_GUN"		Prototype = "storm01" /> 
+			<Part id = "BASKET"			Prototype = "kolunCargo01" />
+			<Part id = "BASKET_GIANT_GUN"		Prototype = "octopus01" /> 
+		</Parts>
+	</Prototype>
+<!-- Охрана караванов конец -->
+
+</Prototypes>

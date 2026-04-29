@@ -1,0 +1,1809 @@
+<?xml version="1.0" encoding="windows-1251" standalone="yes" ?>
+<triggers>
+
+
+	<trigger Name="RegenerationTr" active="0">
+		<event timeout="1" eventid="GE_TIME_PERIOD" />
+		<script>
+			if getObj("WorkerPlayer") and getObj("WorkerPlayer"):IsAlive() then
+				getObj("WorkerPlayer"):AddModifier("HP","+ 1")
+			end
+
+			if getObj("EnergyStation1Player") and getObj("EnergyStation1Player"):IsAlive() then
+				getObj("EnergyStation1Player"):AddModifier("HP","+ 1")
+			end
+
+			if getObj("EnergyStation2Player") and getObj("EnergyStation2Player"):IsAlive() then
+				getObj("EnergyStation2Player"):AddModifier("HP","+ 1")
+			end
+
+			if getObj("Money1Player") and getObj("Money1Player"):IsAlive() then
+				getObj("Money1Player"):AddModifier("HP","+ 1")
+			end
+
+			if getObj("Money2Player") and getObj("Money2Player"):IsAlive() then
+				getObj("Money1Player"):AddModifier("HP","+ 1")
+			end
+
+			if getObj("Money3Player") and getObj("Money3Player"):IsAlive() then
+				getObj("Money3Player"):AddModifier("HP","+ 1")
+			end
+
+			if getObj("LightFactoryPlayer") and getObj("LightFactoryPlayer"):IsAlive() then
+				getObj("LightFactoryPlayer"):AddModifier("HP","+ 1")
+			end
+
+			if getObj("HeavyFactoryPlayer") and getObj("HeavyFactoryPlayer"):IsAlive() then
+				getObj("HeavyFactoryPlayer"):AddModifier("HP","+ 1")
+			end
+
+			if getObj("DotPlayer") and getObj("DotPlayer"):IsAlive() then
+				getObj("DotPlayer"):AddModifier("HP","+ 1")
+			end
+
+			if getObj("WorkerEnemy") and getObj("WorkerEnemy"):IsAlive() then
+				getObj("WorkerEnemy"):AddModifier("HP","+ 1")
+			end
+
+			if getObj("EnergyStation1Enemy") and getObj("EnergyStation1Enemy"):IsAlive() then
+				getObj("EnergyStation1Enemy"):AddModifier("HP","+ 1")
+			end
+
+			if getObj("EnergyStation2Enemy") and getObj("EnergyStation2Enemy"):IsAlive() then
+				getObj("EnergyStation2Enemy"):AddModifier("HP","+ 1")
+			end
+
+			if getObj("LightFactoryEnemy") and getObj("LightFactoryEnemy"):IsAlive() then
+				getObj("LightFactoryEnemy"):AddModifier("HP","+ 1")
+			end
+
+			if getObj("HeavyFactoryEnemy") and getObj("HeavyFactoryEnemy"):IsAlive() then
+				getObj("HeavyFactoryEnemy"):AddModifier("HP","+ 1")
+			end
+
+			if getObj("DotEnemy") and getObj("DotEnemy"):IsAlive() then
+				getObj("DotEnemy"):AddModifier("HP","+ 1")
+			end
+
+			if getObj("Money1Enemy") and getObj("Money1Enemy"):IsAlive() then
+				getObj("Money1Enemy"):AddModifier("HP","+ 1")
+			end
+
+			if getObj("Money2Enemy") and getObj("Money2Enemy"):IsAlive() then
+				getObj("Money2Enemy"):AddModifier("HP","+ 1")
+			end
+		</script>
+	</trigger>
+
+	<trigger Name="EnergyControler1" active="0">
+		<event timeout="1" eventid="GE_TIME_PERIOD" />
+		<script>
+			if EnergyCons > MaxEnergy then
+				job = 0
+				TDeactivate("MoneyDrop1")
+				TDeactivate("MoneyDrop2")
+				TDeactivate("MoneyDrop3")
+				TDeactivate("LightFactoryCreatorDlg")
+				TDeactivate("HeavyFactoryCreatorDlg")
+				SpawnMessageBox(8)
+			end
+				trigger:Deactivate()
+		</script>
+	</trigger>
+
+	<trigger Name="EnergyControler2" active="0">
+		<event timeout="1" eventid="GE_TIME_PERIOD" />
+		<script>
+			if MaxEnergy > EnergyCons then
+			if getObj("Money1Player") and getObj("Money1Player"):IsAlive() then
+				TDeactivate("MoneyDrop1")
+				TActivate("MoneyDrop1")
+			end	
+			if getObj("Money2Player") and getObj("Money2Player"):IsAlive() then
+				TDeactivate("MoneyDrop2")
+				TActivate("MoneyDrop2")
+			end
+			if getObj("Money3Player") and getObj("Money3Player"):IsAlive() then
+				TDeactivate("MoneyDrop3")
+				TActivate("MoneyDrop3")
+			end
+			if getObj("LightFactoryPlayer") and getObj("LightFactoryPlayer"):IsAlive() then
+				TActivate("LightFactoryCreatorDlg")
+			end	
+			if getObj("HeavyFactoryPlayer") and getObj("HeavyFactoryPlayer"):IsAlive() then
+				TActivate("HeavyFactoryCreatorDlg")
+			end
+			end
+				SpawnMessageBox(9)
+				trigger:Deactivate()
+		</script>
+	</trigger>
+
+	<trigger Name="CreateBase" active="1">
+		<event timeout="0.1" eventid="GE_TIME_PERIOD" />
+		<script>
+			GetPlayerVehicle():SetNameFromScript("OwnCarPlayer")
+			CapturePlayerVehicle()
+			AddPlayerVehicle("Formula01")
+			GetPlayerVehicle():AddModifier("MAXFUEL","= 999999")
+			GetPlayerVehicle():AddModifier("FUEL","= 999999")
+
+			MaxEnergy = 50
+			EnergyCons = 0
+			CreateNewSgNodeObject("ET_PS_LENS_D5", "ps_broken_1", -1, -1, CVector(1330.603, 287.829, 2905.164), Quaternion(0, 0, 0, 0), 1)
+			CreateNewSgNodeObject("ET_PS_LENS_D5", "ps_broken_2", -1, -1, CVector(1367.472, 289.479, 2879.084), Quaternion(0, 0, 0, 0), 1)
+			CreateNewSgNodeObject("ET_PS_LENS_D2", "ps_broken_3", -1, -1, CVector(1317.589, 287.752, 2884.067), Quaternion(0, 0, 0, 0), 1)
+			CreateNewSgNodeObject("ET_PS_LENS_D1", "ps_broken_4", -1, -1, CVector(1308.199, 287.923, 2867.184), Quaternion(0, 0, 0, 0), 1)
+			CreateNewSgNodeObject("ET_PS_LENS_D2", "ps_broken_5", -1, -1, CVector(1353.402, 289.607, 2858.885), Quaternion(0, 0, 0, 0), 1)
+			CreateNewSgNodeObject("ET_PS_LENS_D2", "ps_broken_6", -1, -1, CVector(1383.356, 288.945, 2900.449), Quaternion(0, 0, 0, 0), 1)
+			CreateNewSgNodeObject("ET_PS_LENS_D2", "ps_broken_7", -1, -1, CVector(1355.645, 288.150, 2949.755), Quaternion(0, 0, 0, 0), 1)
+			CreateNewSgNodeObject( "quest_komp_splav", "artefact1", -1, -1, CVector(1383.356, 288.945, 2900.449), Quaternion(0, 0, 0, 1), 1)
+			CreateNewSgNodeObject( "quest_komp_splav", "artefact2", -1, -1, CVector(1355.645, 288.150, 2949.755), Quaternion(0, 0, 0, 1), 1)
+			CreateNewSgNodeObject( "quest_komp_splav", "artefact3", -1, -1, CVector(1407.686, 287.648, 2942.886), Quaternion(0, 0, 0, 1), 1)
+			GetPlayerVehicle():SetPosition( CVector(1332.678, 288.708, 2874.608))
+			GetPlayerVehicle():SetRotation(Quaternion(-0.023, 0.980, 0.002, -0.199))
+			moneyownpl = GetPlayerMoney()
+			g_Player:AddMoney(-999999999)
+			AddPlayerMoney(10001)
+			SpawnMessageBox(1)
+			CreateNewBreakableObject("WorkerStatic","WorkerPlayer", 1008, CVector(1348.687, 288.941, 2890.147), Quaternion(-0.023, 0.912, -0.000, -0.410))
+			SetTolerance("1100","1002",RS_NEUTRAL)
+			GetPlayerVehicle():setGodMode(1)
+			AllowSave( false )
+			job = 1
+			PlayCustomMusic("RBattle0")
+			TActivate("RegenerationTr")
+		    trigger:Deactivate()
+		</script>
+	</trigger>
+
+<!-- Детектор врагов -->
+
+	<trigger Name="EnemyDetectTr" active="1">
+		<event eventid="GE_OBJECT_ENTERS_LOCATION" ObjName="ENEMYDETECTLOC" />
+		<script>
+			CreateEffectTTLed("ET_S_STRATEGY_ENEMYDETECT", CVector(GetPlayerVehicle():GetPosition()), Quaternion(0, 0, 0, 0), 2000)
+		</script>
+	</trigger>
+
+
+	<trigger Name="EnemyDetectTrMusic" active="1">
+		<event eventid="GE_OBJECT_ENTERS_LOCATION" ObjName="ENEMYDETECTLOC" />
+		<script>
+			local i = random(1,3)
+			PlayCustomMusic("RBattle"..i)
+			CreateEffectTTLed("ET_S_STRATEGY_BASEATTACK", CVector(GetPlayerVehicle():GetPosition()), Quaternion(0, 0, 0, 0), 2000)
+			trigger:Deactivate()
+		</script>
+	</trigger>
+
+<!-- Таблички для строительства -->
+	<trigger Name="EnergyTable1" active="1">
+		<event eventid="GE_OBJECT_ENTERS_LOCATION" ObjName="EnergyLoc1" />
+		<script>
+			energymess1box = SpawnMessageBox(2)
+			if energymess1box == 1 then
+			if GetPlayerMoney() > 800 then
+				TActivate("CreateEnergyBuilding")
+				TActivate("BuildingDeactivate")
+				trigger:Deactivate()
+			else
+				SpawnMessageBox(7)
+			end
+			end
+		</script>
+	</trigger>
+
+	<trigger Name="EnergyTable2" active="1">
+		<event eventid="GE_OBJECT_ENTERS_LOCATION" ObjName="EnergyLoc2" />
+		<script>
+			energymess2box = SpawnMessageBox(2)
+			if energymess2box == 1 then
+			if GetPlayerMoney() > 800 then
+				TActivate("CreateEnergyBuilding2")
+				TActivate("BuildingDeactivate")
+				trigger:Deactivate()
+			else
+				SpawnMessageBox(7)
+			end
+			end
+		</script>
+	</trigger>
+
+	<trigger Name="HarvesterTable1" active="1">
+		<event eventid="GE_OBJECT_ENTERS_LOCATION" ObjName="Money1Loc" />
+		<script>
+			Harvester1 = SpawnMessageBox(3)
+			if Harvester1 == 1 then
+			if GetPlayerMoney() > 2500 then
+				TActivate("CreateMoney1Building")
+				TActivate("BuildingDeactivate")
+				trigger:Deactivate()
+			else
+				SpawnMessageBox(7)
+			end
+			end
+		</script>
+	</trigger>
+
+	<trigger Name="HarvesterTable2" active="1">
+		<event eventid="GE_OBJECT_ENTERS_LOCATION" ObjName="Money2Loc" />
+		<script>
+			Harvester2 = SpawnMessageBox(3)
+			if Harvester2 == 1 then
+			if GetPlayerMoney() > 2500 then
+				TActivate("CreateMoney2Building")
+				TActivate("BuildingDeactivate")
+				trigger:Deactivate()
+			else
+				SpawnMessageBox(7)
+			end
+			end
+		</script>
+	</trigger>
+
+	<trigger Name="HarvesterTable3" active="1">
+		<event eventid="GE_OBJECT_ENTERS_LOCATION" ObjName="Money3Loc" />
+		<script>
+			Harvester2 = SpawnMessageBox(3)
+			if Harvester2 == 1 then
+			if GetPlayerMoney() > 2500 then
+				TActivate("CreateMoney3Building")
+				TActivate("BuildingDeactivate")
+				trigger:Deactivate()
+			else
+				SpawnMessageBox(7)
+			end
+			end
+		</script>
+	</trigger>
+
+	<trigger Name="LightFactoryTable" active="1">
+		<event eventid="GE_OBJECT_ENTERS_LOCATION" ObjName="LightFactoryLoc" />
+		<script>
+			LightFactory = SpawnMessageBox(5)
+			if LightFactory == 1 then
+			if GetPlayerMoney() > 1500 then
+				TActivate("CreateLightFactoryBuilding")
+				TActivate("BuildingDeactivate")
+				trigger:Deactivate()
+			else
+				SpawnMessageBox(7)
+			end
+			end
+		</script>
+	</trigger>
+
+	<trigger Name="HeavyFactoryTable" active="1">
+		<event eventid="GE_OBJECT_ENTERS_LOCATION" ObjName="HeavyFactoryLoc" />
+		<script>
+			HeavyFactory = SpawnMessageBox(6)
+			if HeavyFactory == 1 then
+			if GetPlayerMoney() > 2500 then
+				TActivate("CreateHeavyFactoryBuilding")
+				TActivate("BuildingDeactivate")
+				trigger:Deactivate()
+			else
+				SpawnMessageBox(7)
+			end
+			end
+		</script>
+	</trigger>
+
+	<trigger Name="DotTable" active="1">
+		<event eventid="GE_OBJECT_ENTERS_LOCATION" ObjName="DotLoc" />
+		<script>
+			Dott = SpawnMessageBox(4)
+			if Dott == 1 then
+			if GetPlayerMoney() > 1000 then
+				TActivate("CreateDotBuilding")
+				TActivate("BuildingDeactivate")
+				trigger:Deactivate()
+			else
+				SpawnMessageBox(7)
+			end
+			end
+		</script>
+	</trigger>
+
+<!-- Диалог для производства техники -->
+
+	<trigger Name="LightFactoryCreatorDlg" active="0">
+		<event eventid="GE_OBJECT_ENTERS_LOCATION" ObjName="LightFactoryCreaterLoc" />
+		<script>
+		if getObj("LightFactoryPlayer") and getObj("LightFactoryPlayer"):IsAlive() then
+			StartConversation("LightFactoryCreator")
+			trigger:Deactivate()
+		else
+			trigger:Deactivate()
+		end
+		</script>
+	</trigger>
+
+	<trigger Name="HeavyFactoryCreatorDlg" active="0">
+		<event eventid="GE_OBJECT_ENTERS_LOCATION" ObjName="HeavyFactoryCreaterLoc" />
+		<script>
+		if getObj("HeavyFactoryPlayer") and getObj("HeavyFactoryPlayer"):IsAlive() then
+			StartConversation("HeavyFactoryCreator")
+			trigger:Deactivate()
+		else
+			trigger:Deactivate()
+		end
+		</script>
+	</trigger>
+
+<!-- Строительство лёгкой техники -->
+
+	<trigger Name="CreateKlop" active="0">
+		<event timeout="5" eventid="GE_TIME_PERIOD" />
+		<script>
+		if getObj("LightFactoryPlayer") and getObj("LightFactoryPlayer"):IsAlive() then
+			TActivate("LightFactoryCreatorDlg")
+		end
+			TeamCreate("Klop",1008,CVector(1331.057, 288.580, 2877.032),{"Sml101"})
+	if GetEntityByName("Klop_vehicle_0") then
+			GetEntityByName("Klop_vehicle_0"):SetRotation(Quaternion(0.006, -0.859, -0.014, -0.511))
+		t = GetEntityByName("Klop")
+		if t then
+			t:StackOpen()
+			t:SetDestination( CVector(1324.279, 288.799, 2855.809))
+			t:SetDestination( CVector(1275.177, 289.384, 2741.740))
+			t:SetDestination( CVector(1270.048, 290.985, 2594.532))
+			t:SetDestination( CVector(1276.779, 298.167, 2445.458))
+			t:SetDestination( CVector(1220.109, 295.899, 2303.188))
+			t:SetDestination( CVector(1103.747, 291.659, 2260.668))
+			t:SetDestination( CVector(1107.354, 291.590, 2267.259))
+			t:StackClose()
+		end
+	end
+		    trigger:Deactivate()
+		</script>
+	</trigger>
+
+	<trigger Name="CreateKyz" active="0">
+		<event timeout="10" eventid="GE_TIME_PERIOD" />
+		<script>
+		if getObj("LightFactoryPlayer") and getObj("LightFactoryPlayer"):IsAlive() then
+			TActivate("LightFactoryCreatorDlg")
+		end
+			TeamCreate("Kyz",1008,CVector(1331.057, 288.580, 2877.032),{"Sml401"})
+	if GetEntityByName("Kyz_vehicle_0") then
+			GetEntityByName("Kyz_vehicle_0"):SetRotation(Quaternion(0.006, -0.859, -0.014, -0.511))
+		t = GetEntityByName("Kyz")
+		if t then
+			t:StackOpen()
+			t:SetDestination( CVector(1324.279, 288.799, 2855.809))
+			t:SetDestination( CVector(1275.177, 289.384, 2741.740))
+			t:SetDestination( CVector(1270.048, 290.985, 2594.532))
+			t:SetDestination( CVector(1276.779, 298.167, 2445.458))
+			t:SetDestination( CVector(1220.109, 295.899, 2303.188))
+			t:SetDestination( CVector(1103.747, 291.659, 2260.668))
+			t:SetDestination( CVector(1107.354, 291.590, 2267.259))
+			t:StackClose()
+		end
+	end
+		    trigger:Deactivate()
+		</script>
+	</trigger>
+
+	<trigger Name="CreateScout" active="0">
+		<event timeout="10" eventid="GE_TIME_PERIOD" />
+		<script>
+		if getObj("LightFactoryPlayer") and getObj("LightFactoryPlayer"):IsAlive() then
+			TActivate("LightFactoryCreatorDlg")
+		end
+			TeamCreate("Scout",1008,CVector(1331.057, 288.580, 2877.032),{"Scout03"})
+	if GetEntityByName("Scout_vehicle_0") then
+			GetEntityByName("Scout_vehicle_0"):SetRotation(Quaternion(0.006, -0.859, -0.014, -0.511))
+		t = GetEntityByName("Scout")
+		if t then
+			t:StackOpen()
+			t:SetDestination( CVector(1324.279, 288.799, 2855.809))
+			t:SetDestination( CVector(1275.177, 289.384, 2741.740))
+			t:SetDestination( CVector(1270.048, 290.985, 2594.532))
+			t:SetDestination( CVector(1276.779, 298.167, 2445.458))
+			t:SetDestination( CVector(1220.109, 295.899, 2303.188))
+			t:SetDestination( CVector(1103.747, 291.659, 2260.668))
+			t:SetDestination( CVector(1107.354, 291.590, 2267.259))
+			t:StackClose()
+		end
+	end
+		    trigger:Deactivate()
+		</script>
+	</trigger>
+
+	<trigger Name="CreateBug" active="0">
+		<event timeout="15" eventid="GE_TIME_PERIOD" />
+		<script>
+		if getObj("LightFactoryPlayer") and getObj("LightFactoryPlayer"):IsAlive() then
+			TActivate("LightFactoryCreatorDlg")
+		end
+			TeamCreate("Bug",1008,CVector(1331.057, 288.580, 2877.032),{"r1m2_bug04"})
+	if GetEntityByName("Bug_vehicle_0") then
+			GetEntityByName("Bug_vehicle_0"):SetRotation(Quaternion(0.006, -0.859, -0.014, -0.511))
+		t = GetEntityByName("Bug")
+		if t then
+			t:StackOpen()
+			t:SetDestination( CVector(1324.279, 288.799, 2855.809))
+			t:SetDestination( CVector(1275.177, 289.384, 2741.740))
+			t:SetDestination( CVector(1270.048, 290.985, 2594.532))
+			t:SetDestination( CVector(1276.779, 298.167, 2445.458))
+			t:SetDestination( CVector(1220.109, 295.899, 2303.188))
+			t:SetDestination( CVector(1103.747, 291.659, 2260.668))
+			t:SetDestination( CVector(1107.354, 291.590, 2267.259))
+			t:StackClose()
+		end
+	end
+		    trigger:Deactivate()
+		</script>
+	</trigger>
+
+	<trigger Name="CreateZil" active="0">
+		<event timeout="25" eventid="GE_TIME_PERIOD" />
+		<script>
+		if getObj("LightFactoryPlayer") and getObj("LightFactoryPlayer"):IsAlive() then
+			TActivate("LightFactoryCreatorDlg")
+		end
+			TeamCreate("Zil",1008,CVector(1331.057, 288.580, 2877.032),{"CaravanZil130_04"})
+	if GetEntityByName("Zil_vehicle_0") then
+			GetEntityByName("Zil_vehicle_0"):SetRotation(Quaternion(0.006, -0.859, -0.014, -0.511))
+		t = GetEntityByName("Zil")
+		if t then
+			t:StackOpen()
+			t:SetDestination( CVector(1324.279, 288.799, 2855.809))
+			t:SetDestination( CVector(1275.177, 289.384, 2741.740))
+			t:SetDestination( CVector(1270.048, 290.985, 2594.532))
+			t:SetDestination( CVector(1276.779, 298.167, 2445.458))
+			t:SetDestination( CVector(1220.109, 295.899, 2303.188))
+			t:SetDestination( CVector(1103.747, 291.659, 2260.668))
+			t:SetDestination( CVector(1107.354, 291.590, 2267.259))
+			t:StackClose()
+		end
+	end
+		    trigger:Deactivate()
+		</script>
+	</trigger>
+
+<!-- Строительство тяжёлой техники -->
+
+	<trigger Name="CreateMolokovoz" active="0">
+		<event timeout="20" eventid="GE_TIME_PERIOD" />
+		<script>
+		if getObj("HeavyFactoryPlayer") and getObj("HeavyFactoryPlayer"):IsAlive() then
+			TActivate("HeavyFactoryCreatorDlg")
+		end
+			TeamCreate("Molokovoz",1008,CVector(1340.665, 289.070, 2869.394),{"Molokovoz02"})
+	if GetEntityByName("Molokovoz_vehicle_0") then
+			GetEntityByName("Molokovoz_vehicle_0"):SetRotation(Quaternion(-0.019, 0.418, -0.014, -0.908))
+		t = GetEntityByName("Molokovoz")
+		if t then
+			t:StackOpen()
+			t:SetDestination( CVector(1324.279, 288.799, 2855.809))
+			t:SetDestination( CVector(1275.177, 289.384, 2741.740))
+			t:SetDestination( CVector(1270.048, 290.985, 2594.532))
+			t:SetDestination( CVector(1276.779, 298.167, 2445.458))
+			t:SetDestination( CVector(1220.109, 295.899, 2303.188))
+			t:SetDestination( CVector(1103.747, 291.659, 2260.668))
+			t:SetDestination( CVector(1107.354, 291.590, 2267.259))
+			t:StackClose()
+		end
+	end
+		    trigger:Deactivate()
+		</script>
+	</trigger>
+
+	<trigger Name="CreateUral" active="0">
+		<event timeout="30" eventid="GE_TIME_PERIOD" />
+		<script>
+		if getObj("HeavyFactoryPlayer") and getObj("HeavyFactoryPlayer"):IsAlive() then
+			TActivate("HeavyFactoryCreatorDlg")
+		end
+			TeamCreate("Ural",1008,CVector(1340.665, 289.070, 2869.394),{"Ural02"})
+	if GetEntityByName("Ural_vehicle_0") then
+			GetEntityByName("Ural_vehicle_0"):SetRotation(Quaternion(-0.019, 0.418, -0.014, -0.908))
+		t = GetEntityByName("Ural")
+		if t then
+			t:StackOpen()
+			t:SetDestination( CVector(1324.279, 288.799, 2855.809))
+			t:SetDestination( CVector(1275.177, 289.384, 2741.740))
+			t:SetDestination( CVector(1270.048, 290.985, 2594.532))
+			t:SetDestination( CVector(1276.779, 298.167, 2445.458))
+			t:SetDestination( CVector(1220.109, 295.899, 2303.188))
+			t:SetDestination( CVector(1103.747, 291.659, 2260.668))
+			t:SetDestination( CVector(1107.354, 291.590, 2267.259))
+			t:StackClose()
+		end
+	end
+		    trigger:Deactivate()
+		</script>
+	</trigger>
+
+	<trigger Name="CreateHunter" active="0">
+		<event timeout="20" eventid="GE_TIME_PERIOD" />
+		<script>
+		if getObj("HeavyFactoryPlayer") and getObj("HeavyFactoryPlayer"):IsAlive() then
+			TActivate("HeavyFactoryCreatorDlg")
+		end
+			TeamCreate("Hunter",1008,CVector(1340.665, 289.070, 2869.394),{"Hunter01"})
+	if GetEntityByName("Hunter_vehicle_0") then
+			GetEntityByName("Hunter_vehicle_0"):SetRotation(Quaternion(-0.019, 0.418, -0.014, -0.908))
+		t = GetEntityByName("Hunter")
+		if t then
+			t:StackOpen()
+			t:SetDestination( CVector(1324.279, 288.799, 2855.809))
+			t:SetDestination( CVector(1275.177, 289.384, 2741.740))
+			t:SetDestination( CVector(1270.048, 290.985, 2594.532))
+			t:SetDestination( CVector(1276.779, 298.167, 2445.458))
+			t:SetDestination( CVector(1220.109, 295.899, 2303.188))
+			t:SetDestination( CVector(1103.747, 291.659, 2260.668))
+			t:SetDestination( CVector(1107.354, 291.590, 2267.259))
+			t:StackClose()
+		end
+	end
+		    trigger:Deactivate()
+		</script>
+	</trigger>
+
+	<trigger Name="CreateFighter" active="0">
+		<event timeout="15" eventid="GE_TIME_PERIOD" />
+		<script>
+		if getObj("HeavyFactoryPlayer") and getObj("HeavyFactoryPlayer"):IsAlive() then
+			TActivate("HeavyFactoryCreatorDlg")
+		end
+			TeamCreate("Fighter",1008,CVector(1340.665, 289.070, 2869.394),{"Fighter02"})
+	if GetEntityByName("Fighter_vehicle_0") then
+			GetEntityByName("Fighter_vehicle_0"):SetRotation(Quaternion(-0.019, 0.418, -0.014, -0.908))
+		t = GetEntityByName("Fighter")
+		if t then
+			t:StackOpen()
+			t:SetDestination( CVector(1324.279, 288.799, 2855.809))
+			t:SetDestination( CVector(1275.177, 289.384, 2741.740))
+			t:SetDestination( CVector(1270.048, 290.985, 2594.532))
+			t:SetDestination( CVector(1276.779, 298.167, 2445.458))
+			t:SetDestination( CVector(1220.109, 295.899, 2303.188))
+			t:SetDestination( CVector(1103.747, 291.659, 2260.668))
+			t:SetDestination( CVector(1107.354, 291.590, 2267.259))
+			t:StackClose()
+		end
+	end
+		    trigger:Deactivate()
+		</script>
+	</trigger>
+
+	<trigger Name="CreateTank" active="0">
+		<event timeout="40" eventid="GE_TIME_PERIOD" />
+		<script>
+		if getObj("HeavyFactoryPlayer") and getObj("HeavyFactoryPlayer"):IsAlive() then
+			TActivate("HeavyFactoryCreatorDlg")
+		end
+			TeamCreate("Tank",1008,CVector(1340.665, 289.070, 2869.394),{"Tank01"})
+	if GetEntityByName("Tank_vehicle_0") then
+			GetEntityByName("Tank_vehicle_0"):SetRotation(Quaternion(-0.019, 0.418, -0.014, -0.908))
+		t = GetEntityByName("Tank")
+		if t then
+			t:StackOpen()
+			t:SetDestination( CVector(1324.279, 288.799, 2855.809))
+			t:SetDestination( CVector(1275.177, 289.384, 2741.740))
+			t:SetDestination( CVector(1270.048, 290.985, 2594.532))
+			t:SetDestination( CVector(1276.779, 298.167, 2445.458))
+			t:SetDestination( CVector(1220.109, 295.899, 2303.188))
+			t:SetDestination( CVector(1103.747, 291.659, 2260.668))
+			t:SetDestination( CVector(1107.354, 291.590, 2267.259))
+			t:StackClose()
+		end
+	end
+		    trigger:Deactivate()
+		</script>
+	</trigger>
+
+	<trigger Name="CreateMirotvorec" active="0">
+		<event timeout="60" eventid="GE_TIME_PERIOD" />
+		<script>
+		if getObj("HeavyFactoryPlayer") and getObj("HeavyFactoryPlayer"):IsAlive() then
+			TActivate("HeavyFactoryCreatorDlg")
+		end
+			TeamCreate("Mirotvorec",1008,CVector(1340.665, 289.070, 2869.394),{"MirotvorecShot"})
+	if GetEntityByName("Mirotvorec_vehicle_0") then
+			GetEntityByName("Mirotvorec_vehicle_0"):SetRotation(Quaternion(-0.019, 0.418, -0.014, -0.908))
+		t = GetEntityByName("Mirotvorec")
+		if t then
+			t:StackOpen()
+			t:SetDestination( CVector(1324.279, 288.799, 2855.809))
+			t:SetDestination( CVector(1275.177, 289.384, 2741.740))
+			t:SetDestination( CVector(1270.048, 290.985, 2594.532))
+			t:SetDestination( CVector(1276.779, 298.167, 2445.458))
+			t:SetDestination( CVector(1220.109, 295.899, 2303.188))
+			t:SetDestination( CVector(1103.747, 291.659, 2260.668))
+			t:SetDestination( CVector(1107.354, 291.590, 2267.259))
+			t:StackClose()
+		end
+	end
+		    trigger:Deactivate()
+		</script>
+	</trigger>
+
+<!-- Контролеры строительства -->
+
+	<trigger Name="BuildingDeactivate" active="0">
+		<event timeout="0.1" eventid="GE_TIME_PERIOD" />
+		<script>
+			TDeactivate("EnergyTable1")
+			TDeactivate("EnergyTable2")
+			TDeactivate("HarvesterTable1")
+			TDeactivate("HarvesterTable2")
+			TDeactivate("HarvesterTable3")
+			TDeactivate("LightFactoryTable")
+			TDeactivate("HeavyFactoryTable")
+			TDeactivate("DotTable")
+		    trigger:Deactivate()
+		</script>
+	</trigger>
+
+	<trigger Name="BuildingControler" active="0">
+		<event timeout="0.1" eventid="GE_TIME_PERIOD" />
+		<script>
+		if getObj("EnergyStation1Player") then
+		else
+			TActivate("EnergyTable1")
+		end
+
+		if getObj("EnergyStation2Player") then
+		else
+			TActivate("EnergyTable2")
+		end
+
+		if getObj("Money1Player") then
+		else
+			TActivate("HarvesterTable1")
+		end
+
+		if getObj("Money2Player") then
+		else
+			TActivate("HarvesterTable2")
+		end
+
+		if getObj("Money3Player") then
+		else
+			TActivate("HarvesterTable3")
+		end
+
+		if getObj("LightFactoryPlayer") then
+		else
+			TActivate("LightFactoryTable")
+		end
+
+		if getObj("HeavyFactoryPlayer") then
+		else
+			TActivate("HeavyFactoryTable")
+		end
+
+		if getObj("DotPlayer") then
+		else
+			TActivate("DotTable")
+		end
+
+		    trigger:Deactivate()
+		</script>
+	</trigger>
+
+<!-- Первая энергостанция -->
+	<trigger Name="CreateEnergyBuilding" active="0">
+		<event timeout="0.1" eventid="GE_TIME_PERIOD" />
+		<script>
+			CreateNewDummyObject( "electro_stolb2",	"energybuilding1", -1, -1, CVector(1330.603, 227.829, 2905.16), Quaternion(0.007, 0.354, 0.007, 0.935),1 )
+
+			local moverId = CreateNewObject { prototypeName	= "cinematicMover", objName  = "" }
+			local mover = GetEntityByID( moverId ) 
+			local controlledObj = GetEntityByName("energybuilding1")
+
+			if controlledObj then
+				mover:SetObjAndPath( controlledObj:GetId(), "EnergyStationPath", 20 )
+			end
+
+			CreateEffectTTLed("ET_S_STRATEGY_STARTBUILD", CVector(GetPlayerVehicle():GetPosition()), Quaternion(0, 0, 0, 0), 2000)
+			TActivate("CreateEnergyReady")
+			AddPlayerMoney(-800)
+
+		    trigger:Deactivate()
+		</script>
+	</trigger>
+
+	<trigger Name="CreateEnergyReady" active="0">
+		<event timeout="10" eventid="GE_TIME_PERIOD" />
+		<script>
+			getObj("energybuilding1"):Remove()
+			getObj("ps_broken_1"):Remove()
+			TActivate("BuildingControler")
+			CreateNewBreakableObject("EnergyStationStatic","EnergyStation1Player", 1008, CVector(1330.603, 287.829, 2905.16), Quaternion(0.007, 0.354, 0.007, 0.935))
+			CreateEffectTTLed("ET_S_STRATEGY_ENDBUILD", CVector(GetPlayerVehicle():GetPosition()), Quaternion(0, 0, 0, 0), 2000)
+			
+			MaxEnergy = MaxEnergy + 100
+
+			if job == 0 and MaxEnergy > EnergyCons then
+			TActivate("EnergyControler2")
+			end
+
+			if MaxEnergy > EnergyCons then
+				job = 1
+			end
+
+			TActivate("EnergyDie")
+		    trigger:Deactivate()
+		</script>
+	</trigger>
+
+	<trigger Name="EnergyDie" active="0">
+		<event eventid="GE_OBJECT_DIE" ObjName="EnergyStation1Player" />
+		<script>
+			MaxEnergy = MaxEnergy - 100
+			if EnergyCons > MaxEnergy then
+			TActivate("EnergyControler1")
+			job = 0
+			end
+			trigger:Deactivate()
+		</script>
+	</trigger>
+
+<!-- Вторая энергостанция -->
+	<trigger Name="CreateEnergyBuilding2" active="0">
+		<event timeout="0.1" eventid="GE_TIME_PERIOD" />
+		<script>
+			CreateNewDummyObject( "electro_stolb2",	"energybuilding2", -1, -1, CVector(1367.472, 229.479, 2879.084), Quaternion(-0.028, 0.968, 0.019, -0.249),1 )
+
+			local moverId = CreateNewObject { prototypeName	= "cinematicMover", objName  = "" }
+			local mover = GetEntityByID( moverId ) 
+			local controlledObj = GetEntityByName("energybuilding2")
+
+			if controlledObj then
+				mover:SetObjAndPath( controlledObj:GetId(), "EnergyStationPath2", 20 )
+			end
+
+			CreateEffectTTLed("ET_S_STRATEGY_STARTBUILD", CVector(GetPlayerVehicle():GetPosition()), Quaternion(0, 0, 0, 0), 2000)
+			TActivate("CreateEnergyReady2")
+			AddPlayerMoney(-800)
+
+		    trigger:Deactivate()
+		</script>
+	</trigger>
+
+	<trigger Name="CreateEnergyReady2" active="0">
+		<event timeout="10" eventid="GE_TIME_PERIOD" />
+		<script>
+			getObj("energybuilding2"):Remove()
+			getObj("ps_broken_2"):Remove()
+
+			TActivate("BuildingControler")
+
+			CreateNewBreakableObject("EnergyStationStatic","EnergyStation2Player", 1008, CVector(1367.472, 289.479, 2879.084), Quaternion(-0.028, 0.968, 0.019, -0.249))
+			CreateEffectTTLed("ET_S_STRATEGY_ENDBUILD", CVector(GetPlayerVehicle():GetPosition()), Quaternion(0, 0, 0, 0), 2000)
+
+			MaxEnergy = MaxEnergy + 100
+
+			if job == 0 and MaxEnergy > EnergyCons then
+			TActivate("EnergyControler2")
+			end
+
+			if MaxEnergy > EnergyCons then
+				job = 1
+			end
+
+			TActivate("EnergyDie2")
+		    trigger:Deactivate()
+		</script>
+	</trigger>
+
+	<trigger Name="EnergyDie2" active="0">
+		<event eventid="GE_OBJECT_DIE" ObjName="EnergyStation2Player" />
+		<script>
+			MaxEnergy = MaxEnergy - 100
+			if EnergyCons > MaxEnergy then
+			TActivate("EnergyControler1")
+			job = 0
+			end
+			trigger:Deactivate()
+		</script>
+	</trigger>
+
+<!-- Завод легкой техники -->
+	<trigger Name="CreateLightFactoryBuilding" active="0">
+		<event timeout="0.1" eventid="GE_TIME_PERIOD" />
+		<script>
+			CreateNewDummyObject( "workshop1",	"LightFactoryBuilding", -1, -1, CVector(1317.589, 267.752, 2884.067), Quaternion(0.001, 0.855, 0.005, 0.519),1 )
+			local moverId = CreateNewObject { prototypeName	= "cinematicMover", objName  = "" }
+			local mover = GetEntityByID( moverId ) 
+			local controlledObj = GetEntityByName("LightFactoryBuilding")
+			if controlledObj then
+				mover:SetObjAndPath( controlledObj:GetId(), "LightFactoryPath", 40 )
+			end
+
+			TActivate("CreateLightFactoryReady")
+			CreateEffectTTLed("ET_S_STRATEGY_STARTBUILD", CVector(GetPlayerVehicle():GetPosition()), Quaternion(0, 0, 0, 0), 2000)
+			AddPlayerMoney(-1500)
+		    trigger:Deactivate()
+		</script>
+	</trigger>
+
+	<trigger Name="CreateLightFactoryReady" active="0">
+		<event timeout="20" eventid="GE_TIME_PERIOD" />
+		<script>
+			getObj("LightFactoryBuilding"):Remove()
+			getObj("ps_broken_3"):Remove()
+			TActivate("LightFactoryCreatorDlg")
+			TActivate("BuildingControler")
+			CreateNewBreakableObject("LightMachineryFactoryStatic","LightFactoryPlayer", 1008, CVector(1317.589, 287.752, 2884.067), Quaternion(0.001, 0.855, 0.005, 0.519))
+			CreateNewSgNodeObject("ET_PS_LENS_D2", "ps_broken_11", -1, -1, CVector(1318.490, 288.097, 2874.044), Quaternion(0, 0, 0, 0), 1)
+			EnergyCons = EnergyCons + 25
+			if EnergyCons > MaxEnergy then
+			TActivate("EnergyControler1")
+			end
+			CreateEffectTTLed("ET_S_STRATEGY_ENDBUILD", CVector(GetPlayerVehicle():GetPosition()), Quaternion(0, 0, 0, 0), 2000)
+
+			TActivate("LightFactoryDie")
+		    trigger:Deactivate()
+		</script>
+	</trigger>
+
+	<trigger Name="LightFactoryDie" active="0">
+		<event eventid="GE_OBJECT_DIE" ObjName="LightFactoryPlayer" />
+		<script>
+			EnergyCons = EnergyCons - 25
+			if job == 0 and MaxEnergy > EnergyCons then
+			TActivate("EnergyControler2")
+			job = 1
+			end
+			trigger:Deactivate()
+		</script>
+	</trigger>
+
+<!-- Завод тяжелой техники -->
+	<trigger Name="CreateHeavyFactoryBuilding" active="0">
+		<event timeout="0.1" eventid="GE_TIME_PERIOD" />
+		<script>
+			CreateNewDummyObject( "workshop2",	"HeavyFactoryBuilding", -1, -1, CVector(1353.402, 269.607, 2858.885), Quaternion(0.035, -0.423, 0.026, 0.905),1 )
+			local moverId = CreateNewObject { prototypeName	= "cinematicMover", objName  = "" }
+			local mover = GetEntityByID( moverId ) 
+			local controlledObj = GetEntityByName("HeavyFactoryBuilding")
+			if controlledObj then
+				mover:SetObjAndPath( controlledObj:GetId(), "HeavyFactoryPath", 60 )
+			end
+
+			CreateEffectTTLed("ET_S_STRATEGY_STARTBUILD", CVector(GetPlayerVehicle():GetPosition()), Quaternion(0, 0, 0, 0), 2000)
+			TActivate("CreateHeavyFactoryReady")
+			AddPlayerMoney(-2500)
+		    trigger:Deactivate()
+		</script>
+	</trigger>
+
+	<trigger Name="CreateHeavyFactoryReady" active="0">
+		<event timeout="30" eventid="GE_TIME_PERIOD" />
+		<script>
+			getObj("HeavyFactoryBuilding"):Remove()
+			getObj("ps_broken_5"):Remove()
+			TActivate("HeavyFactoryCreatorDlg")
+			TActivate("BuildingControler")
+			CreateNewBreakableObject("HeavyMachineryFactoryStatic","HeavyFactoryPlayer", 1008, CVector(1353.402, 289.607, 2858.885), Quaternion(0.035, -0.423, 0.026, 0.905))
+			CreateNewSgNodeObject("ET_PS_LENS_D2", "ps_broken_10", -1, -1, CVector(1343.088, 289.293, 2853.991), Quaternion(0, 0, 0, 0), 1)
+			EnergyCons = EnergyCons + 50
+			if EnergyCons > MaxEnergy then
+			TActivate("EnergyControler1")
+			end
+			CreateEffectTTLed("ET_S_STRATEGY_ENDBUILD", CVector(GetPlayerVehicle():GetPosition()), Quaternion(0, 0, 0, 0), 2000)
+
+			TActivate("HeavyFactoryDie")
+		    trigger:Deactivate()
+		</script>
+	</trigger>
+
+	<trigger Name="HeavyFactoryDie" active="0">
+		<event eventid="GE_OBJECT_DIE" ObjName="HeavyFactoryPlayer" />
+		<script>
+			EnergyCons = EnergyCons - 50
+			if job == 0 and MaxEnergy > EnergyCons then
+			TActivate("EnergyControler2")
+			job = 1
+			end
+			trigger:Deactivate()
+		</script>
+	</trigger>
+
+<!-- Дот -->
+	<trigger Name="CreateDotBuilding" active="0">
+		<event timeout="0.1" eventid="GE_TIME_PERIOD" />
+		<script>
+			CreateNewDummyObject( "heavy_dot2",	"DotBuilding", -1, -1, CVector(1308.199, 277.923, 2867.184), Quaternion(0.005, 0.879, 0.002, 0.477),1 )
+			local moverId = CreateNewObject { prototypeName	= "cinematicMover", objName  = "" }
+			local mover = GetEntityByID( moverId ) 
+			local controlledObj = GetEntityByName("DotBuilding")
+			if controlledObj then
+				mover:SetObjAndPath( controlledObj:GetId(), "DotPath", 20 )
+			end
+
+			TActivate("CreateDotReady")
+			AddPlayerMoney(-1000)
+			CreateEffectTTLed("ET_S_STRATEGY_STARTBUILD", CVector(GetPlayerVehicle():GetPosition()), Quaternion(0, 0, 0, 0), 2000)
+		    trigger:Deactivate()
+		</script>
+	</trigger>
+
+	<trigger Name="CreateDotReady" active="0">
+		<event timeout="10" eventid="GE_TIME_PERIOD" />
+		<script>
+			getObj("DotBuilding"):Remove()
+			getObj("ps_broken_4"):Remove()
+			
+			CreateNewBreakableObject("heavy_dot4_octopus","DotPlayer", 1008, CVector(1308.199, 287.923, 2867.184), Quaternion(0.005, 0.879, 0.002, 0.477))
+			EnergyCons = EnergyCons + 25
+			if EnergyCons > MaxEnergy then
+			TActivate("EnergyControler1")
+			end
+			TActivate("BuildingControler")
+			CreateEffectTTLed("ET_S_STRATEGY_ENDBUILD", CVector(GetPlayerVehicle():GetPosition()), Quaternion(0, 0, 0, 0), 2000)
+
+			TActivate("DotDie")
+		    trigger:Deactivate()
+		</script>
+	</trigger>
+
+	<trigger Name="DotDie" active="0">
+		<event eventid="GE_OBJECT_DIE" ObjName="DotPlayer" />
+		<script>
+			EnergyCons = EnergyCons - 25
+			if job == 0 and MaxEnergy > EnergyCons then
+			TActivate("EnergyControler2")
+			job = 1
+			end
+			trigger:Deactivate()
+		</script>
+	</trigger>
+
+<!-- Обогатитель1 -->
+	<trigger Name="CreateMoney1Building" active="0">
+		<event timeout="0.1" eventid="GE_TIME_PERIOD" />
+		<script>
+			CreateNewDummyObject( "oilmine1",	"oilmineBuilding", -1, -1, CVector(1383.356, 253.945, 2900.449), Quaternion(0.008, -0.971, -0.004, 0.238),1 )
+			local moverId = CreateNewObject { prototypeName	= "cinematicMover", objName  = "" }
+			local mover = GetEntityByID( moverId ) 
+			local controlledObj = GetEntityByName("oilmineBuilding")
+			if controlledObj then
+				mover:SetObjAndPath( controlledObj:GetId(), "Oilmine1Path", 40 )
+			end
+
+			TActivate("CreateMoney1Ready")
+			AddPlayerMoney(-2500)
+			CreateEffectTTLed("ET_S_STRATEGY_STARTBUILD", CVector(GetPlayerVehicle():GetPosition()), Quaternion(0, 0, 0, 0), 2000)
+		    trigger:Deactivate()
+		</script>
+	</trigger>
+
+	<trigger Name="CreateMoney1Ready" active="0">
+		<event timeout="20" eventid="GE_TIME_PERIOD" />
+		<script>
+			getObj("oilmineBuilding"):Remove()
+			getObj("ps_broken_6"):Remove()
+			getObj("artefact1"):Remove()
+			CreateNewBreakableObject("MoneyHarvesterStatic","Money1Player", 1008, CVector(1383.356, 288.945, 2900.449), Quaternion(0.008, -0.971, -0.004, 0.238))
+			EnergyCons = EnergyCons + 50
+			if EnergyCons > MaxEnergy then
+			TActivate("EnergyControler1")
+			end
+			TActivate("BuildingControler")
+			TActivate("MoneyDrop1")
+			CreateEffectTTLed("ET_S_STRATEGY_ENDBUILD", CVector(GetPlayerVehicle():GetPosition()), Quaternion(0, 0, 0, 0), 2000)
+
+			TActivate("Money1Die")
+		    trigger:Deactivate()
+		</script>
+	</trigger>
+	
+	<trigger Name="Money1Die" active="0">
+		<event eventid="GE_OBJECT_DIE" ObjName="Money1Player" />
+		<script>
+			EnergyCons = EnergyCons - 50
+			if job == 0 and MaxEnergy > EnergyCons then
+			TActivate("EnergyControler2")
+			job = 1
+			end
+			trigger:Deactivate()
+		</script>
+	</trigger>
+
+<!-- Обогатитель2 -->
+	<trigger Name="CreateMoney2Building" active="0">
+		<event timeout="0.1" eventid="GE_TIME_PERIOD" />
+		<script>
+			CreateNewDummyObject( "oilmine1",	"oilmine2Building", -1, -1, CVector(1355.645, 253.150, 2949.755), Quaternion(-0.007, -0.055, 0.014, 0.998),1 )
+			local moverId = CreateNewObject { prototypeName	= "cinematicMover", objName  = "" }
+			local mover = GetEntityByID( moverId ) 
+			local controlledObj = GetEntityByName("oilmine2Building")
+			if controlledObj then
+				mover:SetObjAndPath( controlledObj:GetId(), "Oilmine2Path", 40 )
+			end
+
+			TActivate("CreateMoney2Ready")
+			AddPlayerMoney(-2500)
+			CreateEffectTTLed("ET_S_STRATEGY_STARTBUILD", CVector(GetPlayerVehicle():GetPosition()), Quaternion(0, 0, 0, 0), 2000)
+		    trigger:Deactivate()
+		</script>
+	</trigger>
+
+	<trigger Name="CreateMoney2Ready" active="0">
+		<event timeout="20" eventid="GE_TIME_PERIOD" />
+		<script>
+			getObj("oilmine2Building"):Remove()
+			getObj("ps_broken_7"):Remove()
+			getObj("artefact2"):Remove()
+			CreateNewBreakableObject("MoneyHarvesterStatic","Money2Player", 1008, CVector(1355.645, 288.150, 2949.755), Quaternion(-0.007, -0.055, 0.014, 0.998))
+			EnergyCons = EnergyCons + 50
+
+			if EnergyCons > MaxEnergy then
+			TActivate("EnergyControler1")
+			end
+			TActivate("BuildingControler")
+			TActivate("MoneyDrop2")
+			CreateEffectTTLed("ET_S_STRATEGY_ENDBUILD", CVector(GetPlayerVehicle():GetPosition()), Quaternion(0, 0, 0, 0), 2000)
+		    trigger:Deactivate()
+
+			TActivate("Money2Die")
+		    trigger:Deactivate()
+		</script>
+	</trigger>
+	
+	<trigger Name="Money2Die" active="0">
+		<event eventid="GE_OBJECT_DIE" ObjName="Money2Player" />
+		<script>
+			EnergyCons = EnergyCons - 50
+			if job == 0 and MaxEnergy > EnergyCons then
+			TActivate("EnergyControler2")
+			job = 1
+			end
+			trigger:Deactivate()
+		</script>
+	</trigger>
+
+<!-- Обогатитель3 -->
+	<trigger Name="CreateMoney3Building" active="0">
+		<event timeout="0.1" eventid="GE_TIME_PERIOD" />
+		<script>
+			CreateNewDummyObject( "oilmine1",	"oilmine3Building", -1, -1, CVector(1407.686, 247.648, 2942.886), Quaternion(-0.007, -0.055, 0.014, 0.998),1 )
+			local moverId = CreateNewObject { prototypeName	= "cinematicMover", objName  = "" }
+			local mover = GetEntityByID( moverId ) 
+			local controlledObj = GetEntityByName("oilmine3Building")
+			if controlledObj then
+				mover:SetObjAndPath( controlledObj:GetId(), "Oilmine3Path", 40 )
+			end
+
+			TActivate("CreateMoney3Ready")
+			AddPlayerMoney(-2500)
+			CreateEffectTTLed("ET_S_STRATEGY_STARTBUILD", CVector(GetPlayerVehicle():GetPosition()), Quaternion(0, 0, 0, 0), 2000)
+		    trigger:Deactivate()
+		</script>
+	</trigger>
+
+	<trigger Name="CreateMoney3Ready" active="0">
+		<event timeout="20" eventid="GE_TIME_PERIOD" />
+		<script>
+			getObj("oilmine3Building"):Remove()
+			getObj("artefact3"):Remove()
+			CreateNewBreakableObject("MoneyHarvesterStatic","Money3Player", 1008, CVector(1407.686, 287.648, 2942.886), Quaternion(-0.007, -0.055, 0.014, 0.998))
+			EnergyCons = EnergyCons + 50
+
+			if EnergyCons > MaxEnergy then
+			TActivate("EnergyControler1")
+			end
+			TActivate("BuildingControler")
+			TActivate("MoneyDrop3")
+			CreateEffectTTLed("ET_S_STRATEGY_ENDBUILD", CVector(GetPlayerVehicle():GetPosition()), Quaternion(0, 0, 0, 0), 2000)
+		    trigger:Deactivate()
+
+			TActivate("Money2Die")
+		    trigger:Deactivate()
+		</script>
+	</trigger>
+	
+	<trigger Name="Money2Die" active="0">
+		<event eventid="GE_OBJECT_DIE" ObjName="Money2Player" />
+		<script>
+			EnergyCons = EnergyCons - 50
+			if job == 0 and MaxEnergy > EnergyCons then
+			TActivate("EnergyControler2")
+			job = 1
+			end
+			trigger:Deactivate()
+		</script>
+	</trigger>
+
+<!-- Дроп денег если есть обогатитель -->
+	<trigger Name="MoneyDrop1" active="0">
+		<event timeout="2" eventid="GE_TIME_PERIOD" />
+		<script>
+			if getObj("Money1Player") and getObj("Money1Player"):IsAlive() then
+			AddPlayerMoney(50)
+			else
+		    trigger:Deactivate()
+			end
+		</script>
+	</trigger>
+
+	<trigger Name="MoneyDrop2" active="0">
+		<event timeout="2" eventid="GE_TIME_PERIOD" />
+		<script>
+			if getObj("Money2Player") and getObj("Money2Player"):IsAlive() then
+			AddPlayerMoney(50)
+			else
+		    trigger:Deactivate()
+			end
+		</script>
+	</trigger>
+
+	<trigger Name="MoneyDrop3" active="0">
+		<event timeout="2" eventid="GE_TIME_PERIOD" />
+		<script>
+			if getObj("Money3Player") and getObj("Money3Player"):IsAlive() then
+			AddPlayerMoney(50)
+			else
+		    trigger:Deactivate()
+			end
+		</script>
+	</trigger>
+
+	<trigger Name="MoneyDropWorker" active="1">
+		<event timeout="30" eventid="GE_TIME_PERIOD" />
+		<script>
+			if getObj("WorkerPlayer") and getObj("WorkerPlayer"):IsAlive() then
+			AddPlayerMoney(500)
+			else
+		    trigger:Deactivate()
+			end
+		</script>
+	</trigger>
+
+<!-- Бот -->
+
+<!-- Цех -->
+
+	<trigger Name="WorkerEnemyCreate" active="1">
+		<event timeout="0.1" eventid="GE_TIME_PERIOD" />
+		<script>
+			CreateNewBreakableObject("WorkerStatic","WorkerEnemy", 1002, CVector(1065.106, 292.603, 2262.709), Quaternion(0.004, 0.733, -0.004, 0.680))
+			TActivate("CreateEnergyBuildingEnemy")
+		    trigger:Deactivate()
+		</script>
+	</trigger>
+
+<!-- Первая энергостанция -->
+	<trigger Name="CreateEnergyBuildingEnemy" active="0">
+		<event timeout="0.1" eventid="GE_TIME_PERIOD" />
+		<script>
+			CreateNewDummyObject( "electro_stolb2",	"energybuilding1Enemy", -1, -1, CVector(1069.753, 232.859, 2244.694), Quaternion(-0.046, -0.967, 0.008, -0.252),1 )
+			local moverId = CreateNewObject { prototypeName	= "cinematicMover", objName  = "" }
+			local mover = GetEntityByID( moverId ) 
+			local controlledObj = GetEntityByName("energybuilding1Enemy")
+			if controlledObj then
+				mover:SetObjAndPath( controlledObj:GetId(), "EnergyStationPathEnemy", 20 )
+			end
+
+			TActivate("CreateEnergyReadyEnemy")
+		    trigger:Deactivate()
+		</script>
+	</trigger>
+
+	<trigger Name="CreateEnergyReadyEnemy" active="0">
+		<event timeout="10" eventid="GE_TIME_PERIOD" />
+		<script>
+			getObj("energybuilding1Enemy"):Remove()
+			CreateNewBreakableObject("EnergyStationStatic","EnergyStation1Enemy", 1002, CVector(1069.753, 292.859, 2244.694), Quaternion(-0.046, -0.967, 0.008, -0.252))
+			TActivate("CreateMoney1BuildingEnemy")
+		    trigger:Deactivate()
+		</script>
+	</trigger>
+
+<!-- Вторая энергостанция -->
+	<trigger Name="CreateEnergyBuilding2Enemy" active="0">
+		<event timeout="0.1" eventid="GE_TIME_PERIOD" />
+		<script>
+			CreateNewDummyObject( "electro_stolb2",	"energybuilding2enemy", -1, -1, CVector(1060.782, 231.582, 2287.439), Quaternion(0.001, -0.023, 0.012, -1.000),1 )
+			local moverId = CreateNewObject { prototypeName	= "cinematicMover", objName  = "" }
+			local mover = GetEntityByID( moverId ) 
+			local controlledObj = GetEntityByName("energybuilding2enemy")
+			if controlledObj then
+				mover:SetObjAndPath( controlledObj:GetId(), "EnergyStationPath2Enemy", 20 )
+			end
+
+			TActivate("CreateEnergyReady2Enemy")
+		    trigger:Deactivate()
+		</script>
+	</trigger>
+
+	<trigger Name="CreateEnergyReady2Enemy" active="0">
+		<event timeout="10" eventid="GE_TIME_PERIOD" />
+		<script>
+			getObj("energybuilding2enemy"):Remove()
+			CreateNewBreakableObject("EnergyStationStatic","EnergyStation2Enemy", 1002, CVector(1060.782, 291.582, 2287.439), Quaternion(0.001, -0.023, 0.012, -1.000))
+			TActivate("CreateHeavyFactoryBuildingEnemy")
+		    trigger:Deactivate()
+		</script>
+	</trigger>
+
+<!-- Завод легкой техники -->
+	<trigger Name="CreateLightFactoryBuildingEnemy" active="0">
+		<event timeout="0.1" eventid="GE_TIME_PERIOD" />
+		<script>
+			CreateNewDummyObject( "workshop1",	"LightFactoryBuildingEnemy", -1, -1, CVector(1095.765, 271.627, 2237.052), Quaternion(-0.007, -0.004, 0.000, -1.000),1 )
+			local moverId = CreateNewObject { prototypeName	= "cinematicMover", objName  = "" }
+			local mover = GetEntityByID( moverId ) 
+			local controlledObj = GetEntityByName("LightFactoryBuildingEnemy")
+			if controlledObj then
+				mover:SetObjAndPath( controlledObj:GetId(), "LightFactoryPathEnemy", 40 )
+			end
+
+			TActivate("CreateLightFactoryReadyEnemy")
+
+		    trigger:Deactivate()
+		</script>
+	</trigger>
+
+	<trigger Name="CreateLightFactoryReadyEnemy" active="0">
+		<event timeout="20" eventid="GE_TIME_PERIOD" />
+		<script>
+			getObj("LightFactoryBuildingEnemy"):Remove()
+			CreateNewBreakableObject("LightMachineryFactoryStatic","LightFactoryEnemy", 1002, CVector(1095.765, 291.627, 2237.052), Quaternion(-0.007, -0.004, 0.000, -1.000))
+			TActivate("CreateMoney2BuildingEnemy")
+			TActivate("KlopCreate")
+			TActivate("RandomCreateLightVehicles20sec")
+		    trigger:Deactivate()
+		</script>
+	</trigger>
+
+	<trigger Name="KlopCreate" active="0">
+		<event timeout="0.1" eventid="GE_TIME_PERIOD" />
+		<script>
+			TActivate("CreateKlopEnemy")
+			trigger:Deactivate()
+		</script>
+	</trigger>
+
+	<trigger Name="RandomCreateLightVehicles20sec" active="0">
+		<event timeout="21" eventid="GE_TIME_PERIOD" />
+		<script>
+			TActivate("RandomCreateLightVehicles")
+			TDeactivate("KlopCreate")
+			TDeactivate("CreateKlopEnemy")
+			trigger:Deactivate()
+		</script>
+	</trigger>
+
+	<trigger Name="RandomCreateLightVehicles" active="0">
+		<event timeout="0.1" eventid="GE_TIME_PERIOD" />
+		<script>
+			RandomLightVehicles = random(1,4)
+			if RandomLightVehicles == 1 then
+			TActivate("CreateKyzEnemy")
+			elseif RandomLightVehicles == 2 then
+			TActivate("CreateScoutEnemy")
+			elseif RandomLightVehicles == 3 then
+			TActivate("CreateBugEnemy")
+			elseif RandomLightVehicles == 4 then
+			TActivate("CreateZilEnemy")
+			end
+			trigger:Deactivate()
+		</script>
+	</trigger>
+<!-- Завод тяжелой техники -->
+	<trigger Name="CreateHeavyFactoryBuildingEnemy" active="0">
+		<event timeout="60" eventid="GE_TIME_PERIOD" />
+		<script>
+			CreateNewDummyObject( "workshop2",	"HeavyFactoryBuildingEnemy", -1, -1, CVector(1106.482, 271.619, 2286.504), Quaternion(0.001, -0.993, 0.006, 0.116),1 )
+			local moverId = CreateNewObject { prototypeName	= "cinematicMover", objName  = "" }
+			local mover = GetEntityByID( moverId ) 
+			local controlledObj = GetEntityByName("HeavyFactoryBuildingEnemy")
+			if controlledObj then
+				mover:SetObjAndPath( controlledObj:GetId(), "HeavyFactoryPathEnemy", 60 )
+			end
+
+			TActivate("CreateHeavyFactoryReadyEnemy")
+		    trigger:Deactivate()
+		</script>
+	</trigger>
+
+	<trigger Name="CreateHeavyFactoryReadyEnemy" active="0">
+		<event timeout="30" eventid="GE_TIME_PERIOD" />
+		<script>
+			getObj("HeavyFactoryBuildingEnemy"):Remove()
+			CreateNewBreakableObject("HeavyMachineryFactoryStatic","HeavyFactoryEnemy", 1002, CVector(1106.482, 291.619, 2286.504), Quaternion(0.001, -0.993, 0.006, 0.116))
+			TActivate("MolokovozCreate")
+			TActivate("RandomCreateHeavyVehicles20sec")
+			TActivate("RandomCreateSuperHeavyVehicles120sec")
+		    trigger:Deactivate()
+		</script>
+	</trigger>
+
+	<trigger Name="MolokovozCreate" active="0">
+		<event timeout="0.1" eventid="GE_TIME_PERIOD" />
+		<script>
+			TActivate("CreateMolokovozEnemyNoRandom")
+			trigger:Deactivate()
+		</script>
+	</trigger>
+
+	<trigger Name="RandomCreateHeavyVehicles20sec" active="0">
+		<event timeout="41" eventid="GE_TIME_PERIOD" />
+		<script>
+			TActivate("RandomCreateHeavyVehicles")
+			TDeactivate("MolokovozCreate")
+			TDeactivate("CreateMolokovozEnemyNoRandom")
+			trigger:Deactivate()
+		</script>
+	</trigger>
+
+	<trigger Name="RandomCreateHeavyVehicles" active="0">
+		<event timeout="0.1" eventid="GE_TIME_PERIOD" />
+		<script>
+			RandomHeavyVehicles = random(1,4)
+			if RandomHeavyVehicles == 1 then
+			TActivate("CreateMolokovozEnemy")
+			elseif RandomHeavyVehicles == 2 then
+			TActivate("CreateUralEnemy")
+			elseif RandomHeavyVehicles == 3 then
+			TActivate("CreateHunterEnemy")
+			elseif RandomHeavyVehicles == 4 then
+			TActivate("CreateFighterEnemy")
+			end
+			trigger:Deactivate()
+		</script>
+	</trigger>
+
+	<trigger Name="RandomCreateSuperHeavyVehicles120sec" active="0">
+		<event timeout="122" eventid="GE_TIME_PERIOD" />
+		<script>
+			TActivate("RandomCreateSuperHeavyVehicles")
+			TDeactivate("RandomCreateHeavyVehicles")
+			TDeactivate("CreateMolokovozEnemy")
+			TDeactivate("CreateUralEnemy")
+			TDeactivate("CreateHunterEnemy")
+			TDeactivate("CreateFighterEnemy")
+			trigger:Deactivate()
+		</script>
+	</trigger>
+
+	<trigger Name="RandomCreateSuperHeavyVehicles" active="0">
+		<event timeout="0.1" eventid="GE_TIME_PERIOD" />
+		<script>
+			RandomSuperHeavyVehicles = random(1,2)
+			if RandomHeavyVehicles == 1 then
+			TActivate("CreateTankEnemy")
+			elseif RandomHeavyVehicles == 2 then
+			TActivate("CreateMirotvorecEnemy")
+			end
+			trigger:Deactivate()
+		</script>
+	</trigger>
+<!-- Дот -->
+	<trigger Name="CreateDotBuildingEnemy" active="0">
+		<event timeout="0.1" eventid="GE_TIME_PERIOD" />
+		<script>
+			CreateNewDummyObject( "heavy_dot2",	"DotBuildingEnemy", -1, -1, CVector(1132.252, 279.610, 2269.569), Quaternion(-0.004, -0.780, 0.005, -0.626),1 )
+			local moverId = CreateNewObject { prototypeName	= "cinematicMover", objName  = "" }
+			local mover = GetEntityByID( moverId ) 
+			local controlledObj = GetEntityByName("DotBuildingEnemy")
+			if controlledObj then
+				mover:SetObjAndPath( controlledObj:GetId(), "DotPathEnemy", 20 )
+			end
+
+			TActivate("CreateDotReadyEnemy")
+		    trigger:Deactivate()
+		</script>
+	</trigger>
+
+	<trigger Name="CreateDotReadyEnemy" active="0">
+		<event timeout="10" eventid="GE_TIME_PERIOD" />
+		<script>
+			getObj("DotBuildingEnemy"):Remove()
+			CreateNewBreakableObject("heavy_dot4_octopus","DotEnemy", 1002, CVector(1132.252, 289.610, 2269.569), Quaternion(-0.004, -0.780, 0.005, -0.626))
+			TActivate("CreateEnergyBuilding2Enemy")
+		    trigger:Deactivate()
+		</script>
+	</trigger>
+
+<!-- Обогатитель1 -->
+	<trigger Name="CreateMoney1BuildingEnemy" active="0">
+		<event timeout="0.1" eventid="GE_TIME_PERIOD" />
+		<script>
+			CreateNewDummyObject( "oilmine1",	"oilmineBuildingEnemy", -1, -1, CVector(1031.046, 264.654, 2233.155), Quaternion(0.009, -0.925, -0.006, 0.380),1 )
+			local moverId = CreateNewObject { prototypeName	= "cinematicMover", objName  = "" }
+			local mover = GetEntityByID( moverId ) 
+			local controlledObj = GetEntityByName("oilmineBuildingEnemy")
+			if controlledObj then
+				mover:SetObjAndPath( controlledObj:GetId(), "Oilmine1PathEnemy", 40 )
+			end
+
+			TActivate("CreateMoney1ReadyEnemy")
+		    trigger:Deactivate()
+		</script>
+	</trigger>
+
+	<trigger Name="CreateMoney1ReadyEnemy" active="0">
+		<event timeout="20" eventid="GE_TIME_PERIOD" />
+		<script>
+			getObj("oilmineBuildingEnemy"):Remove()
+			CreateNewBreakableObject("MoneyHarvesterStatic","Money1Enemy", 1002, CVector(1031.046, 294.654, 2233.155), Quaternion(0.009, -0.925, -0.006, 0.380))
+			TActivate("CreateLightFactoryBuildingEnemy")
+		    trigger:Deactivate()
+		</script>
+	</trigger>
+	
+<!-- Обогатитель2 -->
+	<trigger Name="CreateMoney2BuildingEnemy" active="0">
+		<event timeout="60" eventid="GE_TIME_PERIOD" />
+		<script>
+			CreateNewDummyObject( "oilmine1",	"oilmine2BuildingEnemy", -1, -1, CVector(1009.987, 273.699, 2334.356), Quaternion(0.026, 0.194, 0.008, 0.981),1 )
+			local moverId = CreateNewObject { prototypeName	= "cinematicMover", objName  = "" }
+			local mover = GetEntityByID( moverId ) 
+			local controlledObj = GetEntityByName("oilmine2BuildingEnemy")
+			if controlledObj then
+				mover:SetObjAndPath( controlledObj:GetId(), "Oilmine2PathEnemy", 40 )
+			end
+
+			TActivate("CreateMoney2ReadyEnemy")
+		    trigger:Deactivate()
+		</script>
+	</trigger>
+
+	<trigger Name="CreateMoney2ReadyEnemy" active="0">
+		<event timeout="20" eventid="GE_TIME_PERIOD" />
+		<script>
+			getObj("oilmine2BuildingEnemy"):Remove()
+			CreateNewBreakableObject("MoneyHarvesterStatic","Money2Enemy", 1002, CVector(1009.987, 303.699, 2334.356), Quaternion(0.026, 0.194, 0.008, 0.981))
+			TActivate("CreateDotBuildingEnemy")
+		    trigger:Deactivate()
+		</script>
+	</trigger>
+
+<!-- Строительство лёгкой техники -->
+
+	<trigger Name="CreateKlopEnemy" active="0">
+		<event timeout="5" eventid="GE_TIME_PERIOD" />
+		<script>
+		if getObj("LightFactoryEnemy") and getObj("LightFactoryEnemy"):IsAlive() then
+			TActivate("KlopCreate")
+			TeamCreate("KlopEnemy",1002,CVector(1095.968, 291.607, 2251.117),{"Sml101"})
+	if GetEntityByName("KlopEnemy_vehicle_0") then
+			GetEntityByName("KlopEnemy_vehicle_0"):SetRotation(Quaternion(0.006, 0.017, -0.000, 1.000))
+		t = GetEntityByName("KlopEnemy")
+		if t then
+			t:StackOpen()
+			t:SetDestination( CVector(1220.109, 288.899, 2303.188))
+			t:SetDestination( CVector(1276.779, 298.167, 2445.458))
+			t:SetDestination( CVector(1270.048, 290.985, 2594.532))
+			t:SetDestination( CVector(1275.177, 289.384, 2741.740))
+			t:SetDestination( CVector(1324.279, 288.799, 2855.809))
+			t:StackClose()
+		end
+	end
+		end
+			trigger:Deactivate()
+		</script>
+	</trigger>
+
+	<trigger Name="CreateKyzEnemy" active="0">
+		<event timeout="10" eventid="GE_TIME_PERIOD" />
+		<script>
+		if getObj("LightFactoryEnemy") and getObj("LightFactoryEnemy"):IsAlive() then
+			TActivate("RandomCreateLightVehicles20sec")
+			TeamCreate("KyzEnemy",1002,CVector(1095.968, 291.607, 2251.117),{"Sml401"})
+	if GetEntityByName("KyzEnemy_vehicle_0") then
+			GetEntityByName("KyzEnemy_vehicle_0"):SetRotation(Quaternion(0.006, 0.017, -0.000, 1.000))
+		t = GetEntityByName("KyzEnemy")
+		if t then
+			t:StackOpen()
+			t:SetDestination( CVector(1220.109, 295.899, 2303.188))
+			t:SetDestination( CVector(1276.779, 298.167, 2445.458))
+			t:SetDestination( CVector(1270.048, 290.985, 2594.532))
+			t:SetDestination( CVector(1275.177, 289.384, 2741.740))
+			t:SetDestination( CVector(1324.279, 288.799, 2855.809))
+			t:StackClose()
+		end
+	end
+		end
+			trigger:Deactivate()
+		</script>
+	</trigger>
+
+	<trigger Name="CreateScoutEnemy" active="0">
+		<event timeout="10" eventid="GE_TIME_PERIOD" />
+		<script>
+		if getObj("LightFactoryEnemy") and getObj("LightFactoryEnemy"):IsAlive() then
+			TActivate("RandomCreateLightVehicles20sec")
+			TeamCreate("ScoutEnemy",1002,CVector(1095.968, 291.607, 2251.117),{"Scout03"})
+	if GetEntityByName("ScoutEnemy_vehicle_0") then
+			GetEntityByName("ScoutEnemy_vehicle_0"):SetRotation(Quaternion(0.006, 0.017, -0.000, 1.000))
+		t = GetEntityByName("ScoutEnemy")
+		if t then
+			t:StackOpen()
+			t:SetDestination( CVector(1220.109, 295.899, 2303.188))
+			t:SetDestination( CVector(1276.779, 298.167, 2445.458))
+			t:SetDestination( CVector(1270.048, 290.985, 2594.532))
+			t:SetDestination( CVector(1275.177, 289.384, 2741.740))
+			t:SetDestination( CVector(1324.279, 288.799, 2855.809))
+			t:StackClose()
+		end
+	end
+		end
+			trigger:Deactivate()
+		</script>
+	</trigger>
+
+	<trigger Name="CreateBugEnemy" active="0">
+		<event timeout="15" eventid="GE_TIME_PERIOD" />
+		<script>
+		if getObj("LightFactoryEnemy") and getObj("LightFactoryEnemy"):IsAlive() then
+			TActivate("RandomCreateLightVehicles20sec")
+			TeamCreate("BugEnemy",1002,CVector(1095.968, 291.607, 2251.117),{"r1m2_bug04"})
+	if GetEntityByName("BugEnemy_vehicle_0") then
+			GetEntityByName("BugEnemy_vehicle_0"):SetRotation(Quaternion(0.006, 0.017, -0.000, 1.000))
+		t = GetEntityByName("BugEnemy")
+		if t then
+			t:StackOpen()
+			t:SetDestination( CVector(1220.109, 295.899, 2303.188))
+			t:SetDestination( CVector(1276.779, 298.167, 2445.458))
+			t:SetDestination( CVector(1270.048, 290.985, 2594.532))
+			t:SetDestination( CVector(1275.177, 289.384, 2741.740))
+			t:SetDestination( CVector(1324.279, 288.799, 2855.809))
+			t:StackClose()
+		end
+	end
+		end
+			trigger:Deactivate()
+		</script>
+	</trigger>
+
+	<trigger Name="CreateZilEnemy" active="0">
+		<event timeout="25" eventid="GE_TIME_PERIOD" />
+		<script>
+		if getObj("LightFactoryEnemy") and getObj("LightFactoryEnemy"):IsAlive() then
+			TActivate("RandomCreateLightVehicles20sec")
+			TeamCreate("ZilEnemy",1002,CVector(1095.968, 291.607, 2251.117),{"CaravanZil130_04"})
+	if GetEntityByName("ZilEnemy_vehicle_0") then
+			GetEntityByName("ZilEnemy_vehicle_0"):SetRotation(Quaternion(0.006, 0.017, -0.000, 1.000))
+		t = GetEntityByName("ZilEnemy")
+		if t then
+			t:StackOpen()
+			t:SetDestination( CVector(1220.109, 295.899, 2303.188))
+			t:SetDestination( CVector(1276.779, 298.167, 2445.458))
+			t:SetDestination( CVector(1270.048, 290.985, 2594.532))
+			t:SetDestination( CVector(1275.177, 289.384, 2741.740))
+			t:SetDestination( CVector(1324.279, 288.799, 2855.809))
+			t:StackClose()
+		end
+	end
+		end
+			trigger:Deactivate()
+		</script>
+	</trigger>
+
+<!-- Строительство тяжёлой техники -->
+
+	<trigger Name="CreateMolokovozEnemyNoRandom" active="0">
+		<event timeout="20" eventid="GE_TIME_PERIOD" />
+		<script>
+		if getObj("HeavyFactoryEnemy") and getObj("HeavyFactoryEnemy"):IsAlive() then
+			TActivate("MolokovozCreate")
+			TeamCreate("MolokovozEnemy",1002,CVector(1101.723, 291.591, 2268.863),{"Molokovoz02"})
+	if GetEntityByName("MolokovozEnemy_vehicle_0") then
+			GetEntityByName("MolokovozEnemy_vehicle_0"):SetRotation(Quaternion(-0.001, 0.991, -0.006, -0.135))
+		t = GetEntityByName("MolokovozEnemy")
+		if t then
+			t:StackOpen()
+			t:SetDestination( CVector(1220.109, 295.899, 2303.188))
+			t:SetDestination( CVector(1276.779, 298.167, 2445.458))
+			t:SetDestination( CVector(1270.048, 290.985, 2594.532))
+			t:SetDestination( CVector(1275.177, 289.384, 2741.740))
+			t:SetDestination( CVector(1324.279, 288.799, 2855.809))
+			t:StackClose()
+		end
+	end
+		end
+		    trigger:Deactivate()
+		</script>
+	</trigger>
+
+	<trigger Name="CreateMolokovozEnemy" active="0">
+		<event timeout="20" eventid="GE_TIME_PERIOD" />
+		<script>
+		if getObj("HeavyFactoryEnemy") and getObj("HeavyFactoryEnemy"):IsAlive() then
+			TActivate("RandomCreateHeavyVehicles20sec")
+			TeamCreate("MolokovozEnemy",1002,CVector(1101.723, 291.591, 2268.863),{"Molokovoz02"})
+	if GetEntityByName("MolokovozEnemy_vehicle_0") then
+			GetEntityByName("MolokovozEnemy_vehicle_0"):SetRotation(Quaternion(-0.001, 0.991, -0.006, -0.135))
+		t = GetEntityByName("MolokovozEnemy")
+		if t then
+			t:StackOpen()
+			t:SetDestination( CVector(1220.109, 295.899, 2303.188))
+			t:SetDestination( CVector(1276.779, 298.167, 2445.458))
+			t:SetDestination( CVector(1270.048, 290.985, 2594.532))
+			t:SetDestination( CVector(1275.177, 289.384, 2741.740))
+			t:SetDestination( CVector(1324.279, 288.799, 2855.809))
+			t:StackClose()
+		end
+	end
+		end
+		    trigger:Deactivate()
+		</script>
+	</trigger>
+
+	<trigger Name="CreateUralEnemy" active="0">
+		<event timeout="30" eventid="GE_TIME_PERIOD" />
+		<script>
+		if getObj("HeavyFactoryEnemy") and getObj("HeavyFactoryEnemy"):IsAlive() then
+			TActivate("RandomCreateHeavyVehicles20sec")
+			TeamCreate("UralEnemy",1002,CVector(1101.723, 291.591, 2268.863),{"Ural02"})
+	if GetEntityByName("UralEnemy_vehicle_0") then
+			GetEntityByName("UralEnemy_vehicle_0"):SetRotation(Quaternion(-0.001, 0.991, -0.006, -0.135))
+		t = GetEntityByName("UralEnemy")
+		if t then
+			t:StackOpen()
+			t:SetDestination( CVector(1220.109, 295.899, 2303.188))
+			t:SetDestination( CVector(1276.779, 298.167, 2445.458))
+			t:SetDestination( CVector(1270.048, 290.985, 2594.532))
+			t:SetDestination( CVector(1275.177, 289.384, 2741.740))
+			t:SetDestination( CVector(1324.279, 288.799, 2855.809))
+			t:StackClose()
+		end
+	end
+		end
+		    trigger:Deactivate()
+		</script>
+	</trigger>
+
+	<trigger Name="CreateHunterEnemy" active="0">
+		<event timeout="20" eventid="GE_TIME_PERIOD" />
+		<script>
+		if getObj("HeavyFactoryEnemy") and getObj("HeavyFactoryEnemy"):IsAlive() then
+			TActivate("RandomCreateHeavyVehicles20sec")
+			TeamCreate("HunterEnemy",1002,CVector(1101.723, 291.591, 2268.863),{"Hunter01"})
+	if GetEntityByName("HunterEnemy_vehicle_0") then
+			GetEntityByName("HunterEnemy_vehicle_0"):SetRotation(Quaternion(-0.001, 0.991, -0.006, -0.135))
+		t = GetEntityByName("HunterEnemy")
+		if t then
+			t:StackOpen()
+			t:SetDestination( CVector(1220.109, 295.899, 2303.188))
+			t:SetDestination( CVector(1276.779, 298.167, 2445.458))
+			t:SetDestination( CVector(1270.048, 290.985, 2594.532))
+			t:SetDestination( CVector(1275.177, 289.384, 2741.740))
+			t:SetDestination( CVector(1324.279, 288.799, 2855.809))
+			t:StackClose()
+		end
+	end
+		end
+		    trigger:Deactivate()
+		</script>
+	</trigger>
+
+	<trigger Name="CreateFighterEnemy" active="0">
+		<event timeout="15" eventid="GE_TIME_PERIOD" />
+		<script>
+		if getObj("HeavyFactoryEnemy") and getObj("HeavyFactoryEnemy"):IsAlive() then
+			TActivate("RandomCreateHeavyVehicles20sec")
+			TeamCreate("FighterEnemy",1002,CVector(1101.723, 291.591, 2268.863),{"Fighter02"})
+	if GetEntityByName("FighterEnemy_vehicle_0") then
+			GetEntityByName("FighterEnemy_vehicle_0"):SetRotation(Quaternion(-0.001, 0.991, -0.006, -0.135))
+		t = GetEntityByName("FighterEnemy")
+		if t then
+			t:StackOpen()
+			t:SetDestination( CVector(1220.109, 295.899, 2303.188))
+			t:SetDestination( CVector(1276.779, 298.167, 2445.458))
+			t:SetDestination( CVector(1270.048, 290.985, 2594.532))
+			t:SetDestination( CVector(1275.177, 289.384, 2741.740))
+			t:SetDestination( CVector(1324.279, 288.799, 2855.809))
+			t:StackClose()
+		end
+	end
+		end
+		    trigger:Deactivate()
+		</script>
+	</trigger>
+
+	<trigger Name="CreateTankEnemy" active="0">
+		<event timeout="40" eventid="GE_TIME_PERIOD" />
+		<script>
+		if getObj("HeavyFactoryEnemy") and getObj("HeavyFactoryEnemy"):IsAlive() then
+			TActivate("RandomCreateHeavyVehicles20sec")
+			TActivate("RandomCreateSuperHeavyVehicles120sec")
+			TeamCreate("TankEnemy",1002,CVector(1101.723, 291.591, 2268.863),{"Tank01"})
+	if GetEntityByName("TankEnemy_vehicle_0") then
+			GetEntityByName("TankEnemy_vehicle_0"):SetRotation(Quaternion(-0.001, 0.991, -0.006, -0.135))
+		t = GetEntityByName("TankEnemy")
+		if t then
+			t:StackOpen()
+			t:SetDestination( CVector(1220.109, 295.899, 2303.188))
+			t:SetDestination( CVector(1276.779, 298.167, 2445.458))
+			t:SetDestination( CVector(1270.048, 290.985, 2594.532))
+			t:SetDestination( CVector(1275.177, 289.384, 2741.740))
+			t:SetDestination( CVector(1324.279, 288.799, 2855.809))
+			t:StackClose()
+		end
+	end
+		end
+		    trigger:Deactivate()
+		</script>
+	</trigger>
+
+	<trigger Name="CreateMirotvorecEnemy" active="0">
+		<event timeout="60" eventid="GE_TIME_PERIOD" />
+		<script>
+		if getObj("HeavyFactoryEnemy") and getObj("HeavyFactoryEnemy"):IsAlive() then
+			TActivate("RandomCreateHeavyVehicles20sec")
+			TActivate("RandomCreateSuperHeavyVehicles120sec")
+			TeamCreate("MirotvorecEnemy",1002,CVector(1101.723, 291.591, 2268.863),{"MirotvorecShot"})
+	if GetEntityByName("MirotvorecEnemy_vehicle_0") then
+			GetEntityByName("MirotvorecEnemy_vehicle_0"):SetRotation(Quaternion(-0.001, 0.991, -0.006, -0.135))
+		t = GetEntityByName("MirotvorecEnemy")
+		if t then
+			t:StackOpen()
+			t:SetDestination( CVector(1220.109, 295.899, 2303.188))
+			t:SetDestination( CVector(1276.779, 298.167, 2445.458))
+			t:SetDestination( CVector(1270.048, 290.985, 2594.532))
+			t:SetDestination( CVector(1275.177, 289.384, 2741.740))
+			t:SetDestination( CVector(1324.279, 288.799, 2855.809))
+			t:StackClose()
+		end
+	end
+		end
+		    trigger:Deactivate()
+		</script>
+	</trigger>
+
+<!-- Запуск и проверка на то что объект мертв -->
+ 
+	<trigger Name="ObjDieControlWaiting" active="1">
+		<event timeout="2" eventid="GE_TIME_PERIOD" />
+		<script>
+			TActivate("ObjDieControlPlayer")
+			TActivate("ObjDieControlEnemy")
+		    trigger:Deactivate()
+		</script>
+	</trigger>
+
+	<trigger Name="ObjDieControlPlayer" active="0">
+		<event timeout="0.1" eventid="GE_TIME_PERIOD" />
+		<script>
+			if getObj("WorkerPlayer") and getObj("WorkerPlayer"):IsAlive() then
+
+			else
+			SpawnMessageBox(10)
+			AddPlayerMoney(-9999999)
+			AddPlayerMoney(1000)
+			AddPlayerMoney(moneyownpl)
+			CapturePlayerVehicle()
+			local ownplcar = getObj("OwnCarPlayer")
+			g_Player:AddChild(ownplcar)
+			PassToMap("r1m4","TheOlme_enter")
+			AllowSave( true )
+			SetTolerance("1100","1002",RS_ENEMY)
+			GetPlayerVehicle():SetCustomControlEnabled(0)
+		    trigger:Deactivate()
+			end
+		</script>
+	</trigger>
+	
+	<trigger Name="ObjDieControlEnemy" active="0">
+		<event timeout="0.1" eventid="GE_TIME_PERIOD" />
+		<script>
+			if getObj("WorkerEnemy") and getObj("WorkerEnemy"):IsAlive() then
+
+			else
+			SpawnMessageBox(11)
+			AddPlayerMoney(-9999999)
+			AddPlayerMoney(20000)
+			AddPlayerMoney(moneyownpl)
+			CapturePlayerVehicle()
+			local ownplcar = getObj("OwnCarPlayer")
+			g_Player:AddChild(ownplcar)
+			PassToMap("r1m4","TheOlme_enter")
+			AllowSave( true )
+			SetTolerance("1100","1002",RS_ENEMY)
+			GetPlayerVehicle():SetCustomControlEnabled(0)
+		    trigger:Deactivate()
+			end
+		</script>
+	</trigger>
+</triggers>
