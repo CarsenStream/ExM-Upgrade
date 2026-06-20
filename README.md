@@ -40,7 +40,7 @@
 
 ---
 
-**Список изменений:**
+### Список изменений:
 
 - Добавлен весь транспорт в продажу, кроме роботов.
 - В каждой деревне будет спавнить транспорт при приближении врага, а так-же в некоторых городах будет больше машин для защиты.
@@ -61,6 +61,17 @@
 - Изменены характеристики всех гаджетов на оружие, и гаджеты добавляющие бензин.
 - Добавлена 1 скрытая концовка. Чтобы её открыть - едьте по указанию "Неизвестного".
 - Добавлены титры в конце игры из Doomer Wave (первоисточником является ISL).
+
+---
+
+### Заимствования:
+
+- **[Improved Storyline](https://github.com/zatinu322/ImprovedStoryline)** - титры
+- **[Global Map Mod](https://github.com/RiverZone000/ExMachina.GM.mod.SDK)** - Кайо-Перико
+- **[Doomer Wave](https://github.com/stakanyash/DoomerWave)** - катсцена титров в Либриуме
+- **[ZiL Mod](https://vk.com/club79184407)** - ЗИЛ 130
+- Весь контент из **[Extra Machines](https://github.com/lineisover/ExtraMachinesCP)**
+- **[Various Hacks](https://github.com/ArchieGoldmill/HTA_VariousHacks)** для работы некоторых игровых скриптов
 
 ---
 
